@@ -1,0 +1,75 @@
+apap:
+  name: 'New York State Modern Political Archive'
+  description: 'The New York State Modern Political Archive (NYSMPA) was established in 1982 to document the work of individuals and private interest groups concerned with New York State public policy issues in the 20th century. Originally named the Archives of Public Affairs and Policy, the NYSMPA collects, preserves, and facilitates access to primary sources pertaining to New York State public affairs and policy, and now includes the personal papers of members of the gubernatorial administrations of Nelson A. Rockefeller; papers of former New York Congressional members and elected officials who served in New York State Legislature; and the official records and papers of numerous private groups, professional associations, individuals, public-sector labor unions, community groups, and other organizations concerned with Empire State public-policy issues.'
+  building: 'Contact:'
+  address1: 'Jodi Boyle'
+  address2: 'Supervisory Archivist'
+  city: ''
+  state: ''
+  zip: ''
+  country: ''
+  phone: '(518) 437-3935'
+  contact_info: 'jboyle@albany.edu'
+  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/mpa700.jpg"
+  google_request_url: 'http://library.albany.edu/archive/remoteRequest'
+  google_request_mappings: "document_url=entry.1980510262&collection_name=entry.619150170&collection_creator=entry.14428541&eadid=entry.996397105&containers=entry.1125277048&title=entry.862815208"
+ndpa:
+  name: 'National Death Penalty Archives'
+  description: "The National Death Penalty Archive (NDPA) is a partnership between the University at Albany Libraries and the Capital Punishment Research Initiative (CPRI) at the University's School of Criminal Justice. In 1999, researchers at the School of Criminal Justice formally established the CPRI. Its overarching goals were research and education -- initiate capital punishment research activities, facilitate collaboration among researchers, and make findings and information available to legal and criminal justice policymakers, practitioners, and the public. One of the original goals of the CPRI was to establish and maintain a collection of archival materials documenting the important history of capital punishment, and to provide resources for historical scholarship. This growing collection of archival materials is housed in the M.E. Grenander Department of Special Collections and Archives, which is located in the University's state of the art Science Library. Open since 1999, the new archival repository includes climate-controlled storage for more than 25,000 cubic feet. The following collections have been acquired for the NDPA through the collaborative efforts of the CPRI and the University Libraries; work is continuing to build this important link to the history of capital punishment in the United States."
+  building: 'Contact:'
+  address1: 'Brian Keough'
+  address2: 'Head Archivist'
+  city: ''
+  state: ''
+  zip: ''
+  country: ''
+  phone: '(518) 437-3935'
+  contact_info: 'bkeough@albany.edu'
+  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/ndpa700.jpg"
+  google_request_url: 'http://library.albany.edu/archive/remoteRequest'
+  google_request_mappings: "document_url=entry.1980510262&collection_name=entry.619150170&collection_creator=entry.14428541&eadid=entry.996397105&containers=entry.1125277048&title=entry.862815208"
+ger:
+  name: 'German and Jewish Intellectual Émigré Collections'
+  description: "In recognition of the serious scholarly interest in the mass migration of German speaking exiles from the Nazi regime, a German and Jewish Intellectual Émigré Collection was established in 1976 at the University at Albany, State University of New York. This growing collection has been developed since the 1970s through the efforts of the University Libraries and Professor John M. Spalek of the University's Germanic and Slavic Languages and Literature Department"
+  building: 'Contact:'
+  address1: 'Jodi Boyle'
+  address2: 'Supervisory Archivist'
+  city: ''
+  state: ''
+  zip: ''
+  country: ''
+  phone: '(518) 437-3935'
+  contact_info: 'jboyle@albany.edu'
+  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/jewish_unity.jpg"
+  google_request_url: 'http://library.albany.edu/archive/remoteRequest'
+  google_request_mappings: "document_url=entry.1980510262&collection_name=entry.619150170&collection_creator=entry.14428541&eadid=entry.996397105&containers=entry.1125277048&title=entry.862815208"
+mss:
+  name: 'Business, Literary, and Local History Manauscripts'
+  description: "Chiefly 19th-century New York and New England local history manuscripts and business records, primarily for craftsmen and railroads; papers of children's book writer and illustrator Marcia J. Brown and two original manuscripts by Maud and Miska Petersham; papers of Pulitzer Prize-winning author William Kennedy; papers of Anthony Ashley Cooper, the 19th century social reformer; and papers of Benito Perez Galdos, Gonzalo Torrente Ballester, Evengi Zamyatin, and other writers."
+  building: 'Contact:'
+  address1: 'Melissa McMullen'
+  address2: 'Project Archivist'
+  city: ''
+  state: ''
+  zip: ''
+  country: ''
+  phone: '(518) 437-3935'
+  contact_info: 'mmcmullen@albany.edu'
+  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/mss700.jpg"
+  google_request_url: 'http://library.albany.edu/archive/remoteRequest'
+  google_request_mappings: "document_url=entry.1980510262&collection_name=entry.619150170&collection_creator=entry.14428541&eadid=entry.996397105&containers=entry.1125277048&title=entry.862815208"
+ua:
+  name: 'University Archives'
+  description: 'The University Archives documents the history of the University at Albany, SUNY from its origin in 1844 as the New York State Normal School to train teachers for New York State to its present status as a comprehensive research university. The department collects, manages, and provides access to permanent university records for research use. This includes the administrative records of the university, student groups, faculty, alumni, and affiliated organizations. Collecting and preserving university records documents our history and promotes transparency and accountability.'
+  building: 'Contact:'
+  address1: 'Gregory Wiedeman'
+  address2: 'University Archivist'
+  city: ''
+  state: ''
+  zip: ''
+  country: ''
+  phone: '(518) 437-3935'
+  contact_info: 'gwiedeman@albany.edu'
+  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/stateSt700.jpg"
+  google_request_url: 'http://library.albany.edu/archive/remoteRequest'
+  google_request_mappings: "document_url=entry.1980510262&collection_name=entry.619150170&collection_creator=entry.14428541&eadid=entry.996397105&containers=entry.1125277048&title=entry.862815208"
