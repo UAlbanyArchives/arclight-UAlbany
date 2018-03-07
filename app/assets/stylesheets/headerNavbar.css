@@ -77,8 +77,7 @@ span.glyphicon-triangle-top {
 
 .navbar li.divider {
 	background-color: #46166B !important;
-	margin-top: 3px;
-	margin-bottom: 3px;
+	height: 1px;
 }
 
 .navbar-inverse {
@@ -87,17 +86,18 @@ span.glyphicon-triangle-top {
 
 .navbar-header {
 	min-height: 107px;
-	background-size: 100% 90%;
+	background-size: 100% 90px;
 	background-repeat: no-repeat;
-	background-position: left center;
+	/*background-position: left center;*/
 }
 
 #bs-example-navbar-collapse-1{
 	background-image: url("http://library.albany.edu/speccoll/findaids/eresources/static/icons/ua/mainHeadingLarge.png");
 	background-size: 935px 60px;
 	background-repeat: no-repeat;
-	background-position: -68px -11px;
+	background-position: -68px -0px;
 	background-origin: content-box;
+	z-index: 1000;
 }
 
 .navbar-nav {
@@ -129,6 +129,7 @@ span.glyphicon-triangle-top {
 	padding-top: 15px;
 	padding-bottom: 15px;
 	width: 100% !important;
+	display: block;
 }
 
 
@@ -141,7 +142,7 @@ span.glyphicon-triangle-top {
 	vertical-align: middle;
 }
 
-.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+.navbar-inverse .navbar-nav > .show > a, .navbar-inverse .navbar-nav > .show > a:focus, .navbar-inverse .navbar-nav > .show > a:hover {
 	background-color: #EBE6F0;
 	color: #403a60;
 }
@@ -150,7 +151,7 @@ span.glyphicon-triangle-top {
 	padding: 10px 10px;
 }
 
-.nav > .dropdown.open .caret {
+.nav > .dropdown.show .caret {
     border-top: none;
     border-bottom: 4px solid #eaaa00;
 }
@@ -168,7 +169,8 @@ span.glyphicon-triangle-top {
 
 .dropdown-menu {
 	background-color: #EBE6F0;
-	width: 100% !important;
+	top: 95%;
+	left: auto;
 }
 
 
@@ -297,32 +299,37 @@ span.glyphicon-triangle-top {
 	padding-left: 0px;
 }
 
+#topNavMenu .dropdown{
+	position: static;
+}
 
 .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
 	background-color: #eaaa00;
 }
 
 
-.navbar-inverse .navbar-nav .open a {
+.navbar-inverse .navbar-nav .show a {
 	background-color: #EBE6F0;
 	color: #403a60;
 }
 
-.navbar-inverse .navbar-nav a:hover span {
-	color: #eaaa00;
+.caret {
+	color: #eaaa00 !important;
 }
 
 
-.navbar-inverse .navbar-nav .open .dropdown-menu li a:hover {
+
+.navbar-inverse .navbar-nav .show .dropdown-menu li a:hover {
 	color: #EBE6F0;
 	background-color: #46166B;
 }
 
-.navbar-inverse .navbar-nav .open .dropdown-menu li a {
+.navbar-inverse .navbar-nav .show .dropdown-menu li a {
 	color: #403a60;
 	padding-top: 11px;
 	padding-left: 15px;
 	padding-right: 15px;
+	display: block;
 }
 
 .dividerUA {
@@ -408,6 +415,7 @@ span.glyphicon-triangle-top {
    }
    .navbar-header {
 	background-image: url("http://library.albany.edu/speccoll/findaids/eresources/static/icons/ua/mainHeadingSmall.png");
+   	background-position: 0px 8px;
    }
    .navbar-inverse .container .navbar-nav li a{
 	  font: 11pt "Roboto", Helvetica, Arial, sans-serif;
@@ -448,6 +456,7 @@ span.glyphicon-triangle-top {
 @media only screen and (max-width: 540px) {
   .navbar-header {
 	background-size: 100% 60%;
+	background-position: 0px 20px;
 	}
 }
 
@@ -473,7 +482,8 @@ span.glyphicon-triangle-top {
 @media only screen and (max-width: 400px) {
   .navbar-header {
 	background-image: url("http://library.albany.edu/speccoll/findaids/eresources/static/icons/ua/mainHeadingTiny.png");
-	background-size: 105% 90%;
+	background-size: 105% 45px;
+	background-position: 0px 3px;
 	min-height: 50px;
   }
   .navbar {
@@ -706,8 +716,8 @@ nav #search.btn-primary.active {
 }
 
 #searchBox {
-	margin-top:-5px;
-	margin-bottom:-10px;
+	margin-top: 7px;
+	margin-bottom: 5px;
 }
 
 .pt-2, .py-2, .navbar + .container {
@@ -742,4 +752,20 @@ nav #search.btn-primary.active {
 	#searchBox input {
 		width: 230px;
 	}
+}
+
+@media only screen and (max-width: 767px) {
+	#main-container {
+		padding-top: 121px !important;
+	}
+}
+
+@media only screen and (max-width: 400px) {
+	#main-container {
+		padding-top: 57px !important;
+	}
+}
+
+#search_field {
+	display: none;
 }

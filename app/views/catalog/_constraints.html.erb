@@ -1,0 +1,9 @@
+
+<div id="appliedParams" class="clearfix constraints-container">
+	<%= render 'shared/user_util_links' %>
+	<% if query_has_constraints? %>
+		<%=link_to t('blacklight.search.start_over'), "/repositories", class: "catalog_startOverLink btn btn-primary" %>
+		<span class="constraints-label sr-only"><%= t('blacklight.search.filters.title') %></span>
+		<%= render_constraints(params) %>
+	<% end %>
+</div>
