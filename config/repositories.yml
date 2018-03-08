@@ -44,7 +44,7 @@ ger:
   google_request_url: 'http://library.albany.edu/archive/remoteRequest'
   google_request_mappings: "document_url=entry.1980510262&collection_name=entry.619150170&collection_creator=entry.14428541&eadid=entry.996397105&containers=entry.1125277048&title=entry.862815208"
 mss:
-  name: 'Business, Literary, and Local History Manauscripts'
+  name: 'Business, Literary, and Local History Manuscripts'
   description: "Chiefly 19th-century New York and New England local history manuscripts and business records, primarily for craftsmen and railroads; papers of children's book writer and illustrator Marcia J. Brown and two original manuscripts by Maud and Miska Petersham; papers of Pulitzer Prize-winning author William Kennedy; papers of Anthony Ashley Cooper, the 19th century social reformer; and papers of Benito Perez Galdos, Gonzalo Torrente Ballester, Evengi Zamyatin, and other writers."
   building: 'Contact:'
   address1: 'Melissa McMullen'
