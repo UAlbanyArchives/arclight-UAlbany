@@ -36,3 +36,7 @@
 .twitter-typeahead {
 	flex-grow: 0 !important;
 }
+
+.al-sticky-sidebar .al-request-button {
+	padding-left: 8px !important;
+}
