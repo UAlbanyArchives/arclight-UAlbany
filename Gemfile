@@ -65,3 +65,5 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem "font-awesome-rails"
+
+gem "rack-cors"

@@ -24,6 +24,11 @@
  *
 */
 
+.al-show-breadcrumb > a:after { 
+	content:"\a";
+	white-space: pre;
+}
+
 
 #searchBox input {
 
