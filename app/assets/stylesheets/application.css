@@ -24,11 +24,12 @@
  *
 */
 
+/* make breadcrumbs on single lines
 .al-show-breadcrumb > a:after { 
 	content:"\a";
 	white-space: pre;
 }
-
+*/
 
 #searchBox input {
 
@@ -44,4 +45,77 @@
 
 .al-sticky-sidebar .al-request-button {
 	padding-left: 8px !important;
+}
+
+div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
+    margin-left: 70px;
+}
+.breadcrumb-indent-0 {
+	margin-left: 10px !important;
+}
+.breadcrumb-indent-1 {
+	margin-left: 20px !important;
+}
+.breadcrumb-indent-2 {
+	margin-left: 30px !important;
+}
+.breadcrumb-indent-3 {
+	margin-left: 40px !important;
+}
+.breadcrumb-indent-4 {
+	margin-left: 50px !important;
+}
+.breadcrumb-indent-5 {
+	margin-left: 60px !important;
+}
+
+#document > div > .al-show-header-section {
+	box-shadow: 4px 4px 4px #ccc;
+}
+
+#about-this-level .row {
+	border-bottom: 1px dashed #ccc;
+}
+
+
+.component-level-only .index_title > .document-title-containers {
+	margin-left: 25px !important; 
+	font-size: 0.8rem !important; 
+}
+
+.component-level-only .documentHeader {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+	border-bottom: 0px !important;
+}
+
+.component-level-only .document-title-heading {
+	margin-bottom: 0px !important;
+}
+
+.component-level-only .document-title-heading br {
+	line-height: 1 !important;
+}
+
+.component-level-only .index_title > a {
+	font-size: 1rem !important;
+	color: #212529;
+}
+
+.component-level-only .al-hierarchy-side-content {
+	margin-top: 5px !important;
+	margin-bottom: 5px !important;
+}
+
+.component-level-only .al-hierarchy-sub-heading {
+	margin-top: 5px !important;
+}
+
+.component-level-only .document {
+	border-bottom: 1px dashed #ccc;
+}
+
+.component-level-only .al-document-abstract-or-scope {
+	margin-bottom: 0px !important;
+	margin-left: 40px !important;
 }

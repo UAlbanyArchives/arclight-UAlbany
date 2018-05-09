@@ -7,7 +7,7 @@
     <%= render_document_partial(document, 'arclight_online_content_indicator') %>
     <% if document.containers.present? %>
       <br/>
-      <span class="document-title-containers text-muted" style="margin-left:25px; font-size:0.8 rem;">
+      <span class="document-title-containers text-muted">
         <% if document.containers[0].include? "(" %>
           <%= document.containers[0].split(" (", 0)[0] %>
           , 

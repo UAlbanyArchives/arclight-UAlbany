@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   end
 
+  resources :areas, path: '/areas', controller: 'repositories'
+
   devise_for :users
   concern :exportable, Blacklight::Routes::Exportable.new
 

@@ -32,15 +32,15 @@ ger:
   name: 'German and Jewish Intellectual Émigré Collections'
   description: "In recognition of the serious scholarly interest in the mass migration of German speaking exiles from the Nazi regime, a German and Jewish Intellectual Émigré Collection was established in 1976 at the University at Albany, State University of New York. This growing collection has been developed since the 1970s through the efforts of the University Libraries and Professor John M. Spalek of the University's Germanic and Slavic Languages and Literature Department"
   building: 'Contact:'
-  address1: 'Jodi Boyle'
-  address2: 'Supervisory Archivist'
+  address1: 'Mark Wolfe'
+  address2: 'Curator of Digital Collections'
   city: ''
   state: ''
   zip: ''
   country: ''
-  phone: '(518) 437-3935'
-  contact_info: 'jboyle@albany.edu'
-  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/jewish_unity.jpg"
+  phone: '(518) 437-3932'
+  contact_info: 'mwolfe@albany.edu'
+  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/jewish_unityArclight.jpg"
   google_request_url: 'http://library.albany.edu/archive/remoteRequest'
   google_request_mappings: "document_url=entry.1980510262&collection_name=entry.619150170&collection_creator=entry.14428541&eadid=entry.996397105&containers=entry.1125277048&title=entry.862815208"
 mss:

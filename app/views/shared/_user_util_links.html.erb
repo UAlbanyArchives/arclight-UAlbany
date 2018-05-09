@@ -1,17 +1,19 @@
 
-<% if has_user_authentication_provider? %>
-  <% if current_user %>
-    
-  <% unless current_user.to_s.blank? -%>
-    <%= link_to current_user, edit_user_registration_path, class: 'btn btn-primary dropdown-toggle', data: { toggle: 'dropdown'} %>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'dropdown-item' %>
-    </div>
-  <% else %>
-    <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'btn btn-primary' %>
-  <% end %>
-  <% else %>
-    <%= link_to t('blacklight.header_links.login'), new_user_session_path, class: 'btn btn-primary' %>
+<% if 1 == 2 %>
+  <% if has_user_authentication_provider? %>
+    <% if current_user %>
+      
+    <% unless current_user.to_s.blank? -%>
+      <%= link_to current_user, edit_user_registration_path, class: 'btn btn-primary dropdown-toggle', data: { toggle: 'dropdown'} %>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'dropdown-item' %>
+      </div>
+    <% else %>
+      <%= link_to t('blacklight.header_links.logout'), destroy_user_session_path, class: 'btn btn-primary' %>
+    <% end %>
+    <% else %>
+      <%= link_to t('blacklight.header_links.login'), new_user_session_path, class: 'btn btn-primary' %>
+    <% end %>
   <% end %>
 <% end %>
 

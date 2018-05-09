@@ -669,6 +669,7 @@ a:visited {
 	font-size: 8pt;
 }
 
+/* Different arrow icons
 .al-hierarchy-level-1 h3.index_title.document-title-heading.col-md-8::before {
 	font-family: FontAwesome;
 	content: "\f061" !important;
@@ -683,6 +684,7 @@ a:visited {
 	font-family: FontAwesome;
 	content: "\f061 \f061 \f061" !important;
 }
+*/
 
 .documents-hierarchy .blacklight-series .al-hierarchy-level-2 .document-title-heading::before, .documents-hierarchy .blacklight-series .al-hierarchy-level-2 .blacklight-file .document-title-heading::before, .documents-hierarchy .blacklight-file .al-hierarchy-level-2 .document-title-heading::before, .documents-hierarchy .blacklight-file .al-hierarchy-level-2 .blacklight-file .document-title-heading::before, .documents-online_contents .blacklight-series .al-hierarchy-level-2 .document-title-heading::before, .documents-online_contents .blacklight-series .al-hierarchy-level-2 .blacklight-file .document-title-heading::before, .documents-online_contents .blacklight-file .al-hierarchy-level-2 .document-title-heading::before, .documents-online_contents .blacklight-file .al-hierarchy-level-2 .blacklight-file .document-title-heading::before {
 	content: "" !important;
