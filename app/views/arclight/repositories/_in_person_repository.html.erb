@@ -1,0 +1,25 @@
+<div class='al-in-person-repository-name'>
+  <% if repository.thumbnail_url %>
+    <%= image_tag repository.thumbnail_url, alt: repository.name, class: 'img-fluid float-left' %>
+  <% end %>
+  <div>
+    <%= link_to(repository.name, arclight_engine.repository_path(repository.slug)) %>
+  </div>
+</div>
+<div class='al-in-person-repository-location float-left'>
+  <address>
+    <% %i[building address1 address2 city_state_zip_country phone contact_info].each do |f| %>
+      <% if repository.send(f).present? %>
+        <div class='al-repository-contact-<%= f %>'>
+          <%= repository.send(f) %>
+        </div>
+      <% end %>
+    <% end %>
+  </address>
+</div>
+<div class="in-person-repository-contact float-left">
+  <a class='btn btn-primary' href="http://library.albany.edu/archive/reference">
+    <i class="fa fa-info-circle"></i>
+    Contact
+  </a>
+</div>

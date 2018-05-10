@@ -30,3 +30,11 @@
 // this:
 //= require 'blacklight_range_limit'
 
+$(document).ready(function () {
+    $('#al-date-range-histogram-content').on('hide.bs.collapse', function () {
+	  $('#date-range-icon').children('i').removeClass("fa-arrow-up").addClass("fa-arrow-down")
+	})
+	$('#al-date-range-histogram-content').on('show.bs.collapse', function () {
+	  $('#date-range-icon').children('i').removeClass("fa-arrow-down").addClass("fa-arrow-up")
+	})
+});

@@ -119,3 +119,37 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 	margin-bottom: 0px !important;
 	margin-left: 40px !important;
 }
+
+.al-request-button::before {
+  content: "" !important;
+}
+
+.al-in-person-repository-location {
+	width: 60%;
+}
+
+.in-person-repository-contact {
+	float: right;
+	width: 40%;
+}
+
+.arclightLogo {
+	margin-top: 10px !important;
+}
+
+.arclightLogo img {
+	width: 80px;
+}
+
+.pagination .page-item a {
+	color: #46166B !important;
+}
+
+.pagination .page-item .page-link:focus {
+	box-shadow: 0 0 0 0.2rem #46166B !important; 
+}
+
+.pagination .active span{
+	background-color: #46166B !important;
+	border-color: #46166B !important;
+}
