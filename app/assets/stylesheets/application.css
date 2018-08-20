@@ -153,3 +153,7 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 	background-color: #46166B !important;
 	border-color: #46166B !important;
 }
+
+.al-sticky-sidebar {
+    top: 63px !important;
+}
