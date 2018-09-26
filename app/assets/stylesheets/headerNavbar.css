@@ -629,7 +629,7 @@ a:visited {
 	color: #EBE6F0 !important;
 }
 
-.alert-info {
+.navbar .alert-info {
 	color: #46166B;
 	background-color: #EBE6F0;
 	border-color: #EBE6F0;
@@ -730,15 +730,16 @@ nav #search.btn-primary.active {
 	margin-bottom: 1rem !important;
 }
 
-@media only screen and (min-width: 992px) {
-	#searchBox {
-		margin-left: 0px;
-	}
-}
 
 @media only screen and (max-width: 992px) {
 	#search.btn-primary {
 		padding: 6px !important;
+	}
+}
+/*
+@media only screen and (min-width: 992px) {
+	#searchBox {
+		margin-left: 0px;
 	}
 }
 
@@ -754,6 +755,10 @@ nav #search.btn-primary.active {
 	#searchBox input {
 		width: 230px;
 	}
+}
+*/
+#searchBox {
+    margin-left: auto;
 }
 
 @media only screen and (max-width: 767px) {

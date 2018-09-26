@@ -12,10 +12,11 @@
 
 development:
   adapter: solr
-  url: <%= ENV['SOLR_URL'] || "http://169.226.92.36:8983/solr/arclight-testing" %>
+  #url: <%= ENV['SOLR_URL'] || "http://169.226.92.36:8983/solr/arclight-testing" %>
+  url: <%= ENV['SOLR_URL'] || "https://solr.library.albany.edu:8984/solr/arclight-testing" %>
 test: &test
   adapter: solr
   url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:#{ENV['TEST_JETTY_PORT'] || 8983}/solr/blacklight-core" %>
 production:
   adapter: solr
-  url: <%= ENV['SOLR_URL'] || "http://169.226.92.36:8983/solr/arclight-testing" %>
+  url: <%= ENV['SOLR_URL'] || "https://solr.library.albany.edu:8984/solr/arclight-testing" %>

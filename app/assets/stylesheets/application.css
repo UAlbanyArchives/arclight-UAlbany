@@ -124,15 +124,6 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
   content: "" !important;
 }
 
-.al-in-person-repository-location {
-	width: 60%;
-}
-
-.in-person-repository-contact {
-	float: right;
-	width: 40%;
-}
-
 .arclightLogo {
 	margin-top: 10px !important;
 }
@@ -156,4 +147,31 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 
 .al-sticky-sidebar {
     top: 63px !important;
+}
+
+@media only screen and (max-width: 575px) {
+    #request .modal-footer {
+            display: block;
+    }
+}
+
+.al-repository-thumbnail {
+    padding: 1rem;
+}
+
+@media only screen and (max-width: 575px) {
+    .al-repository-thumbnail {
+        display: none;
+    }
+    .al-repository-description {
+        padding-left: 1rem;
+    }
+}
+
+/* Dont show requests links in search results */
+.al-hierarchy-side-content .al-request-button {
+    display: none;
+}
+.al-document-title-bar > .row > .text-right .al-request-button {
+    display: none;
 }
