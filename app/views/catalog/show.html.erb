@@ -1,11 +1,15 @@
 
-<div id="appliedParams" class="clearfix constraints-container">
-	<%= render 'shared/user_util_links' %>
-		<% if current_search_session %>
-		<%= link_to t('blacklight.search.start_over'), "/repositories", class: "catalog_startOverLink btn btn-primary" %>
-		<%= link_back_to_catalog class: 'btn btn-secondary' %>
-	<% end %>
-</div>
+<!--<div id="appliedParams" class="clearfix constraints-container row">
+	<div class='col-md-6'>
+		<%# if current_search_session %>
+			<%# link_to t('blacklight.search.start_over'), "/repositories", class: "catalog_startOverLink btn btn-primary" %>
+			<%# link_back_to_catalog class: 'btn btn-secondary' %>
+		<%# end %>
+	</div>
+	<div class='col-md-6 text-right'>
+		<%# render 'shared/user_util_links' %>
+	</div>
+</div>-->
 
 
 <%= render_document_main_content_partial %>
