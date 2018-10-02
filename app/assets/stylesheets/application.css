@@ -175,3 +175,10 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 .al-document-title-bar > .row > .text-right .al-request-button {
     display: none;
 }
+
+/* spinner gif */
+.fa-spin {
+	font-size: 24px !important;
+	color: #46166B;
+	margin: 0px 21px;
+}
