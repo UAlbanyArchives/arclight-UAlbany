@@ -18,3 +18,6 @@ module Arclight
 end
 
 require "#{Rails.root}/lib/arclight/repository.rb"
+require "#{Rails.root}/lib/arclight/solr_ead_indexer_ext.rb"
+require "#{Rails.root}/lib/arclight/normalized_date.rb"
+require "#{Rails.root}/lib/arclight/shared_indexing_behavior.rb"
