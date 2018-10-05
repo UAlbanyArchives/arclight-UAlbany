@@ -138,11 +138,11 @@ module Arclight
 
     def parent_check_list(node, root_path, element_path, results = [])
       orginal_node = node
-      results = node.xpath("#{root_path}/#{element_path}").map(&:text)
+      #results = node.xpath("#{root_path}/#{element_path}").map(&:text)
       # if current restriction return, else go up to parent and check
       while node.parent.name == 'c' && results.blank?
         parent = node.parent
-        results = parent.xpath("#{root_path}/#{element_path}").map(&:text)
+        results = parent.xpath("#{element_path}").map(&:text)
         node = parent
       end
       # If no parental results, check the collection
