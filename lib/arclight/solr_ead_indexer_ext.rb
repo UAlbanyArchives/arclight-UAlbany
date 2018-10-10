@@ -108,7 +108,7 @@ module Arclight
         unitdate_other: []
       }
       data[:title] = node.xpath("#{prefix}did/unittitle").text if node.xpath("#{prefix}did/unittitle")
-      node.xpath("#{prefix}did/unitdate[@type=\"inclusive\"]").each do |unitdate|
+      node.xpath("#{prefix}did/unitdate").each do |unitdate|
         if unitdate.attr("type").downcase  == "inclusive"
           data[:unitdate_inclusive] << unitdate.text if unitdate
         elsif unitdate.attr("type").downcase  == "bulk"
