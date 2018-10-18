@@ -624,9 +624,19 @@ a:visited {
 	text-decoration: none;
 }*/
 
+/* no Longer used after switch to nav-tabs
 .nav-link.active {
 	background-color: #46166B !important;
 	color: #EBE6F0 !important;
+}
+*/
+
+.nav-tabs {
+    margin-bottom: 1rem;
+}
+
+.al-sticky-sidebar {
+     margin-bottom: 1rem;
 }
 
 .navbar .alert-info {
