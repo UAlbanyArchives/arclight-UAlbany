@@ -8,7 +8,7 @@
 			<% @query = params[:q] %>
 		<% end %>
 
-		<%= form_for("search", method: :get, html: {class: 'search-query-form allSearch'}) do |f| %>
+		<%= form_for("search", method: :get, :url => "http://169.226.92.29:8000", html: {class: 'search-query-form allSearch'}) do |f| %>
 	      <div class="input-group">
 			<div class="input-group-prepend">
 			    <button class="btn btn-secondary dropdown-toggle searchSelect" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
