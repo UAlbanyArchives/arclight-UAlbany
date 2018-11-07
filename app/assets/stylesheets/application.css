@@ -16,6 +16,7 @@
  
  *= require browseNav
  *= require headerNavbar
+ *= require searchSubnav
  *= require font-awesome
 
  *
