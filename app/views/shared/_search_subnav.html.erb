@@ -29,6 +29,7 @@
 
 		<%= form_for("search", method: :get, :url => search_action_url, html: {class: 'search-query-form arclightSearch'}) do |f| %>
 		  <%= render_hash_as_hidden_fields(search_state.params_for_search.except(:q, :search_field, :qt, :page, :utf8)) %>
+		  <%= hidden_field_tag 'search_field', 'all_fields'  %>
 	      <div class="input-group">
 			<div class="input-group-prepend">
 			    <button class="btn btn-secondary dropdown-toggle searchSelect" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,6 +49,7 @@
 		<% end %>
 
 		<%= form_for("search", method: :get, :url => "http://169.226.92.29:8080/catalog/", html: {class: 'search-query-form hyraxSearch'}) do |f| %>
+		  <%= hidden_field_tag 'search_field', 'all_fields'  %>
 	      <div class="input-group">
 			<div class="input-group-prepend">
 			    <button class="btn btn-secondary dropdown-toggle searchSelect" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -2,7 +2,7 @@
 	background-color: #eaaa00;
 	min-height: 0px;
 	padding: 0.5rem 1rem;
-	z-index: 5;
+	z-index: 9;
 }
 
 .search-query-form {
@@ -40,7 +40,7 @@
 }
 
 .searchSubnav .twitter-typeahead {
-	flex: 1 1 auto !important;
+	flex: 1 !important;
 }
 
 .searchSubnav .tt-input {

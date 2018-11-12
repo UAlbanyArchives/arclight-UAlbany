@@ -773,13 +773,13 @@ nav #search.btn-primary.active {
 
 @media only screen and (max-width: 767px) {
 	#main-container {
-		padding-top: 121px !important;
+		padding-top: 179px !important;
 	}
 }
 
 @media only screen and (max-width: 400px) {
 	#main-container {
-		padding-top: 57px !important;
+		padding-top: 115px !important;
 	}
 }
 
