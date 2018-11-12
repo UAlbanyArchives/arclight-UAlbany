@@ -19,6 +19,25 @@
             <dd class="blacklight-<%= field_name.parameterize %>">
               <% if field_name.parameterize == "parent_access_restrict_ssm" && document._source["accessrestrict_ssm"].present? %>
                 <%= doc_presenter.field_value "accessrestrict_ssm" %>
+              <% elsif field_name == "userestrict_ssm" %>
+                <% accessDescription = doc_presenter.field_value field_name %>
+                <% if accessDescription.start_with?("https://") %>
+                  <% if (doc_presenter.field_value "creator_ssm").present? %>
+                    <% creator = doc_presenter.field_value "creator_ssm" %>
+                  <% else %>
+                    <% creator = doc_presenter.field_value "collection_creator_ssm" %>
+                  <% end %>
+                  <% licence = LICENCES["terms"].select{|item| item['id'] == accessDescription}[0]['term'] %>
+
+                  <p><a href="<%= accessDescription %>"><img class="mx-auto d-block" src="/<%= licence %>.png" alt="<%= licence %>"/></a></p>
+                  
+                  <p>The materials in this collection that were <strong>created by "<%= creator %>"</strong> are licenced under a <a href="<%= accessDescription %>"><%= licence %> License</a>.</p>
+                  <p><strong>This does not include materials collected or gathered by "<%= creator %>"</strong>, whose copyright is most likely retained by the original creator.</p>
+
+                  <div class="alert alert-warning">Please <a href="https://library.albany.edu/archive/reference">Contact Us</a> for questions or additional rights.</div>
+                <% else %>
+                  <%= doc_presenter.field_value field_name %>
+                <% end %>
               <% else %>
                 <%= doc_presenter.field_value field_name %>
               <% end %>
