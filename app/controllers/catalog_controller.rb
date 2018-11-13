@@ -224,6 +224,7 @@ class CatalogController < ApplicationController
     config.add_component_field 'extent_ssm', label: 'Extent'
     config.add_component_field 'scopecontent_ssm', label: 'Scope and Content'
     config.add_component_field 'accessrestrict_ssm', label: 'Restrictions'
+    config.add_component_field 'parent_access_restrict_ssm', label: 'Parent Restrictions'
     config.add_component_field 'userestrict_ssm', label: 'Terms of Access'
     config.add_component_field 'access_subjects_ssm', label: 'Subjects', separator_options: {
       words_connector: '<br/>',

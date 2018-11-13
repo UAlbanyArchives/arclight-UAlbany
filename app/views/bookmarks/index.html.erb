@@ -19,7 +19,11 @@
         <% if index > 0 %>
             <% @link_list << "%0A" %>
         <% end %>
-        <% @link_list << "http://169.226.92.29/catalog/" + doc.id %>
+        <% if doc["accessrestrict_ssm"].present? %>
+          <% @link_list << "http://169.226.92.29/catalog/" + doc.id + "%20[RESTRICTED]" %>
+        <% else %>
+          <% @link_list << "http://169.226.92.29/catalog/" + doc.id %>
+        <% end %>
       <% end %>
       
       <%# hidden_field_tag value, google_form.send(key) %>

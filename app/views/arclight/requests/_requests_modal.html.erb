@@ -13,7 +13,19 @@
         <p>Archival materials can be view in-person in our reading room, located on the top floor of the Science Library on the Uptown Campus. Making an appointment is not neccessary, but it may help us ensure the items are available when you arrive.</p>
         <p>If materials are unrestricted, we can also deliver digital scans remotely for a fee.</p>
         
-        <% if document.parent_restrictions.downcase.include? "access to this collection is unrestricted." %>
+        <% if document["accessrestrict_ssm"].present? %>
+          <div class="alert alert-danger modalAlert">
+            <strong>Restricted Records</strong>
+            <% document._source['accessrestrict_ssm'].each do |para| %>
+              <%= content_tag :p, para %>
+            <% end %>
+          </div>
+          <div class="alert alert-warning">
+            <strong>Restrictions Present</strong><br/>
+            <p>The materials you selected include restricted records. We are unlikely to be able to fulfill remote requests for these items, and in-person access may be limited. If you request these items an archivist will contact you with more details.
+            </p>
+          </div>
+        <% elsif document.parent_restrictions.downcase.include? "access to this collection is unrestricted." %>
         <% elsif document.parent_restrictions.downcase.include? "access to these records is unrestricted." %>
         <% elsif document.parent_restrictions.downcase.include? "this collection is unrestricted." %>
         <% elsif document.parent_restrictions.downcase.include? "access to this record group is unrestricted." %>

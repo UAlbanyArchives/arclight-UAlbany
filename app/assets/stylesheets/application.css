@@ -183,3 +183,7 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 	color: #46166B;
 	margin: 0px 21px;
 }
+
+.document-title-heading .badge {
+	font-size: 60%;
+}
