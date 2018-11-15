@@ -187,3 +187,7 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 .document-title-heading .badge-danger, .badge-success {
 	font-size: 60% !important;
 }
+
+.al-collection-count {
+	padding-top: 0px !important;
+}
