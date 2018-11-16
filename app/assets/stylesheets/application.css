@@ -42,6 +42,7 @@
 
 .twitter-typeahead {
 	flex-grow: 0 !important;
+	display: flex !important;
 }
 
 .al-sticky-sidebar .al-request-button {
