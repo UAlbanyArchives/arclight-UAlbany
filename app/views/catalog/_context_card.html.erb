@@ -29,7 +29,7 @@
                   <% end %>
                   <% licence = LICENCES["terms"].select{|item| item['id'] == accessDescription}[0]['term'] %>
 
-                  <p><a href="<%= accessDescription %>"><img class="mx-auto d-block" src="/<%= licence %>.png" alt="<%= licence %>"/></a></p>
+                  <p><a href="<%= accessDescription %>"><img class="mx-auto d-block" src="/collections/<%= licence %>.png" alt="<%= licence %>"/></a></p>
                   
                   <p>The materials in this collection that were <strong>created by "<%= creator %>"</strong> are licenced under a <a href="<%= accessDescription %>"><%= licence %> License</a>.</p>
                   <p><strong>This does not include materials collected or gathered by "<%= creator %>"</strong>, whose copyright is most likely retained by the original creator.</p>
