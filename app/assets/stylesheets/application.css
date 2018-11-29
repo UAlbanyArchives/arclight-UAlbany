@@ -10,7 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
 
  
@@ -23,6 +22,8 @@
  * Used by blacklight_range_limit
  *= require  'blacklight_range_limit'
  *
+ * Load this file last, so that CSS rules here take precedence -AP 11-29-18
+ *= require_self
 */
 
 /* make breadcrumbs on single lines
