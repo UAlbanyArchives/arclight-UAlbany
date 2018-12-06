@@ -151,9 +151,12 @@
         <a href="http://library.albany.edu/archive/reference">Contact</a>
       </li>
 
-      <!--<div id="searchBox" class="float-right">
+      <div id="stickysearchBox">
+           <a role="button" id="toggleSearch" class="btn"><i class="fa fa-search"></i></a>
+      </div>
+       
        <%# render_search_bar %>
-      </div>-->
+      <!--</div>-->
 
       <!--<div class="col-sm-3 col-md-3 pull-right" id="searchBox">
         <form class="navbar-form" role="search" action="http://meg.library.albany.edu:8080/archive/search">
@@ -231,6 +234,10 @@
     <div class='d-flex justify-content-center'>
       <h1 class='text-center'><%= t('arclight.masthead_heading') %></h1>
     </div>
+    <div id="welcome"><center>
+      <P>Welcome text and some information on how to use this tool.</P>
+      </center>
+    </div>
     <!--<div class='row justify-content-md-center'>
       <div class='col-md-6 col-sm-12'>
         <div class='navbar-search'>
@@ -238,11 +245,11 @@
         </div>
       </div>
     </div>-->
-    <nav class="navbar justify-content-center" role="navigation">
-      <ul class="nav">
-        <%= render 'shared/main_menu_links' %>
-      </ul>
-    </nav>
+      <nav class="navbar justify-content-center" role="navigation">
+        <ul class="nav">
+          <%= render 'shared/main_menu_links' %>
+        </ul>
+      </nav>
   </div>
 <% else %>
   <!--<div class='bg-faded al-masthead'>

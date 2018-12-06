@@ -1,6 +1,6 @@
 <header class="documentHeader row" style="margin-top:0px;" data-document-id="<%= document.id %>">
   <% requestable = item_requestable?('', { document: document }) %>
-  <h3 class="index_title document-title-heading col-md-8">
+  <h3 class="index_title document-title-heading col-md-9">
     
     <% counter = document_counter_with_offset(document_counter) %>
     <%= link_to_document document, document_show_link_field(document), counter: counter %>
