@@ -192,3 +192,19 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 .al-collection-count {
 	padding-top: 0px !important;
 }
+
+.daoGallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
+} 
+
+.daoGallery .img-thumbnail {
+    padding: 15px;
+    margin: 10px;
+}
+
+.daoThumbnail {
+    width: 260px;
+}

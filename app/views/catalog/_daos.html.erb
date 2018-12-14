@@ -1,0 +1,31 @@
+<% document ||= @document %>
+
+<% if document.id.include? "aspace_" %>
+    <% @searchID = document.id.split("aspace_")[1] %>
+<% else %>
+    <% @searchID = document.id %>
+<% end %>
+
+<div class="daoGallery text-center" id="<%= @searchID %>">
+    <% document.digital_objects.each do |dao| %>
+
+        <% if dao.href.include? "/avs/" %>
+            <% @icon = "fa fa-film" %>
+        <% elsif dao.href.include? "/images/" %>
+            <% @icon = "fa fa-picture-o" %>
+        <% else %>
+            <% @icon = "fa fa-file-o fa-5x" %>
+        <% end %>
+        
+        <div class="img-thumbnail">
+            <a href="<%= dao.href %>">
+                <i class="<%= @icon %> fa-5x placeholder"></i>
+                <img src="" alt="<%= dao.label %>" class="daoThumbnail" style="display: none;">
+                <div class="caption">
+                  <%= dao.label %>
+                </div>
+            </a>
+        </div>
+
+    <% end %>
+</div>

@@ -22,6 +22,7 @@
 
 //= require bootstrap/tab
 //= require headerAffix
+//= require displayHyraxDaos
 
 //= require_tree .
 
