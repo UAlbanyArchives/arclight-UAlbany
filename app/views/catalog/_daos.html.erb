@@ -6,6 +6,12 @@
     <% @searchID = document.id %>
 <% end %>
 
+
+<div class="page-links">
+    <span class="page-entries"></span> | 
+    <a href="http://lib-espy-ws-p101.its.albany.edu/catalog?utf8=✓&f[archivesspace_record_tesim][]=<%= @searchID %>">All Items »</a>
+    
+</div>
 <div class="daoGallery text-center" id="<%= @searchID %>">
     <% document.digital_objects.each do |dao| %>
 
@@ -21,11 +27,35 @@
             <a href="<%= dao.href %>">
                 <i class="<%= @icon %> fa-5x placeholder"></i>
                 <img src="" alt="<%= dao.label %>" class="daoThumbnail" style="display: none;">
-                <div class="caption">
-                  <%= dao.label %>
-                </div>
             </a>
+            <p class="caption">
+              <a href="<%= dao.href %>"><%= dao.label %></a>
+            </p>
         </div>
 
     <% end %>
+    
+    <div class="card">
+      <div class="card-header" role="tab">
+        <h5 class="mb-0">Search Online Content</h5>
+      </div>
+      <div class='card-body'>
+        <form class="search-query-form" role="search" action="http://lib-espy-ws-p101.its.albany.edu/catalog" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+            <input type="hidden" name="f[archivesspace_record_tesim][]" value="<%= @searchID %>" />
+            <input type="hidden" name="search_field" id="search_field" value="all_fields" />
+            <div class='input-group'>
+                <label for='q' class='sr-only'>Search Online Content</label>
+                <input type="text" name="q" id="q" class="search_q q form-control" />
+
+                <span class='input-group-btn'>
+                    <button type='submit' class='btn btn-primary search-btn' id='search'>
+                        <span class="blacklight-icons"><i class="fa fa-search"></i></span>
+                    </button>
+                </span>
+            </div>
+        </form>
+      </div>
+    </div>
 </div>
+
+<a class="btn btn-primary daoGalleryMore" href="http://lib-espy-ws-p101.its.albany.edu/catalog?utf8=✓&f[archivesspace_record_tesim][]=<%= @searchID %>"><i class="fa fa-chevron-circle-down"></i> More...</a>

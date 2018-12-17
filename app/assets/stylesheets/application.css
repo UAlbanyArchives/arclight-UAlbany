@@ -205,6 +205,35 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
     margin: 10px;
 }
 
-.daoThumbnail {
+.daoGalleryMore {
+    width: 100%;
+    display: none !important;
+}
+
+.daoGallery .card {
+    height: 130px;
+    width: 280px;
+    margin: 10px;
+    display: none;
+}
+
+.img-thumbnail .daoThumbnail {
     width: 250px;
 }
+
+.img-thumbnail dl {
+    font-size: 0.8rem;
+}
+
+.img-thumbnail dt {
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: left;
+}
+
+.img-thumbnail dd {
+    text-align: left;
+    max-width: 250px;
+}
+
