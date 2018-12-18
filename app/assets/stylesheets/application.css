@@ -200,9 +200,14 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
     justify-content: space-between;
 } 
 
+.daoGallery .card {
+    padding: 0;
+}
+
 .daoGallery .img-thumbnail {
     padding: 15px;
     margin: 10px;
+    min-width: 230px;
 }
 
 .daoGalleryMore {
@@ -218,7 +223,8 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 }
 
 .img-thumbnail .daoThumbnail {
-    width: 250px;
+    margin: auto;
+    max-height: 150px;
 }
 
 .img-thumbnail dl {
