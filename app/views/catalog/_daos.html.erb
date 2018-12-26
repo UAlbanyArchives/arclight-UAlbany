@@ -2,19 +2,20 @@
 
 <% if document.id.include? "aspace_" %>
     <% @searchID = document.id.split("aspace_")[1] %>
+    <% @facet_field = "archivesspace_record_tesim" %>
 <% else %>
     <% @searchID = document.id %>
+    <% @facet_field = "collection_number_tesim" %>
 <% end %>
 
 
 <div class="page-links">
     <span class="page-entries"></span> | 
-    <a href="http://lib-espy-ws-p101.its.albany.edu/catalog?utf8=✓&f[archivesspace_record_tesim][]=<%= @searchID %>">All Items »</a>
+    <a id="hyraxURI" href="http://lib-espy-ws-p101.its.albany.edu/catalog?utf8=✓&f[<%= @facet_field %>][]=<%= @searchID %>">All Items »</a>
     
 </div>
 <div class="daoGallery text-center" id="<%= @searchID %>">
     <% document.digital_objects.each do |dao| %>
-
         <% if dao.href.include? "/avs/" %>
             <% @icon = "fa fa-film" %>
         <% elsif dao.href.include? "/images/" %>

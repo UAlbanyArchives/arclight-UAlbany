@@ -1,7 +1,6 @@
 $( document ).on('turbolinks:load', function() {
 	if ($(".daoGallery")[0]){
-        $root = "http://lib-espy-ws-p101.its.albany.edu"
-        $hyraxURL = $root + "/catalog?f[archivesspace_record_tesim][]=" + $(".daoGallery").attr("id") + "&format=json";
+		$hyraxURL = $("#hyraxURI").attr("href") + "&format=json"
         $.ajax({
           type: "GET",
           dataType: 'json',
@@ -12,10 +11,12 @@ $( document ).on('turbolinks:load', function() {
             } else {
                 $count = $(".daoGallery").children(".img-thumbnail").length
             }
-            $(".page-entries").append("<strong>1</strong>-<strong>" + $count + "</strong> of <strong>" + data['response']["pages"]["total_count"] + "</strong>")
-            for (i = 0; i < data['response']['docs'].length; i++) {
+	    if (Number(data['response']["pages"]["total_count"]) > 0) {
+	            $(".page-entries").append("<strong>1</strong>-<strong>" + $count + "</strong> of <strong>" + data['response']["pages"]["total_count"] + "</strong>")
+            }
+	    for (i = 0; i < data['response']['docs'].length; i++) {
                 if (i < 10 ){
-                    $thumbnail = $root + data['response']['docs'][i]["thumbnail_path_ss"];
+                    $thumbnail = $hyraxURL.split("/catalog")[0] + data['response']['docs'][i]["thumbnail_path_ss"];
                     $dates = data['response']['docs'][i]["date_created_tesim"];
                     $titles = data['response']['docs'][i]["title_tesim"];
                     $url = "http://lib-espy-ws-p101.its.albany.edu/concern/" + data['response']['docs'][i]["has_model_ssim"].toString().toLowerCase() + "s/" + data['response']['docs'][i]["id"];
@@ -61,3 +62,4 @@ $( document ).on('turbolinks:load', function() {
         });
     }
 });
+

@@ -42,7 +42,8 @@
         <%= render 'collection_contents' %>
       </div>
       <div class='tab-pane' id='online-content' role='tabpanel'>
-        <%= render partial: 'collection_online_contents', locals: { document: document }  %>
+	<%= render 'daos' %>
+        <%# render partial: 'collection_online_contents', locals: { document: document }  %>
       </div>
     </div>
   </div>
