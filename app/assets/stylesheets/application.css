@@ -207,7 +207,7 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 .daoGallery .img-thumbnail {
     padding: 15px;
     margin: 10px;
-    min-width: 230px;
+    width: 230px;
 }
 
 .daoGalleryMore {
