@@ -20,9 +20,9 @@
             <% @link_list << "%0A" %>
         <% end %>
         <% if doc["accessrestrict_ssm"].present? %>
-          <% @link_list << "http://lib-espy-ws-p101.its.albany.edu/collections/catalog/" + doc.id + "%20[RESTRICTED]" %>
+          <% @link_list << "https://archives.albany.edu/collections/catalog/" + doc.id + "%20[RESTRICTED]" %>
         <% else %>
-          <% @link_list << "http://lib-espy-ws-p101.its.albany.edu/collections/catalog/" + doc.id %>
+          <% @link_list << "https://archives.albany.edu/collections/catalog/" + doc.id %>
         <% end %>
       <% end %>
       

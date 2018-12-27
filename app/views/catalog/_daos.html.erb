@@ -11,7 +11,7 @@
 
 <div class="page-links">
     <span class="page-entries"></span> | 
-    <a id="hyraxURI" href="http://lib-espy-ws-p101.its.albany.edu/catalog?utf8=✓&f[<%= @facet_field %>][]=<%= @searchID %>">All Items »</a>
+    <a id="hyraxURI" href="https://archives.albany.edu/catalog?utf8=✓&f[<%= @facet_field %>][]=<%= @searchID %>">All Items »</a>
     
 </div>
 <div class="daoGallery text-center" id="<%= @searchID %>">
@@ -41,7 +41,7 @@
         <h5 class="mb-0">Search Online Content</h5>
       </div>
       <div class='card-body'>
-        <form class="search-query-form" role="search" action="http://lib-espy-ws-p101.its.albany.edu/catalog" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+        <form class="search-query-form" role="search" action="https://archives.albany.edu/catalog" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
             <input type="hidden" name="f[archivesspace_record_tesim][]" value="<%= @searchID %>" />
             <input type="hidden" name="search_field" id="search_field" value="all_fields" />
             <div class='input-group'>
@@ -59,4 +59,4 @@
     </div>
 </div>
 
-<a class="btn btn-primary daoGalleryMore" href="http://lib-espy-ws-p101.its.albany.edu/catalog?utf8=✓&f[archivesspace_record_tesim][]=<%= @searchID %>"><i class="fa fa-chevron-circle-down"></i> More...</a>
+<a class="btn btn-primary daoGalleryMore" href="https://archives..albany.edu/catalog?utf8=✓&f[archivesspace_record_tesim][]=<%= @searchID %>"><i class="fa fa-chevron-circle-down"></i> More...</a>

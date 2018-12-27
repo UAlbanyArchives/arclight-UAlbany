@@ -8,7 +8,7 @@
 			<% @query = params[:q] %>
 		<% end %>
 
-		<%= form_for("search", method: :get, :url => "http://lib-espy-ws-p101.its.albany.edu/search", html: {class: 'search-query-form allSearch'}) do |f| %>
+		<%= form_for("search", method: :get, :url => "https://archives.albany.edu/search", html: {class: 'search-query-form allSearch'}) do |f| %>
 	      <div class="input-group">
 			<div class="input-group-prepend">
 			    <button class="btn btn-secondary dropdown-toggle searchSelect" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -48,7 +48,7 @@
 		  </div>
 		<% end %>
 
-		<%= form_for("search", method: :get, :url => "http://lib-espy-ws-p101.its.albany.edu/catalog/", html: {class: 'search-query-form hyraxSearch'}) do |f| %>
+		<%= form_for("search", method: :get, :url => "https://archives.albany.edu/catalog/", html: {class: 'search-query-form hyraxSearch'}) do |f| %>
 		  <%= hidden_field_tag 'search_field', 'all_fields'  %>
 	      <div class="input-group">
 			<div class="input-group-prepend">

@@ -23,7 +23,7 @@ $( document ).on('turbolinks:load', function() {
                     $thumbnail = $hyraxURL.split("/catalog")[0] + data['response']['docs'][i]["thumbnail_path_ss"];
                     $dates = data['response']['docs'][i]["date_created_tesim"];
                     $titles = data['response']['docs'][i]["title_tesim"];
-                    $url = "http://lib-espy-ws-p101.its.albany.edu/concern/" + data['response']['docs'][i]["has_model_ssim"].toString().toLowerCase() + "s/" + data['response']['docs'][i]["id"];
+                    $url = "https://archives.albany.edu/concern/" + data['response']['docs'][i]["has_model_ssim"].toString().toLowerCase() + "s/" + data['response']['docs'][i]["id"];
                     
                     if ($(".daoGallery").children(".img-thumbnail")[i]){ 
                         $thumb = $(".daoGallery").children(".img-thumbnail:eq(" + i.toString() + ")");
