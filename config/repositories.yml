@@ -11,8 +11,8 @@ apap:
   country: ''
   phone: '(518) 437-3935'
   contact_info: ''
-  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/mpa700.jpg"
-  google_request_url: 'http://library.albany.edu/archive/remoteRequest'
+  thumbnail_url: "https://library.albany.edu/sites/all/themes/New_UArchives/img/700/mpa700.jpg"
+  google_request_url: 'https://library.albany.edu/archive/remoteRequest'
   google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
 ndpa:
   name: 'National Death Penalty Archive'
@@ -27,8 +27,8 @@ ndpa:
   country: ''
   phone: '(518) 437-3935'
   contact_info: ''
-  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/ndpa700.jpg"
-  google_request_url: 'http://library.albany.edu/archive/remoteRequest'
+  thumbnail_url: "https://library.albany.edu/sites/all/themes/New_UArchives/img/700/ndpa700.jpg"
+  google_request_url: 'https://library.albany.edu/archive/remoteRequest'
   google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
 ger:
   name: 'German and Jewish Intellectual Émigré Collections'
@@ -43,8 +43,8 @@ ger:
   country: ''
   phone: '(518) 437-3935'
   contact_info: ''
-  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/jewish_unityArclight.jpg"
-  google_request_url: 'http://library.albany.edu/archive/remoteRequest'
+  thumbnail_url: "https://library.albany.edu/sites/all/themes/New_UArchives/img/700/jewish_unityArclight.jpg"
+  google_request_url: 'https://library.albany.edu/archive/remoteRequest'
   google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
 mss:
   name: 'Business, Literary, and Local History Manuscripts'
@@ -59,8 +59,8 @@ mss:
   country: ''
   phone: '(518) 437-3935'
   contact_info: ''
-  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/mss700.jpg"
-  google_request_url: 'http://library.albany.edu/archive/remoteRequest'
+  thumbnail_url: "https://library.albany.edu/sites/all/themes/New_UArchives/img/700/mss700.jpg"
+  google_request_url: 'https://library.albany.edu/archive/remoteRequest'
   google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
 ua:
   name: 'University Archives'
@@ -75,6 +75,6 @@ ua:
   country: ''
   phone: '(518) 437-3935'
   contact_info: ''
-  thumbnail_url: "http://library.albany.edu/sites/all/themes/New_UArchives/img/700/stateSt700.jpg"
-  google_request_url: 'http://library.albany.edu/archive/remoteRequest'
+  thumbnail_url: "https://library.albany.edu/sites/all/themes/New_UArchives/img/700/stateSt700.jpg"
+  google_request_url: 'https://library.albany.edu/archive/remoteRequest'
   google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
