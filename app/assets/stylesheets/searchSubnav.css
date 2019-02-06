@@ -92,6 +92,10 @@
 	border-top-right-radius: 0px;
 }
 
+#alight-utils a{
+	font-size: .75em;
+}
+
 /* for js if header is fixed */
 .fixedSubnav {
 	position: fixed;
