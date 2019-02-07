@@ -1,9 +1,9 @@
 document.addEventListener('turbolinks:load', function() {
 
     // URLs for Search form get request
-    var allSearchURL = "http://lib-espy-ws-p101.its.albany.edu/search";
-    var arclightSearchURL = "http://lib-espy-ws-p101.its.albany.edu/collections/catalog";
-    var hyraxSearchURL = "http://lib-espy-ws-p101.its.albany.edu/repository/catalog/";
+    var allSearchURL = "https://archives.albany.edu/search";
+    var arclightSearchURL = "http://archives.albany.edu/collections/catalog";
+    var hyraxSearchURL = "https://archives.albany.edu/repository/catalog/";
 
     //query selector for search form
     var searchForm = document.getElementsByClassName('allSearch');
