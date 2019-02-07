@@ -73,10 +73,6 @@ body {
 	max-height: none;
 }
 
-#breadcrumbs {
-	display: none;
-}
-
 div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
     margin-left: 70px;
 }
