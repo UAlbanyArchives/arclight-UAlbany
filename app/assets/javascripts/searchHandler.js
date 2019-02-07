@@ -1,4 +1,4 @@
-document.addEventListener('turbolinks:load', function() {
+window.addEventListener('load', function() {
 
     // URLs for Search form get request
     var allSearchURL = "https://archives.albany.edu/search";
@@ -48,7 +48,7 @@ document.addEventListener('turbolinks:load', function() {
 }, false);
 
 
-document.addEventListener('turbolinks:load', function() {
+window.addEventListener('load', function() {
     $('#toggleSearch').click( function() {
         $("#searchSub").toggleClass("fixedSubnav");
     } );
