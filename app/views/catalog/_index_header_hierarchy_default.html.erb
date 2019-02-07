@@ -1,7 +1,7 @@
 <header class="documentHeader row" style="margin-top:0px;" data-document-id="<%= document.id %>">
   <% requestable = item_requestable?('', { document: document }) %>
-  <h3 class="index_title document-title-heading col-md-8">
-    
+  <h3 class="index_title document-title-heading col-md-9">
+    <% if document.children? %> <i class="fa fa-folder" aria-hidden="true"></i> <% end %>
     <% counter = document_counter_with_offset(document_counter) %>
     <%= link_to_document document, document_show_link_field(document), counter: counter %>
     <%= render_document_partial(document, 'arclight_online_content_indicator') %>
@@ -32,6 +32,25 @@
               )
             %>
           <% end %>
+          
+
+         <!-- <% if hierarchy_component_context? %>
+             <%= link_to_document document, counter: counter %>
+
+          <% else %>
+
+          <%= link_to(
+            t('arclight.hierarchy.view_all'),
+            "##{document.reference}-collapsible-hierarchy",
+            class: 'al-toggle-view-all',
+              data: {
+                toggle: 'collapse'
+              }
+            )
+          %>
+        <% end %>
+        -->
+
         </span>
       </div>
     <% end %>
