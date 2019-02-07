@@ -282,7 +282,7 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 .documents-hierarchy article {
 	border-bottom: 1px solid #eaaa00;
 	padding-bottom: 10px;
-	padding-top: 15px;
+	padding-top: 10px;
 }
 
 .documents-hierarchy .al-number-of-children-badge {
