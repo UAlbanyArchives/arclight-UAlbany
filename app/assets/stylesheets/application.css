@@ -33,6 +33,21 @@
 }
 */
 
+#breadcrumbs {
+	justify-content: space-between;
+}
+#breadcrumbs .al-show-breadcrumb {
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.nav-tabs .nav-item a.nav-link {
+	white-space: nowrap;
+	overflow: hidden;
+}
+
 a {
 	color: #642a90;
 }

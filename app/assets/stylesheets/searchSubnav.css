@@ -35,8 +35,6 @@
 .noText {
 	display: none;
 	width: auto;
-	border-top-left-radius: 5px !important;
-	border-bottom-left-radius: 5px !important;
 }
 
 /* the How to search the Archives link */
@@ -92,7 +90,15 @@
 	border-top-right-radius: 0px;
 }
 
-#alight-utils a{
+#alight-utils {
+	position: relative;
+	min-height: 1px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-bottom: 15px;
+}
+
+#alight-utils a {
 	font-size: .75em;
 }
 
@@ -102,6 +108,10 @@
 	width: 100%;
 	top: 50px;
 	z-index: 1;
+}
+
+.subnavSpacer {
+	margin-top: 188px;
 }
 
 /* for small displays */
