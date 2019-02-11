@@ -43,7 +43,9 @@
        
           <div class="col al-repository-description" title="<%= repository.description %>">
             <h2>
-              <%= link_to_unless(params[:id] == repository.slug, repository.name, arclight_engine.repository_path(repository.slug)) %>
+              <!-- replaced arclight A-Z lists with static pages -->
+              <%# link_to_unless(params[:id] == repository.slug, repository.name, arclight_engine.repository_path(repository.slug)) %>
+              <%= link_to_unless(params[:id] == repository.slug, repository.name, "https://archives.albany.edu/static/" + repository.slug + ".html") %>
             </h2>
             <h6><%= repository.tagline %></h6>
             

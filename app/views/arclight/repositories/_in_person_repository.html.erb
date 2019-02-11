@@ -3,7 +3,9 @@
     <%= image_tag repository.thumbnail_url, alt: repository.name, class: 'img-fluid' %>
   <% end %>
   <div>
-    <%= link_to(repository.name, arclight_engine.repository_path(repository.slug)) %>
+    <!-- replaced arclight A-Z lists with static pages -->
+    <%# link_to(repository.name, arclight_engine.repository_path(repository.slug)) %>
+    <%= link_to(repository.name, "https://archives.albany.edu/static/"+ repository.slug + ".html") %>
   </div>
 </div>
 <div class="clearfix"></div>
