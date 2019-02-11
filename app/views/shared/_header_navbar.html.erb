@@ -229,22 +229,23 @@
   </div>
 </nav>-->
 
-<% if controller_name == 'catalog' && !has_search_parameters? && action_name == 'index' %>
+<!--<% if controller_name == 'catalog' && !has_search_parameters? && action_name == 'index' %>
   <div class='al-homepage-masthead jumbotron'>
     <div class='d-flex justify-content-center'>
       <h1 class='text-center'><%= t('arclight.masthead_heading') %></h1>
     </div>
-    <div id="welcome"><center>
-     <!-- <P>Welcome text and some information on how to use this tool.</P>
-     --> </center>
+    <div id="welcome">
+      <center>
+     <P>Welcome text and some information on how to use this tool.</P>
+    </center>
     </div>
-    <!--<div class='row justify-content-md-center'>
+    <div class='row justify-content-md-center'>
       <div class='col-md-6 col-sm-12'>
         <div class='navbar-search'>
          <%= render_search_bar  %>
         </div>
       </div>
-    </div>-->
+    </div>
       <nav class="navbar justify-content-center" role="navigation">
         <ul class="nav">
           <%= render 'shared/main_menu_links' %>
@@ -252,7 +253,7 @@
       </nav>
   </div>
 <% else %>
-  <!--<div class='bg-faded al-masthead'>
+  <div class='bg-faded al-masthead'>
     <div class="container">
       <h1><%= t('arclight.masthead_heading') %></h1>
     </div>
@@ -269,7 +270,7 @@
         <%= render_search_bar  %>
       </div>
     </div>
-  </div>-->
-<% end %>
+  </div>
+<% end %>-->
 
 
