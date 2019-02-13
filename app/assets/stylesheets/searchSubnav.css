@@ -105,6 +105,10 @@
 	font-size: .75em;
 }
 
+#alight-utils .fa-file-pdf-o {
+	color: crimson;
+}
+
 /* for js if header is fixed */
 .fixedSubnav {
 	position: fixed;
