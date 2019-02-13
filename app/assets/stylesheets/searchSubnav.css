@@ -2,9 +2,12 @@
 	background-color: #642a90;
 	min-height: 20px;
 	padding: 1.25rem 1rem;
-	z-index: 9;
+	z-index: 9 !important;
 	top: 0px;
-	transition: all ease .25s;
+}
+
+.subnavTransition {
+    transition: all ease .25s;
 }
 
 .searchSubnav .container {

@@ -5,7 +5,11 @@
   <div>
     <!-- replaced arclight A-Z lists with static pages -->
     <%# link_to(repository.name, arclight_engine.repository_path(repository.slug)) %>
-    <%= link_to(repository.name, "https://archives.albany.edu/static/"+ repository.slug + ".html") %>
+    <% if repository.slug == "ua" %>
+      <%= link_to(repository.name, "https://library.albany.edu/archive/ua") %>
+    <% else %>
+      <%= link_to(repository.name, "https://archives.albany.edu/static/"+ repository.slug + ".html") %>
+    <% end %>
   </div>
 </div>
 <div class="clearfix"></div>

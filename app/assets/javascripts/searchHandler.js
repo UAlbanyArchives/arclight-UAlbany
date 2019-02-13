@@ -50,13 +50,15 @@ window.addEventListener('load', function() {
 
 window.addEventListener('load', function() {
     $('#toggleSearch').click( function() {
+        $('#searchSub').addClass('subnavTransition');
         $("#searchSub").toggleClass("fixedSubnav");
         $("#main-container").toggleClass("subnavSpacer");
     } );
 
     $(window).scroll(function () {
         var top_offset = $(window).scrollTop();
-        if (top_offset == 0) {
+        if (top_offset < 57) {
+            $('#searchSub').removeClass('subnavTransition');
             $('#searchSub').removeClass('fixedSubnav');
             $('#main-container').removeClass('subnavSpacer');
          }

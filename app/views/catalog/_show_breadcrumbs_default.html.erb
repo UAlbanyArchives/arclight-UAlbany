@@ -9,7 +9,11 @@
     <!--<%= link_to t('arclight.routes.collections'), arclight_engine.collections_path %>-->
     <!-- replaced arclight A-Z lists with static pages -->
     <%# link_to document.repository,  arclight_engine.repository_path(Arclight::Repository.find_by(name: document.repository).slug) %>
-    <%= link_to document.repository, "https://archives.albany.edu/static/" + Arclight::Repository.find_by(name: document.repository).slug + ".html" %>
+    <% if Arclight::Repository.find_by(name: document.repository).slug == "ua" %>
+      <%= link_to document.repository, "https://library.albany.edu/archive/ua" %>
+    <% else %>
+     <%= link_to document.repository, "https://archives.albany.edu/static/" + Arclight::Repository.find_by(name: document.repository).slug + ".html" %>
+    <% end %>
 
     <% Arclight::Parents.from_solr_document(document).as_parents.each_with_index do |parent, index| %>
       <div class="breadcrumb-indent-<%= index %>">
