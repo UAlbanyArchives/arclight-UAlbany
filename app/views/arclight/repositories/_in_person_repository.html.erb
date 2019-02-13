@@ -7,6 +7,8 @@
     <%# link_to(repository.name, arclight_engine.repository_path(repository.slug)) %>
     <% if repository.slug == "ua" %>
       <%= link_to(repository.name, "https://library.albany.edu/archive/ua") %>
+    <% elsif repository.slug == "ndpa" %>
+      <%= link_to(repository.name, "https://archives.albany.edu/static/91.html") %>
     <% else %>
       <%= link_to(repository.name, "https://archives.albany.edu/static/"+ repository.slug + ".html") %>
     <% end %>
