@@ -893,3 +893,5 @@ a.responsiveTruncatorToggle {
     text-align: left;
     max-width: 250px;
 }
+
+.hideme { display: none; }
