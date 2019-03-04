@@ -134,13 +134,19 @@ div[class^='breadcrumb-indent'], div[class*=' breadcrumb-indent']{
 	padding-left: 15px;
 }
 
-#document .row .alert.col-md-9 {
+@media only screen and (min-width: 767px) {
+    #document .row .alert.col-md-9 {
+        flex: 0 0 70%;
+    }
+}
+
+/*#document .row .alert.col-md-9 {
 	padding-left: 15px;
 	background: #ffffff;
 	border: 0px;
 	font-weight: 700;
 	color: #212529;
-}
+}*/
 
 .al-show-header-section h1 {
 	padding-bottom: 2rem;
@@ -895,3 +901,68 @@ a.responsiveTruncatorToggle {
 }
 
 .hideme { display: none; }
+
+.al-show-breadcrumb div { 
+    padding-left: 1.5em;
+    text-indent:-1.5em;
+}
+
+
+@media only screen and (max-width: 400px) {
+
+    #document-content-container {
+        margin-right: 0px;
+    }
+
+    #document #document-content {
+        margin-bottom: 25px;
+    }
+    
+    .nav-tabs .nav-item a.nav-link {
+        font-size: .8em;
+    }
+
+    #collection-context .al-show-header-section h1 {
+        margin-left: 15px;
+    }
+
+    #collection-context .al-ancestors, #collection-context .al-hierarchy-level-1 {
+        margin-left: 25px;
+    }
+
+    .al-hierarchy-level-3.extra-indent {
+        margin-left: 75px;
+    }
+
+    .blacklight-collection .al-show-header-section .al-document-title-bar {
+        padding-right: 15px;
+    }
+
+    .spc-footer {
+        margin: 0px 0px 25px 0px;
+        font-size: 9pt;
+        padding: 10px 20px;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .footRight {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #efb310;
+    }
+    .footRight p {
+        padding-right: 33%;
+    }
+
+    .spc-footer a {
+        margin: 15px 0 0 0;
+        display: block;
+    }
+
+    .spc-footer .footerLogo a {
+        margin: auto;
+        display: inline-block;
+    }
+
+}
