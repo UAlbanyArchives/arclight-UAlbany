@@ -33,6 +33,11 @@
 }
 */
 
+
+.hyraxDaoDisplay {
+   display: none;
+}
+
 #breadcrumbs {
 	justify-content: space-between;
 }
@@ -869,7 +874,6 @@ a.responsiveTruncatorToggle {
 
 .daoGalleryMore {
     width: 100%;
-    display: none !important;
 }
 
 .daoGallery .card {
