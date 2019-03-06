@@ -66,22 +66,41 @@
 
 <div class="defaultDaoDisplay">
     <% if document.digital_objects.present? %>
-    <%= render_document_partial(document, 'arclight_viewer') %>
-    <% elsif document.online_content? %>
-      <%= content_tag(
-        :div, '',
-        class: 'al-contents',
-        data: {
-          arclight: {
-            path: search_catalog_path,
-            name: document.collection_name,
-            access: 'online',
-            view: 'online_contents',
-            search_field: 'within_collection'
-          }
-        }
-      ) %>
-      
-    <a class="btn btn-primary daoGalleryMore" href="/collections/catalog?utf8=✓&f[collection_sim][]=<%= document.collection_name %>&f[has_online_content_ssim][]=online&q=&search_field=all_fields"><i class="fa fa-search"></i> All Items</a>
-<% end %>
+        <%= render_document_partial(document, 'arclight_viewer') %>
+        <% elsif document.online_content? %>
+          
+          <% if document.level == "colleciton" %>
+              <%= content_tag(
+                :div, '',
+                class: 'al-contents',
+                data: {
+                  arclight: {
+                    path: search_catalog_path,
+                    name: document.collection_name,
+                    access: 'online',
+                    view: 'online_contents',
+                    search_field: 'within_component'
+                  }
+                }
+              ) %>
+              
+            <a class="btn btn-primary daoGalleryMore" href="/collections/catalog?utf8=✓&f[collection_sim][]=<%= document.collection_name %>&f[has_online_content_ssim][]=online&q=&search_field=all_fields"><i class="fa fa-search"></i> All Items</a>
+        <% else %>
+            <%= content_tag(
+                :div, '',
+                class: 'al-contents',
+                data: {
+                  arclight: {
+                    path: search_catalog_path,
+                    parent: document.reference,
+                    access: 'online',
+                    view: 'online_contents',
+                    search_field: 'within_component'
+                  }
+                }
+              ) %>
+          
+            <a class="btn btn-primary daoGalleryMore" href="/collections/catalog?utf8=✓&f[parent_ssi][]=<%= document.reference %>&f[has_online_content_ssim][]=online&q=&search_field=all_fields"><i class="fa fa-search"></i> All Items</a>
+        <% end %>
+    <% end %>
 </div>
