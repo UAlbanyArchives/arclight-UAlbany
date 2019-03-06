@@ -69,7 +69,7 @@
         <%= render_document_partial(document, 'arclight_viewer') %>
         <% elsif document.online_content? %>
           
-          <% if document.level == "colleciton" %>
+          <% if document.level == "collection" %>
               <%= content_tag(
                 :div, '',
                 class: 'al-contents',
