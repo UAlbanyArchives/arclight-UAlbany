@@ -15,6 +15,8 @@ module Arclight
       add_collection_creator_to_component(node, solr_doc)
 
       add_self_or_parents_restrictions(node, solr_doc)
+      
+      online_content?(node, solr_doc)
 
       add_self_or_parents_terms(node, solr_doc)
 
@@ -160,6 +162,23 @@ module Arclight
       field_name = Solrizer.solr_name('parent_access_terms', :displayable)
       solr_doc[field_name] = parent_check_list(node, './', 'userestrict/p/text()')
       solr_doc[field_name]
+    end
+    
+    def online_content?(node, solr_doc)
+      begin
+        if node.xpath('@id').first.value.match?("aspace_495a2d984b18f218b0dfe81d45ff121b")
+            #puts node.xpath('@id').first.value
+            #puts node
+            dao = node.xpath('.//dao[@href]').present?
+            #puts dao
+          else
+            dao = node.xpath('.//dao[@href]').present?
+          end
+      rescue
+        dao = node.xpath('.//dao[@href]').present?
+      end
+      dao = node.xpath('.//dao[@href]').present?
+      Solrizer.set_field(solr_doc, "has_online_content", dao, :symbol)
     end
   end
 end

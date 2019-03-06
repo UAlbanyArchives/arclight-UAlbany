@@ -91,7 +91,10 @@ module Arclight
     end
 
     def online_content?
-      search('//dao[@href]').present?
+        #Use the original way just for collection-level
+        if self.ng_xml.root.name == "ead"
+            search('//dao[@href]').present?
+        end
     end
   end
 end
