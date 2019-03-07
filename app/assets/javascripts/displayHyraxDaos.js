@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	if ($(".daoGallery")[0]){
-		$hyraxURL = $("#hyraxURI").attr("href") + "&format=json"
+		$hyraxURL = $("#hyraxURI").attr("href") + "&sort=system_create_dtsi+asc&format=json"
         $.ajax({
           type: "GET",
           dataType: 'json',
@@ -31,7 +31,7 @@ $(document).ready(function(){
                         if ($(".daoGallery").children(".img-thumbnail")[i]){ 
                             $thumb = $(".daoGallery").children(".img-thumbnail:eq(" + i.toString() + ")");
                         } else {
-                            $thumb = $("<div class='img-thumbnail'></div>").prependTo(".daoGallery");
+                            $thumb = $("<div class='img-thumbnail'></div>").insertBefore("#insertBefore");
                             $thumb.append("<a><i class='fa fa-file-o fa-5x fa-5x placeholder'></i><img class='daoThumbnail'></a>");
                             $thumb.append("<p class='caption'><a></a></p>");
                         }
