@@ -14,45 +14,47 @@
         <p>If materials are unrestricted, we can also deliver digital scans remotely for a fee.</p>
         
         <% if document["accessrestrict_ssm"].present? %>
-          <div class="alert alert-danger modalAlert">
-            <strong>Restricted Records</strong>
-            <% document._source['accessrestrict_ssm'].each do |para| %>
-              <%= content_tag :p, para %>
+            <% if document.parent_restrictions.present? %>
+              <div class="alert alert-danger modalAlert">
+                <strong>Restricted Records</strong>
+                <% document._source['accessrestrict_ssm'].each do |para| %>
+                  <%= content_tag :p, para %>
+                <% end %>
+              </div>
+              <div class="alert alert-warning">
+                <strong>Restrictions Present</strong><br/>
+                <p>The materials you selected include restricted records. We are unlikely to be able to fulfill remote requests for these items, and in-person access may be limited. If you request these items an archivist will contact you with more details.
+                </p>
+              </div>
+            <% elsif document.parent_restrictions.downcase.include? "access to this collection is unrestricted." %>
+            <% elsif document.parent_restrictions.downcase.include? "access to these records is unrestricted." %>
+            <% elsif document.parent_restrictions.downcase.include? "this collection is unrestricted." %>
+            <% elsif document.parent_restrictions.downcase.include? "access to this record group is unrestricted." %>
+            <% elsif document.parent_restrictions.downcase.include? "must consult archivist" %>
+                <div class="alert alert-danger modalAlert">
+                  <strong>Restricted Records</strong>
+                  <% document._source['parent_access_restrict_ssm'].each do |para| %>
+                    <%= content_tag :p, para %>
+                  <% end %>
+                </div>
+                <div class="alert alert-warning">
+                  <strong>Restrictions Present</strong><br/>
+                  <p>The materials you selected include restricted records. We are unlikely to be able to fulfill remote requests for these items, and in-person access may be limited. If you request these items an archivist will contact you with more details.
+                  </p>
+                </div>
+            <% else %>
+                <div class="alert alert-warning modalAlert">
+                  <strong>Restriction Notice</strong>
+                  <% document._source['parent_access_restrict_ssm'].each do |para| %>
+                    <%= content_tag :p, para %>
+                  <% end %>
+                </div>
+                <div class="alert alert-info">
+                  <strong>Possible Restrictions</strong><br/>
+                  <p>The notice above may state that the records you've selected contain restrictions. We are unlikely to be able to fulfill remote requests for restricted items, and in-person access may be limited. If you request these items an archivist will contact you with more details.
+                  </p>
+                </div>
             <% end %>
-          </div>
-          <div class="alert alert-warning">
-            <strong>Restrictions Present</strong><br/>
-            <p>The materials you selected include restricted records. We are unlikely to be able to fulfill remote requests for these items, and in-person access may be limited. If you request these items an archivist will contact you with more details.
-            </p>
-          </div>
-        <% elsif document.parent_restrictions.downcase.include? "access to this collection is unrestricted." %>
-        <% elsif document.parent_restrictions.downcase.include? "access to these records is unrestricted." %>
-        <% elsif document.parent_restrictions.downcase.include? "this collection is unrestricted." %>
-        <% elsif document.parent_restrictions.downcase.include? "access to this record group is unrestricted." %>
-        <% elsif document.parent_restrictions.downcase.include? "must consult archivist" %>
-            <div class="alert alert-danger modalAlert">
-              <strong>Restricted Records</strong>
-              <% document._source['parent_access_restrict_ssm'].each do |para| %>
-                <%= content_tag :p, para %>
-              <% end %>
-            </div>
-            <div class="alert alert-warning">
-              <strong>Restrictions Present</strong><br/>
-              <p>The materials you selected include restricted records. We are unlikely to be able to fulfill remote requests for these items, and in-person access may be limited. If you request these items an archivist will contact you with more details.
-              </p>
-            </div>
-        <% else %>
-            <div class="alert alert-warning modalAlert">
-              <strong>Restriction Notice</strong>
-              <% document._source['parent_access_restrict_ssm'].each do |para| %>
-                <%= content_tag :p, para %>
-              <% end %>
-            </div>
-            <div class="alert alert-info">
-              <strong>Possible Restrictions</strong><br/>
-              <p>The notice above may state that the records you've selected contain restrictions. We are unlikely to be able to fulfill remote requests for restricted items, and in-person access may be limited. If you request these items an archivist will contact you with more details.
-              </p>
-            </div>
         <% end %>
         
         
