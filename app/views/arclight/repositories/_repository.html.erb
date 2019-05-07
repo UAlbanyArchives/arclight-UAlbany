@@ -48,9 +48,9 @@
               <% if repository.slug == "ua" %>
                 <%= link_to_unless(params[:id] == repository.slug, repository.name, "https://library.albany.edu/archive/ua") %>
               <% elsif repository.slug == "ndpa" %>
-                <%= link_to_unless(params[:id] == repository.slug, repository.name, "https://archives.albany.edu/static/91.html") %>
+                <%= link_to_unless(params[:id] == repository.slug, repository.name, "https://archives.albany.edu/browse/91.html") %>
               <% else %>
-                <%= link_to_unless(params[:id] == repository.slug, repository.name, "https://archives.albany.edu/static/" + repository.slug + ".html") %>
+                <%= link_to_unless(params[:id] == repository.slug, repository.name, "https://archives.albany.edu/browse/" + repository.slug + ".html") %>
               <% end %>
             </h2>
             <h6><%= repository.tagline %></h6>

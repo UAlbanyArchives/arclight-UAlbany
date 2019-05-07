@@ -12,9 +12,9 @@
     <% if Arclight::Repository.find_by(name: document.repository).slug == "ua" %>
       <%= link_to document.repository, "https://library.albany.edu/archive/ua" %>
     <% elsif Arclight::Repository.find_by(name: document.repository).slug == "ndpa" %>
-      <%= link_to document.repository, "https://archives.albany.edu/static/91.html" %>
+      <%= link_to document.repository, "https://archives.albany.edu/browse/91.html" %>
     <% else %>
-     <%= link_to document.repository, "https://archives.albany.edu/static/" + Arclight::Repository.find_by(name: document.repository).slug + ".html" %>
+     <%= link_to document.repository, "https://archives.albany.edu/browse/" + Arclight::Repository.find_by(name: document.repository).slug + ".html" %>
     <% end %>
 
     <% Arclight::Parents.from_solr_document(document).as_parents.each_with_index do |parent, index| %>
