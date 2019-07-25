@@ -26,8 +26,8 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  config.assets.prefix = '/collections'
-  config.relative_url_root = '/collections'
+  config.assets.prefix = '/description'
+  config.relative_url_root = '/description'
   
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
