@@ -85,7 +85,7 @@
                 }
               ) %>
               
-            <a class="btn btn-primary daoGalleryMore" href="/collections/catalog?utf8=✓&f[collection_sim][]=<%= document.collection_name %>&f[has_online_content_ssim][]=online&q=&search_field=all_fields"><i class="fa fa-search"></i> All Items</a>
+            <a class="btn btn-primary daoGalleryMore" href="/description/catalog?utf8=✓&f[collection_sim][]=<%= document.collection_name %>&f[has_online_content_ssim][]=online&q=&search_field=all_fields"><i class="fa fa-search"></i> All Items</a>
         <% else %>
             <%= content_tag(
                 :div, '',
@@ -101,7 +101,7 @@
                 }
               ) %>
           
-            <a class="btn btn-primary daoGalleryMore" href="/collections/catalog?utf8=✓&f[parent_ssi][]=<%= document.reference %>&f[has_online_content_ssim][]=online&q=&search_field=all_fields"><i class="fa fa-search"></i> All Items</a>
+            <a class="btn btn-primary daoGalleryMore" href="/description/catalog?utf8=✓&f[parent_ssi][]=<%= document.reference %>&f[has_online_content_ssim][]=online&q=&search_field=all_fields"><i class="fa fa-search"></i> All Items</a>
         <% end %>
     <% end %>
 </div>
