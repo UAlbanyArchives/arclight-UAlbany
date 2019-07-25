@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope 'collections' do  
+  scope 'description' do  
   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
   mount Blacklight::Engine => '/'
     mount Arclight::Engine => '/'
