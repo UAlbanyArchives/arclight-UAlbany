@@ -98,7 +98,7 @@
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px;
-	margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 #alight-utils a {
@@ -107,6 +107,23 @@
 
 #alight-utils .fa-file-pdf-o {
 	color: crimson;
+}
+
+.d-flex #alight-utils {
+    padding-right: 0px;
+}
+
+#date-range-icon {
+    margin-bottom: 10px;
+}
+
+@media only screen and (min-width: 764px) {
+    .d-flex #alight-utils {
+        margin-bottom: 0px;
+    }
+    #date-range-icon {
+        margin-bottom: 0px;
+    }
 }
 
 /* for js if header is fixed */
