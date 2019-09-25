@@ -222,7 +222,14 @@ class CatalogController < ApplicationController
     }
     config.add_component_field 'abstract_ssm', label: 'Abstract'
     config.add_component_field 'extent_ssm', label: 'Extent'
+    config.add_component_field 'language_ssm', label: 'Language'
     config.add_component_field 'scopecontent_ssm', label: 'Scope and Content'
+    config.add_component_field 'bioghist_ssm', label: 'Biographical / Historical'
+    config.add_component_field 'arrangement_ssm', label: 'Arrangement'
+    config.add_component_field 'acqinfo_ssm', label: 'Acquisition Information'
+    config.add_component_field 'appraisal_ssm', label: 'Appraisal Information'
+    config.add_component_field 'custodhist_ssm', label: 'Custodial History'
+    config.add_component_field 'processinfo_ssm', label: 'Processing Information'
     config.add_component_field 'accessrestrict_ssm', label: 'Restrictions'
     config.add_component_field 'parent_access_restrict_ssm', label: 'Parent Restrictions'
     config.add_component_field 'userestrict_ssm', label: 'Terms of Access'
@@ -231,6 +238,7 @@ class CatalogController < ApplicationController
       two_words_connector: '<br/>',
       last_word_connector: '<br/>'
     }
+    config.add_component_field 'prefercite_ssm', label: 'Preferred Citation'
 
     # Collection Show Page - Indexed Terms Section
     config.add_component_indexed_terms_field 'access_subjects_ssim', label: 'Subjects', :link_to_facet => true, separator_options: {
@@ -282,6 +290,7 @@ class CatalogController < ApplicationController
     config.add_background_field 'scopecontent_ssm', label: 'Scope and Content', helper_method: :paragraph_separator
     config.add_background_field 'bioghist_ssm', label: 'Biographical / Historical', helper_method: :paragraph_separator
     config.add_background_field 'acqinfo_ssm', label: 'Acquisition information', helper_method: :paragraph_separator
+    config.add_background_field 'arrangement_ssm', label: 'Arrangement', helper_method: :paragraph_separator
     config.add_background_field 'appraisal_ssm', label: 'Appraisal information', helper_method: :paragraph_separator
     config.add_background_field 'custodhist_ssm', label: 'Custodial history', helper_method: :paragraph_separator
     config.add_background_field 'processinfo_ssm', label: 'Processing information', helper_method: :paragraph_separator
