@@ -67,10 +67,10 @@ gem 'devise', '~> 4.7.1'
 gem 'devise-guests', '~> 0.6'
 gem "font-awesome-rails"
 
-gem "rack-cors"
+gem "rack-cors", ">= 1.0.4"
 
 gem "ffi", "~> 1.9.24"
-gem "loofah", "~> 2.2.3"
+gem "loofah", "~> 2.3.1"
 gem "rubyzip", "~> 1.2.2"
 gem "rails-html-sanitizer", "~> 1.0.4"
 gem "sanitize", "~> 4.6.3"
