@@ -71,7 +71,7 @@ gem "rack-cors", ">= 1.0.4"
 
 gem "ffi", "~> 1.9.24"
 gem "loofah", "~> 2.3.1"
-gem "rubyzip", "~> 1.2.2"
+gem "rubyzip", ">= 1.3.0"
 gem "rails-html-sanitizer", "~> 1.0.4"
 gem "sanitize", "~> 4.6.3"
 gem "sprockets", "~> 3.7.2"
