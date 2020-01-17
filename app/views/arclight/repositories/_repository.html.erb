@@ -46,7 +46,7 @@
               <!-- replaced arclight A-Z lists with static pages -->
               <%# link_to_unless(params[:id] == repository.slug, repository.name, arclight_engine.repository_path(repository.slug)) %>
               <% if repository.slug == "ua" %>
-                <%= link_to_unless(params[:id] == repository.slug, repository.name, "https://library.albany.edu/archive/ua") %>
+                <%= link_to_unless(params[:id] == repository.slug, repository.name, "https://archives.albany.edu/web/ua") %>
               <% elsif repository.slug == "ndpa" %>
                 <%= link_to_unless(params[:id] == repository.slug, repository.name, "https://archives.albany.edu/browse/91.html") %>
               <% else %>
