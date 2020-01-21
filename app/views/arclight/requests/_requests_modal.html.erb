@@ -58,6 +58,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <%= form_tag "https://archives.albany.edu/web/reference", method: :get, class: 'al-request-form' do |f| %>
+          <input type="hidden" name="visit" value="true">
           <% google_form.form_mapping.each do |key, value| %>
             <%= hidden_field_tag value, google_form.send(key) %>
           <% end %>
