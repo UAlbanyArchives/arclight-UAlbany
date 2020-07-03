@@ -7,7 +7,7 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.6.2'
+gem 'rails', '~> 5.2.4.3'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -53,10 +53,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'blacklight', github: 'projectblacklight/blacklight'
-gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit'
+gem 'blacklight', github: 'projectblacklight/blacklight', ref: 'c56fefa83e32'
+gem 'blacklight_range_limit', '7.0.0.rc2'
 #gem 'blacklight_range_limit', github: 'projectblacklight/blacklight_range_limit', branch: 'blacklight-7'
-gem 'arclight', github: 'sul-dlss/arclight'
+gem 'arclight', '0.1.3'
 group :development, :test do
   gem 'solr_wrapper', '>= 0.3'
 end
