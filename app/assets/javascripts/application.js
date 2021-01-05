@@ -10,18 +10,20 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery3
 //= require rails-ujs
+//= require activestorage
+//= require turbolinks
 //
-
-//= require tether
 // Required by Blacklight
-//= require jquery
+//= require popper
+// Twitter Typeahead for autocomplete
+//= require twitter/typeahead
+//= require bootstrap
 //= require blacklight/blacklight
-//= require bootstrap/scrollspy
-
-//= require bootstrap/tab
-//= require headerAffix
-//= require displayHyraxDaos
+// Required by Arclight
+//= require arclight/arclight
+//= require stickyfill
 
 //= require_tree .
 
@@ -30,11 +32,3 @@
 // this:
 //= require 'blacklight_range_limit'
 
-$(document).ready(function () {
-    $('#al-date-range-histogram-content').on('hide.bs.collapse', function () {
-	  $('#date-range-icon').children('i').removeClass("fa-arrow-up").addClass("fa-arrow-down")
-	})
-	$('#al-date-range-histogram-content').on('show.bs.collapse', function () {
-	  $('#date-range-icon').children('i').removeClass("fa-arrow-down").addClass("fa-arrow-up")
-	})
-});

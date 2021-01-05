@@ -1,18 +1,13 @@
-GIT
-  remote: https://github.com/projectblacklight/blacklight.git
-  revision: c56fefa83e32d71a0422dd83c98004367d2c33b3
-  ref: c56fefa83e32
+PATH
+  remote: /var/www/arclight
   specs:
-    blacklight (7.0.0.alpha)
-      bootstrap (~> 4.0)
-      deprecation
-      globalid
-      jbuilder
-      kaminari (>= 0.15)
-      nokogiri (~> 1.6)
-      popper_js
-      rails (~> 5.0)
-      twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
+    arclight (0.3.3)
+      blacklight (~> 7.2)
+      blacklight_range_limit (~> 7.1)
+      rails (>= 5.2.3, < 6.1)
+      sprockets-bumble_d
+      traject (~> 3.0)
+      traject_plus (~> 1.2)
 
 GEM
   remote: https://rubygems.org/
@@ -60,35 +55,44 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
-    arclight (0.1.3)
-      blacklight
-      blacklight_range_limit
-      rails (~> 5.0)
-      solr_ead
+    archive-zip (0.12.0)
+      io-like (~> 0.3.0)
     arel (9.0.0)
-    autoprefixer-rails (9.8.4)
+    autoprefixer-rails (9.8.6.1)
       execjs
-    bcrypt (3.1.13)
+    bcrypt (3.1.15)
     bindex (0.8.1)
-    blacklight_range_limit (7.0.0.rc2)
-      blacklight
-      jquery-rails
-      rails (>= 3.0)
-      tether-rails
-    bootstrap (4.5.0)
+    blacklight (7.10.0)
+      deprecation
+      globalid
+      jbuilder (~> 2.7)
+      kaminari (>= 0.15)
+      rails (>= 5.1, < 7)
+      view_component
+    blacklight-locale_picker (0.2.0)
+      rails (>= 5.2.3, < 6.1)
+    blacklight_range_limit (7.9.0)
+      blacklight (~> 7.0)
+    bootsnap (1.4.7)
+      msgpack (~> 1.0)
+    bootstrap (4.5.2)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 1.14.3, < 2)
       sassc-rails (>= 2.0.0)
     builder (3.2.4)
     byebug (11.1.3)
-    capybara (2.18.0)
+    capybara (3.33.0)
       addressable
       mini_mime (>= 0.1.3)
-      nokogiri (>= 1.3.3)
-      rack (>= 1.0.0)
-      rack-test (>= 0.5.4)
-      xpath (>= 2.0, < 4.0)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      regexp_parser (~> 1.5)
+      xpath (~> 3.2)
     childprocess (3.0.0)
+    chromedriver-helper (2.1.1)
+      archive-zip (~> 0.10)
+      nokogiri (~> 1.8)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -96,9 +100,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.7)
     crass (1.0.6)
-    daemons (1.3.1)
     deprecation (1.0.0)
       activesupport
     devise (4.7.2)
@@ -109,23 +112,43 @@ GEM
       warden (~> 1.2.3)
     devise-guests (0.7.0)
       devise
+    domain_name (0.5.20190701)
+      unf (>= 0.0.5, < 1.0.0)
+    dot-properties (0.1.3)
     erubi (1.9.0)
     execjs (2.7.0)
     faraday (1.0.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.25)
-    font-awesome-rails (4.7.0.5)
-      railties (>= 3.2, < 6.1)
+    ffi (1.13.1)
+    ffi-compiler (1.0.1)
+      ffi (>= 1.0.0)
+      rake
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    i18n (1.8.3)
+    hashie (4.1.0)
+    http (4.4.1)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.2)
+      http-parser (~> 1.2.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (2.3.0)
+    http-parser (1.2.1)
+      ffi-compiler (>= 1.0, < 2.0)
+    httpclient (2.8.3)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    io-like (0.3.1)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     jquery-rails (4.4.0)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jsonpath (1.0.5)
+      multi_json
+      to_regexp (~> 0.2.1)
     kaminari (1.2.1)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.1)
@@ -142,11 +165,16 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.3.1)
+    loofah (2.6.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
+    marc (1.0.4)
+      scrub_rb (>= 1.0.1, < 2)
+      unf
+    marc-fastxmlwriter (1.0.0)
+      marc (~> 1.0)
     marcel (0.3.3)
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
@@ -154,24 +182,17 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.14.1)
+    msgpack (1.3.3)
+    multi_json (1.15.0)
     multipart-post (2.1.1)
     nio4r (2.5.2)
-    nokogiri (1.10.9)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    nokogumbo (2.0.2)
-      nokogiri (~> 1.8, >= 1.8.4)
-    om (3.2.0)
-      activemodel (>= 5.1, < 7)
-      activesupport
-      nokogiri (>= 1.4.2)
-      solrizer (~> 3.3)
     orm_adapter (0.5.0)
     popper_js (1.16.0)
     public_suffix (4.0.5)
     puma (3.12.6)
     rack (2.2.3)
-    rack-cors (1.1.1)
-      rack (>= 2.0.0)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.4.3)
@@ -190,8 +211,8 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
-    rails-html-sanitizer (1.0.4)
-      loofah (~> 2.2, >= 2.2.2)
+    rails-html-sanitizer (1.3.0)
+      loofah (~> 2.3)
     railties (5.2.4.3)
       actionpack (= 5.2.4.3)
       activesupport (= 5.2.4.3)
@@ -202,6 +223,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    regexp_parser (1.7.1)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -212,10 +234,6 @@ GEM
     ruby-progressbar (1.10.1)
     ruby_dep (1.5.0)
     rubyzip (2.3.0)
-    sanitize (5.2.1)
-      crass (~> 1.0.2)
-      nokogiri (>= 1.8.0)
-      nokogumbo (~> 2.0)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -235,25 +253,17 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    schmooze (0.1.6)
+    scrub_rb (1.0.1)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
-    solr_ead (0.8.2)
-      om (>= 3.0.0, < 4)
-      rsolr
-      sanitize
-      solrizer (>= 3.1.0, < 4)
+    slop (3.6.0)
     solr_wrapper (2.2.0)
       faraday
       retriable
       ruby-progressbar
       rubyzip
-    solrizer (3.4.1)
-      activesupport
-      daemons
-      nokogiri
-      stomp
-      xml-simple
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -261,17 +271,38 @@ GEM
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
+    sprockets-bumble_d (2.2.0)
+      railties (>= 4.2.0, < 7.0)
+      schmooze (= 0.1.6)
+      sprockets (~> 3.5)
     sprockets-rails (3.2.1)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
-    stomp (1.4.9)
-    tether-rails (1.4.0)
-      rails (>= 3.1)
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
+    to_regexp (0.2.1)
+    traject (3.4.0)
+      concurrent-ruby (>= 0.8.0)
+      dot-properties (>= 0.1.1)
+      hashie (>= 3.1, < 5)
+      http (>= 3.0, < 5)
+      httpclient (~> 2.5)
+      marc (~> 1.0)
+      marc-fastxmlwriter (~> 1.0)
+      nokogiri (~> 1.9)
+      slop (>= 3.4.5, < 4.0)
+      yell
+    traject_plus (1.3.0)
+      activesupport
+      deprecation
+      jsonpath
+      traject (~> 3.0)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     twitter-typeahead-rails (0.11.1.pre.corejavascript)
       actionpack (>= 3.1)
       jquery-rails
@@ -280,6 +311,11 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.7)
+    view_component (2.18.0)
+      activesupport (>= 5.0.0, < 7.0)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -287,50 +323,48 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    websocket-driver (0.7.2)
+    websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    xml-simple (1.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    yell (2.2.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  arclight (= 0.1.3)
-  blacklight!
-  blacklight_range_limit (= 7.0.0.rc2)
-  bootstrap (>= 4.3.1)
+  arclight!
+  blacklight-locale_picker
+  blacklight_range_limit (~> 7.1)
+  bootsnap (>= 1.1.0)
+  bootstrap (~> 4.0)
   byebug
-  capybara (~> 2.13)
+  capybara (>= 2.15)
+  chromedriver-helper
   coffee-rails (~> 4.2)
-  devise (~> 4.7.1)
+  devise
   devise-guests (~> 0.6)
-  ffi (~> 1.9.24)
-  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
-  loofah (~> 2.3.1)
-  puma (~> 3.12)
-  rack (>= 2.0.8)
-  rack-cors (>= 1.0.4)
-  rails (~> 5.2.4.3)
-  rails-html-sanitizer (~> 1.0.4)
-  rsolr (>= 1.0)
-  rubyzip (>= 1.3.0)
-  sanitize (~> 5.2.1)
+  puma (~> 3.11)
+  rails (~> 5.2.4, >= 5.2.4.3)
+  rsolr (>= 1.0, < 3)
   sass-rails (~> 5.0)
   selenium-webdriver
   solr_wrapper (>= 0.3)
   spring
   spring-watcher-listen (~> 2.0.0)
-  sprockets (~> 3.7.2)
   sqlite3
+  turbolinks (~> 5)
+  twitter-typeahead-rails (= 0.11.1.pre.corejavascript)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
 
+RUBY VERSION
+   ruby 2.6.5p114
+
 BUNDLED WITH
-   1.16.6
+   1.17.2
