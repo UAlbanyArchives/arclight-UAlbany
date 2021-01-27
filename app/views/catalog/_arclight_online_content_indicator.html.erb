@@ -1,8 +1,0 @@
-<% if document.online_content? %>
-  <span class='badge badge-success'>
-    <%= t(:'arclight.views.online_content_indicator') %>
-  </span>
-<% end %>
-<% if document["accessrestrict_ssm"].present? and document.level != "collection" %>
-  <span class="badge badge-danger">Restricted</span>
-<% end %>

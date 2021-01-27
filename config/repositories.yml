@@ -1,85 +1,60 @@
-apap:
-  name: 'New York State Modern Political Archive'
-  tagline: 'Elected officials, interest groups, and activists from New York State.'
-  description: 'The New York State Modern Political Archive (NYSMPA) was established in 1982 to document the work of individuals and private interest groups concerned with New York State public policy issues in the 20th century. Originally named the Archives of Public Affairs and Policy, the NYSMPA collects, preserves, and facilitates access to primary sources pertaining to New York State public affairs and policy, and now includes the personal papers of members of the gubernatorial administrations of Nelson A. Rockefeller; papers of former New York Congressional members and elected officials who served in New York State Legislature; and the official records and papers of numerous private groups, professional associations, individuals, public-sector labor unions, community groups, and other organizations concerned with Empire State public-policy issues.'
-  building: 'M.E. Grenander Department of Special Collections & Archives'
-  address1: 'Science Library SL350'
-  address2: '1400 Washington Ave'
-  city: 'Albany'
-  state: 'NY'
-  zip: '12222'
-  country: ''
-  phone: '(518) 437-3935'
-  contact_info: ''
-  visit_note: ''
-  thumbnail_url: 'https://archives.albany.edu/web/img/700/mpa700.jpg'
-  google_request_url: 'https://archives.albany.edu/web/reference'
-  google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
-ndpa:
-  name: 'National Death Penalty Archive'
-  tagline: 'Researchers, writers, activists, and records on capital punishment in the United States.'
-  description: "The National Death Penalty Archive (NDPA) is a partnership between the University at Albany Libraries and the Capital Punishment Research Initiative (CPRI) at the University's School of Criminal Justice. In 1999, researchers at the School of Criminal Justice formally established the CPRI. Its overarching goals were research and education -- initiate capital punishment research activities, facilitate collaboration among researchers, and make findings and information available to legal and criminal justice policymakers, practitioners, and the public. One of the original goals of the CPRI was to establish and maintain a collection of archival materials documenting the important history of capital punishment, and to provide resources for historical scholarship. This growing collection of archival materials is housed in the M.E. Grenander Department of Special Collections and Archives, which is located in the University's state of the art Science Library. Open since 1999, the new archival repository includes climate-controlled storage for more than 25,000 cubic feet. The following collections have been acquired for the NDPA through the collaborative efforts of the CPRI and the University Libraries; work is continuing to build this important link to the history of capital punishment in the United States."
-  building: 'M.E. Grenander Department of Special Collections & Archives'
-  address1: 'Science Library SL350'
-  address2: '1400 Washington Ave'
-  city: 'Albany'
-  state: 'NY'
-  zip: '12222'
-  country: ''
-  phone: '(518) 437-3935'
-  contact_info: ''
-  visit_note: ''
-  thumbnail_url: 'https://archives.albany.edu/web/img/700/ndpa700.jpg'
-  google_request_url: 'https://archives.albany.edu/web/reference'
-  google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
-ger:
-  name: 'German and Jewish Intellectual Émigré Collections'
-  tagline: 'Personal and professional papers of German-speaking Émigré in the social sciences, humanities, and the arts and the organizations which assisted those who fled the Nazi regime.'
-  description: "In recognition of the serious scholarly interest in the mass migration of German speaking exiles from the Nazi regime, a German and Jewish Intellectual Émigré Collection was established in 1976 at the University at Albany, State University of New York. This growing collection has been developed since the 1970s through the efforts of the University Libraries and Professor John M. Spalek of the University's Germanic and Slavic Languages and Literature Department"
-  building: 'M.E. Grenander Department of Special Collections & Archives'
-  address1: 'Science Library SL350'
-  address2: '1400 Washington Ave'
-  city: 'Albany'
-  state: 'NY'
-  zip: '12222'
-  country: ''
-  phone: '(518) 437-3935'
-  contact_info: ''
-  visit_note: ''
-  thumbnail_url: 'https://archives.albany.edu/web/img/700/jewish_unityArclight.jpg'
-  google_request_url: 'https://archives.albany.edu/web/reference'
-  google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
-mss:
-  name: 'Business, Literary, and Local History Manuscripts'
-  tagline: 'Manuscripts, records, and papers primarily related to businesses and people of New York and New England.'
-  description: "Chiefly 19th-century New York and New England local history manuscripts and business records, primarily for craftsmen and railroads; papers of children's book writer and illustrator Marcia J. Brown and two original manuscripts by Maud and Miska Petersham; papers of Pulitzer Prize-winning author William Kennedy; papers of Anthony Ashley Cooper, the 19th century social reformer; and papers of Benito Perez Galdos, Gonzalo Torrente Ballester, Evengi Zamyatin, and other writers."
-  building: 'M.E. Grenander Department of Special Collections & Archives'
-  address1: 'Science Library SL350'
-  address2: '1400 Washington Ave'
-  city: 'Albany'
-  state: 'NY'
-  zip: '12222'
-  country: ''
-  phone: '(518) 437-3935'
-  contact_info: ''
-  visit_note: ''
-  thumbnail_url: 'https://archives.albany.edu/web/img/700/mss700.jpg'
-  google_request_url: 'https://archives.albany.edu/web/reference'
-  google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
-ua:
-  name: 'University Archives'
-  tagline: 'Records that document the history of the University at Albany, SUNY and its predecessor schools.'
-  description: 'The University Archives documents the history of the University at Albany, SUNY from its origin in 1844 as the New York State Normal School to train teachers for New York State to its present status as a comprehensive research university. The department collects, manages, and provides access to permanent university records for research use. This includes the administrative records of the university, student groups, faculty, alumni, and affiliated organizations. Collecting and preserving university records documents our history and promotes transparency and accountability.'
-  building: 'M.E. Grenander Department of Special Collections & Archives'
-  address1: 'Science Library SL350'
-  address2: '1400 Washington Ave'
-  city: 'Albany'
-  state: 'NY'
-  zip: '12222'
-  country: ''
-  phone: '(518) 437-3935'
-  contact_info: ''
-  visit_note: ''
-  thumbnail_url: 'https://archives.albany.edu/web/img/700/stateSt700.jpg'
-  google_request_url: 'https://archives.albany.edu/web/reference'
-  google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
+nlm:
+  name: 'National Library of Medicine. History of Medicine Division'
+  description: 'NLM’s History of Medicine Division collects, preserves, makes available, and interprets for diverse audiences one of the world’s richest collections of historical material related to human health and disease.'
+  building: 'Building 38, Room 1E-21'
+  address1: '8600 Rockville Pike'
+  address2: ''
+  city: 'Bethesda'
+  state: 'MD'
+  zip: '20894'
+  country: 'USA'
+  phone: ''
+  contact_info: 'hmdref@nlm.nih.gov'
+  thumbnail_url: "https://collections.nlm.nih.gov/pageturnerserver/ajaxp?theurl=http://localhost:8080/fedora/get/nlm:nlmuid-101421040-img/THUMB"
+  request_types:
+    google_form:
+      request_url: 'https://docs.google.com/a/stanford.edu/forms/d/e/1FAIpQLSeOamhY_IcFw4sPnz0ddwWWkrPaHbM5wp7JVbOLOL_mIusEyw/viewform'
+      request_mappings: "document_url=entry.1980510262&collection_name=entry.619150170&collection_creator=entry.14428541&eadid=entry.996397105&containers=entry.1125277048&title=entry.862815208"
+sul-spec:
+  name: 'Stanford University Libraries. Special Collections and University Archives'
+  visit_note: 'Special Collections and University Archives materials are stored offsite and must be paged 36 hours in advance.'
+  description: 'The Special Collections and University Archives Department of Stanford University Libraries is committed to acquiring, preserving, and providing access to primary source materials that support the research needs of the Stanford community and beyond. There are three distinct divisions in our department: Manuscripts, Rare Books and University Archives. We welcome all students, scholars and members of the general public to the Field Reading Room. Learn more about using and accessing our collections.'
+  building: 'Green Library'
+  address1: '557 Escondido Mall'
+  address2: ''
+  city: 'Stanford'
+  state: 'CA'
+  zip: '94305'
+  country: 'USA'
+  phone: '(650) 725-1022'
+  contact_info: 'specialcollections@stanford.edu'
+  thumbnail_url: 'https://library.stanford.edu/sites/default/files/styles/150x150/public/collection/image/Collections-Super-Enlight.jpg'
+  request_types:
+    aeon_web_ead:
+      request_url: 'https://sample.request.com'
+      request_mappings: 'Action=10&Form=31&Value=ead_url'
+umich-bhl:
+  name: 'University of Michigan. Bentley Historical Library'
+  description: 'The Bentley Historical Library collects the materials for and promotes the study of the histories of two great, intertwined institutions, the State of Michigan and the University of Michigan. The Library is open without fee to the public, and we welcome researchers regardless of academic or professional affiliation.'
+  building: ''
+  address1: '1150 Beal Ave'
+  address2: ''
+  city: 'Ann Arbor'
+  state: 'MI'
+  zip: '48109-2113'
+  country: 'USA'
+  phone: ''
+  contact_info: 'bentley.ref@umich.edu'
+  thumbnail_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Bhlexterior.jpg/150px-Bhlexterior.jpg'
+  request_types:
+    aeon_external_request_endpoint:
+      request_url: https://example.com/aeon/aeon.dll
+      request_mappings:
+        url_params:
+          Action: 11
+          Type: 200
+        static:
+          SystemId: ArcLight
+          ItemInfo1: manuscript
+        accessor:
+          ItemTitle: collection_name
