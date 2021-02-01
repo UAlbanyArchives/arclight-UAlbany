@@ -37,8 +37,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Main dependancies
-gem 'arclight', '~> 0.3.3' #github: 'sul-dlss/arclight'
-gem 'blacklight_range_limit', '~> 7.1'
+gem 'arclight', '~> 0.4.0' #github: 'sul-dlss/arclight'
+gem 'blacklight', '~> 7.10'
+gem 'blacklight_range_limit', '~> 7.9'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

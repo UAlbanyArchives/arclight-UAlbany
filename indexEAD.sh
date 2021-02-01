@@ -1,0 +1,1 @@
+traject -u https://solr2020.library.albany.edu:8984/solr/arclight-0.4.0 -i xml -c /home/railsdev/.rvm/gems/ruby-2.6.5@arclight-test/gems/arclight-0.4.0/lib/arclight/traject/ead2_config.rb /media/SPE/collections/ua/ua804.xml
