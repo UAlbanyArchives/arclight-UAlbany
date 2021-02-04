@@ -9,15 +9,14 @@
         <%# Collection Overview Nav    %>
         <%# ========================== %>
         <%# Adapted from:%>
+        <%#  https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/views/catalog/_show_default.html.erb  HT Sean Aery %>
         <%#  https://github.com/projectblacklight/arclight/blob/master/app/views/catalog/_collection_context_nav.html.erb %>
 
 
         <div id="collection-actions" class="actions-wrapper">
           <div class="al-show-actions">
-            <h3>
-              <i class="fas fa-archive"></i> Collection
-            </h3>
             <div class="sidebar-collection-title">
+                <i class="fas fa-archive"></i>
                 <%= link_to solr_document_path(normalize_id(document.eadid)) do %>
                   <h5 class="collection-name"><%= document.collection_name %></h5>
                 <% end %>
@@ -44,18 +43,8 @@
                       ].join, class: 'nav-link', data: { turbolinks: 'false' }
                     %>
                   </li>
-                <% end %>
 
-                <%# Manually adding 'Contents' nav link. We want the link in the sidebar but the %>
-                <%# actual 'contents' section is detached from the show.metadata_partials config. %>
-                <li class='nav-item'>
-                  <%= link_to t("arclight.views.show.sections.contents"),
-                      [
-                        solr_document_path(normalize_id(document.eadid)),
-                        "##{t("arclight.views.show.sections.contents").parameterize}"
-                      ].join, class: 'nav-link', data: { turbolinks: 'false' }
-                    %>
-                </li>
+                <% end %>
 
                 <%# Manually adding 'using' nav link. We want the link in the sidebar but the %>
                 <%# actual 'using' section is detached from the show.metadata_partials config. %>
@@ -67,6 +56,7 @@
                       ].join, class: 'nav-link', data: { turbolinks: 'false' }
                     %>
                 </li>
+                
               <% end %>
             </ul>
           </nav>
@@ -76,13 +66,14 @@
           <%# ========================= %>
           <%# Hierarchy Tree Navigation %>
           <%# ========================= %>
-          <% if document.children? or document.parent_ids.present? %>
+          <% if document.level == 'collection' %>
             <hr/>
             <div id="context-tree-nav" role="navigation" aria-label="Navigate the collection contents" class="hierarchy-nav-wrapper top-children-count-<%= collection_doc(document).number_of_children %>">
-              <h2 class="navigate-header">
-                <i class="fas fa-map-marker-alt"></i> Navigate this collection
-                <%# t("arclight.views.show.context") %>
-              </h2>
+              <%= render 'collection_contents' %>
+            </div>
+          <% elsif document.children? or document.parent_ids.present? %>
+            <hr/>
+            <div id="context-tree-nav" role="navigation" aria-label="Navigate the collection contents" class="hierarchy-nav-wrapper top-children-count-<%= collection_doc(document).number_of_children %>">
               <%= render 'component_context' %>
             </div>
           <% end %>

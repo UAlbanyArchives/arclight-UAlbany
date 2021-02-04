@@ -16,12 +16,15 @@
     <% end %>
 
     <% if document.online_content? %>
-      <%= render partial: 'collection_online_contents', locals: { document: document }  %>
+      <div class="alert alert-success" role="alert">
+        Online Content!
+      </div>
+      <%# render partial: 'collection_online_contents', locals: { document: document }  %>
     <% end %>
 
     <%= render 'collection_context' %>
 
-    <%= render 'collection_contents' %>
+    <%# render 'collection_contents' %>
 
   </div>
 
