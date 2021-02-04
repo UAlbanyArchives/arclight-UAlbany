@@ -1,0 +1,23 @@
+<% content_for(:content) do %>
+
+  <% if content_for? :sidebar %>
+    <section id="content" class="<%= show_content_classes %>">
+      <%= render partial: 'grenander/search_source' %>
+      <%= yield %>
+    </section>
+
+    <section id="sidebar" class="<%= show_sidebar_classes %>">
+      <div class="shrink-search-options">
+        <%= render partial: 'grenander/source_options' %>
+  	  </div>
+      <%= content_for(:sidebar) %>
+    </section>
+  <% else %>
+    <section class="col-md-12">
+      <%= yield %>
+    </section>
+  <% end %>
+<% end %>
+
+
+<%= render template: "layouts/blacklight/base" %>

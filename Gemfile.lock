@@ -1,3 +1,29 @@
+GIT
+  remote: https://github.com/sul-dlss/arclight.git
+  revision: f9b61c2cf12ced0fd1996fd96401fd7923782691
+  ref: f9b61c2cf12ced0fd1996fd96401fd7923782691
+  specs:
+    arclight (0.4.0)
+      blacklight (~> 7.2)
+      blacklight_range_limit (~> 7.1)
+      rails (>= 5.2.3, < 6.2)
+      sprockets-bumble_d
+      traject (~> 3.0)
+      traject_plus (~> 1.2)
+
+PATH
+  remote: grenander
+  specs:
+    grenander (1.2.0)
+      bootstrap (>= 4.3.1)
+      d3-rails
+      font-awesome-rails
+      font-awesome-sass (~> 4.6.2)
+      jquery-rails
+      lodash-rails
+      quick_search-core (~> 0.1)
+      rails (~> 5.2.4, >= 5.2.4.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,13 +72,6 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
-    arclight (0.4.0)
-      blacklight (~> 7.2)
-      blacklight_range_limit (~> 7.1)
-      rails (>= 5.2.3, < 6.2)
-      sprockets-bumble_d
-      traject (~> 3.0)
-      traject_plus (~> 1.2)
     arel (9.0.0)
     autoprefixer-rails (10.2.0.0)
       execjs
@@ -100,6 +119,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.8)
     crass (1.0.6)
+    d3-rails (5.9.2)
+      railties (>= 3.1)
     deprecation (1.1.0)
       activesupport
     devise (4.7.3)
@@ -120,10 +141,15 @@ GEM
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     faraday-net_http (1.0.1)
+    fastimage (2.2.2)
     ffi (1.14.2)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    font-awesome-rails (4.7.0.6)
+      railties (>= 3.2, < 6.2)
+    font-awesome-sass (4.6.2)
+      sass (>= 3.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -165,6 +191,8 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
+    lodash-rails (4.17.15)
+      railties (>= 3.1)
     loofah (2.9.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -182,9 +210,11 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
     minitest (5.14.3)
+    modernizr-rails (2.7.1)
     msgpack (1.4.1)
     multi_json (1.15.0)
     multipart-post (2.1.1)
+    mysql2 (0.5.3)
     nio4r (2.5.4)
     nokogiri (1.11.1)
       mini_portile2 (~> 2.5.0)
@@ -194,6 +224,14 @@ GEM
     popper_js (1.16.0)
     public_suffix (4.0.6)
     puma (3.12.6)
+    quick_search-core (0.2.0)
+      fastimage
+      httpclient
+      kaminari
+      modernizr-rails
+      mysql2
+      nokogiri
+      rails (~> 5.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -334,8 +372,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  arclight (~> 0.4.0)
-  blacklight (~> 7.10)
+  arclight!
   blacklight-locale_picker
   blacklight_range_limit (~> 7.9)
   bootsnap (>= 1.1.0)
@@ -346,6 +383,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-guests (~> 0.6)
+  grenander!
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)

@@ -1,0 +1,11 @@
+<% unless has_search_parameters? %>
+  <%= render 'home' %>
+<% else %>
+  <% content_for(:sidebar) do %>
+  	<%# render partial: 'grenander/source_options' %>
+    <%= render 'search_sidebar' %>
+  <% end %>
+  <%# render partial: 'grenander/search_source' %>
+  <%# render 'constraints' %>
+  <%= render 'search_results' %>
+<% end %>

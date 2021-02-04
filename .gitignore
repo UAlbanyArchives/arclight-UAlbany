@@ -21,6 +21,10 @@ config/secrets.yml
 config/initializers/secret_token.rb
 config/master.key
 
+# If Grenander styling is local
+grenander/
+grenander/*
+
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
 .env

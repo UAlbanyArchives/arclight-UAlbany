@@ -17,4 +17,8 @@
  * Used by blacklight_range_limit
  *= require  'blacklight_range_limit'
  *
+ *= require  'grenander/navbar'
+ *= require  'grenander/search-source'
+ *= require  'grenander/footer'
+ *= require  'grenander/main'
 */

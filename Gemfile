@@ -37,9 +37,12 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Main dependancies
-gem 'arclight', '~> 0.4.0' #github: 'sul-dlss/arclight'
-gem 'blacklight', '~> 7.10'
+#gem 'arclight', '~> 0.4.0'
+gem 'arclight', github: 'sul-dlss/arclight', ref: 'f9b61c2cf12ced0fd1996fd96401fd7923782691'
 gem 'blacklight_range_limit', '~> 7.9'
+
+# UAlbany Styling
+gem 'grenander', path: 'grenander'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
