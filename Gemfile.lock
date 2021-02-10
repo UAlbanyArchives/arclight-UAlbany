@@ -383,6 +383,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   devise-guests (~> 0.6)
+  font-awesome-rails
   grenander!
   jbuilder (~> 2.5)
   jquery-rails

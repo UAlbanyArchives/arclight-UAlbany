@@ -17,4 +17,19 @@ class SolrDocument
   # and Blacklight::Document::SemanticFields#to_semantic_values
   # Recommendation: Use field names from Dublin Core
   use_extension(Blacklight::Document::DublinCore)
+
+  # HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/models/solr_document.rb
+  # DUL CUSTOMIZATION: Capture last indexed date
+  def last_indexed
+    fetch('timestamp', '')
+  end
+  def total_component_count
+    first('total_component_count_isim') || 0
+  end
+  # This count includes all descendant components' DAOs
+  def total_digital_object_count
+    first('total_digital_object_count_isim') || 0
+  end
+
+
 end

@@ -16,5 +16,13 @@
       <% end %>
     <% end %>
     <!-- removed tabs -->
+
+    <% if document.children? %>
+      <hr/>
+      <div id="context-tree-nav" role="navigation" aria-label="Navigate the collection contents" class="hierarchy-nav-wrapper top-children-count-<%= collection_doc(document).number_of_children %>">
+        <%# render 'component_context' %>
+      </div>
+    <% end %>
+
   </div>
 </div>

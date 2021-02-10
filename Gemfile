@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 #gem 'arclight', '~> 0.4.0'
 gem 'arclight', github: 'sul-dlss/arclight', ref: 'f9b61c2cf12ced0fd1996fd96401fd7923782691'
 gem 'blacklight_range_limit', '~> 7.9'
+gem 'font-awesome-rails'
 
 # UAlbany Styling
 gem 'grenander', path: 'grenander'

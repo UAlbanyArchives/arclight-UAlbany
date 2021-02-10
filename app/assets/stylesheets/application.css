@@ -22,3 +22,52 @@
  *= require  'grenander/footer'
  *= require  'grenander/main'
 */
+
+/* HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/assets/stylesheets/dul-arclight/modules/layout.scss */
+/* Sticky navigation for sidebar */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  @include media-breakpoint-down(sm) {
+    position: static;
+  }
+}
+.sidebar-scroll-wrapper {
+   /* viewport height minus height of the collections info box, ~170px */
+  height: calc(100vh - 125px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include media-breakpoint-down(sm) {
+    border: 1px solid #eee;
+    padding: 1em;
+  }
+}
+
+
+#sidebar .shrink-search-options {
+	display: none;
+}
+.sticky-nav .card-body #collection-actions {
+	display: none;
+}
+.sticky-nav .card-body .mobile-heading {
+	display: block;
+}
+.sticky-nav .sidebar-scroll-wrapper #about-collection-nav {
+	display: none;
+}
+
+@media (min-width: 992px) {
+	#sidebar .shrink-search-options {
+		display: block;
+	}
+	.sticky-nav .card-body #collection-actions {
+		display: block;
+	}
+	.sticky-nav .card-body .mobile-heading {
+		display: none;
+	}
+	.sticky-nav .sidebar-scroll-wrapper #about-collection-nav {
+		display: block;
+	}
+}

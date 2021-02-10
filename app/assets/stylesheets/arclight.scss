@@ -1,3 +1,28 @@
 /*
 *= require arclight/application
 */
+
+@import "font-awesome";
+
+.blacklight-catalog-index #appliedParams {
+  margin-bottom: 0.5 !important;
+}
+
+.al-toggle-children-container {
+    margin-left: 0rem;
+}
+
+#sidebar {
+	z-index: 1;
+}
+
+.sidebar-collection-title {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.sidebar-collection-title a .collection-name {
+	margin-bottom: 0rem;
+	margin-left: 0.75rem;
+}

@@ -19,11 +19,21 @@ module ApplicationHelper
   end
   
   def show_content_classes
-    'show-document col-md-7 col-lg-8 order-md-2'
+    'show-document col-md-12 col-lg-8 order-lg-2'
+  end
+  def custom_show_content_classes
+    'show-document col-md-12 col-lg-8 order-lg-2'
   end
 
   def show_sidebar_classes
-    'page-sidebar col-md-5 col-lg-4 order-md-1'
+    'page-sidebar col-md-12 col-lg-4 order-lg-1'
   end
+
+  #HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/helpers/dul_arclight_helper.rb
+  def formatted_last_indexed(timestamp)
+    date = DateTime.parse(timestamp)
+    date.strftime('%F')
+  end
+
 
 end
