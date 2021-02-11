@@ -36,4 +36,25 @@ module ApplicationHelper
   end
 
 
+  # replaces generic_context_navigation in arclight_helper so that component show pages only list children instead of full context
+  def children_navigation(document, original_parents: [document.id])
+    content_tag(
+      :div,
+      '',
+      class: 'context-navigator',
+      data: {
+        collapse: I18n.t('arclight.views.show.collapse'),
+        expand: I18n.t('arclight.views.show.expand'),
+        arclight: {
+          path: search_catalog_path(hierarchy_context: 'component'),
+          name: document.collection_name,
+          view: 'child_components',
+          originalDocument: document.id,
+          originalParents: original_parents,
+          eadid: normalize_id(document.eadid)
+        }
+      }
+    )
+  end
+
 end

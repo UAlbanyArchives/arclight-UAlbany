@@ -384,6 +384,15 @@ class CatalogController < ApplicationController
     config.view.online_contents
     config.view.online_contents.display_control = false
 
+    # HT DUL Customization for listing children of components
+    # https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/controllers/catalog_controller.rb
+    # Child Components Index View
+    # Modeled after Online Contents
+    config.view.child_components
+    config.view.child_components.display_control = false
+    config.view.child_components.partials = %i[index_child_components]
+
+
     ##
     # Collection Context
     config.view.collection_context
