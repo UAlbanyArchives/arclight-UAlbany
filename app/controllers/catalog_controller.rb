@@ -401,7 +401,7 @@ class CatalogController < ApplicationController
 
     ##
     # Compact index view
-    config.view.compact
-    config.view.compact.partials = %i[arclight_index_compact]
+    #config.view.compact
+    #config.view.compact.partials = %i[arclight_index_compact]
   end
 end

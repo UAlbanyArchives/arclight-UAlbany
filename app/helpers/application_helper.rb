@@ -41,7 +41,7 @@ module ApplicationHelper
     content_tag(
       :div,
       '',
-      class: 'context-navigator',
+      class: 'al-contents child-components children-count-#{document.number_of_children}',
       data: {
         collapse: I18n.t('arclight.views.show.collapse'),
         expand: I18n.t('arclight.views.show.expand'),
