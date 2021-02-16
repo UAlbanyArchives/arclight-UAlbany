@@ -21,6 +21,9 @@
  *= require  'grenander/search-source'
  *= require  'grenander/footer'
  *= require  'grenander/main'
+
+ *= require  'show_component'
+ *= require  'context_navigation'
 */
 
 /* HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/assets/stylesheets/dul-arclight/modules/layout.scss */
@@ -44,30 +47,5 @@
 }
 
 
-#sidebar .shrink-search-options {
-	display: none;
-}
-.sticky-nav .card-body #collection-actions {
-	display: none;
-}
-.sticky-nav .card-body .mobile-heading {
-	display: block;
-}
-.sticky-nav .sidebar-scroll-wrapper #about-collection-nav {
-	display: none;
-}
-
 @media (min-width: 992px) {
-	#sidebar .shrink-search-options {
-		display: block;
-	}
-	.sticky-nav .card-body #collection-actions {
-		display: block;
-	}
-	.sticky-nav .card-body .mobile-heading {
-		display: none;
-	}
-	.sticky-nav .sidebar-scroll-wrapper #about-collection-nav {
-		display: block;
-	}
 }

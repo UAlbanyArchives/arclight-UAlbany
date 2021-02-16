@@ -1,0 +1,37 @@
+/* ===================================== */
+/* Styles for sidebar context navigation */
+/* ===================================== */
+/* HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/assets/stylesheets/dul-arclight/modules/context_navigation.scss */
+
+
+.al-hierarchy-highlight > .documentHeader {
+	background-color: #f8e1a5;
+}
+
+#context {
+
+  /*.card {
+	  background: #f6f6f6;
+	}*/
+
+  .context-navigator {
+    margin-top: 0rem;
+    .prev-siblings button { /* Expand & collapse */
+      width: 100%;
+      text-align: left;
+      text-transform: lowercase;
+      padding-left: 2.25rem;
+      background-color: #999;
+      border: none;
+      background-repeat: no-repeat;
+      background-size: 1rem auto;
+      background-position: 10px center;
+      /* expand/collapse icons used from DUL Arclight https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/tree/develop/app/assets/images/icons */
+      background-image: asset-url("icons/expand-white.svg");
+      &.collapsed {
+        background-image: asset-url("icons/collapse-white.svg");
+      }
+    }
+  }
+}
+

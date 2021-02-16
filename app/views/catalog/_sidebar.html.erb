@@ -11,15 +11,11 @@
         <%#  https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/views/catalog/_show_default.html.erb  HT Sean Aery %>
         <%#  https://github.com/projectblacklight/arclight/blob/master/app/views/catalog/_collection_context_nav.html.erb %>
 
-
-      <div class="card-body">
-        <div class="mobile-heading">
-          <h5 class="collection-name"><%= t('ua_arclight.views.show.sidebar.mobile_contents_label') %></h5>
-        </div>
+      <div class="title-card card-body">
         <div id="collection-actions" class="actions-wrapper">
           <div class="al-show-actions">
             <div class="sidebar-collection-title">
-                <i class="fa fa-archive"></i>
+                <!--<i class="fa fa-archive"></i>-->
                 <%= link_to solr_document_path(normalize_id(document.eadid)) do %>
                   <h5 class="collection-name"><%= document.collection_name %></h5>
                 <% end %>
@@ -27,7 +23,7 @@
             </div>
             <div class="d-flex mt-3">
               <div class="flex-fill">
-                <a class="btn btn-primary"><%= t('ua_arclight.views.show.sidebar.request_label') %></a>
+                <a class="btn btn-primary request-btn"><%= t('ua_arclight.views.show.sidebar.request_label') %></a>
               </div>
             </div>
           </div>

@@ -192,7 +192,7 @@ class CatalogController < ApplicationController
     # label in pulldown is followed by the name of the SOLR field to sort by and
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
-    config.add_sort_field 'score desc, title_sort asc', label: 'relevance'
+    config.add_sort_field 'score desc, sort_ii asc, title_sort asc', label: 'relevance'
     config.add_sort_field 'date_sort asc', label: 'date (ascending)'
     config.add_sort_field 'date_sort desc', label: 'date (descending)'
     config.add_sort_field 'creator_sort asc', label: 'creator (A-Z)'
@@ -257,7 +257,7 @@ class CatalogController < ApplicationController
     # ===========================
 
     # Collection Show Page - Summary Section
-    config.add_summary_field 'creators_ssim', label: 'Creator', link_to_facet: true
+    config.add_summary_field 'creator_ssim', label: 'Creator', link_to_facet: true
     config.add_summary_field 'abstract_ssm', label: 'Abstract', helper_method: :render_html_tags
     config.add_summary_field 'extent_ssm', label: 'Extent'
     config.add_summary_field 'language_ssm', label: 'Language'
