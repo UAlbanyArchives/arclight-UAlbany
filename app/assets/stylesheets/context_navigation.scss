@@ -10,9 +10,10 @@
 
 #context {
 
-  /*.card {
-	  background: #f6f6f6;
-	}*/
+  .card {
+	 padding-bottom: 1rem;
+   box-shadow: none;
+	}
 
   .context-navigator {
     margin-top: 0rem;
@@ -38,3 +39,10 @@
   }
 }
 
+.load-warning {
+  font-size: 14px;
+  background: #e9ecef;
+  padding: 0.5rem;
+  border-radius: 5px;
+  animation: pulse 1.5s infinite ease-in-out;
+}

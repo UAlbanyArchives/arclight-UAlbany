@@ -4,5 +4,4 @@ en:
       show:
         sidebar:
           collection_info_icon_label: "Advanced collection info"
-          mobile_contents_label: "Contents"
           request_label: "Request"

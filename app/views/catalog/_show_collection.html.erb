@@ -24,9 +24,29 @@
 
     <%= render 'collection_context' %>
 
-    <h4><%= t('ua_arclight.views.show.sidebar.mobile_contents_label') %></h4>
+    <h2 class="al-show-sub-heading" id="contents"><%= t('"arclight.views.show.sections.contents') %></h2>
     <%# render 'collection_contents' %>
     <%= children_navigation(document) %>
+
+    <hr/>
+    
+    <div class="row">
+      <div class="col-md-9 order-md-1">
+        <h2 class="sr-only"><%= t'arclight.views.show.access' %></h2>
+
+        <a href="https://archives.albany.edu/web/visit/">Using the Archives</a>
+        <a href="https://archives.albany.edu/web/directions/">Reading Room Hours and Directions</a>
+        <a href="https://archives.albany.edu/web/publish_cite/">Publishing and Citing</a>
+
+        <% unless blacklight_config.show.context_access_tab_items.nil? %>
+          <h2 class="al-show-sub-heading" id="<%= t('arclight.views.show.sections.using_field').parameterize %>"><%= t('arclight.views.show.sections.using_field') %></h2>
+          <% items = blacklight_config.show.context_access_tab_items.select { |i|  fields_have_content?(@document, i) }  %>
+          <% items.each_with_index do |item, index| %>
+            <%= render partial: 'access_contents', locals: { document: @document, field_accessor: item, card_index: index} %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
   </div>
 

@@ -52,6 +52,7 @@ module ApplicationHelper
           view: 'child_components',
           parent: document.reference,
           directparent: document.reference,
+          childrencount: document.number_of_children,
           originalDocument: document.id,
           originalParents: [document.reference],
           eadid: normalize_id(document.eadid),

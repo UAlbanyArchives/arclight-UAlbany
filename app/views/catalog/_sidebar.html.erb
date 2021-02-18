@@ -47,6 +47,17 @@
 
                 <% end %>
 
+                <%# Manually adding 'Contents' nav link. We want the link in the sidebar but the %>
+                <%# actual 'contents' section is detached from the show.metadata_partials config. %>
+                <li class='nav-item'>
+                  <%= link_to t("arclight.views.show.sections.contents"),
+                      [
+                        solr_document_path(normalize_id(document.eadid)),
+                        "##{t("arclight.views.show.sections.contents").parameterize}"
+                      ].join, class: 'nav-link', data: { turbolinks: 'false' }
+                    %>
+                </li>
+
                 <%# Manually adding 'using' nav link. We want the link in the sidebar but the %>
                 <%# actual 'using' section is detached from the show.metadata_partials config. %>
                 <li class='nav-item'>
@@ -69,12 +80,12 @@
           <%# ========================= %>
           <% if document.level == 'collection' %>
             <hr/>
-            <div id="context-tree-nav" role="navigation" aria-label="Navigate the collection contents" class="hierarchy-nav-wrapper top-children-count-<%= collection_doc(document).number_of_children %>">
+            <div id="context-tree-nav" role="navigation" aria-label="Navigate the collection contents" class="hierarchy-nav-wrapper top-children-count-<%= collection_doc(document).number_of_children %> ml-1 mr-1">
               <%= render 'collection_contents' %>
             </div>
           <% elsif document.children? or document.parent_ids.present? %>
             <hr/>
-            <div id="context-tree-nav" role="navigation" aria-label="Navigate the collection contents" class="hierarchy-nav-wrapper top-children-count-<%= collection_doc(document).number_of_children %>">
+            <div id="context-tree-nav" role="navigation" aria-label="Navigate the collection contents" class="hierarchy-nav-wrapper top-children-count-<%= collection_doc(document).number_of_children %> ml-1 mr-1">
               <%= render 'component_context' %>
             </div>
           <% end %>

@@ -1,13 +1,4 @@
 <div class="row">
-  <div class="col-md-3 order-md-2">
-    <h2 class="sr-only">Access<%= t 'arclight.views.show.access' %></h2>
-    <% unless blacklight_config.show.context_access_tab_items.nil? %>
-      <% items = blacklight_config.show.context_access_tab_items.select { |i|  fields_have_content?(@document, i) }  %>
-      <% items.each_with_index do |item, index| %>
-        <%# render partial: 'access_contents', locals: { document: @document, field_accessor: item, card_index: index} %>
-      <% end %>
-    <% end %>
-  </div>
 
   <div class="col-md-9 order-md-1">
     <h2 class="sr-only"><%= t 'arclight.views.show.context' %></h2>
@@ -18,13 +9,5 @@
       <% end %>
     <% end %>
 
-    <h2 class="sr-only"><%= t 'arclight.views.show.access' %></h2>
-    <h3 class="al-show-sub-heading"><%= t 'arclight.views.show.sections.using_field' %></h3>
-    <% unless blacklight_config.show.context_access_tab_items.nil? %>
-      <% items = blacklight_config.show.context_access_tab_items.select { |i|  fields_have_content?(@document, i) }  %>
-      <% items.each_with_index do |item, index| %>
-        <%= render partial: 'access_contents', locals: { document: @document, field_accessor: item, card_index: index} %>
-      <% end %>
-    <% end %>
   </div>
 </div>
