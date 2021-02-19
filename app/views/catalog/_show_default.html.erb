@@ -33,38 +33,47 @@
 
     <hr/>
 
-    <div class="col-md-9 order-md-1">
+    <div class="col-md-12">
       <h2 class="sr-only"><%= t'arclight.views.show.access' %></h2>
       <% unless blacklight_config.show.context_access_tab_items.nil? %>
         <h2 class="al-show-sub-heading" id="<%= t('arclight.views.show.sections.using_field').parameterize %>"><%= t('arclight.views.show.sections.using_field') %></h2>
-        <% items = blacklight_config.show.context_access_tab_items.select { |i|  fields_have_content?(@document, i) }  %>
-        <% if items.length > 0 %>
-          <% items.each_with_index do |item, index| %>
-            <%= render partial: 'access_contents', locals: { document: @document, field_accessor: item, card_index: index} %>
+
+        <div class="row restrictions-row">
+          <div class="col-md-9">
+            <% items = blacklight_config.show.context_access_tab_items.select { |i|  fields_have_content?(@document, i) }  %>
+            <% if items.length > 0 %>
+              <% items.each_with_index do |item, index| %>
+                <%= render partial: 'access_contents', locals: { document: @document, field_accessor: item, card_index: index} %>
+              <% end %>
+            <% else %>
+
+              <dl class="row dl-invert">
+                <dt class="blacklight-parent_access_restrict_ssm col-md-3">
+                  <%= generic_render_document_field_label(:terms_field, document, field: "accessrestrict_ssm").upcase %>
+                </dt>
+                <dd class="blacklight-parent_access_restrict_ssm col-md-9">
+                  <% @document._source["parent_access_restrict_ssm"].each do |text| %>
+                    <p><%= text %></p>
+                  <% end %>
+                </dd>
+                <dt class="blacklight-parent_access_terms_ssm col-md-3">
+                  <%= generic_render_document_field_label(:terms_field, document, field: "userestrict_ssm").upcase %>
+                </dt>
+                <dd class="blacklight-parent_access_terms_ssm col-md-9">
+                  <% @document._source["parent_access_terms_ssm"].each do |text| %>
+                    <p><%= text %></p>
+                  <% end %>
+                </dd>
+              </dl>
+
+            <% end %>
           <% end %>
-        <% else %>
-
-          <dl class="row dl-invert">
-            <dt class="blacklight-parent_access_restrict_ssm col-md-3">
-              <%= generic_render_document_field_label(:terms_field, document, field: "accessrestrict_ssm").upcase %>
-            </dt>
-            <dd class="blacklight-parent_access_restrict_ssm> col-md-9">
-              <% @document._source["parent_access_restrict_ssm"].each do |text| %>
-                <p><%= text %></p>
-              <% end %>
-            </dd>
-            <dt class="blacklight-parent_access_terms_ssm %> col-md-3">
-              <%= generic_render_document_field_label(:terms_field, document, field: "userestrict_ssm").upcase %>
-            </dt>
-            <dd class="blacklight-parent_access_terms_ssm %> col-md-9">
-              <% @document._source["parent_access_terms_ssm"].each do |text| %>
-                <p><%= text %></p>
-              <% end %>
-            </dd>
-          </dl>
-
-        <% end %>
-      <% end %>
+        </div>
+        <div class="col-md-3">
+          <%= render 'access_links' %>
+        </div>
+      </div>
+      <%= render partial: 'access_options', locals: { document: @document} %>
     </div>
 
 </div>

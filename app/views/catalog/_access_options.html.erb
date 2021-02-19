@@ -1,0 +1,35 @@
+<div class="row access-options">
+
+<div class="col-md-4">
+<div class="card">
+  <img class="card-img-top" src="https://archives.albany.edu/web/oldDrupal/img/visit1.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Schedule a Visit</h5>
+    <p class="card-text">Archival materials can be view in-person in our reading room. Making an appointment is not neccessary, but it may help us ensure the items are available when you arrive.</p>
+    <div class="alert alert-danger">
+		Reading room access is now by appointment only due to the COVID-19 crisis. <a href="https://archives.albany.edu/web/covid-19/">More Details</a>
+	</div>
+    <a href="#" class="btn btn-info"><i class="fa fa-university" aria-hidden="true"></i> Schedule a Visit</a>
+    <a href="https://archives.albany.edu/web/directions/" class="card-link pull-right">Hours</a>
+  </div>
+</div>
+</div>
+
+
+<% unless document.children? or document.level == "collection" %>
+
+	<div class="col-md-4">
+	<div class="card">
+	  <img class="card-img-top" src="https://archives.albany.edu/web/oldDrupal/img/visit2.jpg" alt="Card image cap">
+	  <div class="card-body">
+	    <h5 class="card-title">Make a Remote Request</h5>
+	    <p class="card-text">If materials are unrestricted, we may also be able to deliver digital scans remotely for a fee.</p>
+	    <a href="#" class="btn btn-info"><i class="fa fa-archive" aria-hidden="true"></i> Request</a>
+	    <a href="#" class="card-link pull-right">Fees</a>
+	  </div>
+	</div>
+	</div>
+
+<% end %>
+
+</div>
