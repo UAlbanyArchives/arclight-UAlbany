@@ -9,7 +9,7 @@
     <div class="alert alert-danger">
 		Reading room access is now by appointment only due to the COVID-19 crisis. <a href="https://archives.albany.edu/web/covid-19/">More Details</a>
 	</div>
-    <a href="#" class="btn btn-info"><i class="fa fa-university" aria-hidden="true"></i> Schedule a Visit</a>
+    <a href="https://archives.albany.edu/web/reference?visit&list=<%= request.original_url %>" class="btn btn-info"><i class="fa fa-university" aria-hidden="true"></i> Schedule a Visit</a>
     <a href="https://archives.albany.edu/web/directions/" class="card-link pull-right">Hours</a>
   </div>
 </div>
@@ -24,7 +24,7 @@
 	  <div class="card-body">
 	    <h5 class="card-title">Make a Remote Request</h5>
 	    <p class="card-text">If materials are unrestricted, we may also be able to deliver digital scans remotely for a fee.</p>
-	    <a href="#" class="btn btn-info"><i class="fa fa-archive" aria-hidden="true"></i> Request</a>
+	    <a href="https://archives.albany.edu/web/reference?visit&list=<%= request.original_url %>&eadid=<%= document.id %>&containers=<%= document._source['containers_ssim'] %>&title=<%= document.normalized_title.to_param %>" class="btn btn-info"><i class="fa fa-archive" aria-hidden="true"></i> Request</a>
 	    <a href="#" class="card-link pull-right">Fees</a>
 	  </div>
 	</div>

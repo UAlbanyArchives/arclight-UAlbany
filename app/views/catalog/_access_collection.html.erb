@@ -1,22 +1,25 @@
-<div class=''>
-  <h2 class="al-show-sub-heading"><%= t('arclight.views.show.sections.using_field') %></h2>
-  <%= render 'access_links' %>
+<div class='col-md-12 col-xl-3 order-xl-2 collection-access-preview'>
+  <div class="card bg-light text-dark">
+      <div class="card-body">
+        <h4 class="al-show-sub-heading"><%= t('arclight.views.show.sections.using_field') %></h4>
+        <%= render 'access_links' %>
 
-  <hr/>
+        <hr/>
 
-  <dl>
-    <dt><%= generic_render_document_field_label(:terms_field, document, field: "accessrestrict_ssm").upcase %></dt>
-    <dd>
-      <% if @document.level == "collection" %>
-        <% @document._source["accessrestrict_ssm"].each do |text| %>
-          <%= text %>
-        <% end %>
-      <% elsif @document.parent_restrictions %>
-        <p><%= @document.parent_restrictions %></p>
-      <% end %>
-    </dd>
-  </dl>
+        <dl>
+          <dt><%= generic_render_document_field_label(:terms_field, document, field: "accessrestrict_ssm").upcase %></dt>
+          <dd>
+            <% if @document.level == "collection" %>
+              <% @document._source["accessrestrict_ssm"].each do |text| %>
+                <%= sanitize text %>
+              <% end %>
+            <% elsif @document.parent_restrictions %>
+              <%= @document.parent_restrictions %>
+            <% end %>
+          </dd>
+        </dl>
 
-  <a href="#">More..</a>
-
+        <a class="smooth-scroll" href="#<%= t("arclight.views.show.sections.using_field").parameterize %>"><%= t('ua_arclight.views.show.access.more_restriction') %></a>
+      </div>
+  </div>
 </div>

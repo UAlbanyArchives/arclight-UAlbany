@@ -30,3 +30,80 @@
 li.al-collection-context .documentHeader {
 	margin-bottom: 0.75rem;
 }
+
+div.bookmark-span {
+	display: inline;
+}
+
+div.bookmark-span > div {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: -0.3rem;
+}
+
+div.bookmark-span > div span.al-online-content-icon svg {
+	fill: #28a745;
+}
+
+div.bookmark-span form {
+	padding: 0.2rem;
+}
+
+div.bookmark-span form input {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0.2rem;
+}
+
+div.bookmark-span form svg {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 0.2rem;
+}
+
+div.bookmark-span .al-document-container {
+	display: none;
+}
+
+select#within_collection {
+	background-color: #e2e1e0;
+	border-radius: .25rem 0 0 .25rem !important;
+}
+
+select#within_collection:focus {
+	border-color: #46166B;
+    box-shadow: 0 0 0.2rem 0.2rem #46166B;
+}
+
+div.within-collection-dropdown {
+	width: auto !important;
+}
+
+form.search-query-form span.input-group-append {
+	display: block;
+}
+
+form.search-query-form button.search-btn {
+	padding: 6px 16px;
+}
+
+a#bookmarks_nav {
+	color: #fff;
+	text-decoration: none;
+	font-size: 0.8rem;
+}
+
+a#bookmarks_nav:hover {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+a#history_nav {
+	color: #fff;
+	text-decoration: none;
+	font-size: 0.8rem;
+	margin-left: 1rem;
+}
+
+a#history_nav:hover {
+	color: rgba(255, 255, 255, 0.75);
+}
