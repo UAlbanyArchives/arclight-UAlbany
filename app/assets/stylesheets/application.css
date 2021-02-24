@@ -31,17 +31,11 @@
 .sticky-nav {
   position: sticky;
   top: 0;
-  @include media-breakpoint-down(sm) {
-    position: static;
-  }
 }
+
 .sidebar-scroll-wrapper {
    /* viewport height minus height of the collections info box, ~170px */
   height: calc(100vh - 125px);
   overflow-y: auto;
   overflow-x: hidden;
-  @include media-breakpoint-down(sm) {
-    border: 1px solid #eee;
-    padding: 1em;
-  }
 }
