@@ -43,11 +43,18 @@
 
 /* Search sources menu collapsed even on desktop */
 .search-sources li.nav-item a {
-	display: block;
+	display: none !important;
+}
+.search-sources li.nav-item a.active {
+	display: block !important;
 }
 .more-sources {
-	display: none;
+	display: block !important;
+	margin-bottom: 1rem;
+}
+#search-sources-menu {
+	margin-bottom: 0;
 }
 .shrink-search-options {
-	min-height: 0;
+	min-height: 152px;
 }
