@@ -43,7 +43,8 @@ gem 'blacklight_range_limit', '~> 7.9'
 gem 'font-awesome-rails'
 
 # UAlbany Styling
-gem 'grenander', path: 'grenander'
+#gem 'grenander', path: 'grenander'
+gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'new_nav'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
