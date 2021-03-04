@@ -9,7 +9,7 @@
   border-radius: 0.25rem 0.25rem 0rem 0rem;
 
   .sidebar-collection-title {
-    background-image: url(boxbg.png);
+    background-image: asset-url("boxbg.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top left;
@@ -75,7 +75,7 @@ li.al-collection-context .document-title-heading {
 }
 
 
-dl.dl-invert dt.blacklight-prefercite_ssm {
+.restrictions-row dl.dl-invert dt.col-md-3 {
   font-size: 0.875rem;
 }
 

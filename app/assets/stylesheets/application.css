@@ -39,3 +39,15 @@
   overflow-y: auto;
   overflow-x: hidden;
 }
+
+
+/* Search sources menu collapsed even on desktop */
+.search-sources li.nav-item a {
+	display: block;
+}
+.more-sources {
+	display: none;
+}
+.shrink-search-options {
+	min-height: 0;
+}
