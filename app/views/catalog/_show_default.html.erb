@@ -51,12 +51,16 @@
         <div class="row restrictions-row">
           <div class="col-md-9">
             <% items = blacklight_config.show.context_access_tab_items.select { |i|  fields_have_content?(@document, i) }  %>
-            <% if items.length > 0 %>
+            <% if items.length > 1 %>
               <% items.each_with_index do |item, index| %>
                 <%= render partial: 'access_contents', locals: { document: @document, field_accessor: item, card_index: index} %>
               <% end %>
             <% else %>
-
+              <% if items.length > 0 %>
+                <% items.each_with_index do |item, index| %>
+                  <%= render partial: 'access_contents', locals: { document: @document, field_accessor: item, card_index: index} %>
+                <% end %>
+              <% end %>
               <dl class="row dl-invert">
                 <dt class="blacklight-parent_access_restrict_ssm col-md-3">
                   <%= generic_render_document_field_label(:terms_field, document, field: "accessrestrict_ssm").upcase %>
