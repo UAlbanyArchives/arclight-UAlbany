@@ -59,7 +59,9 @@
   <div class="al-hierarchy-side-content float-right col">
     <% unless hierarchy_component_context? %>
       <div class="index-document-functions">
-        <%= render partial: 'catalog/bookmark_control', locals: { document: document } %>
+	<% unless document.id.include?("apap015") %>
+        	<%= render partial: 'catalog/bookmark_control', locals: { document: document } %>
+	<% end %>
       </div>
     <% end %>
     <% if requestable %>
