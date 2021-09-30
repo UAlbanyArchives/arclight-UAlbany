@@ -3,7 +3,7 @@
 @import 'blacklight/blacklight';
 
 
-#documents > article.document {
+#documents article.document {
 	position: relative;
 	display: flex;
 	flex-direction: column;

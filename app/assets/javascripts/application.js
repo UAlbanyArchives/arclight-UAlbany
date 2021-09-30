@@ -31,3 +31,13 @@
 // this:
 //= require 'blacklight_range_limit'
 //= require grenander/search_sources_menu
+
+
+  /* Searching within a collection should not yield results */
+  /* grouped by collection. */
+
+  $('form.search-query-form').submit(() => {
+    if ($('select#within_collection').val()) {
+      $('input#group').remove();
+    }
+  });
