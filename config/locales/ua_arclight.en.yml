@@ -1,9 +1,16 @@
 en:
-  ua_arclight:
+  arclight:
+    repositories: "Collecting Areas"
+    routes:
+      repositories: "Collecting Areas"
     views:
+      repositories:
+        view_all_collections: "View all collections"
+  ua_arclight:
       show:
         sidebar:
           collection_info_icon_label: "Advanced collection info"
           request_label: "Schedule a Visit"
         access:
           more_restriction: "More..."
+
