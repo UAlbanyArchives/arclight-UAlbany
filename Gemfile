@@ -77,3 +77,5 @@ gem "sanitize", "~> 5.2.1"
 gem "sprockets", "~> 3.7.2"
 gem "bootstrap", ">= 4.3.1"
 gem "rack", ">= 2.0.8"
+# Warning nokogiri 1.12+ causes indexing issues
+gem "nokogiri", "~> 1.11.7"
