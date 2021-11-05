@@ -111,13 +111,17 @@ module Arclight
       }
       data[:title] = node.xpath("#{prefix}did/unittitle").text if node.xpath("#{prefix}did/unittitle")
       node.xpath("#{prefix}did/unitdate").each do |unitdate|
-        if unitdate.attr("type").downcase  == "inclusive"
-          data[:unitdate_inclusive] << unitdate.text if unitdate
-        elsif unitdate.attr("type").downcase  == "bulk"
-          data[:unitdate_bulk] << unitdate.text if unitdate
-        else
-          data[:unitdate_other] << unitdate.text if unitdate
-        end
+	if unitdate.attr("type")
+          if unitdate.attr("type").downcase  == "inclusive"
+            data[:unitdate_inclusive] << unitdate.text if unitdate
+          elsif unitdate.attr("type").downcase  == "bulk"
+            data[:unitdate_bulk] << unitdate.text if unitdate
+          else
+            data[:unitdate_other] << unitdate.text if unitdate
+          end
+	else
+	  data[:unitdate_other] << unitdate.text if unitdate
+	end
       end
       data
     end
