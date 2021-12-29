@@ -256,6 +256,16 @@ class CatalogController < ApplicationController
     # JSON DATA FIELDS
     # ===========================
 
+    config.add_show_field 'title_ssm', label: 'Title'
+    config.add_show_field 'normalized_title_ssm', label: 'Normalized Title'
+    config.add_show_field 'unitdate_ssm', label: 'Unitdate'
+    config.add_show_field 'collection_ssm', label: 'Collection'
+    config.add_show_field 'repository_ssm', label: 'Repository'
+    config.add_show_field 'level_sim', label: 'Level'
+    config.add_show_field 'component_level_isim', label: 'Component Level'
+    config.add_show_field 'parent_ssm', label: 'Parent'
+    config.add_show_field 'parent_unittitles_ssm', label: 'Patent Titles'
+
     config.add_show_field 'abstract_ssm', label: 'Abstract'
     config.add_show_field 'scopecontent_ssm', label: 'Scope and Content'
     config.add_show_field 'creator_ssim', label: 'Creator'
