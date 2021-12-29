@@ -6,7 +6,7 @@
         <%= generic_render_document_field_label(field_accessor, document, field: field_name).upcase %>
       </dt>
       <dd class="blacklight-<%= field_name.parameterize %> col-md-9">
-        <%= doc_presenter.field_value field %>
+	<%= doc_presenter.field_value field %>
       </dd>
     <% end %>
   <% end %>
