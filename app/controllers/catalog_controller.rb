@@ -253,6 +253,36 @@ class CatalogController < ApplicationController
     ]
 
     # ===========================
+    # JSON DATA FIELDS
+    # ===========================
+
+    config.add_show_field 'abstract_ssm', label: 'Abstract'
+    config.add_show_field 'scopecontent_ssm', label: 'Scope and Content'
+    config.add_show_field 'creator_ssim', label: 'Creator'
+    config.add_show_field 'extent_ssm', label: 'Extent'
+    config.add_show_field 'language_ssm', label: 'Language'
+    config.add_show_field 'prefercite_ssm', label: 'Preferred citation'
+    config.add_show_field 'bioghist_ssm', label: 'Biographical / Historical'
+    config.add_show_field 'acqinfo_ssim', label: 'Acquisition information'
+    config.add_show_field 'appraisal_ssm', label: 'Appraisal information'
+    config.add_show_field 'custodhist_ssm', label: 'Custodial history'
+    config.add_show_field 'processinfo_ssm', label: 'Processing information'
+    config.add_show_field 'arrangement_ssm', label: 'Arrangement'
+    config.add_show_field 'accruals_ssm', label: 'Accruals'
+    config.add_show_field 'phystech_ssm', label: 'Physical / technical requirements'
+    config.add_show_field 'physloc_ssm', label: 'Physical location'
+    config.add_show_field 'odd_ssm', label: 'Other'
+    config.add_show_field 'relatedmaterial_ssm', label: 'Related material'
+    config.add_show_field 'separatedmaterial_ssm', label: 'Separated material'
+    config.add_show_field 'otherfindaid_ssm', label: 'Other finding aids'
+    config.add_show_field 'altformavail_ssm', label: 'Alternative form available'
+    config.add_show_field 'originalsloc_ssm', label: 'Location of originals'
+    config.add_show_field 'accessrestrict_ssm', label: 'Restrictions'
+    config.add_show_field 'userestrict_ssm', label: 'Terms of Access'
+    config.add_show_field 'parent_access_restrict_ssm', label: 'Parent Restrictions'
+    config.add_show_field 'parent_access_terms_ssm', label: 'Parent Terms of Access'
+
+    # ===========================
     # COLLECTION SHOW PAGE FIELDS
     # ===========================
 
