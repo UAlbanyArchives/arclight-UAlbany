@@ -360,7 +360,7 @@ class CatalogController < ApplicationController
       last_word_connector: ', '
     }, if: lambda { |_context, _field_config, document|
       document.containers.present?
-    }
+    }, helper_method: :render_html_tags
     config.add_component_field 'abstract_ssm', label: 'Abstract', helper_method: :render_html_tags
     config.add_component_field 'extent_ssm', label: 'Extent', helper_method: :render_html_tags
     config.add_component_field 'scopecontent_ssm', label: 'Scope and Content', helper_method: :render_html_tags
