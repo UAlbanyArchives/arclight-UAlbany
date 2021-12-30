@@ -2,6 +2,8 @@
 <%= render 'shared/breadcrumbs' %>
 <%= render @repository %>
 
+<% unless @repository.slug == "ua" or @repository.slug == "sub" %>
+
 <% content_for(:sidebar) do %>
  <div class="row sticky-nav alpha-menu">
     <div class="col-md-12">
@@ -17,6 +19,8 @@
   </div>
 <% end %>
 
+<% end %>
+
 <div class="row">
   <div id="documents" class="col-md-8 full-collections">
     <div class="card">
@@ -24,7 +28,9 @@
 	   <h2 class="h4"> <%= @repository.name %> Collections </h2>
 
 	<% if @repository.slug == "ua" %>
-		test
+		<%= render partial: 'university_archives' %>
+        <% elsif @repository.slug == "sub" %>
+                <%= render partial: 'subjects' %>
 	<% else %>
     
     <% @alpha_collections.keys.each do |letter| %>
@@ -37,11 +43,13 @@
                   <%= blacklight_icon :collection, classes: 'al-repository-content-icon' %>
                   <%= link_to document._source["title_filing_si"], solr_document_path(document.id) %>
                 <small><%= document.normalized_date %></small></h3>
-                <%= content_tag('div', class: 'al-document-abstract-or-scope') do %>
-                  <%= content_tag('div', 'data-arclight-truncate' => true) do %>
-                    <%= document.abstract_or_scope %>
-                  <% end %>
-                <% end if document.abstract_or_scope %>
+                <% unless @repository.slug == "all" %>
+                  <%= content_tag('div', class: 'al-document-abstract-or-scope') do %>
+                    <%= content_tag('div', 'data-arclight-truncate' => true) do %>
+                      <%= document.abstract_or_scope %>
+                    <% end %>
+                  <% end if document.abstract_or_scope %>
+                <% end %>
               </div>
             </div>
           </article>

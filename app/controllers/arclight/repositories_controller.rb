@@ -11,15 +11,29 @@ module Arclight
     def show
       @repository = Arclight::Repository.find_by!(slug: params[:id])
       search_service = Blacklight.repository_class.new(blacklight_config)
-      @all_response = search_service.search(
-        q: "level_sim:Collection repository_sim:\"#{@repository.name}\"",
-        rows: 9999
-      )
-      @last_response = search_service.search(
-        q: "level_sim:Collection repository_sim:\"#{@repository.name}\"",
-        sort: "timestamp desc", 
-        rows: 5
-      )
+      @subjects = get_subjects
+
+      if params[:id] == "all" or params[:id] == "sub"
+	@all_response = search_service.search(
+          q: "level_sim:Collection",
+          rows: 9999
+        )
+	@last_response = search_service.search(
+          q: "level_sim:Collection",
+          sort: "timestamp desc",
+          rows: 5
+        )
+      else
+        @all_response = search_service.search(
+          q: "level_sim:Collection repository_sim:\"#{@repository.name}\"",
+          rows: 9999
+        )
+	@last_response = search_service.search(
+          q: "level_sim:Collection repository_sim:\"#{@repository.name}\"",
+          sort: "timestamp desc",
+          rows: 5
+        )
+      end
       @all_collections = @all_response.documents
       @last_collections = @last_response.documents
       @sorted_collections = @all_collections.sort_by! {|col| col._source["title_filing_si"] || ""}
@@ -40,6 +54,62 @@ module Arclight
 
     private
 
+    def subjects_list
+	subjects = Array.new
+        subjects << "African Americans and Civil Rights Organizations"
+        subjects << "Africana Studies"
+        subjects << "Agriculture"
+        subjects << "Albany, New York"
+        subjects << "Anthropology"
+        subjects << "Architecture"
+        subjects << "Art"
+        subjects << "Athletics and Sports"
+        subjects << "Business and Industry"
+        subjects << "Conservation and the Environment"
+        subjects << "Criminal Justice and Prisons"
+        subjects << "Death Penalty"
+        subjects << "Economics"
+        subjects << "Education"
+        subjects << "Ethnic Groups"
+        subjects << "Folklore"
+        subjects << "Human Sexuality and Gender Identity"
+        subjects << "Labor"
+        subjects << "Literature"
+        subjects << "Medicare"
+        subjects << "Medicine and Health Care"
+        subjects << "Military and Armed Conflict"
+        subjects << "Music"
+        subjects << "Native Americans"
+        subjects << "Neighborhood and Community Associations"
+        subjects << "Political Science"
+        subjects << "Politics and Politicians"
+        subjects << "Public Servants"
+        subjects << "Radio and Television Broadcasting"
+        subjects << "Railways"
+        subjects << "Rensselaer County, New York"
+        subjects << "Schenectady, New York"
+        subjects << "Senior Citizens"
+        subjects << "Social Activists and Public Advocates"
+        subjects << "State University of New York SUNY, Central Administration"
+        subjects << "Travel"
+        subjects << "Women"
+    end
+
+    def get_subjects
+	@subjects = Array.new
+	subjects_list.each do |subject|
+	    sub = Hash.new
+	    sub["name"] = subject
+            subjectURI = URI.join(request.base_url, "description")
+            subjectFacet = Hash.new
+            subjectFacet["f"] = {"access_subjects_ssim": [subject.gsub(" ", "+")]}
+            subjectURI.query = subjectFacet.to_query
+	    sub["uri"] = subjectURI
+	    @subjects << sub
+	end
+	@subjects
+    end
+
     def load_collection_counts
       counts = fetch_collection_counts
       @repositories.each do |repository|
@@ -54,7 +124,10 @@ module Arclight
         'facet.field': 'repository_sim',
         rows: 0
       )
-      Hash[*results.facet_fields['repository_sim']]
+      counts = Hash[*results.facet_fields['repository_sim']]
+      counts["A-Z Complete List of Collections"] = results.response["numFound"]
+
+      counts
     end
   end
 end

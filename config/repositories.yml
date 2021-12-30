@@ -83,3 +83,35 @@ ua:
   google_request_url: 'https://archives.albany.edu/web/reference'
   google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
   visit_note: "The archives are open to the public and anyone is welcome to visit and view the collections."
+sub:
+  name: 'Subjects'
+  tagline: 'Collections by Subject'
+  description: ''
+  address1: 'Science Library SL350'
+  address2: '1400 Washington Ave'
+  city: 'Albany'
+  state: 'NY'
+  zip: '12222'
+  country: ''
+  phone: '(518) 437-3935'
+  contact_info: ''
+  thumbnail_url: 'https://archives.albany.edu/web/img/700/mpa700.jpg'
+  google_request_url: 'https://archives.albany.edu/web/reference'
+  google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
+  visit_note: "The archives are open to the public and anyone is welcome to visit and view the collections."
+all:
+  name: 'A-Z Complete List of Collections'
+  tagline: 'List of all Archives & Manuscript collections'
+  description: ''
+  address1: 'Science Library SL350'
+  address2: '1400 Washington Ave'
+  city: 'Albany'
+  state: 'NY'
+  zip: '12222'
+  country: ''
+  phone: '(518) 437-3935'
+  contact_info: ''
+  thumbnail_url: 'https://archives.albany.edu/web/img/700/mpa700.jpg'
+  google_request_url: 'https://archives.albany.edu/web/reference'
+  google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
+  visit_note: "The archives are open to the public and anyone is welcome to visit and view the collections."
