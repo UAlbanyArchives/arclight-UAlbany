@@ -87,13 +87,17 @@ class CatalogController < ApplicationController
     #  (useful when user clicks "more" on a large facet and wants to navigate alphabetically across a large set of results)
     # :index_range can be an array or range of prefixes that will be used to create the navigation (note: It is case sensitive when searching values)
 
+    config.add_facet_field 'has_online_content_ssim', label: 'Online Content', query: {
+      online: { label: 'Online Content', fq: 'has_online_content_ssim:true' }
+    }
+
+    config.add_facet_field 'repository_sim', label: 'Collecting Area', limit: 10
     config.add_facet_field 'collection_sim', label: 'Collection', limit: 10
     config.add_facet_field 'creator_ssim', label: 'Creator', limit: 10
     config.add_facet_field 'creators_ssim', label: 'Creator', show: false
     config.add_facet_field 'date_range_sim', label: 'Date range', range: true
     config.add_facet_field 'level_sim', label: 'Level', limit: 10
     config.add_facet_field 'names_ssim', label: 'Names', limit: 10
-    config.add_facet_field 'repository_sim', label: 'Repository', limit: 10
     config.add_facet_field 'geogname_sim', label: 'Place', limit: 10
     config.add_facet_field 'places_ssim', label: 'Places', show: false
     config.add_facet_field 'access_subjects_ssim', label: 'Subject', limit: 10
@@ -118,10 +122,6 @@ class CatalogController < ApplicationController
     config.add_index_field 'accessrestrict_ssm', label: 'Conditions Governing Access', helper_method: :render_html_tags
     config.add_index_field 'collection_ssm', label: 'Collection Title'
     config.add_index_field 'geogname_ssm', label: 'Place'
-
-    config.add_facet_field 'has_online_content_ssim', label: 'Access', query: {
-      online: { label: 'Online access', fq: 'has_online_content_ssim:true' }
-    }
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display

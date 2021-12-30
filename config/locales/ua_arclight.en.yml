@@ -2,7 +2,8 @@ en:
   arclight:
     repositories: "Collecting Areas"
     routes:
-      repositories: "Collecting Areas"
+      repositories: "Archives & Manuscripts"
+      home: "Collections"
     views:
       repositories:
         view_all_collections: "View all collections"

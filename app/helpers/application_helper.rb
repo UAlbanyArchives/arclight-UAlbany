@@ -7,7 +7,7 @@ module ApplicationHelper
 
   # For Local Grenander styling
   def source_name
-    'Collections'
+    'Archives & Manuscripts'
   end
 
   def collection_doc(document)
