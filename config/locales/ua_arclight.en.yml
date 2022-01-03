@@ -9,6 +9,10 @@ en:
         title: "Collecting Areas"
         view_all_collections: "View all collections"
   ua_arclight:
+    show:
+      sidebar:
+        collection_info_icon_label: "Advanced collection info"
+    views:
       show:
         sidebar:
           collection_info_icon_label: "Advanced collection info"

@@ -303,7 +303,7 @@ class CatalogController < ApplicationController
     # ===========================
 
     # Collection Show Page - Summary Section
-    config.add_summary_field 'creator_ssim', label: 'Creator', link_to_facet: true
+    config.add_summary_field 'creator_ssim', label: 'Creator', link_to_facet: true, helper_method: :link_to_creator_facet
     config.add_summary_field 'abstract_ssm', label: 'Abstract', helper_method: :render_html_tags
     config.add_summary_field 'extent_ssm', label: 'Extent', helper_method: :render_html_tags
     config.add_summary_field 'language_ssm', label: 'Language', helper_method: :render_html_tags
@@ -335,7 +335,7 @@ class CatalogController < ApplicationController
       words_connector: '<br/>',
       two_words_connector: '<br/>',
       last_word_connector: '<br/>'
-    }, helper_method: :link_to_name_facet
+    }, helper_method: :link_to_subject_facet
 
     config.add_indexed_terms_field 'names_coll_ssim', label: 'Names', separator_options: {
       words_connector: '<br/>',
@@ -347,7 +347,7 @@ class CatalogController < ApplicationController
       words_connector: '<br/>',
       two_words_connector: '<br/>',
       last_word_connector: '<br/>'
-    }, helper_method: :link_to_name_facet
+    }, helper_method: :link_to_places_facet
 
     # ==========================
     # COMPONENT SHOW PAGE FIELDS
@@ -378,7 +378,7 @@ class CatalogController < ApplicationController
       words_connector: '<br/>',
       two_words_connector: '<br/>',
       last_word_connector: '<br/>'
-    }, helper_method: :link_to_name_facet
+    }, helper_method: :link_to_subject_facet
 
     config.add_component_indexed_terms_field 'names_ssim', label: 'Names', separator_options: {
       words_connector: '<br/>',
@@ -390,7 +390,7 @@ class CatalogController < ApplicationController
       words_connector: '<br/>',
       two_words_connector: '<br/>',
       last_word_connector: '<br/>'
-    }, helper_method: :link_to_name_facet
+    }, helper_method: :link_to_places_facet
 
     # =================
     # ACCESS TAB FIELDS
