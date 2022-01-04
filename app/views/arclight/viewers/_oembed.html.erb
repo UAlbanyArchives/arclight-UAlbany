@@ -1,0 +1,45 @@
+<% if viewer.document.id.include? "aspace_" %>
+    <% @searchID = viewer.document.id.split("aspace_")[1] %>
+    <% @facet_field = "archivesspace_record_tesim" %>
+<% else %>
+    <% @searchID = viewer.document.id %>
+    <% @facet_field = "collection_number_tesim" %>
+<% end %>
+
+<div class="hyraxDaoDisplay">
+
+<div class="page-links">
+    <span class="page-entries"></span> | 
+    <a id="hyraxURI" href="https://archives.albany.edu/catalog?utf8=&f[<%= @facet_field %>][]=<%= @searchID %>">All Items </a>
+    
+</div>
+
+<div class="daoGallery text-center" id="<%= @searchID %>">
+
+  <% parents = Arclight::Parents.from_solr_document(viewer.document).as_parents %>
+  
+  <% viewer.resources.each do |resource| %>
+    <% if resource.href.include? "/avs/" %>
+            <% @icon = "fa fa-film" %>
+    <% elsif resource.href.include? "/images/" %>
+            <% @icon = "fa fa-picture-o" %>
+    <% else %>
+            <% @icon = "fa fa-file-o fa-5x" %>
+    <% end %>
+
+    <div class="img-thumbnail">
+            <a href="<%= resource.href %>">
+                <i class="<%= @icon %> fa-5x placeholder"></i>
+                <img src="" alt="<%= resource.label %>" class="daoThumbnail" style="display: none;">
+            </a>
+            <p class="caption">
+              <a href="<%= resource.href %>"><%= resource.label %></a>
+            </p>
+    </div>
+
+  <% end %>
+
+
+
+
+</div>

@@ -24,6 +24,8 @@
 //= require arclight/arclight
 //= require stickyfill
 
+//= require displayHyraxDaos
+
 //= require_tree .
 
 
