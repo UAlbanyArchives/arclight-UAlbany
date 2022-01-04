@@ -5,7 +5,10 @@ en:
       repositories: "Archives & Manuscripts"
       home: "Collections"
     views:
+      home:
+        title: "Collections"
       repositories:
+        show: "%{name}"
         title: "Collecting Areas"
         view_all_collections: "View all collections"
   ua_arclight:

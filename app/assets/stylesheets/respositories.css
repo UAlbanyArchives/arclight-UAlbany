@@ -89,3 +89,20 @@
 	margin-left: 40px;
 	margin-bottom: 10px;
 }
+
+.ua_browse_list .category > p {
+	margin-left: 20px;
+}
+
+.about_collections {
+	padding-left: 10px;
+	font-size: 1rem;
+}
+
+.about_collections a {
+	font-size: 1.4rem;
+}
+
+.about_collections ul ul li {
+	margin: 5px 0px 15px 0px;
+}

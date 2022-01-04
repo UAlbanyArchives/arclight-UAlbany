@@ -1,25 +1,76 @@
+<% @page_title = t(:'arclight.views.home.title') %>
 <div class="card">
-
-<ul>
-	<li>Archives & Manuscripts</li>
-	<ul>
-		<li>New York State Modern Political Archive</li>
-		<li>National Death Penalty Archive</li>
-		<li>German and Jewish Intellectual Émigré Collections</li>
-		<li>Business, Literary, and Local History Manuscripts</li>
-		<li>University Archives</li>
-	</ul>
-	
-	<li><a href="#">Mathes Childrens Literature</a></li>
-	<p>
-	</p>
-	<li><a href="#">Political Pamphlets</a></li>
-	<p>
-	</p>
-	<li><a href="#">Rare Books</a></li>
-	<p>
-	</p>
-	
-</ul>
-
+	<div class="card-body">
+	   <h2>About the Collections</h2>
+	   
+	   <p>
+		We collect, preserve, and make available unique archives and manuscript collections, the official records of the university, and some rare and specialized book collections.
+	   </p>
+	   
+	   <ul class="ua_browse_list about_collections">
+			<div class="category">
+				<li><a href="<%= request.base_url + "/description/repositories" %>">Archives & Manuscripts</a></li>
+				<p>
+						These are groupings of physical and digital records that are not available anyplace else and document a key topic for potential research.
+						Each letter, film reel, or spreadsheet only tells part of the story, so we try and keep these collections grouped together so you can see 
+						how their creators used them. Items that are used often may be described individually, but other collections can be hundreds of boxes and 
+						might only be described as a large group.
+				</p>
+				<p>
+						Generally, manuscripts are created by individual people and archives are the accumulated permanent records of an organization or business, 
+						but these terms are often mixed. Collections are usually described as either Papers, created by an individual person, Records, the official 
+						documents of an organization, or as a Collection gathered from a number of original sources on a common subject or topic.
+				</p>
+				<p>These collections are divided into five major collecting areas:</p>
+			</div>
+			<ul>
+				<li><a href="<%= request.base_url + "/description/repositories/apap" %>">New York State Modern Political Archive</a></li>
+					<ul>
+						<li>Elected officials, interest groups, and activists from New York State</li>
+					</ul>
+				<li><a href="<%= request.base_url + "/description/repositories/ndpa" %>">National Death Penalty Archive</a></li>
+					<ul>
+						<li>Researchers, writers, activists, and records on capital punishment in the United States</li>
+					</ul>
+				<li><a href="<%= request.base_url + "/description/repositories/ger" %>">German and Jewish Intellectual Émigré Collections</a></li>
+					<ul>
+						<li>Papers of German-speaking intellectuals who fled the Nazi regime in the 1930s</li>
+					</ul>
+				<li><a href="<%= request.base_url + "/description/repositories/ua" %>">University Archives</a></li>
+					<ul>
+						<li>The official permanent records of the University at Albany, SUNY and its predecessor schools</li>
+					</ul>
+				<li><a href="<%= request.base_url + "/description/repositories/mss" %>">Business and Literary Manuscripts</a></li>
+					<ul>
+						<li>Manuscripts, records, and papers primarily related to businesses and people of New York and New England</li>
+					</ul>
+			</ul>
+			<div class="category">
+				<li><a href="<%= request.base_url + "/books/?f[collecting_area_ssim][]=Mathes+Childrens+Literature" %>">Miriam Snow Mathes Historical Children's Literature Collection</a></li>
+				<p>
+					The Mathes Collection includes books and periodicals for children and young adults, published in the United States, mostly between 1875 and 1950. 
+					The collection is designed to provide works that are generally no longer available in children's library collections today and make them available 
+					for any type of research.
+				</p>
+			</div>
+			
+			<div class="category">
+				<li><a href="<%= request.base_url + "/books/?f[collecting_area_ssim][]=Political+Pamphlets" %>">Political Pamphlets</a></li>
+				<p>
+					This is an artificial collection of rare pamphlets on a wide variety of political topics. Originally, many of these materials were extracted from the 
+					German and Jewish Intellectual Émigré manuscript collections, a practice that unfortunately removed them from much of their original context and use. 
+					The collection was also added to over time, so many of the pamphlets also come from other sources.
+				</p>
+			</div>
+			
+			<div class="category">
+				<li><a href="<%= request.base_url + "/books" %> ">Rare Books</a></li>
+				<p>
+					A large collection of unique, specialized, or hard-to-find books that are not able to circulate in the University Libraries general collections. 
+					This includes a few topical collections that were donated or purchased as a group, including the OReilly, and Kosover collections.
+				</p>
+			</div>
+		
+		</ul>
+	</div>
 </div>
