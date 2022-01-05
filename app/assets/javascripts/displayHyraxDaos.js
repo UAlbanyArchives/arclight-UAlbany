@@ -29,8 +29,15 @@ $(document).ready(function(){
                         $thumbnail = $hyraxURL.split("/catalog")[0] + data['response']['docs'][i]["thumbnail_path_ss"];
                         $dates = data['response']['docs'][i]["date_created_tesim"];
                         $titles = data['response']['docs'][i]["title_tesim"];
-                        $url = "https://archives.albany.edu/concern/" + data['response']['docs'][i]["has_model_ssim"].toString().toLowerCase() + "s/" + data['response']['docs'][i]["id"];
-                        
+                        $link = "https://archives.albany.edu/concern/" + data['response']['docs'][i]["has_model_ssim"].toString().toLowerCase() + "s/" + data['response']['docs'][i]["id"];
+                        if ( ( window.location.hostname.includes("lib-espy-ws-d101.its") ) && ( $link.includes("://archives.albany.edu/") ) ) {
+				var tmp2 = document.createElement('a');
+				tmp2.href = $link
+				$url = window.location.protocol + "//" + window.location.hostname + $link.split(tmp2.host)[1];
+			} else {
+				$url = $link
+			}
+
                         if ($(".daoGallery").children(".img-thumbnail")[i]){ 
                             $thumb = $(".daoGallery").children(".img-thumbnail:eq(" + i.toString() + ")");
                         } else {

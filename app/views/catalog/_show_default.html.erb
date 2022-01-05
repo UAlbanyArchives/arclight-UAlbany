@@ -62,6 +62,7 @@
                 <% end %>
               <% end %>
               <dl class="row dl-invert">
+		<% if @document._source.key?("parent_access_restrict_ssm") %>
                 <dt class="blacklight-parent_access_restrict_ssm col-md-3">
                   <%= generic_render_document_field_label(:terms_field, document, field: "accessrestrict_ssm").upcase %>
                 </dt>
@@ -70,6 +71,7 @@
                     <p><%= text %></p>
                   <% end %>
                 </dd>
+		<% end %>
                 <dt class="blacklight-parent_access_terms_ssm col-md-3">
                   <%= generic_render_document_field_label(:terms_field, document, field: "userestrict_ssm").upcase %>
                 </dt>

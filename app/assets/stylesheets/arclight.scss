@@ -32,6 +32,22 @@
 	color: crimson;
 }
 
+.grouped-documents .document .col .documentHeader .document-title-heading {
+	font-size: 1.25rem;
+}
+
+.facets-collapse .blacklight-has_online_content_ssim {
+	border: 1px solid #28a745;
+}
+
+.facets-collapse .blacklight-has_online_content_ssim #facet-has_online_content_ssim-header {
+	background-color: #28a745 !important;
+}
+
+.facets-collapse .blacklight-has_online_content_ssim #facet-has_online_content_ssim-header button {
+	color: #fff !important;
+}
+
 #sidebar .title-card .sidebar-collection-title .collection-info-menu table {
 	margin-bottom: 0;
 }
