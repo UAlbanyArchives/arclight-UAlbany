@@ -6,7 +6,7 @@ en:
       home: "Collections"
     views:
       home:
-        title: "Collections"
+        title: "Archives & Manuscripts"
       repositories:
         show: "%{name}"
         title: "Collecting Areas"

@@ -45,7 +45,7 @@ ger:
   country: ''
   phone: '(518) 437-3935'
   contact_info: ''
-  thumbnail_url: 'https://archives.albany.edu/web/img/700/jewish_unityArclight.jpg'
+  thumbnail_url: 'https://archives.albany.edu/web/img/700/ger700.jpg'
   google_request_url: 'https://archives.albany.edu/web/reference'
   google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
   visit_note: "The archives are open to the public and anyone is welcome to visit and view the collections."
@@ -95,7 +95,7 @@ sub:
   country: ''
   phone: '(518) 437-3935'
   contact_info: ''
-  thumbnail_url: 'https://archives.albany.edu/web/img/700/mpa700.jpg'
+  thumbnail_url: 'https://archives.albany.edu/web/img/700/sub700.jpg'
   google_request_url: 'https://archives.albany.edu/web/reference'
   google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
   visit_note: "The archives are open to the public and anyone is welcome to visit and view the collections."
@@ -111,7 +111,7 @@ all:
   country: ''
   phone: '(518) 437-3935'
   contact_info: ''
-  thumbnail_url: 'https://archives.albany.edu/web/img/700/mpa700.jpg'
+  thumbnail_url: 'https://archives.albany.edu/web/img/700/all700.jpg'
   google_request_url: 'https://archives.albany.edu/web/reference'
   google_request_mappings: "document_url=link&collection_name=collection&eadid=eadid&containers=containers&title=title"
   visit_note: "The archives are open to the public and anyone is welcome to visit and view the collections."

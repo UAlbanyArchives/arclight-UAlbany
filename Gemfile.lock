@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/UAlbanyArchives/grenander
-  revision: 402a71ef74cc0bf64e079c6807acaf35f697fc64
+  revision: 78924d5532ed425a9985c30f9920f141f9292b2e
   branch: new_nav
   specs:
     grenander (1.3.1)
@@ -144,7 +144,7 @@ GEM
       ruby2_keywords
     faraday-net_http (1.0.1)
     fastimage (2.2.6)
-    ffi (1.15.4)
+    ffi (1.15.5)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -208,7 +208,7 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.6.1)
+    mini_portile2 (2.7.1)
     minitest (5.15.0)
     modernizr-rails (2.7.1)
     msgpack (1.4.2)
@@ -216,8 +216,8 @@ GEM
     multipart-post (2.1.1)
     mysql2 (0.5.3)
     nio4r (2.5.8)
-    nokogiri (1.12.5)
-      mini_portile2 (~> 2.6.1)
+    nokogiri (1.13.0)
+      mini_portile2 (~> 2.7.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     ostruct (0.3.3)
@@ -322,7 +322,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
-    thor (1.1.0)
+    thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
     traject (3.5.0)
