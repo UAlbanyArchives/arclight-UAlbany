@@ -25,6 +25,7 @@
  *= require  'show_component'
  *= require  'context_navigation'
  *= require  'daos'
+ *= require  'repositories'
 */
 
 /* HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/assets/stylesheets/dul-arclight/modules/layout.scss */

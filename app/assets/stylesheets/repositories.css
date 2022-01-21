@@ -80,14 +80,28 @@
 }
 
 .ua_browse_list > div.category {
-	padding: 5px 40px;
+	padding: 5px 0px;
 	border-top: 1px solid #dee2e6;
 	margin: 5px 0px;
 }
 
+@media only screen and (min-width: 991px){
+	.ua_browse_list > div.category {
+		padding: 5px 40px;
+	}
+}
+
 .ua_browse_list > ul {
-	margin-left: 40px;
+	margin-left: 0;
 	margin-bottom: 10px;
+	padding-left: 10px;
+}
+
+@media only screen and (min-width: 576px){
+	.ua_browse_list > ul {
+		margin-left: 40px;
+		padding-left: 40px;
+	}
 }
 
 .ua_browse_list .category > p {
@@ -100,9 +114,9 @@
 }
 
 .about_collections a {
-	font-size: 1.4rem;
+	font-size: 1rem;
 }
 
 .about_collections ul ul li {
-	margin: 5px 0px 15px 0px;
+	margin: 5px 0px 5px 0px;
 }
