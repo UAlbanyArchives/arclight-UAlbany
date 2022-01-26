@@ -114,9 +114,17 @@
 }
 
 .about_collections a {
+	font-size: 1.2rem;
+}
+
+.about_collections ul li a {
 	font-size: 1rem;
 }
 
 .about_collections ul ul li {
 	margin: 5px 0px 5px 0px;
+}
+
+.about_collections .category .alert-info a {
+	color: #0c5460 !important;
 }
