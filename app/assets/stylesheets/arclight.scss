@@ -147,3 +147,7 @@ a#history_nav {
 a#history_nav:hover {
 	color: rgba(255, 255, 255, 0.75);
 }
+
+article.document .row .col .badge {
+	align-self: baseline;
+}
