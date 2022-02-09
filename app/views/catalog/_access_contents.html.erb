@@ -5,13 +5,13 @@
       <% if field_name.parameterize == "accessrestrict_ssm" and document.level != "collection" %>
 	<% alert_classes = "alert alert-danger" %>
       <% elsif field_name.parameterize == "accessrestrict_ssm" %>
-        <% if document["accessrestrict_ssm"].join(" ").downcase.include? "access to this collection is unrestricted." %>
+        <% if document["accessrestrict_ssm"].join(" ").downcase.include? "access to this collection is unrestricted" %>
 	  <% alert_classes = "" %>
-        <% elsif document["accessrestrict_ssm"].join(" ").downcase.include? "access to these records is unrestricted." %>
+        <% elsif document["accessrestrict_ssm"].join(" ").downcase.include? "access to these records is unrestricted" %>
 	  <% alert_classes = "" %>
-        <% elsif document["accessrestrict_ssm"].join(" ").downcase.include? "this collection is unrestricted." %>
+        <% elsif document["accessrestrict_ssm"].join(" ").downcase.include? "this collection is unrestricted" %>
 	  <% alert_classes = "" %>
-        <% elsif document["accessrestrict_ssm"].join(" ").downcase.include? "access to this record group is unrestricted." %>
+        <% elsif document["accessrestrict_ssm"].join(" ").downcase.include? "access to this record group is unrestricted" %>
 	  <% alert_classes = "" %>
         <% elsif document["accessrestrict_ssm"].blank? %>
           <% alert_classes = "alert alert-danger" %>
