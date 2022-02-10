@@ -16,6 +16,7 @@
 
 
 <% unless document.children? or document.level == "collection" %>
+  <% if document.level.downcase == "file" or document.level.downcase == "item" %>
 
 	<div class="col-sm-6 col-xl-4">
 	<div class="card">
@@ -28,6 +29,7 @@
 	</div>
 	</div>
 
+  <% end %>
 <% end %>
 
 </div>
