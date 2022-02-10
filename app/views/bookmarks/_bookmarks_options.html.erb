@@ -1,0 +1,42 @@
+<div class="col-12">
+<div class="row access-options">
+
+<% bookmarkLinks = "" %>
+<% @bookmarks.each do |bookmark| %>
+	<% bookmarkLinks = bookmarkLinks + "%0D%0A" + request.base_url + "/description/catalog/" + bookmark.document_id %>
+<% end %>
+
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-12 mb-4">
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Schedule a Visit</h5>
+    <p class="card-text">Archival materials can be viewed in-person in our reading room. <!-- Making an appointment is not neccessary, but it may help us ensure the items are available when you arrive.--></p>
+    <div class="alert alert-danger">
+		Reading room access is now by appointment only due to the COVID-19 crisis. <a href="https://archives.albany.edu/web/covid-19/">More Details</a>
+	</div>
+    <a href="<%= request.base_url %>/web/reference?visit&list=<%= bookmarkLinks %>" class="btn btn-info"><i class="fa fa-university" aria-hidden="true"></i> Schedule a Visit</a>
+    <a href="<%= request.base_url %>/web/directions/" class="card-link pull-right">Hours</a>
+  </div>
+</div>
+</div>
+
+
+
+ <div class="col-xs-12 col-sm-6 col-md-4 col-lg-12 mb-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Make a Remote Request</h5>
+      <p class="card-text">We may also be able to deliver digital scans remotely for a fee.</p>
+      <div class="alert alert-warning">
+	<h5 class="alert-heading"><i class="fa fa-clock-o" aria-hidden="true"></i> Two-hour limit</h5>
+      	Fees are based on time required for digitization.
+      </div>
+      <a href="<%= request.base_url %>/web/reference?list=<%= bookmarkLinks %>" class="btn btn-info"><i class="fa fa-archive" aria-hidden="true"></i> Request Items</a>
+      <a href="<%= request.base_url %>/web/reproductions" class="card-link pull-right">Fees</a>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+
