@@ -1,6 +1,4 @@
 <% if constraints_helpers_and_partials_from_blacklight? %>
-  <% raise controller.params.inspect %>
-  WHY IS THIS NOT FAILING
   <%= render(Blacklight::ConstraintsComponent.new(search_state: convert_to_search_state(controller.params != params ? params : search_state))) %>
 <% else %>
   <% Deprecation.warn(Blacklight::RenderConstraintsHelperBehavior, 'Constraints helpers or partials were overridden; not using components') %>

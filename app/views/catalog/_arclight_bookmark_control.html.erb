@@ -36,6 +36,6 @@
 <% else %>
   &nbsp;
 <% end %>
-<% unless document._source['accessrestrict_ssm'].nil? %>
+<% unless document._source['accessrestrict_ssm'].nil? or document.level == "collection" %>
   <span class="badge badge-danger">Restricted</span>
 <% end %>

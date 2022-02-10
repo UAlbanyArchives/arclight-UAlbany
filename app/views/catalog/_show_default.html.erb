@@ -49,7 +49,7 @@
         <h2 class="al-show-sub-heading" id="<%= t('arclight.views.show.sections.using_field').parameterize %>"><%= t('arclight.views.show.sections.using_field') %></h2>
 
         <div class="row restrictions-row">
-          <div class="col-md-9">
+          <div class="col-md-12 col-lg-9">
             <% items = blacklight_config.show.context_access_tab_items.select { |i|  fields_have_content?(@document, i) }  %>
             <% if items.length > 1 %>
               <% items.each_with_index do |item, index| %>
@@ -85,7 +85,7 @@
             <% end %>
           <% end %>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-12 col-lg-3 mb-3">
           <%= render 'access_links' %>
         </div>
       </div>
