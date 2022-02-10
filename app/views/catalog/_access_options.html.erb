@@ -4,7 +4,7 @@
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Schedule a Visit</h5>
-    <p class="card-text">Archival materials can be view in-person in our reading room. Making an appointment is not neccessary, but it may help us ensure the items are available when you arrive.</p>
+    <p class="card-text">Archival materials can be viewed in-person in our reading room. <!-- Making an appointment is not neccessary, but it may help us ensure the items are available when you arrive.--></p>
     <div class="alert alert-danger">
 		Reading room access is now by appointment only due to the COVID-19 crisis. <a href="https://archives.albany.edu/web/covid-19/">More Details</a>
 	</div>
@@ -21,7 +21,7 @@
 	<div class="card">
 	  <div class="card-body">
 	    <h5 class="card-title">Make a Remote Request</h5>
-	    <p class="card-text">If materials are unrestricted, we may also be able to deliver digital scans remotely for a fee.</p>
+	    <p class="card-text">We may also be able to deliver digital scans remotely for a fee.</p>
 	    <a href="<%= request.base_url %>/web/reference?list=<%= request.original_url %>&eadid=<%= document.id %>&containers=<%= document._source['containers_ssim'] %>&title=<%= document.normalized_title.to_param %>" class="btn btn-info"><i class="fa fa-archive" aria-hidden="true"></i> Request</a>
 	    <a href="<%= request.base_url %>/web/reproductions" class="card-link pull-right">Fees</a>
 	  </div>
