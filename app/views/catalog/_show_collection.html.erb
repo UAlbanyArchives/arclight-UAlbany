@@ -20,7 +20,7 @@
         <strong><%= blacklight_icon :online, classes: 'al-online-content-icon' %>
           Online Content
         </strong>
-        <p>Some materials from this collection are <a href="https://archives.albany.edu/catalog?f[collection_number_sim][]=<%= document.id %>">available online</a>.</p>
+        <p>Some materials from this collection are <a href="https://archives.albany.edu/catalog?f[collection_number_sim][]=<%= document.id.gsub("-", ".") %>">available online</a>.</p>
       </div>
       <%# render partial: 'collection_online_contents', locals: { document: document }  %>
     <% end %>

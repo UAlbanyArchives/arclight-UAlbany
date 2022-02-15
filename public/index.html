@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+<html lang="en">
 	<head>
 		<!-- Google Tag Manager -->
 	    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -138,10 +138,10 @@
     <input name="utf8" type="hidden" value="✓">
     <input type="hidden" name="search_field" id="search_field" value="all_fields">
     <div class="input-group">
-
-        <input name="q" id="params-q" value="" placeholder="Search..." class="search_q q form-control tt-input" type="text">
+        <input name="q" id="params-q" value="" aria-labelledby="searchLabel" placeholder="Search..." class="search_q q form-control tt-input" type="text">
+        <label id="searchLabel" for="search">Search</label>
         <span class="input-group-append">
-          <button type="submit" class="btn btn-primary search-btn" id="search">
+          <button aria-label="Search" type="submit" class="btn btn-primary search-btn" id="search">
             <span class="submit-search-text"></span>
             <i class="fa fa-search"></i>
           </button>
