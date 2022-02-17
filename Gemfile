@@ -4,11 +4,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.5'
+gem 'rails', '~> 5.2.6.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 5.6.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -44,7 +44,7 @@ gem 'font-awesome-rails'
 
 # UAlbany Styling
 #gem 'grenander', path: 'grenander'
-gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'new_nav'
+gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -82,3 +82,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'devise-guests', '~> 0.6'
 gem 'blacklight-locale_picker'
+
+# manual dependancy updates
+gem "addressable", ">= 2.8.0"
+gem "nokogiri", ">= 1.12.5"
