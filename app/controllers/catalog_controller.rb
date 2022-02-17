@@ -123,6 +123,11 @@ class CatalogController < ApplicationController
     config.add_index_field 'accessrestrict_ssm', label: 'Conditions Governing Access', helper_method: :render_html_tags
     config.add_index_field 'collection_ssm', label: 'Collection Title'
     config.add_index_field 'geogname_ssm', label: 'Place'
+    config.add_index_field 'title_ssm', label: 'Title'
+    config.add_index_field 'ead_ssi', label: 'EAD ID'
+    config.add_index_field 'parent_unittitles_ssm', label: 'Patent titles'
+    config.add_index_field 'parent_ssim', label: 'Parent'
+    config.add_index_field 'has_online_content_ssim', label: 'Has online content?'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
