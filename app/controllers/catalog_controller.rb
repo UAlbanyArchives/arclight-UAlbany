@@ -268,7 +268,6 @@ class CatalogController < ApplicationController
     config.add_show_field 'unitdate_ssm', label: 'Unitdate'
     config.add_show_field 'collection_ssm', label: 'Collection'
     config.add_show_field 'repository_ssm', label: 'Repository'
-    config.add_show_field 'unitdate_ssm', label: 'Date'
     config.add_show_field 'level_ssm', label: 'Level'
     config.add_show_field 'component_level_isim', label: 'Component level'
     config.add_show_field 'parent_ssim', label: 'Parent'
