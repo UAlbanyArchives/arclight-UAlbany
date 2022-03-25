@@ -38,6 +38,7 @@
         // Hide these until we re-enable in the future
         sortPerPage.find('.result-type-group').hide();
         sortPerPage.find('.search-widgets').hide();
+        sortPerPage2 = sortPerPage.clone().addClass("pagination-bottom");
 
         if (!isNaN(numberEntries)) {
           $('[data-arclight-online-content-tab-count]').html(
@@ -62,7 +63,21 @@
           }
         });
 
-        $el.hide().html('').append(sortPerPage).append(newDocs)
+        sortPerPage2.find('a').on('click', function (e) {
+          var pages = [];
+          var $target = $(e.target);
+          e.preventDefault();
+          pages = /page=(\d+)&/.exec($target.attr('href'));
+          if (pages) {
+            CollectionNavigation.init($el, pages[1]);
+          } else {
+            // Case where the "first" page
+            CollectionNavigation.init($el);
+          }
+          document.getElementById('contents').scrollIntoView(true)
+        });
+
+        $el.hide().html('').append(sortPerPage).append(newDocs).append(sortPerPage2)
           .fadeIn(500);
         if (showDocs.length > 0) {
           $el.trigger('navigation.contains.elements');
