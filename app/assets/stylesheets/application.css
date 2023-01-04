@@ -35,6 +35,10 @@
   top: 0;
 }
 
+input#q {
+  background-color: #fff !important;
+}
+
 .sidebar-scroll-wrapper {
    /* viewport height minus height of the collections info box, ~170px */
   height: calc(100vh - 125px);
