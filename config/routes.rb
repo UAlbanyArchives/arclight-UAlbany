@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   scope 'description' do
 
-    concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
+   concern :range_searchable, BlacklightRangeLimit::Routes::RangeSearchable.new
     mount Blacklight::Engine => '/'
       mount Arclight::Engine => '/'
 
@@ -28,7 +28,8 @@ Rails.application.routes.draw do
         delete 'clear'
       end
     end
+
   end
-  
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
