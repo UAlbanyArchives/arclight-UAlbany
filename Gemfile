@@ -41,9 +41,9 @@ gem 'font-awesome-rails'
 gem 'sprockets', '~> 3.5'
 
 # UAlbany Styling
-#gem 'grenander', path: '../grenander'
-gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
-gem "quick_search-core", github: 'NCSU-Libraries/quick_search', ref: 'ca186e5fb74a6b3fb4e3d03afd20c1ba7e4e903f'
+gem 'grenander', path: '../grenander'
+#gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
+#gem "quick_search-core", github: 'NCSU-Libraries/quick_search', ref: 'ca186e5fb74a6b3fb4e3d03afd20c1ba7e4e903f'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

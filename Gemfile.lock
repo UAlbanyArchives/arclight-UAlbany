@@ -1,34 +1,4 @@
 GIT
-  remote: https://github.com/NCSU-Libraries/quick_search.git
-  revision: ca186e5fb74a6b3fb4e3d03afd20c1ba7e4e903f
-  ref: ca186e5fb74a6b3fb4e3d03afd20c1ba7e4e903f
-  specs:
-    quick_search-core (0.2.0)
-      fastimage
-      httpclient
-      jquery-rails (~> 4.3)
-      kaminari
-      modernizr-rails
-      mysql2
-      nokogiri
-      rails (~> 6.1)
-
-GIT
-  remote: https://github.com/UAlbanyArchives/grenander
-  revision: 7febdc58a411ea6123e26c56b655638593a9b81c
-  branch: main
-  specs:
-    grenander (1.3.2)
-      bootstrap (>= 4.3.1)
-      d3-rails
-      font-awesome-rails
-      font-awesome-sass (~> 4.6.2)
-      jquery-rails
-      lodash-rails
-      quick_search-core (~> 0.1)
-      rails (>= 5.2.4.3)
-
-GIT
   remote: https://github.com/sul-dlss/arclight.git
   revision: f9b61c2cf12ced0fd1996fd96401fd7923782691
   ref: f9b61c2cf12ced0fd1996fd96401fd7923782691
@@ -40,6 +10,18 @@ GIT
       sprockets-bumble_d
       traject (~> 3.0)
       traject_plus (~> 1.2)
+
+PATH
+  remote: ../grenander
+  specs:
+    grenander (1.3.2)
+      bootstrap (>= 4.3.1)
+      d3-rails
+      font-awesome-rails
+      font-awesome-sass (~> 4.6.2)
+      jquery-rails
+      lodash-rails
+      rails (>= 5.2.4.3)
 
 GEM
   remote: https://rubygems.org/
@@ -165,7 +147,6 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
-    fastimage (2.2.6)
     ffi (1.15.5)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
@@ -239,10 +220,8 @@ GEM
     mini_portile2 (2.8.1)
     minitar (0.9)
     minitest (5.18.0)
-    modernizr-rails (2.7.1)
     msgpack (1.6.1)
     multi_json (1.15.0)
-    mysql2 (0.5.5)
     net-imap (0.3.4)
       date
       net-protocol
@@ -432,7 +411,6 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.3)
   puma (~> 5.6.4)
-  quick_search-core!
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.7.3)
   rsolr (>= 1.0, < 3)
@@ -452,4 +430,4 @@ RUBY VERSION
    ruby 2.7.7p221
 
 BUNDLED WITH
-   2.2.33
+   2.2.34
