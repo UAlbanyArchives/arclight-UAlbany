@@ -59,33 +59,33 @@
 		<li><%= link_to "Office of the President", solr_document_path("ua000") %></li>
 		<li><%= link_to "University Council", solr_document_path("ua100") %></li>
 		<li><%= link_to "University Senate", solr_document_path("ua200") %></li>
-		<li><%= link_to "Presidential Offices", URI.decode(officesURI.to_s) %></li>
-		<li><%= link_to "Task Forces & Committees", URI.decode(taskForcesURI.to_s) %></li>
+		<li><%= link_to "Presidential Offices", CGI::unescape(officesURI.to_s) %></li>
+		<li><%= link_to "Task Forces & Committees", CGI::unescape(taskForcesURI.to_s) %></li>
 	</ul>
 	
 	<div class="category"><li>Administative Units</li></div>
 	<ul>
 		<li><%= link_to "Athletics", solr_document_path("ua746") %></li>
-		<li><%= link_to "Communications & Marketing", URI.decode(communicationsURI.to_s) %></li>
+		<li><%= link_to "Communications & Marketing", CGI::unescape(communicationsURI.to_s) %></li>
 		<li><%= link_to "Diversity & Inclusion", solr_document_path("ua370") %></li>
-		<li><%= link_to "Finance & Business", URI.decode(financeURI.to_s) %></li>
+		<li><%= link_to "Finance & Business", CGI::unescape(financeURI.to_s) %></li>
 		<li><%= link_to "Information Systems and Technology", solr_document_path("ua535") %></li>
-		<li><%= link_to "Student Affairs", URI.decode(studentAffairsURI.to_s) %></li>
-		<li><%= link_to "University Foundation, Alumni, and Fundraising", URI.decode(developmentURI.to_s) %></li>
+		<li><%= link_to "Student Affairs", CGI::unescape(studentAffairsURI.to_s) %></li>
+		<li><%= link_to "University Foundation, Alumni, and Fundraising", CGI::unescape(developmentURI.to_s) %></li>
 	</ul>
 	
 	<div class="category"><li>Academic Affairs</li></div>
 	<ul>
 		<li><%= link_to "Office of the Provost", solr_document_path("ua500") %></li>
-		<li><%= link_to "Academic Administation", URI.decode(academicAdminURI.to_s) %></li>
-		<li><%= link_to "Schools & Colleges", URI.decode(schoolsURI.to_s) %></li>
-		<li><%= link_to "Academic Departments", URI.decode(departmentsURI.to_s) %></li>
+		<li><%= link_to "Academic Administation", CGI::unescape(academicAdminURI.to_s) %></li>
+		<li><%= link_to "Schools & Colleges", CGI::unescape(schoolsURI.to_s) %></li>
+		<li><%= link_to "Academic Departments", CGI::unescape(departmentsURI.to_s) %></li>
 	</ul>
 	
-	<div class="category"><li><%= link_to "Centers & Institutes", URI.decode(centersURI.to_s) %></li></div>
-	<div class="category"><li><%= link_to "Student Groups", URI.decode(studentsURI.to_s) %></li></div>
-	<div class="category"><li><%= link_to "Faculty & Alumni Papers", URI.decode(facultyURI.to_s) %></li></div>
-	<div class="category"><li><%= link_to "Reference Collections", URI.decode(referenceURI.to_s) %></li></div>
+	<div class="category"><li><%= link_to "Centers & Institutes", CGI::unescape(centersURI.to_s) %></li></div>
+	<div class="category"><li><%= link_to "Student Groups", CGI::unescape(studentsURI.to_s) %></li></div>
+	<div class="category"><li><%= link_to "Faculty & Alumni Papers", CGI::unescape(facultyURI.to_s) %></li></div>
+	<div class="category"><li><%= link_to "Reference Collections", CGI::unescape(referenceURI.to_s) %></li></div>
 	<div class="category"><li><%= link_to "Web Archives", "https://archives.albany.edu/web/webarchives" %></li></div>
 	
 </ul>
