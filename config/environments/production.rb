@@ -78,11 +78,13 @@ Rails.application.configure do
   config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners.
-  config.active_support.deprecation = :notify
+  config.active_support.deprecation = :silence
 
   # Log disallowed deprecations.
-  #config.active_support.disallowed_deprecation = :log
-  config.active_support.disallowed_deprecation = :silence
+  config.active_support.disallowed_deprecation = :log
+
+  # Turn off blacklight deprications:
+  Deprecation.default_deprecation_behavior = :silence
 
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
