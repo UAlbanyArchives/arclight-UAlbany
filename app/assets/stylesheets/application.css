@@ -44,6 +44,7 @@ input#q {
   height: calc(100vh - 125px);
   overflow-y: auto;
   overflow-x: hidden;
+  padding-bottom: 80px;
 }
 
 
