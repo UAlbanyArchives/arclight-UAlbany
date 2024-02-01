@@ -9,7 +9,7 @@ $(document).ready(function(){
           dataType: 'json',
           url: $hyraxURL,
           success: function(data) {
-            if (data['response']['docs'].length > 0) {
+            if (data['data'].length > 0) {
                 $(".hyraxDaoDisplay").css("display", "block");
                 $(".defaultDaoDisplay").css("display", "none");
                 if ($(".daoGallery").children(".img-thumbnail")[0]) {
@@ -21,15 +21,15 @@ $(document).ready(function(){
                 } else {
                     $count = "9"
                 }
-                if (Number(data['response']["pages"]["total_count"]) > 0) {
-                    $(".page-entries").append("<strong>1</strong>-<strong>" + $count + "</strong> of <strong>" + data['response']["pages"]["total_count"] + "</strong>")
+                if (Number(data['meta']["pages"]["total_count"]) > 0) {
+                    $(".page-entries").append("<strong>1</strong>-<strong>" + $count + "</strong> of <strong>" + data['meta']["pages"]["total_count"] + "</strong>")
                 }
-                for (i = 0; i < data['response']['docs'].length; i++) {
+                for (i = 0; i < data['data'].length; i++) {
                     if (i < 9 ){
-                        $thumbnail = $hyraxURL.split("/catalog")[0] + data['response']['docs'][i]["thumbnail_path_ss"];
-                        $dates = data['response']['docs'][i]["date_created_tesim"];
-                        $titles = data['response']['docs'][i]["title_tesim"];
-                        $link = "https://archives.albany.edu/concern/" + data['response']['docs'][i]["has_model_ssim"].toString().toLowerCase() + "s/" + data['response']['docs'][i]["id"];
+                        $thumbnail = $hyraxURL.split("/catalog")[0] + data['data'][i]["attributes"]["thumbnail_path_ss"]["attributes"]["value"];
+                        $dates = data["data"][i]["attributes"]["date_created_tesim"]["attributes"]["value"];
+                        $titles = data["data"][i]["attributes"]["title"];
+                        $link = "https://archives.albany.edu/concern/" + data["data"][i]["type"].toString().toLowerCase() + "s/" + data["data"][i]["id"];
                         if ( ( window.location.hostname.includes("lib-espy-ws-d101.its") ) && ( $link.includes("://archives.albany.edu/") ) ) {
 				var tmp2 = document.createElement('a');
 				tmp2.href = $link
@@ -54,20 +54,20 @@ $(document).ready(function(){
                         $thumb.append("<dl></dl>");
                         $metadata = $thumb.find("dl")
                         
-                        if ("resource_type_tesim" in data['response']['docs'][i]) {
-                            $metadata.append("<dt>Resource Type:</dt><dd>" + data['response']['docs'][i]["resource_type_tesim"][0] + "</dd>");
+                        if ("resource_type_tesim" in data["data"][i]["attributes"]) {
+                            $metadata.append("<dt>Resource Type:</dt><dd>" + data["data"][i]["attributes"]["resource_type_tesim"]["attributes"]["value"] + "</dd>");
                         }
-                        if ("date_created_tesim" in data['response']['docs'][i]) {
-                            $metadata.append("<dt>Date Created:</dt><dd>" + data['response']['docs'][i]["date_created_tesim"][0] + "</dd>");
+                        if ("date_created_tesim" in data["data"][i]["attributes"]) {
+                            $metadata.append("<dt>Date Created:</dt><dd>" + data["data"][i]["attributes"]["date_created_tesim"]["attributes"]["value"] + "</dd>");
                         }
-                        if ("extent_tesim" in data['response']['docs'][i]) {
-                            $metadata.append("<dt>Duration:</dt><dd>" + data['response']['docs'][i]["extent_tesim"][0] + "</dd>");
+                        if ("extent_tesim" in data["data"][i]["attributes"]) {
+                            $metadata.append("<dt>Duration:</dt><dd>" + data["data"][i]["attributes"]["extent_tesim"]["attributes"]["value"] + "</dd>");
                         }
-                        if ("description_tesim" in data['response']['docs'][i]) {
-                            if (data['response']['docs'][i]["description_tesim"][0].length > 265) {
-                                $metadata.append("<dt>Description:</dt><dd>" + data['response']['docs'][i]["description_tesim"][0].substring(0,250)+'...' + "</dd>");
+                        if ("description_tesim" in data["data"][i]["attributes"]) {
+                            if (data["data"][i]["attributes"]["description_tesim"]["attributes"]["value"].length > 265) {
+                                $metadata.append("<dt>Description:</dt><dd>" + data["data"][i]["attributes"]["description_tesim"]["attributes"]["value"].substring(0,250)+'...' + "</dd>");
                             } else {
-                                $metadata.append("<dt>Description:</dt><dd>" + data['response']['docs'][i]["description_tesim"][0] + "</dd>");
+                                $metadata.append("<dt>Description:</dt><dd>" + data["data"][i]["attributes"]["description_tesim"]["attributes"]["value"] + "</dd>");
                             }
                         }
                     }
