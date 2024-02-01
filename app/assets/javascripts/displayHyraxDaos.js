@@ -1,4 +1,11 @@
 $(document).ready(function(){
+    // Function to get text content from HTML element string
+    function getTextContent(htmlString) {
+        const tempElement = document.createElement('div');
+        tempElement.innerHTML = htmlString;
+        return tempElement.textContent || tempElement.innerText;
+    }
+
 	if ($(".daoGallery")[0]){
 		$storedURL = $("#hyraxURI").attr("href") + "&sort=system_create_dtsi+asc&format=json"
 		var tmp = document.createElement('a');
@@ -27,8 +34,8 @@ $(document).ready(function(){
                 for (i = 0; i < data['data'].length; i++) {
                     if (i < 9 ){
                         $thumbnail = $hyraxURL.split("/catalog")[0] + data['data'][i]["attributes"]["thumbnail_path_ss"]["attributes"]["value"];
-                        $dates = data["data"][i]["attributes"]["date_created_tesim"]["attributes"]["value"];
-                        $titles = data["data"][i]["attributes"]["title"];
+                        $dates = getTextContent(data["data"][i]["attributes"]["date_created_tesim"]["attributes"]["value"]);
+                        $titles = getTextContent(data["data"][i]["attributes"]["title"]);
                         $link = "https://archives.albany.edu/concern/" + data["data"][i]["type"].toString().toLowerCase() + "s/" + data["data"][i]["id"];
                         if ( ( window.location.hostname.includes("lib-espy-ws-d101.its") ) && ( $link.includes("://archives.albany.edu/") ) ) {
 				var tmp2 = document.createElement('a');
