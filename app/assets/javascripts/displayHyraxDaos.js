@@ -8,10 +8,11 @@ $(document).ready(function(){
 
 	if ($(".daoGallery")[0]){
 		$storedURL = $("#hyraxURI").attr("href") + "&sort=system_create_dtsi+asc&format=json"
+		//console.log($storedURL);
 		var tmp = document.createElement('a');
 		tmp.href = $storedURL
-		$hyraxURL = window.location.protocol + "//" + window.location.hostname + $storedURL.split(tmp.host)[1];
-        console.log(hyraxURL);
+		$hyraxURL = "https://archives.albany.edu" + $storedURL.split(tmp.host)[1];
+        	//console.log($hyraxURL);
         $.ajax({
           type: "GET",
           dataType: 'json',
@@ -32,8 +33,8 @@ $(document).ready(function(){
                 if (Number(data['meta']["pages"]["total_count"]) > 0) {
                     $(".page-entries").append("<strong>1</strong>-<strong>" + $count + "</strong> of <strong>" + data['meta']["pages"]["total_count"] + "</strong>")
                 }
-                console.log(i);
-                console.log(data['data'][i]);
+                //console.log(i);
+                //console.log(data['data'][i]);
                 for (i = 0; i < data['data'].length; i++) {
                     if (i < 9 ){
                         $thumbnail = $hyraxURL.split("/catalog")[0] + data['data'][i]["attributes"]["thumbnail_path_ss"]["attributes"]["value"];
