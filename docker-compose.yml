@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  arclight:
+    container_name: arclight
+    image: arclight
+    ports:
+      - '0.0.0.0:8080:3000'
+    volumes:
+      - ./log:/app/log
+      - ./db:/app/db
+      - ./config/master.key:/app/config/master.key
+    environment:
+      - RAILS_ENV=production
+      # These override config/puma.rb, but are defaults anyway.
+      - WEB_CONCURRENCY=2
+      - RAILS_MAX_THREADS=5
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/description/health"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 10s

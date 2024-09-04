@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+  arclight:
+    image: ruby:2.7.7-slim-bullseye
+    container_name: arclight-dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/app'
+    working_dir: /app
+    command: >
+      bash -c "apt update &&
+              apt install -y build-essential apt-utils git nodejs &&
+              cd /app &&
+              gem install bundler -v 2.4.22 &&
+              bundle install &&
+              bundle exec rails db:migrate &&
+              bundle exec rails server -b 0.0.0.0"

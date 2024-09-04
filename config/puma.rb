@@ -1,43 +1,44 @@
-# Puma can serve each request in a thread from an internal thread pool.
-# The `threads` method setting takes two numbers: a minimum and maximum.
-# Any libraries that use thread pools should be configured to match
-# the maximum value specified for Puma. Default is set to 5 threads for minimum
-# and maximum; this matches the default thread size of Active Record.
-#
-max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
-min_threads_count = ENV.fetch("RAILS_MIN_THREADS") { max_threads_count }
-threads min_threads_count, max_threads_count
+# Puma Configuration File
 
-# Specifies the `worker_timeout` threshold that Puma will use to wait before
-# terminating a worker in development environments.
-#
-worker_timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
-
-# Specifies the `port` that Puma will listen on to receive requests; default is 3000.
-#
-port ENV.fetch("PORT") { 3000 }
-
-# Specifies the `environment` that Puma will run in.
-#
+# Set the environment for Puma (e.g., production, development, etc.)
 environment ENV.fetch("RAILS_ENV") { "development" }
 
-# Specifies the `pidfile` that Puma will use.
-pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
+# Number of workers to spin up
+# Workers are forked processes, so you may want more in production
+workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 
-# Specifies the number of `workers` to boot in clustered mode.
-# Workers are forked web server processes. If using threads and workers together
-# the concurrency of the application would be max `threads` * `workers`.
-# Workers do not work on JRuby or Windows (both of which do not support
-# processes).
-#
-# workers ENV.fetch("WEB_CONCURRENCY") { 2 }
+# Number of threads to use per worker
+# Adjust based on your application’s needs and server capacity
+threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
+threads threads_count, threads_count
 
-# Use the `preload_app!` method when specifying a `workers` number.
-# This directive tells Puma to first boot the application and load code
-# before forking the application. This takes advantage of Copy On Write
-# process behavior so workers use less memory.
-#
-# preload_app!
+# Puma listens on both Unix and TCP sockets
+# By default, Puma will bind to a TCP port
+bind "tcp://0.0.0.0:3000"
 
-# Allow puma to be restarted by `rails restart` command.
-plugin :tmp_restart
+# Set a PID file for the server process
+pidfile "tmp/pids/puma.pid"
+
+# Set a path for Puma’s state
+state_path "tmp/pids/puma.state"
+
+# Enable the preload_app feature
+# Helps with faster worker boot times by loading the application before forking
+preload_app!
+
+# Allows Puma to handle graceful restarts
+# This will allow Puma to restart without dropping connections
+on_restart do
+  puts 'Refreshing Gemfile'
+  ENV['BUNDLE_GEMFILE'] = File.expand_path('../Gemfile', __FILE__)
+end
+
+# Set a worker timeout
+# Defines the timeout for worker processes, typically used in production
+worker_timeout 60
+
+# Optional: Configure Puma to run in a daemonized mode (usually not for development)
+# daemonize
+
+# Optional: Configure log files for Puma (you might want to configure this differently for production)
+stdout_redirect 'log/puma.stdout.log', 'log/puma.stderr.log', true

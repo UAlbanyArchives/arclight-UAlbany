@@ -1,0 +1,7 @@
+# Cron job that gets installed in the Dockerfile to clear the db each month
+
+# Clear DB of user searches every month on the 1st day at midnight
+0 0 1 * * cd /app && bundle exec rails blacklight:delete_old_searches >> /app/log/cron.log 2>&1
+
+# Clean Rails tmp folder every day at midnight
+0 0 * * * rm -rf /app/tmp/* >> /app/log/cron.log 2>&1
