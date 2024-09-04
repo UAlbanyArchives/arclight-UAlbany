@@ -1,0 +1,28 @@
+# Use the base Ruby image
+FROM ruby:3.3.4-slim-bookworm
+
+# Install build dependencies and other utilities
+RUN apt-get update -qq && \
+    apt-get install -y build-essential apt-utils git nodejs && \
+    rm -rf /var/lib/apt/lists/*
+
+# Set the working directory
+WORKDIR /app
+
+# Install bundler
+RUN gem install bundler
+
+# Copy the Gemfile and Gemfile.lock
+COPY Gemfile Gemfile.lock ./
+
+# Install gems
+RUN bundle install
+
+# Copy the rest of the application code
+COPY . .
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Command to run the application
+CMD ["bash", "-c", "bundle exec rails db:migrate && bundle exec rails server -b 0.0.0.0"]

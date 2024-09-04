@@ -2,11 +2,16 @@ version: '3.1'
 
 services:
   arclight:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
     container_name: arclight-dev
     ports:
       - '3000:3000'
     volumes:
       - '.:/app'
+      - '../collections:/ead'
+      - '../grenander:/grenander'
     working_dir: /app
-    entrypoint: ["bash"]
+    command: /bin/bash -c "while true; do sleep 1000; done"
+    

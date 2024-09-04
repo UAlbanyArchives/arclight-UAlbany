@@ -66,3 +66,8 @@ gem "sassc-rails", "~> 2.1"
 gem "devise"
 gem "devise-guests", "~> 0.8"
 gem "blacklight-locale_picker"
+
+
+# UAlbany Styling
+gem 'grenander', path: '/grenander'
+#gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
