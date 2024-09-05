@@ -12,7 +12,4 @@
  *
  *= require_tree .
  *= require_self
- *= require  'grenander/headerNavbar'
- *= require  'grenander/browseNav'
- *= require  'grenander/searchSubnav'
  */

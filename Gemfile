@@ -69,5 +69,5 @@ gem "blacklight-locale_picker"
 
 
 # UAlbany Styling
-gem 'grenander', path: '/grenander'
+gem 'grenander', path: '../grenander'
 #gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'

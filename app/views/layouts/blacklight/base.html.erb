@@ -34,9 +34,9 @@
       <%= content_for(:skip_links) %>
     </nav>
     
-    <%# render partial: 'shared/header_navbar' %>
-    <%= render partial: 'layouts/grenander/header_navbar' %>
-    <%= render partial: 'layouts/grenander/search_subnav' %>
+    <%= render partial: 'shared/header_navbar' %>
+    <%# render partial: 'layouts/grenander/header_navbar' %>
+    <%# render partial: 'layouts/grenander/search_subnav' %>
 
     <main id="main-container" class="<%= container_classes %>" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
       <%= content_for(:container_header) %>
@@ -48,8 +48,8 @@
       </div>
     </main>
 
-    <%# render partial: 'shared/footer' %>
-    <%= render partial: 'layouts/grenander/footer' %>
+    <%= render partial: 'shared/footer' %>
+    <%# render partial: 'layouts/grenander/footer' %>
     <%= render partial: 'shared/modal' %>
   </body>
 <% end %>

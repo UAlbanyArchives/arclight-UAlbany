@@ -13,5 +13,7 @@ services:
       - '../collections:/ead'
       - '../grenander:/grenander'
     working_dir: /app
-    command: /bin/bash -c "while true; do sleep 1000; done"
-    
+    command: >
+      bash -c "bundle install &&
+              bundle exec rails db:migrate &&
+              bundle exec rails server -b 0.0.0.0"
