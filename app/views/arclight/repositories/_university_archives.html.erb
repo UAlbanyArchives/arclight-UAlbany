@@ -1,16 +1,18 @@
-<% officesURI = URI.join(request.base_url, "description") %>
-<% taskForcesURI = URI.join(request.base_url, "description") %>
-<% communicationsURI = URI.join(request.base_url, "description") %>
-<% financeURI = URI.join(request.base_url, "description") %>
-<% studentAffairsURI = URI.join(request.base_url, "description") %>
-<% developmentURI = URI.join(request.base_url, "description") %>
-<% academicAdminURI = URI.join(request.base_url, "description") %>
-<% schoolsURI = URI.join(request.base_url, "description") %>
-<% departmentsURI = URI.join(request.base_url, "description") %>
-<% centersURI = URI.join(request.base_url, "description") %>
-<% studentsURI = URI.join(request.base_url, "description") %>
-<% facultyURI = URI.join(request.base_url, "description") %>
-<% referenceURI = URI.join(request.base_url, "description") %>
+<% routeScope = url_for(controller: 'repositories') %>
+
+<% officesURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% taskForcesURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% communicationsURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% financeURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% studentAffairsURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% developmentURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% academicAdminURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% schoolsURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% departmentsURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% centersURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% studentsURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% facultyURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
+<% referenceURI = URI.join(request.base_url, File.join(routeScope, "catalog")) %>
 
 <% officesFacet = Hash.new %>
 <% taskForcesFacet = Hash.new %>

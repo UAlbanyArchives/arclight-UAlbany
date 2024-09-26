@@ -8,39 +8,44 @@ module Arclight
       load_collection_counts
     end
 
+    def home
+      render partial: 'home'
+    end
+
     def show
       @repository = Arclight::Repository.find_by!(slug: params[:id])
       search_service = Blacklight.repository_class.new(blacklight_config)
       @subjects = get_subjects
 
       if params[:id] == "all" or params[:id] == "sub"
-	@all_response = search_service.search(
-          q: "level_sim:Collection",
+	      @all_response = search_service.search(
+          q: "level_ssim:Collection",
           rows: 9999
         )
-	@last_response = search_service.search(
-          q: "level_sim:Collection",
+	      @last_response = search_service.search(
+          q: "level_ssim:Collection",
           sort: "timestamp desc",
           rows: 5
         )
       else
         @all_response = search_service.search(
-          q: "level_sim:Collection repository_sim:\"#{@repository.name}\"",
+          q: "level_ssim:Collection repository_ssim:\"#{@repository.name}\"",
           rows: 9999
         )
-	@last_response = search_service.search(
-          q: "level_sim:Collection repository_sim:\"#{@repository.name}\"",
+	      @last_response = search_service.search(
+          q: "level_ssim:Collection repository_ssim:\"#{@repository.name}\"",
           sort: "timestamp desc",
           rows: 5
         )
       end
+
       @all_collections = @all_response.documents
       @last_collections = @last_response.documents
-      @sorted_collections = @all_collections.sort_by! {|col| col._source["title_filing_si"] || ""}
+      @sorted_collections = @all_collections.sort_by! {|col| col._source["title_filing_ssi"] || ""}
       @alpha_collections = {}
-      @sorted_collections.each do |document|
-        if document._source.key?("title_filing_si")
-          letter = document._source["title_filing_si"][0,1]
+      @sorted_collections.each do |document|  
+        if document.key?("title_filing_ssi")
+          letter = document["title_filing_ssi"][0,1]
         else
           letter = ""
         end
@@ -55,7 +60,7 @@ module Arclight
     private
 
     def subjects_list
-	subjects = Array.new
+	    subjects = Array.new
         subjects << "African Americans and Civil Rights Organizations"
         subjects << "Africana Studies"
         subjects << "Agriculture"
@@ -93,21 +98,22 @@ module Arclight
         subjects << "State University of New York SUNY, Central Administration"
         subjects << "Travel"
         subjects << "Women"
-    end
+      end
 
     def get_subjects
-	@subjects = Array.new
-	subjects_list.each do |subject|
-	    sub = Hash.new
-	    sub["name"] = subject
-            subjectURI = URI.join(request.base_url, "description")
-            subjectFacet = Hash.new
-            subjectFacet["f"] = {"access_subjects_ssim": [subject.gsub(" ", "+")]}
-            subjectURI.query = subjectFacet.to_query
-	    sub["uri"] = subjectURI
-	    @subjects << sub
-	end
-	@subjects
+    	@subjects = Array.new
+      	subjects_list.each do |subject|
+      	    sub = Hash.new
+      	    sub["name"] = subject
+                  routeScope = url_for(controller: 'repositories')
+                  subjectURI = URI.join(request.base_url, File.join(routeScope, "catalog"))
+                  subjectFacet = Hash.new
+                  subjectFacet["f"] = {"access_subjects": [subject.gsub(" ", "+")]}
+                  subjectURI.query = subjectFacet.to_query
+      	    sub["uri"] = subjectURI
+      	    @subjects << sub
+      	end
+    	@subjects
     end
 
     def load_collection_counts
@@ -120,11 +126,11 @@ module Arclight
     def fetch_collection_counts
       search_service = Blacklight.repository_class.new(blacklight_config)
       results = search_service.search(
-        q: 'level_sim:Collection',
-        'facet.field': 'repository_sim',
+        q: 'level_ssim:Collection',
+        'facet.field': 'repository_ssim',
         rows: 0
       )
-      counts = Hash[*results.facet_fields['repository_sim']]
+      counts = Hash[*results.facet_fields['repository_ssim']]
       counts["A-Z Complete List of Collections"] = results.response["numFound"]
 
       counts

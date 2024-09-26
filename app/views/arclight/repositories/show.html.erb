@@ -5,20 +5,20 @@
 
 <% unless @repository.slug == "ua" or @repository.slug == "sub" %>
 
-<% content_for(:sidebar) do %>
- <div class="row sticky-nav alpha-menu">
-    <div class="col-md-12">
-      <section class="sidebar-scroll-wrapper">
-        <ul class="list-group">
-          <a href="#" class="list-group-item list-group-item-action"><%= @repository.name %></a>
-          <% @alpha_collections.keys.each do |letter| %>
-            <a href="#<%= letter %>" class="list-group-item list-group-item-action"><%= letter %></a>
-          <% end %>
-        </ul>
-      </section>
-    <div>
-  </div>
-<% end %>
+  <% content_for(:sidebar) do %>
+   <div class="row sticky-nav alpha-menu">
+      <div class="col-md-12">
+        <section class="sidebar-scroll-wrapper">
+          <ul class="list-group">
+            <a href="#" class="list-group-item list-group-item-action"><%= @repository.name %></a>
+            <% @alpha_collections.keys.each do |letter| %>
+              <a href="#<%= letter %>" class="list-group-item list-group-item-action"><%= letter %></a>
+            <% end %>
+          </ul>
+        </section>
+      <div>
+    </div>
+  <% end %>
 
 <% end %>
 
@@ -30,8 +30,8 @@
 
 	<% if @repository.slug == "ua" %>
 		<%= render partial: 'university_archives' %>
-        <% elsif @repository.slug == "sub" %>
-                <%= render partial: 'subjects' %>
+  <% elsif @repository.slug == "sub" %>
+    <%= render partial: 'subjects' %>
 	<% else %>
     
     <% @alpha_collections.keys.each do |letter| %>
@@ -42,12 +42,12 @@
               <div class='col-md-12'>
                 <h3 class="h5">
                   <%= blacklight_icon :collection, classes: 'al-repository-content-icon' %>
-                  <%= link_to document._source["title_filing_si"], solr_document_path(document.id) %>
+                  <%= link_to document._source["title_filing_ssi"], solr_document_path(document.id) %>
                 <small><%= document.normalized_date %></small></h3>
                 <% unless @repository.slug == "all" %>
                   <%= content_tag('div', class: 'al-document-abstract-or-scope') do %>
                     <%= content_tag('div', 'data-arclight-truncate' => true) do %>
-                      <%= document.abstract_or_scope %>
+                      <%= strip_tags(document.abstract_or_scope) %>
                     <% end %>
                   <% end if document.abstract_or_scope %>
                 <% end %>
@@ -75,7 +75,7 @@
                   <h3 class="h5"><%= blacklight_icon :collection, classes: 'al-repository-content-icon' %> <%= link_to document.normalized_title, solr_document_path(document.id) %></h3>
                   <%= content_tag('div', class: 'al-document-abstract-or-scope') do %>
                     <%= content_tag('div', 'data-arclight-truncate' => true) do %>
-                      <%= document.abstract_or_scope %>
+                      <%= strip_tags(document.abstract_or_scope) %>
                     <% end %>
                   <% end if document.abstract_or_scope %>
                 </div>
