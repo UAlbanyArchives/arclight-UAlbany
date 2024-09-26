@@ -24,19 +24,32 @@
       </script>
     <% end %>
 
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://library-albany.matomo.cloud/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '2']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src='//cdn.matomo.cloud/library-albany.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+
     <%= csrf_meta_tags %>
     <%= content_for(:head) %>
   </head>
   <body class="<%= render_body_class %>">
-    <nav id="skip-link" role="navigation" aria-label="<%= t('blacklight.skip_links.label') %>">
-      <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
-      <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
+    <%= render blacklight_config.skip_link_component.new do %>
       <%= content_for(:skip_links) %>
-    </nav>
-    
+    <% end %>
+
     <%= render partial: 'shared/header_navbar' %>
-    <%# render partial: 'layouts/grenander/header_navbar' %>
-    <%# render partial: 'layouts/grenander/search_subnav' %>
+    <%# render partial: 'layouts/grenander/navbar' %>
 
     <main id="main-container" class="<%= container_classes %>" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
       <%= content_for(:container_header) %>

@@ -1,0 +1,12 @@
+<% @subjects.each do |subject| %>
+  <article class='al-document-title-bar document'>
+	<div class='row'>
+	  <div class='col-md-12'>
+		<h3 class="h5">
+		  <%# blacklight_icon :collection, classes: 'al-repository-content-icon' %>
+		  <%= link_to subject["name"], CGI::unescape(subject["uri"].to_s) %>
+		</h3>
+	  </div>
+	</div>
+  </article>
+<% end %>

@@ -55,7 +55,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
-gem "arclight"
+
+# Specify Arclight and Blacklight versions
+gem "arclight", ">= 1.4.0"
+gem "blacklight", ">= 8.4.0"
 
 group :development, :test do
   gem "solr_wrapper", ">= 0.3"
@@ -66,8 +69,9 @@ gem "sassc-rails", "~> 2.1"
 gem "devise"
 gem "devise-guests", "~> 0.8"
 gem "blacklight-locale_picker"
+gem "mutex_m"
 
 
 # UAlbany Styling
-gem 'grenander', path: '../grenander'
-#gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
+#gem 'grenander', path: '../grenander'
+#gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'bootstrap_5'

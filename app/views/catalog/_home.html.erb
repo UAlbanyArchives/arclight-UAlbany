@@ -1,0 +1,82 @@
+<% @page_title = t(:'arclight.views.home.title') %>
+<div class="card">
+	<div class="card-body">
+	   <h2>About the Collections</h2>
+	   
+	   <p>
+		We collect, preserve, and make available unique archives and manuscript collections, the official records of the university, and rare and specialized book collections. Learn more about our <a href="<%= request.base_url + "/web/mission" %>">Mission & Purpose</a>.
+	   </p>
+	   
+	   <ul class="ua_browse_list about_collections">
+			<div class="category row">
+				<div class="col-md 12 col-xl-8">
+				<li><a href="<%= request.base_url + "/description/repositories" %>">Archives & Manuscripts</a></li>
+				<p>These collections contain material created by individuals or are the permanent records of an organization or business.</p>
+				<p>They are divided into five major collecting areas:</p>
+			<ul>
+				<li><a href="<%= request.base_url + "/description/repositories/apap" %>">New York State Modern Political Archive</a></li>
+					<ul>
+						<li>Elected officials, interest groups, and activists from New York State</li>
+					</ul>
+				<li><a href="<%= request.base_url + "/description/repositories/ndpa" %>">National Death Penalty Archive</a></li>
+					<ul>
+						<li>Researchers, writers, activists, and records on capital punishment in the United States</li>
+					</ul>
+				<li><a href="<%= request.base_url + "/description/repositories/ger" %>">German and Jewish Intellectual Émigré Collections</a></li>
+					<ul>
+						<li>Papers of German-speaking intellectuals who fled the Nazi regime in the 1930s</li>
+					</ul>
+				<li><a href="<%= request.base_url + "/description/repositories/ua" %>">University Archives</a></li>
+					<ul>
+						<li>The official permanent records of the University at Albany, SUNY and its predecessor schools</li>
+					</ul>
+				<li><a href="<%= request.base_url + "/description/repositories/mss" %>">Business and Literary Manuscripts</a></li>
+					<ul>
+						<li>Manuscripts, records, and papers primarily related to businesses and people of New York and New England</li>
+					</ul>
+			</ul>
+			</div>
+			<div class="col-md-11 offset-md-1 col-xl-4 offset-xl-0">
+				<div class="alert alert-info mt-2" role="alert">
+							<a data-toggle="collapse" href="#collapseAbout" role="button" aria-expanded="false" aria-controls="collapseAbout">
+								<h5 class="alert-heading mb-0">
+								<i class="fa fa-info-circle" aria-hidden="true"></i>
+								About Archives & Manuscripts
+								<i class="fa fa-angle-down rotate-icon pull-right"></i>
+								</h5>
+							</a>
+							<div class="collapse" id="collapseAbout">
+								<hr/>
+								<p>
+									Archives & Manuscripts are groupings of physical and digital records that are not available anyplace else and document a key topic for potential research. Each letter, film reel, or spreadsheet only tells part of the story, so we try and keep these collections grouped together so you can see how their creators used them. Items that are used often may be described individually, but other collections can be hundreds of boxes and might only be described as a large group.</p>
+								<p>
+									Generally, "manuscripts" are created by individual people and "archives" are the accumulated permanent records of an organization or business, but these terms are often mixed. Collections are usually described as either "Papers," created by an individual person, "Records," the official documents of an organization, or as a "Collection" gathered from a number of original sources on a common subject or topic. 
+								</p>
+							</div>
+						</div>
+			</div>
+			</div>
+			<div class="category">
+				<li><a href="<%= request.base_url + "/books/?f[collecting_area_ssim][]=Mathes+Childrens+Literature" %>">Miriam Snow Mathes Historical Children's Literature Collection</a></li>
+				<p>
+					Designed to provide access to out-of-print children's literature, the Mathes Collection includes books and periodicals for children and young adults, published in the United States, mostly between 1875 and 1960.
+				</p>
+			</div>
+			
+			<div class="category">
+				<li><a href="<%= request.base_url + "/books/?f[collecting_area_ssim][]=Political+Pamphlets" %>">Political Pamphlets</a></li>
+				<p>
+					This is an artificial collection of thousands of rare pamphlets published on a wide variety of 20th century political topics.
+				</p>
+			</div>
+			
+			<div class="category">
+				<li><a href="<%= request.base_url + "/books" %> ">Rare Books</a></li>
+				<p>
+					A large collection of unique and specialized books that do not circulate because of the item's uniqueness, fragility, or scarcity.
+				</p>
+			</div>
+		
+		</ul>
+	</div>
+</div>

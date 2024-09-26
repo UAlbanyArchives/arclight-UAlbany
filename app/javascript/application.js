@@ -4,7 +4,6 @@ import "controllers"
 import bootstrap from "bootstrap"
 import githubAutoCompleteElement from "@github/auto-complete-element"
 import Blacklight from "blacklight"
-
 import "arclight"
-import "grenander/headerAffix"
-import "grenander/searchHandler"
+
+/*import "grenander/search_sources_menu"*/
