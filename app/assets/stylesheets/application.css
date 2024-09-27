@@ -13,5 +13,13 @@
  *= require_tree .
  *= require_self
  *
+ *= require  'grenander/navbar'
+ *= require  'grenander/search-source'
+ *= require  'grenander/footer'
+ *= require  'grenander/main'
  *
+ *= require  'show_component'
+ *= require  'context_navigation'
+ *= require  'daos'
+ *= require  'repositories'
  */

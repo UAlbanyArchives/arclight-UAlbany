@@ -54,21 +54,22 @@
       <%= content_for(:skip_links) %>
     <% end %>
 
-    <%= render partial: 'shared/header_navbar' %>
-    <%# render partial: 'layouts/grenander/navbar' %>
+    <%# render partial: 'shared/header_navbar' %>
+    <%= render partial: 'layouts/grenander/navbar' %>
+    <%= render partial: 'grenander/search_row' %>
 
     <main id="main-container" class="<%= container_classes %>" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
-      <%= content_for(:container_header) %>
+      <%# content_for(:container_header) %>
 
-      <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
+      <% render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
 
       <div class="row">
         <%= content_for?(:content) ? yield(:content) : yield %>
       </div>
     </main>
 
-    <%= render partial: 'shared/footer' %>
-    <%# render partial: 'layouts/grenander/footer' %>
+    <%# render partial: 'shared/footer' %>
+    <%= render partial: 'layouts/grenander/footer' %>
     <%= render partial: 'shared/modal' %>
   </body>
 <% end %>

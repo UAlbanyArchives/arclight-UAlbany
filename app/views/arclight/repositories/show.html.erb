@@ -3,10 +3,11 @@
 <%= render 'shared/breadcrumbs' %>
 <%= render @repository %>
 
-<% unless @repository.slug == "ua" or @repository.slug == "sub" %>
 
-  <% content_for(:sidebar) do %>
-   <div class="row sticky-nav alpha-menu">
+
+<% content_for(:sidebar) do %>
+ <div class="row sticky-nav alpha-menu">
+    <% unless @repository.slug == "ua" or @repository.slug == "sub" %>
       <div class="col-md-12">
         <section class="sidebar-scroll-wrapper">
           <ul class="list-group">
@@ -17,14 +18,16 @@
           </ul>
         </section>
       <div>
-    </div>
-  <% end %>
-
+    <% end %>
+  </div>
 <% end %>
 
+
+
 <div class="row">
-  <div id="documents" class="col-md-8 full-collections">
-    <div class="card">
+  <div id="documents" class="col-md-8 <%= 'full-collections' unless @repository.slug == 'ua' || @repository.slug == 'sub' %>">
+
+  <div class="card">
 	<div class="card-body">
 	   <h2 class="h4"> <%= @repository.name %> Collections </h2>
 
