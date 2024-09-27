@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  *
+ *= require 'grenander'
+ *
  *= require  'grenander/navbar'
  *= require  'grenander/search-source'
  *= require  'grenander/footer'
@@ -23,3 +25,21 @@
  *= require  'daos'
  *= require  'repositories'
  */
+
+/* Search sources menu collapsed even on desktop */
+.search-sources li.nav-item a {
+	display: none !important;
+}
+.search-sources li.nav-item a.active {
+	display: block !important;
+}
+.more-sources {
+	display: block !important;
+	margin-bottom: 1rem;
+}
+#search-sources-menu {
+	margin-bottom: 0;
+}
+.shrink-search-options {
+	min-height: 152px;
+}

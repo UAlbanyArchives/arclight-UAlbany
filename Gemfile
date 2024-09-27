@@ -62,6 +62,8 @@ gem "blacklight", ">= 8.4.0"
 gem 'blacklight_range_limit', '~> 8'
 gem 'blacklight_dynamic_sitemap'
 
+gem 'font-awesome-sass', '~> 5.15'
+
 group :development, :test do
   gem "solr_wrapper", ">= 0.3"
 end
@@ -72,7 +74,6 @@ gem "devise"
 gem "devise-guests", "~> 0.8"
 gem "blacklight-locale_picker"
 gem "mutex_m"
-
 
 # UAlbany Styling
 gem 'grenander', path: '../grenander'
