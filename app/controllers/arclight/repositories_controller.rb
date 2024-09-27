@@ -9,7 +9,7 @@ module Arclight
     end
 
     def home
-      render partial: 'home'
+      render 'home'
     end
 
     def show

@@ -3,8 +3,9 @@ Rails.application.routes.draw do
     mount Blacklight::Engine => '/'
     mount Arclight::Engine => '/'
 
+    get '/', to: 'arclight/repositories#home', as: 'home'
+
     root to: "arclight/repositories#index"
-    #root to: "arclight/repositories#home"
     concern :searchable, Blacklight::Routes::Searchable.new
 
     resource :catalog, only: [:index], as: 'catalog', path: '/catalog', controller: 'catalog' do
