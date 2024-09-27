@@ -97,6 +97,13 @@ GEM
       zeitwerk
     blacklight-locale_picker (1.2.0)
       rails (>= 5.2.3, < 7.3)
+    blacklight_dynamic_sitemap (1.0.0)
+      blacklight (> 7.0)
+      rails
+    blacklight_range_limit (8.5.0)
+      blacklight (>= 7.25.2, < 9)
+      deprecation
+      view_component (>= 2.54, < 4)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
     bootstrap (5.3.3)
@@ -457,6 +464,8 @@ DEPENDENCIES
   arclight (>= 1.4.0)
   blacklight (>= 8.4.0)
   blacklight-locale_picker
+  blacklight_dynamic_sitemap
+  blacklight_range_limit (~> 8)
   bootsnap
   bootstrap (~> 5.3)
   brakeman

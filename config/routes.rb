@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   scope 'description' do
     mount Blacklight::Engine => '/'
+    mount BlacklightDynamicSitemap::Engine => '/'
+
     mount Arclight::Engine => '/'
 
     get '/', to: 'arclight/repositories#home', as: 'home'

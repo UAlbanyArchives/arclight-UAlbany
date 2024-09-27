@@ -59,6 +59,8 @@ end
 # Specify Arclight and Blacklight versions
 gem "arclight", ">= 1.4.0"
 gem "blacklight", ">= 8.4.0"
+gem 'blacklight_range_limit', '~> 8'
+gem 'blacklight_dynamic_sitemap'
 
 group :development, :test do
   gem "solr_wrapper", ">= 0.3"
