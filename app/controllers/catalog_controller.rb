@@ -141,7 +141,7 @@ class CatalogController < ApplicationController
     # :index_range can be an array or range of prefixes that will be used to create the navigation
     #  (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'access', label: 'Online Content', collapse: false, query: {
+    config.add_facet_field 'Online Content', label: 'Online Content', collapse: false, query: {
       online: { label: 'Online access', fq: 'has_online_content_ssim:true' }
     }
 

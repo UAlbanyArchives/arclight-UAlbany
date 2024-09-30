@@ -3,3 +3,70 @@ $logo-image: image_url('arclight/logo.png') !default;
 @import 'bootstrap';
 @import 'blacklight/blacklight';
 @import 'arclight/application';
+
+@media (max-width: 991.98px) {
+    .collection-sidebar {
+        display: none !important; /* Hides the sidebar on medium screens and below */
+    }
+}
+
+.source-box .search-extra-controls a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 0.8rem;
+	font-weight: 400;
+}
+
+.source-box .search-extra-controls a:nth-child(2) {
+	margin-left: 1rem !important;
+}
+
+.source-box .search-extra-controls a:nth-child(3) {
+	margin-left: auto !important;
+}
+
+.source-box .search-extra-controls a:hover {
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.grouped-documents .al-grouped-more {
+	margin-bottom: 0.5rem !important;
+	border-bottom: none !important;
+}
+
+.documents-list article.document:first-child {
+	padding-top: 1rem !important;
+}
+
+.grouped-documents {
+	margin-bottom: 0rem !important;
+}
+
+.grouped-documents .documents-list {
+	margin-bottom: 0rem !important;
+}
+
+.grouped-documents .document-metadata {
+	margin-bottom: 0rem !important;
+}
+
+.facets-collapse .blacklight-Online {
+	border: 1px solid #642a90;
+}
+
+.facets-collapse .blacklight-Online #facet-online-content-header {
+	background-color: #642a90 !important;
+}
+
+.facets-collapse .blacklight-Online #facet-online-content-header button {
+	color: #fff !important;
+}
+
+
+/* collection show page */
+
+.show-document .pagination-search-widgets {
+	margin: 0;
+	padding: 0;
+}
+

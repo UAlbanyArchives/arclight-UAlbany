@@ -15,6 +15,7 @@
  *
  *= require 'grenander'
  *
+ *= require  'grenander/blacklight'
  *= require  'grenander/navbar'
  *= require  'grenander/search-source'
  *= require  'grenander/footer'
