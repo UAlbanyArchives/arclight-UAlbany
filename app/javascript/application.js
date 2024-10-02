@@ -7,6 +7,7 @@ import Blacklight from "blacklight"
 import "arclight"
 
 import "grenander/search_sources_menu"
+import "./arclight-UAlbany/displayHyraxDaos";
 
 /* Searching within a collection should not yield results */
 /* grouped by collection. */
