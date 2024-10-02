@@ -5,6 +5,8 @@ en:
         sections:
           collection_restrictions_teaser_field: Using these materials teaser
           access_field: Using these materials
+          using_field: Access options
+        expand: Show More ...
   blacklight:
     search:
       fields:

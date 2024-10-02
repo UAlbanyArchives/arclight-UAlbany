@@ -4,6 +4,23 @@ $logo-image: image_url('arclight/logo.png') !default;
 @import 'blacklight/blacklight';
 @import 'arclight/application';
 
+a {
+	text-decoration: none !important;
+}
+
+.pagination .active * {
+	color: #fff !important;
+}
+
+.pagination .page-link:focus {
+	box-shadow: 0 0 0 0.25rem rgba(158, 104, 199, 0.5);
+}
+
+#within_collection:focus {
+	box-shadow: 0 0 0 0.25rem rgba(158, 104, 199, 0.5);
+	border-color: #9e68c7;
+}
+
 .al-repository {
 	margin-bottom: 2rem;
 }
@@ -102,7 +119,7 @@ $logo-image: image_url('arclight/logo.png') !default;
 	width: 100%;
 }
 
-#using-these-materials-teaser dd * {
+.using-resources * {
 	color: #642a90;
 	text-decoration: none;
 }
@@ -118,6 +135,7 @@ $logo-image: image_url('arclight/logo.png') !default;
   		width: 33%;
   	}
 }
+
 
 
 /* sidebar */
@@ -235,4 +253,17 @@ $logo-image: image_url('arclight/logo.png') !default;
 #collection-context .documentHeader .al-toggle-view-children {
 	margin-left: -1.75rem;
 	margin-right: 0.5rem;
+}
+
+#collection-context .al-collection-context-collapsible a.btn-secondary {
+	width: 90%;
+	text-align: left;
+	text-transform: lowercase;
+	padding-left: 2.25rem;
+	background-color: #999;
+	border: none;
+	background-repeat: no-repeat;
+	background-size: 1rem auto;
+	background-position: 10px center;
+	background-image: asset-url("expand-white.svg");
 }

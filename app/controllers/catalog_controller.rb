@@ -11,6 +11,9 @@ class CatalogController < ApplicationController
   # D: Add special global banner restrictions field type
   Blacklight::Configuration.define_field_access :restrictions_banner_field, Blacklight::Configuration::ShowField
 
+  Blacklight::Configuration.define_field_access :access_use_field,
+                                                Blacklight::Configuration::ShowField
+
   configure_blacklight do |config|
     ## Class for sending and receiving requests from a search index
     # config.repository_class = Blacklight::Solr::Repository
@@ -101,9 +104,9 @@ class CatalogController < ApplicationController
     ]
 
     config.show.collection_access_items = %i[
+      in_person_field
       terms_field
       cite_field
-      in_person_field
       contact_field
     ]
 
@@ -113,9 +116,9 @@ class CatalogController < ApplicationController
     ]
 
     config.show.component_access_items = %i[
+      in_person_field
       component_terms_field
       cite_field
-      in_person_field
       contact_field
     ]
 
@@ -425,8 +428,13 @@ class CatalogController < ApplicationController
     # ACCESS TAB FIELDS
     # =================
 
+    # Collection and Component Show Page Access Tab - In Person Section
+    #config.add_in_person_field 'repository_location', values: ->(_, document, _) { document.repository_config }, component: Arclight::RepositoryLocationComponent
+    config.add_in_person_field 'access', values: ->(_, document, _) { document.repository_config&.visit_note }
+
     # Collection Show Page Access Tab - Terms and Conditions Section
     config.add_terms_field 'restrictions', field: 'accessrestrict_html_tesm', helper_method: :render_html_tags
+
     config.add_terms_field 'terms', field: 'userestrict_html_tesm', helper_method: :render_html_tags
 
     # Component Show Page Access Tab - Terms and Condition Section
@@ -435,17 +443,14 @@ class CatalogController < ApplicationController
     config.add_component_terms_field 'parent_restrictions', field: 'parent_access_restrict_tesm', helper_method: :render_html_tags
     config.add_component_terms_field 'parent_terms', field: 'parent_access_terms_tesm', helper_method: :render_html_tags
 
-    # Collection and Component Show Page Access Tab - In Person Section
-    config.add_in_person_field 'repository_location', values: ->(_, document, _) { document.repository_config }, component: Arclight::RepositoryLocationComponent
-    config.add_in_person_field 'before_you_visit', values: ->(_, document, _) { document.repository_config&.visit_note }
-
     # Collection and Component Show Page Access Tab - How to Cite Section
     config.add_cite_field 'prefercite', field: 'prefercite_html_tesm', helper_method: :render_html_tags
 
     # Collection and Component Show Page Access Tab - Contact Section
-    config.add_contact_field 'repository_contact', values: ->(_, document, _) { document.repository_config&.contact }
+    #config.add_contact_field 'repository_contact', values: ->(_, document, _) { document.repository_config&.contact }
 
     # Group header values
     config.add_group_header_field 'abstract_or_scope', accessor: true, truncate: true, helper_method: :render_html_tags
+
   end
 end
