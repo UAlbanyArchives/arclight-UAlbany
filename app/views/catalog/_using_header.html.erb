@@ -1,0 +1,32 @@
+<%# Borrowed DUL customization HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/main/app/views/catalog/_using_header.html.erb %>
+<%# A reusable Using These Materials header; it renders as the heading for a few -%>
+<%# different sections (collection-level snippet, collection- & component-level terms) -%>
+<!-- <h2 class='al-show-sub-heading'>
+  <%# t("arclight.views.show.sections.using_field") %>
+</h2>-->
+<p>
+  <ul class="list-unstyled using-resources">
+    <li>
+      <i class="fa fa-info-circle" aria-hidden="true"></i>
+      <%= link_to "Using the Archives",
+            "https://archives.albany.edu/web/about/", target: "_blank" %>
+    </li>
+    <li>
+      <i class="fa fa-info-circle" aria-hidden="true"></i>
+      <%= link_to "Visiting In-Person",
+            "https://archives.albany.edu/web/visit/", target: "_blank" %>
+    </li>
+    <li>
+      <i class="fa fa-info-circle" aria-hidden="true"></i>
+      <%= link_to "Hours and Directions",
+            "https://archives.albany.edu/web/directions/", target: "_blank" %>
+    </li>
+    <li>
+      <i class="fa fa-info-circle" aria-hidden="true"></i>
+      <%= link_to "Publishing and Citing",
+            "https://archives.albany.edu/web/publish_cite/", target: "_blank" %>
+    </li>
+  </ul>
+</p>
+
+<hr/>

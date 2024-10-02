@@ -1,4 +1,10 @@
 en:
+  arclight:
+    views:
+      show:
+        sections:
+          collection_restrictions_teaser_field: Using these materials teaser
+          access_field: Using these materials
   blacklight:
     search:
       fields:

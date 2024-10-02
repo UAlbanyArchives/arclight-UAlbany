@@ -5,6 +5,12 @@ class CatalogController < ApplicationController
   include Blacklight::Catalog
   include Arclight::Catalog
 
+  # Borrowed DUL customization: Add collection-level restrictions field type for teaser box
+  Blacklight::Configuration.define_field_access :collection_restrictions_teaser_field,
+                                                Blacklight::Configuration::ShowField
+  # D: Add special global banner restrictions field type
+  Blacklight::Configuration.define_field_access :restrictions_banner_field, Blacklight::Configuration::ShowField
+
   configure_blacklight do |config|
     ## Class for sending and receiving requests from a search index
     # config.repository_class = Blacklight::Solr::Repository
@@ -85,6 +91,8 @@ class CatalogController < ApplicationController
     # config.show.thumbnail_field = 'thumbnail_path_ss'
     config.show.document_presenter_class = Arclight::ShowPresenter
     config.show.metadata_partials = %i[
+      restrictions_banner_field
+      collection_restrictions_teaser_field
       summary_field
       background_field
       related_field
@@ -141,11 +149,11 @@ class CatalogController < ApplicationController
     # :index_range can be an array or range of prefixes that will be used to create the navigation
     #  (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'Online Content', label: 'Online Content', collapse: false, query: {
+    config.add_facet_field 'access', collapse: false, query: {
       online: { label: 'Online access', fq: 'has_online_content_ssim:true' }
     }
 
-    config.add_facet_field 'repository', field: 'repository_ssim', limit: 10
+    config.add_facet_field 'collecting_area', field: 'repository_ssim', limit: 10
     config.add_facet_field 'collection', field: 'collection_ssim', limit: 10
     config.add_facet_field 'creators', field: 'creator_ssim', limit: 10
     config.add_facet_field 'date_range', field: 'date_range_isim', range: true
@@ -284,6 +292,24 @@ class CatalogController < ApplicationController
     config.add_summary_field 'extent', field: 'extent_ssm'
     config.add_summary_field 'language', field: 'language_ssim'
     config.add_summary_field 'prefercite', field: 'prefercite_html_tesm', helper_method: :render_html_tags
+
+    # Borrowed DUL customization: Collection Show Page - Top Restrictions Teaser Section
+    # We want to render a snippet of the Using... section at the top of the page,
+    # and link to the full restrictions statement at the bottom. We'll create a
+    # pseudo-field to hold this info, using the id field as a stand-in because it's always present.
+    config.add_collection_restrictions_teaser_field 'using-these-materials-header',
+                                                    field: 'id',
+                                                    label: 'Using These Materials',
+                                                    helper_method: :render_using_these_materials_header
+    config.add_collection_restrictions_teaser_field 'accessrestrict',
+                                                    field: 'accessrestrict_html_tesm',
+                                                    label: 'Restrictions',
+                                                    helper_method: :truncate_restrictions_teaser
+
+    # Borrowed DUL custom restrictions banner, used on both collection & component page
+    config.add_restrictions_banner_field 'accessrestrict_collection_banner',
+                                         field: 'accessrestrict_collection_banner_html_tesm',
+                                         helper_method: :render_html_tags
 
     # Collection Show Page - Background Section
     config.add_background_field 'scopecontent', field: 'scopecontent_html_tesm', helper_method: :render_html_tags

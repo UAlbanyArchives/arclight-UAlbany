@@ -22,4 +22,23 @@ module ApplicationHelper
     ))
   end
 
+  # Borrowed DUL custom helper methods
+  # HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/main/app/helpers/field_config_helpers.rb
+
+  def link_to_all_restrictions(_args)
+    link_to 'More...',
+            '#using-these-materials',
+            class: 'fw-semibold'
+  end
+
+  def render_using_these_materials_header(_args)
+    render 'catalog/using_header'
+  end
+
+  def truncate_restrictions_teaser(args)
+    values = args[:value] || []
+    teaser = truncate(strip_tags(values.join(' ')), length: 200, separator: ' ')
+    [teaser, link_to_all_restrictions(nil)].join('<br/>').html_safe
+  end
+
 end

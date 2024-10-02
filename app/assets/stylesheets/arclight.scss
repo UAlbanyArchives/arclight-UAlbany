@@ -4,10 +4,8 @@ $logo-image: image_url('arclight/logo.png') !default;
 @import 'blacklight/blacklight';
 @import 'arclight/application';
 
-@media (max-width: 991.98px) {
-    .collection-sidebar {
-        display: none !important; /* Hides the sidebar on medium screens and below */
-    }
+.al-repository {
+	margin-bottom: 2rem;
 }
 
 .source-box .search-extra-controls a {
@@ -50,15 +48,15 @@ $logo-image: image_url('arclight/logo.png') !default;
 	margin-bottom: 0rem !important;
 }
 
-.facets-collapse .blacklight-Online {
+.facets-collapse .blacklight-access {
 	border: 1px solid #642a90;
 }
 
-.facets-collapse .blacklight-Online #facet-online-content-header {
+.facets-collapse .blacklight-access #facet-access-header {
 	background-color: #642a90 !important;
 }
 
-.facets-collapse .blacklight-Online #facet-online-content-header button {
+.facets-collapse .blacklight-access #facet-access-header button {
 	color: #fff !important;
 }
 
@@ -70,3 +68,171 @@ $logo-image: image_url('arclight/logo.png') !default;
 	padding: 0;
 }
 
+@media (min-width: 992px) {
+  .show-document {
+    padding-left: calc(var(--bs-gutter-x) * .5) !important;
+  }
+}
+
+.document-show-card .card-body {
+	padding: 2rem;
+}
+
+#using-these-materials-teaser .al-show-sub-heading {
+	display: none;
+}
+
+#using-these-materials-teaser {
+ 	background: #f3f2f1;
+	border-left: 8px solid #9e68c7;
+	padding: 1.5rem;
+	float: right;
+	margin: 2rem 0 1rem 2rem;
+}
+
+#using-these-materials-teaser dt {
+	width: 100%;
+	text-align: left;
+	margin-left: 0;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#using-these-materials-teaser dd {
+	width: 100%;
+}
+
+#using-these-materials-teaser dd * {
+	color: #642a90;
+	text-decoration: none;
+}
+
+@media (min-width: 576px) {
+  	#using-these-materials-teaser dd {
+  		margin-left: 1rem;
+  	}
+}
+
+@media (min-width: 768px) {
+  	#using-these-materials-teaser {
+  		width: 33%;
+  	}
+}
+
+
+/* sidebar */
+
+@media (max-width: 991.98px) {
+    .collection-sidebar {
+        display: none !important; /* Hides the sidebar on medium screens and below */
+    }
+    .page-sidebar {
+        display: none !important; /* Hides the sidebar on medium screens and below */
+    }
+}
+
+.page-sidebar {
+  overflow: visible !important;
+}
+
+.page-sidebar .alpha-menu {
+	height: 100vh;
+	overflow-y: auto;
+}
+
+.page-sidebar .alpha-menu .sidebar-scroll-wrapper {
+	height: 100vh;
+}
+
+.page-sidebar .alpha-menu .sidebar-scroll-wrapper .list-group .list-group-item:first-child {
+	color: #fff;
+	background-color: #46166B;
+	border-color: #46166B;
+	border: 0;
+	border-bottom: 4px solid #eaaa00 !important;
+	font-size: 1.2rem;
+}
+
+.page-sidebar .alpha-menu .sidebar-scroll-wrapper .list-group .list-group-item:first-child:hover {
+	color: #EBE6F0 !important;
+	background: #006c68;
+}
+
+.collection-sidebar #sidebar {
+	padding: 0 !important;
+	border: none;
+}
+
+.context-sidebar .card-title {
+	background-color: #642a90;
+	color: #fff;
+	border-radius: 0.25rem 0.25rem 0rem 0rem;
+	padding: 1.25rem;
+	margin: -1px;
+}
+
+.context-sidebar .card-title h2 {
+	font-size: 1rem;
+}
+
+.context-sidebar .card-title .collection-title .collection-name {
+	color: #fff;
+	font-size: 1.6rem;
+}
+
+.context-sidebar .card-title .collection-title a:hover {
+	text-decoration: none;
+	color:rgba(255,255,255,0.75) !important;
+}
+
+.context-sidebar .card-title .collection-title {
+	background-image: asset-url("boxbg.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: top left;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.context-sidebar .card-title .collection-title .dropdown button {
+	color: #fff !important;
+	border: none !important;
+}
+
+.context-sidebar .card-title .collection-title .dropdown button:hover {
+	color: rgba(255,255,255,0.75) !important;
+}
+
+.context-sidebar .card-title .collection-title .dropdown button:hover * {
+	color: rgba(255,255,255,0.75) !important;
+}
+
+.context-sidebar .card-title .request-btn {
+  width: 100%;
+  background-color: #9e68c7;
+  border-color: #9e68c7;
+}
+
+.context-sidebar .card-title .request-btn:hover {
+	color: #fff;
+	background-color: #eaaa00 !important;
+	border-color: #eaaa00 !important;
+}
+
+.sidebar-section {
+	margin-right: 1rem;
+}
+
+#collection-nav .nav-link:focus {
+	color: #006c68;
+}
+
+#collection-context .documentHeader {
+	padding: 0.25rem 0.5rem;
+}
+
+#collection-context .documentHeader .al-toggle-view-children {
+	margin-left: -1.75rem;
+	margin-right: 0.5rem;
+}
