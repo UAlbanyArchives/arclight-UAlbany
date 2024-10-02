@@ -45,5 +45,8 @@ Rails.application.routes.draw do
 
     # For docker healthcheck
     get 'health', to: proc { [200, {}, ['OK']] }
+
+    # I had to add this, as for some reason BL8.4 is sending get requests for it?
+    get 'search_history/clear', to: 'search_history#clear'
   end
 end
