@@ -3,7 +3,8 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+#gem "sprockets-rails"
+gem 'webpacker', '~> 5.0'
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", ">= 1.4"
 # Use the Puma web server [https://github.com/puma/puma]
@@ -76,5 +77,5 @@ gem "blacklight-locale_picker"
 gem "mutex_m"
 
 # UAlbany Styling
-gem 'grenander', path: '../grenander'
-#gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'bootstrap_5'
+#gem 'grenander', path: '../grenander'
+gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'bootstrap_5'
