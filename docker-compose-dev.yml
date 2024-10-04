@@ -11,8 +11,6 @@ services:
       - '../collections:/ead'
       - '../grenander:/grenander'
     working_dir: /app
-    environment:
-      - RAILS_ENV=production
     command: >
       bash -c "bundle install &&
               bundle exec rails db:migrate &&
