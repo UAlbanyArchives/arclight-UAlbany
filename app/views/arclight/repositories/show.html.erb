@@ -74,14 +74,14 @@
           <div class="col-md-12">
             <div class='al-document-title-bar'>
               <div class='row'>
-                <div class='col-md-12'>
+                <article class='document updated_collection col-md-12'>
                   <h3 class="h5"><%= blacklight_icon :collection, classes: 'al-repository-content-icon' %> <%= link_to document.normalized_title, solr_document_path(document.id) %></h3>
                   <%= content_tag('div', class: 'al-document-abstract-or-scope') do %>
                     <%= content_tag('div', 'data-arclight-truncate' => true) do %>
                       <%= strip_tags(document.abstract_or_scope) %>
                     <% end %>
                   <% end if document.abstract_or_scope %>
-                </div>
+                </article>
               </div>
             </div>
           </div>
