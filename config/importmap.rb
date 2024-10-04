@@ -12,4 +12,5 @@ pin "arclight", to: "arclight/arclight.js"
 # TODO: We may be able to move these to a single importmap for arclight.
 pin "arclight/oembed_controller", to: "arclight/oembed_controller.js"
 pin "arclight/truncate_controller", to: "arclight/truncate_controller.js"
+pin "displayHyraxDaos"
 pin "grenander/search_sources_menu", to: "grenander/search_sources_menu.js"

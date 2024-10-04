@@ -28,11 +28,11 @@ Rails.application.configure do
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
-  config.assets.enabled = true
 
   # local assets config
-  config.assets.prefix = '/description'
-  config.relative_url_root = '/description'
+  #config.assets.prefix = '/assets'
+  config.assets.prefix = '/description/assets'
+  #config.relative_url_root = '/description'
   config.public_file_server.enabled = true
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
@@ -71,7 +71,8 @@ Rails.application.configure do
   # "info" includes generic and useful information about system operation, but avoids logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII). If you
   # want to log everything, set the level to "debug".
-  config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
+  #config.log_level = ENV.fetch("RAILS_LOG_LEVEL", "info")
+  config.log_level = "debug"
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store

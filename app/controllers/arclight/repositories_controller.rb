@@ -9,6 +9,7 @@ module Arclight
     end
 
     def home
+      @repositories = Arclight::Repository.all
       render 'home'
     end
 
