@@ -14,9 +14,6 @@ RUN chmod 0644 /etc/cron.d/arclight-cron
 # Apply cron job to clean up the db
 RUN crontab /etc/cron.d/arclight-cron
 
-# specifying the version is needed in older ruby image. Should not be needed in ruby 3+.
-#RUN gem install bundler
-
 # Install gems
 WORKDIR /app
 COPY Gemfile* ./
@@ -31,7 +28,7 @@ RUN --mount=type=secret,id=master_key \
     cp /run/secrets/master_key /app/config/master.key && \
     echo "Master key copied:" && cat /app/config/master.key && \
     echo "Running asset precompile..." && \
-    #RAILS_ENV=production MASTER_KEY=$(cat /app/config/master.key) bundle exec rails assets:precompile && \
+    RAILS_ENV=production MASTER_KEY=$(cat /app/config/master.key) bundle exec rails assets:precompile && \
     echo "Cleaning up..." && \
     rm /app/config/master.key
 

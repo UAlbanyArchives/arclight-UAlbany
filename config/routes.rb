@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #scope 'description' do
+  scope 'description' do
     mount Blacklight::Engine => '/'
     mount BlacklightDynamicSitemap::Engine => '/'
 
@@ -49,5 +49,5 @@ Rails.application.routes.draw do
 
     # I had to add this, as for some reason BL8.4 is sending get requests for it?
     get 'search_history/clear', to: 'search_history#clear'
-  #end
+  end
 end
