@@ -41,4 +41,21 @@ module ApplicationHelper
     [teaser, link_to_all_restrictions(nil)].join('<br/>').html_safe
   end
 
+  def collecting_area_path(repository)
+    search_action_url(
+      f: {
+        collecting_area: [repository.name],
+        level: ['Collection']
+      }
+    )
+  end
+
+  def all_collections_path(repository)
+    search_action_url(
+      f: {
+        level: ['Collection']
+      }
+    )
+  end
+
 end

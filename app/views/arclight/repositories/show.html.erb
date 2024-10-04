@@ -87,10 +87,14 @@
           </div>
         <% end %>
         <div class="col text-right all-link">
-        <span class="al-repository-collections">
-          <%= link_to(t(:'arclight.views.repositories.view_all_collections'), repository_collections_path(@repository), class: "card-link") %>
-        </span>
-      </div>
+          <span class="al-repository-collections">
+            <% if @repository.slug == "sub" || @repository.slug == "all" %>
+              <%= link_to(t(:'arclight.views.repositories.view_all_collections'), all_collections_path(@repository), class: "card-link") %>
+            <% else %>
+              <%= link_to(t(:'arclight.views.repositories.view_all_collections'), collecting_area_path(@repository), class: "card-link") %>
+            <% end %>
+          </span>
+        </div>
       </div>
     </div>
   </div>
