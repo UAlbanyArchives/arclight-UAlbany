@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  scope 'description' do
+  #scope 'description' do
     mount Blacklight::Engine => '/'
     mount BlacklightDynamicSitemap::Engine => '/'
 
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
       collection do
         delete 'clear'
+        get 'clear', to: 'bookmarks#clear'
       end
     end
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -48,5 +49,5 @@ Rails.application.routes.draw do
 
     # I had to add this, as for some reason BL8.4 is sending get requests for it?
     get 'search_history/clear', to: 'search_history#clear'
-  end
+  #end
 end
