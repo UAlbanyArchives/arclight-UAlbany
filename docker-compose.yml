@@ -5,9 +5,8 @@ services:
     container_name: arclight
     image: arclight
     ports:
-      - '0.0.0.0:8085:3000'
+      - '0.0.0.0:8080:3000'
     volumes:
-      - ./log:/app/log
       - ./storage:/app/storage
       - ./config/master.key:/app/config/master.key
     environment:
