@@ -243,6 +243,14 @@ a {
 	margin-right: 1rem;
 }
 
+.sidebar-scroll-wrapper {
+   /* viewport height minus height of the collections info box, ~190px */
+  height: calc(100vh - 190px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 10px;
+}
+
 #collection-nav .nav-link:focus {
 	color: #006c68;
 }
