@@ -21,12 +21,7 @@ Navigate to [http://localhost:3000/description](http://localhost:3000/descriptio
 
 You should be able to edit code in real time, including both `arclight-UAlbany` and `grenander`.
 
-When you're done:
-```
-docker-compose down
-```
-
-### For deployment
+### For production deployment
 
 First build the `arclight` image locally:
 ```
