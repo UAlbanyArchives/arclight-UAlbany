@@ -5,14 +5,21 @@ An instance of [https://github.com/projectblacklight/arclight](https://github.co
 
 ### For development
 
-Run the app:
+To develop locally, you also need the `grenander` engine, which has headers, footers, and site-wide styling for archives.albany.edu. To set this up, clone [git@github.com:UAlbanyArchives/grenander.git](https://github.com/UAlbanyArchives/grenander) alongside [git@github.com:UAlbanyArchives/arclight-UAlbany.git](https://github.com/UAlbanyArchives/arclight-UAlbany) and then edit the last two lines of the [Gemfile for arclight-UAlbany](https://github.com/UAlbanyArchives/arclight-UAlbany/blob/update_1.4/Gemfile#L79-L80) to use the local path for `grenander`.
+
+```
+gem 'grenander', path: '../grenander'
+#gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'bootstrap_5'
+```
+
+Then run the app from the `arclight-UAlbany` directory:
 ```
 docker-compose -f docker-compose-dev.yml up
 ```
 
 Navigate to [http://localhost:3000/description](http://localhost:3000/description)
 
-You should be able to edit code in real time.
+You should be able to edit code in real time, including both `arclight-UAlbany` and `grenander`.
 
 When you're done:
 ```
@@ -95,7 +102,7 @@ For example:
 docker-compose -f docker-compose-dev.yml run arclight /bin/sh /app/index.sh apap147 apap
 ```
 
-There is also a compose file for indexing all newly updated files:
+There is also a compose file for indexing all newly updated files from the dev server:
 ```
 docker-compose -f indexNew.yml run arclight
 ```
