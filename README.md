@@ -99,7 +99,7 @@ docker-compose -f docker-compose-dev.yml run arclight /bin/sh /app/index.sh apap
 
 There is also a compose file for indexing all newly updated files from the dev server:
 ```
-docker-compose -f indexNew.yml run arclight
+docker-compose -f docker-compose-update.yml run arclight
 ```
 
 ## Maintenance

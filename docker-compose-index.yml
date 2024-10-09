@@ -8,8 +8,7 @@ services:
       - '3000:3000'
     volumes:
       - '.:/app'
-      - '../collections:/ead'
-      - '../grenander:/grenander'
+      - '/media/Library/SPE_Automated/collections:/ead'
     working_dir: /app
     command: >
       bash -c "bundle install &&
