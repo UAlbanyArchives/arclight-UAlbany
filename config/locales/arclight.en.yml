@@ -1,5 +1,7 @@
 en:
   arclight:
+    collection_info_component:
+      more_info: More info
     views:
       show:
         sections:
