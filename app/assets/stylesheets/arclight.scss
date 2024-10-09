@@ -147,6 +147,9 @@ a {
     	overflow-y: scroll;
     	position: fixed;
     }
+    .page-sidebar .alpha-menu {
+			display: none;
+	}
 }
 
 .page-sidebar {
@@ -239,18 +242,24 @@ a {
   border-color: #9e68c7 !important;
 }
 
-.context-sidebar .card-title .collection-title .dropdown button {
+.context-sidebar .card-title .collection-title a.btn-default {
 	color: #fff !important;
 	border: none !important;
 }
 
-.context-sidebar .card-title .collection-title .dropdown button:hover {
+.context-sidebar .card-title .collection-title a.btn:hover {
 	color: rgba(255,255,255,0.75) !important;
 }
 
-.context-sidebar .card-title .collection-title .dropdown button:hover * {
+.context-sidebar .card-title .btn-default {
+	color: #fff !important;
+	border: none !important;
+}
+
+.context-sidebar .card-title .btn-default:hover {
 	color: rgba(255,255,255,0.75) !important;
 }
+
 
 .context-sidebar .card-title .request-btn {
   width: 100%;
@@ -270,7 +279,7 @@ a {
 
 .sidebar-scroll-wrapper {
    /* viewport height minus height of the collections info box, ~190px */
-  height: calc(100vh - 190px);
+  height: calc(100vh - 190px) !important;
   overflow-y: auto;
   overflow-x: hidden;
   padding-bottom: 10px;
