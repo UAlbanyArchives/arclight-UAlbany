@@ -13,6 +13,8 @@ class CatalogController < ApplicationController
 
   Blacklight::Configuration.define_field_access :access_use_field,
                                                 Blacklight::Configuration::ShowField
+  Blacklight::Configuration.define_field_access :pdf_button_field,
+                                                Blacklight::Configuration::ShowField
 
   configure_blacklight do |config|
     ## Class for sending and receiving requests from a search index
@@ -96,6 +98,7 @@ class CatalogController < ApplicationController
     config.show.metadata_partials = %i[
       restrictions_banner_field
       collection_restrictions_teaser_field
+      pdf_button_field
       summary_field
       background_field
       related_field
@@ -308,6 +311,10 @@ class CatalogController < ApplicationController
                                                     field: 'accessrestrict_html_tesm',
                                                     label: 'Restrictions',
                                                     helper_method: :truncate_restrictions_teaser
+    config.add_pdf_button_field 'pdf_finding_aid',
+                                                    field: 'id',
+                                                    label: 'PDF Finding Aid',
+                                                    helper_method: :pdf_finding_aid
 
     # Borrowed DUL custom restrictions banner, used on both collection & component page
     config.add_restrictions_banner_field 'accessrestrict_collection_banner',

@@ -125,6 +125,19 @@ a {
 	text-decoration: none;
 }
 
+#pdf-finding-aid .al-show-sub-heading {
+	display: none;
+}
+
+#pdf-finding-aid dt {
+	display: none;
+}
+
+#pdf-finding-aid dd {
+	width: 100%;
+	padding-right: 1rem;
+}
+
 @media (min-width: 576px) {
   	#using-these-materials-teaser dd {
   		margin-left: 1rem;
@@ -135,6 +148,10 @@ a {
   	#using-these-materials-teaser {
   		width: 33%;
   	}
+  	#pdf-finding-aid {
+			float: right;
+			clear: both;
+		}
 }
 
 

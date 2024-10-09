@@ -9,15 +9,13 @@
 
     <div class="al-collection-context-actions d-flex flex-wrap gap-1">
       <%# document_download %>
-      <a href="https://archives.albany.edu/browse/pdf/<%= collection.id %>.pdf" class="btn btn-default" type="button" aria-label="PDF Finding Aid">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <%# collection_info %>
+      <%= collection_info %>
     </div>
 
   </div>
-  <div class="d-flex w-100 gap-2 mt-3">
-      <a class="btn btn-primary request-btn flex-fill" href="https://archives.albany.edu/web/reference?visit&list=<%= request.original_url %>"><i class="fa fa-university" aria-hidden="true"></i> <%= t('ua_arclight.views.show.sidebar.request_label') %></a>
-      <%= collection_info %>
+  <div class="d-flex mt-3">
+    <div class="flex-fill">
+      <a class="btn btn-primary request-btn" href="https://archives.albany.edu/web/reference?visit&list=<%= request.original_url %>"><i class="fa fa-university" aria-hidden="true"></i> <%= t('ua_arclight.views.show.sidebar.request_label') %></a>
+    </div>
   </div>
 </div>

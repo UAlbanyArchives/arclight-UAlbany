@@ -41,6 +41,10 @@ module ApplicationHelper
     [teaser, link_to_all_restrictions(nil)].join('<br/>').html_safe
   end
 
+  def pdf_finding_aid(args)
+    render 'catalog/pdf_btn', id: args[:value]
+  end
+
   def collecting_area_path(repository)
     search_action_url(
       f: {
