@@ -30,6 +30,7 @@
   -->
   <luceneMatchVersion>8.2.0</luceneMatchVersion>
 
+  <lib dir="${solr.install.dir:../../../..}/modules/analysis-extras/lib" />
   <lib dir="${solr.install.dir:../../../..}/contrib/analysis-extras/lib" />
   <lib dir="${solr.install.dir:../../../..}/contrib/analysis-extras/lucene-libs" />
 
@@ -74,7 +75,15 @@
        <int name="rows">10</int>
 
        <str name="q.alt">*:*</str>
-       <str name="mm">2&lt;-1 5&lt;-2 6&lt;90%</str>
+
+       <!-- Minimum Should Match parameter (mm) -->
+       <str name="mm">4&lt;90%</str>
+       <!-- 1-4 term query, all must match
+            5+ term query, 90% must match; rounded down, so e.g.:
+            * 5-10 term query, all but one must match
+            * 11-20 term query, all but two must match
+            * 21-29 term query, all but three must match, etc.
+       -->
 
        <!-- this qf and pf are used by default, if not otherwise specified by
             client. The default blacklight_config will use these for the
@@ -84,95 +93,106 @@
             http://wiki.apache.org/solr/LocalParams
        -->
 
+       <!-- In general, matches using the pf parameter should be boosted higher
+            than qf, so the proximity of multiple search terms in the matching
+            documents is significant in relevance scoring. See:
+            https://solr.apache.org/guide/solr/latest/query-guide/dismax-query-parser.html#pf-phrase-fields-parameter
+       -->
        <str name="qf">
          collection_title_tesim^150
          title_tesim^100
-         name_tesim^10
-         place_tesim^10
-         unitid_identifier_match^5
-         subject_tesim^2
+         normalized_title_teim^100
+         unitid_identifier_match^40
+         name_teim^10
+         place_teim^10
+         subject_teim^2
+         id
+         ead_ssi
+         ref_ssm
+         unitid_ssm
+         container_teim
+         parent_unittitles_tesim
          text
        </str>
        <str name="pf">
-         collection_title_tesim^150
-         title_tesim^100
-         name_tesim^10
-         place_tesim^10
-         unitid_identifier_match^5
-         subject_tesim^2
-         text
+         collection_title_tesim^300
+         title_tesim^200
+         normalized_title_teim^200
+         unitid_identifier_match^80
+         name_teim^20
+         place_teim^20
+         subject_teim^5
+         id^2
+         ead_ssi^2
+         ref_ssm^2
+         unitid_ssm^2
+         container_teim^2
+         parent_unittitles_tesim^2
+         text^2
        </str>
 
+       <str name="qf_container">
+         container_teim
+       </str>
+       <str name="pf_container">
+         container_teim^2
+       </str>
+       <str name="qf_identifier">
+         id
+         ead_ssi
+         ref_ssm
+         unitid_ssm
+         unitid_identifier_match
+       </str>
+       <str name="pf_identifier">
+         id^2
+         ead_ssi^2
+         ref_ssm^2
+         unitid_ssm^2
+         unitid_identifier_match^2
+       </str>
        <str name="qf_name">
-         name_tesim
+         name_teim
        </str>
        <str name="pf_name">
-         name_tesim
+         name_teim^2
        </str>
        <str name="qf_place">
-         place_tesim
+         place_teim
        </str>
        <str name="pf_place">
-         place_tesim
+         place_teim^2
        </str>
        <str name="qf_subject">
-         subject_tesim
+         subject_teim
        </str>
        <str name="pf_subject">
-         subject_tesim
+         subject_teim^2
        </str>
        <str name="qf_title">
          title_tesim
+         normalized_title_teim
        </str>
        <str name="pf_title">
-         title_tesim
+         title_tesim^2
+         normalized_title_teim^2
        </str>
 
        <int name="ps">3</int>
        <float name="tie">0.01</float>
 
-       <str name="fl">
-         id,
-         score,
-         abstract_ssm,
-         accessrestrict_ssm,
-         child_component_count_isim,
-         collection_ssm,
-         collection_unitid_ssm,
-         containers_ssim,
-         creator_ssm,
-         extent_ssm,
-         geogname_ssm,
-         has_online_content_ssim,
-         language_ssm,
-         level_ssm,
-         repository_ssm,
-         scopecontent_ssm,
-         title_ssm,
-         normalized_title_ssm,
-         normalized_date_ssm,
-         unitid_ssm,
-         parent_ssim,
-         parent_unittitles_ssm,
-         ead_ssi,
-         ref_ssm,
-         component_level_isim,
-         parent_access_restrict_ssm,
-         parent_access_terms_ssm,
-         names_coll_ssim
-         places_ssim
-       </str>
+       <str name="fl">*</str>
 
        <str name="facet">true</str>
        <str name="facet.mincount">1</str>
-       <str name="facet.field">level_sim</str>
-       <str name="facet.field">creator_sim</str>
-       <str name="facet.field">date_range_sim</str>
-       <str name="facet.field">names_sim</str>
-       <str name="facet.field">geogname_sim</str>
-       <str name="facet.field">access_subjects_sim</str>
-       <str name="facet.field">repository_sim</str>
-       <str name="facet.field">collection_sim</str>
+       <str name="facet.field">level_ssim</str>
+       <str name="facet.field">creator_ssim</str>
+       <str name="facet.field">date_range_isim</str>
+       <str name="facet.field">names_ssim</str>
+       <str name="facet.field">geogname_ssim</str>
+       <str name="facet.field">access_subjects_ssim</str>
+       <str name="facet.field">repository_ssim</str>
+       <str name="facet.field">collection_ssim</str>
 
        <str name="spellcheck">true</str>
        <str name="spellcheck.dictionary">default</str>

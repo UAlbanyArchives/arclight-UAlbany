@@ -128,3 +128,11 @@
 .about_collections .category .alert-info a {
 	color: #0c5460 !important;
 }
+
+.last_updated .updated_collection {
+	padding: 0.25rem 1.5rem;;
+}
+
+.al-document-abstract-or-scope {
+	margin-bottom: 0;
+}

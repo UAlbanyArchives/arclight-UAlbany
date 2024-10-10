@@ -1,0 +1,17 @@
+<nav class="al-sidebar-navigation-context sidebar-section" aria-labelledby="collection-nav">
+  <h2 id="collection-nav"><%= t('arclight.views.show.context_nav.title') %></h2>
+  <ul class='nav flex-column'>
+    <% partials.each do |section| %>
+      <% next unless has_section?(section) %>
+      <% next if section == :collection_restrictions_teaser_field %>
+      <% next if section == :pdf_button_field %>
+      <li class='nav-item'>
+        <%= link_to section_label(section),
+          document_section_path(section),
+          class: 'nav-link pl-2 ps-2 py-1',
+          data: { turbolinks: 'false' }
+        %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

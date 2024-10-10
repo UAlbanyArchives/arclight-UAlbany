@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Define the path to the SQLite database
-DB_PATH="/app/db/production.sqlite3"
+DB_PATH="/app/storage/production.sqlite3"
 
 # Check if the SQLite database file exists
 if [ ! -f "$DB_PATH" ]; then

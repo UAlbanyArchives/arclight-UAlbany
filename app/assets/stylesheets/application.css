@@ -2,51 +2,30 @@
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
  * vendor/assets/stylesheets directory can be referenced here using a relative path.
  *
  * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
  *= require_self
- 
  *
- * Used by blacklight_range_limit
- *= require  'blacklight_range_limit'
+ *= require 'grenander'
  *
+ *= require  'grenander/blacklight'
  *= require  'grenander/navbar'
  *= require  'grenander/search-source'
  *= require  'grenander/footer'
  *= require  'grenander/main'
-
+ *
  *= require  'show_component'
  *= require  'context_navigation'
  *= require  'daos'
  *= require  'repositories'
-*/
-
-/* HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/assets/stylesheets/dul-arclight/modules/layout.scss */
-/* Sticky navigation for sidebar */
-.sticky-nav {
-  position: sticky;
-  top: 0;
-}
-
-input#q {
-  background-color: #fff !important;
-}
-
-.sidebar-scroll-wrapper {
-   /* viewport height minus height of the collections info box, ~170px */
-  height: calc(100vh - 125px);
-  overflow-y: auto;
-  overflow-x: hidden;
-  padding-bottom: 80px;
-}
-
+ */
 
 /* Search sources menu collapsed even on desktop */
 .search-sources li.nav-item a {
@@ -64,10 +43,4 @@ input#q {
 }
 .shrink-search-options {
 	min-height: 152px;
-}
-
-.pagination-bottom {
-  border-bottom: none;
-  margin-bottom: 0;
-  padding-bottom: 0;
 }

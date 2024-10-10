@@ -1,0 +1,20 @@
+<div class="hyraxDaoDisplay">
+  <div class="page-links">
+      <span class="page-entries"></span> | 
+      <a id="hyraxURI" href="https://archives.albany.edu/catalog?utf8=&f[<%= @facet_field %>][]=<%= @searchID %>">All Items </a>
+  </div>
+  <div class="daoGallery text-center" id="<%= @searchID %>">
+    <div class="al-digital-object">
+      <%# link_to(resource.label, resource.href) %>
+      <div class="img-thumbnail">
+        <a href="<%= @resource.href %>">
+            <i class="thumbnail-placeholder <%= icon(@resource.href) %> fa-5x"></i>
+            <img src="" alt="<%= @resource.label %>" class="daoThumbnail" style="display: none;">
+        </a>
+        <p class="caption">
+          <a href="<%= @resource.href %>"><%= @resource.label %></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
