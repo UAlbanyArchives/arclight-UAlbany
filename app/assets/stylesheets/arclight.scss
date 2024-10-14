@@ -155,14 +155,13 @@ a {
 }
 
 
-
 /* sidebar */
 
 @media (max-width: 991.98px) {
-    #sidebar {
-    	z-index: 9999;
-    	overflow-y: scroll;
-    	position: fixed;
+    .context-sidebar {
+    	z-index: 9999 !important;
+    	overflow-y: scroll !important;
+    	position: fixed !important;
     }
     .page-sidebar .alpha-menu {
 			display: none;
