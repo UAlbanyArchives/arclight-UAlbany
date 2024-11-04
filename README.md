@@ -87,19 +87,19 @@ Index all files:
 
 You can run any of the above commands after:
 ```
-docker-compose -f docker-compose-dev.yml run arclight /bin/sh
+docker compose -f docker-compose-index.yml run arclight /bin/sh
 ```
 
 This assumes you EADs are available in ``../collections`
 
 For example:
 ```
-docker-compose -f docker-compose-dev.yml run arclight /bin/sh /app/index.sh apap147 apap
+docker compose -f docker-compose-index.yml run arclight /bin/sh /app/index.sh apap147 apap
 ```
 
 There is also a compose file for indexing all newly updated files from the dev server:
 ```
-docker-compose -f docker-compose-update.yml run arclight
+docker compose -f docker-compose-update.yml run arclight
 ```
 
 ## Maintenance
