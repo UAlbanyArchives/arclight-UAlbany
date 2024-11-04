@@ -3,7 +3,8 @@
 echo "$(date) $line Indexing all EADs"
 
 URL='https://solr2020.library.albany.edu:8984/solr/arclight-1.4'
-CONFIG='/usr/local/bundle/gems/arclight-1.4.0/lib/arclight/traject/ead2_config.rb'
+#CONFIG='/usr/local/bundle/gems/arclight-1.4.0/lib/arclight/traject/ead2_config.rb'
+CONFIG='lib/arclight/traject/ead2_config.rb'
 
 for dir in /ead/*; do
     if [ -d "$dir" ]; then
