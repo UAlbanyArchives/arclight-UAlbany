@@ -44,6 +44,9 @@ COPY --from=builder /app /app
 WORKDIR /app
 RUN bundle install
 
+# Removes the traject config as it interferes with puma for some reason
+RUN rm -rf /app/lib/arclight/traject
+
 # Expose port 3000
 ARG DEFAULT_PORT 3000
 EXPOSE ${DEFAULT_PORT}
