@@ -28,6 +28,7 @@ RUN --mount=type=secret,id=master_key \
     cp /run/secrets/master_key /app/config/master.key && \
     echo "Master key copied:" && cat /app/config/master.key && \
     echo "Running asset precompile..." && \
+    bundle check || bundle install &&\
     RAILS_ENV=production MASTER_KEY=$(cat /app/config/master.key) bundle exec rails assets:precompile && \
     echo "Cleaning up..." && \
     rm /app/config/master.key
