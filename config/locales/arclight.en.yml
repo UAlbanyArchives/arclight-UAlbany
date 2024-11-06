@@ -54,8 +54,8 @@ en:
 
         restrictions: Restrictions
         terms: Terms of access
-        parent_restrictions: Parent restrictions
-        parent_terms: Parent terms of access
+        parent_restrictions: Collection restrictions
+        parent_terms: Collection terms of access
         repository_location: Location of this collection
         before_you_visit: Before you visit
         repository_contact: Contact

@@ -10,9 +10,14 @@
     </div>
 
     <div class="title-container">
-      <%= content_tag :h1 do %>
-        <%= document.normalized_title %>
-      <% end %>
+      <div class="title-badge">
+        <%= content_tag :h1 do %>
+          <%= document.normalized_title %>
+        <% end %>
+        <% if document["level_ssm"] != ["collection"] && document.key?("accessrestrict_tesim") %>
+          <a href="#access-heading"><span class="badge text-bg-danger">Restricted</span></a>
+        <% end %>
+      </div>
       <%= render 'arclight/requests', document: document %>
       <%= render Arclight::BookmarkComponent.new document: document, action: bookmark_config %>
       <%= toggle_sidebar %>

@@ -97,6 +97,10 @@ li.al-collection-context .document-title-heading {
   background-color: #e2e1e0 !important;
 }
 
+#using-these-materials .row .col-md-8 {
+  padding-right: 2rem;
+}
+
 h2.al-show-sub-heading {
   padding-top: 1rem;
 }
@@ -108,4 +112,26 @@ h3.al-show-sub-heading {
   .collection-access-preview .access-links .larger-links {
     display: none;
   }
+}
+
+/* Restrictions */
+
+.document-show-card .title-container .title-badge h1 {
+  display: inline;
+}
+
+.document-show-card .title-container .title-badge span.badge {
+  vertical-align: top;
+}
+
+dd.blacklight-restrictions {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+dd.blacklight-restrictions p {
+  margin-bottom: 0;
 }
