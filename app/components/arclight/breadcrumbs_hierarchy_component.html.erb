@@ -25,7 +25,7 @@
             <% end %>
              
             <li class="breadcrumb-item breadcrumb-items breadcrumb-item-<%= parents_under_collection.size + 3 %>">
-                  <% if @presenter.document._source["level_ssim"][0].downcase == "item" %>
+                  <% if @presenter.document._source["level_ssim"][0].downcase == "item" || @presenter.document._source["level_ssim"][0].downcase == "other" %>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20" height="20" viewBox="0 0 16 16">
                       <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5.5L10.5 0H4zM10 1.5L13.5 5H10V1.5z"/>
                     </svg>
