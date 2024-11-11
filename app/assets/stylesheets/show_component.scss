@@ -124,7 +124,7 @@ h3.al-show-sub-heading {
   vertical-align: top;
 }
 
-dd.blacklight-restrictions {
+.accessrestrict-danger dd.blacklight-restrictions p {
   color: #721c24;
   background-color: #f8d7da;
   border-color: #f5c6cb;
@@ -132,10 +132,13 @@ dd.blacklight-restrictions {
   border-radius: 0.25rem;
 }
 
-dd.blacklight-restrictions p {
-  margin-bottom: 0;
+.accessrestrict-warning dd.blacklight-restrictions p {
+  color: var(--bs-warning-text-emphasis);
+  background-color: var(--bs-warning-bg-subtle);
+  border-color: var(--bs-warning-border-subtle);
+  padding: 1rem;
+  border-radius: 0.25rem;
 }
-
 
 /* Return to indented vertical breadcrumbs */
 

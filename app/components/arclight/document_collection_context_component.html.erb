@@ -10,7 +10,7 @@
   <td data-document-id="<%= document.id %>">
     <div class="index_title document-title-heading" data-turbo="false">
       <%= helpers.link_to_document document, counter: @counter %>
-      <% if document["level_ssm"] != ["collection"] && document.key?("accessrestrict_tesim") %>
+      <% if document["level_ssm"][0].downcase != "collection" && document.key?("accessrestrict_tesim") %>
         <span class="badge text-bg-danger">Restricted</span>
       <% end %>
       <% if document.children? %>
