@@ -15,7 +15,7 @@
             <h2>
               <%= link_to_unless(params[:id] == repository.slug, repository.name, arclight_engine.repository_path(repository.slug)) %>
             </h2>
-            <h6><%= repository.tagline %></h6>
+            <h3 class="h6"><%= repository.tagline %></h3>
             
               <div data-arclight-truncate="true">
                 <%= repository.description %>

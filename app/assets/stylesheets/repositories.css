@@ -34,6 +34,11 @@
 	padding: 1rem;
 }
 
+.al-repository .card-title .h3 {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #f8e1a5;
+}
+
 .al-repository .al-repository-information h2 {
 	font-size: 1.5rem;
 }
@@ -46,7 +51,7 @@
         color: #006c68;
 }
 
-.al-repository .al-repository-information .al-repository-description h6 {
+.al-repository .al-repository-information .al-repository-description .h6 {
 	padding-bottom: 10px;
 	border-bottom: 1px solid #f8e1a5;
 	margin-bottom: 20px;

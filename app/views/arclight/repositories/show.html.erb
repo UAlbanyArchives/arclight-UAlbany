@@ -3,7 +3,7 @@
 <%= render 'shared/breadcrumbs' %>
 <%= render @repository %>
 
-
+<h1 class="sr-only visually-hidden"><%= t(:'arclight.views.repositories.show', name: @repository.name) %></h1>
 
 <% content_for(:sidebar) do %>
  <div class="row alpha-menu sticky-top">
@@ -69,7 +69,7 @@
   <div class="col-md-12 col-lg-4 last_updated">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Last Updated</h5>
+        <h2 class="card-title h5">Last Updated</h2>
         <% @last_collections.each do |document| %>
           <div class="col-md-12">
             <div class='al-document-title-bar'>

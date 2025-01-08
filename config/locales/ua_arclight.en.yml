@@ -1,15 +1,15 @@
 en:
   arclight:
-    repositories: "Collecting Areas"
+    repositories: "Archives & Manuscripts"
     routes:
       repositories: "Archives & Manuscripts"
       home: "Collections"
     views:
       home:
-        title: "Archives & Manuscripts"
+        title: "About the Collections"
       repositories:
         show: "%{name}"
-        title: "Collecting Areas"
+        title: "Archives & Manuscripts"
         view_all_collections: "View all collections"
   ua_arclight:
     show:
