@@ -199,7 +199,7 @@ class CatalogController < ApplicationController
                                         if: lambda { |controller, _config, _field|
                                            controller.params['format'] == 'json'
                                          }
-    config.add_index_field 'parent_unittitles_ssm', label: 'Patent titles',
+    config.add_index_field 'parent_unittitles_ssm', label: 'Patent titles', helper_method: 'keep_raw_values',
                                         if: lambda { |controller, _config, _field|
                                            controller.params['format'] == 'json'
                                          }
@@ -235,7 +235,7 @@ class CatalogController < ApplicationController
                                         if: lambda { |controller, _config, _field|
                                            controller.params['format'] == 'json'
                                          }
-    config.add_index_field 'parent_ssim', label: 'Parent',
+    config.add_index_field 'parent_ssim', label: 'Parent', helper_method: 'keep_raw_values',
                                         if: lambda { |controller, _config, _field|
                                            controller.params['format'] == 'json'
                                          }

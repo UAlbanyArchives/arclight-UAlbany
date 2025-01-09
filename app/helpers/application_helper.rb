@@ -54,6 +54,10 @@ module ApplicationHelper
     )
   end
 
+  def keep_raw_values(args)
+    args[:value] || []
+  end
+
   def all_collections_path(repository)
     search_action_url(
       f: {
