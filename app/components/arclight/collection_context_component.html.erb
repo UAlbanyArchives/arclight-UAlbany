@@ -1,0 +1,21 @@
+<div class='al-show-actions-box card-title'>
+  <button type="button" class="btn-close d-lg-none float-end mt-1 me-1" data-bs-dismiss="offcanvas" data-bs-target="#sidebar" aria-label="Close"></button>
+    <h2>Collection</h2>
+  <div class="al-actions-box-container collection-title">
+    
+    <%= link_to solr_document_path(collection.id) do %>
+      <h3 class="collection-name"><%= title %></h3>
+    <% end %>
+
+    <div class="al-collection-context-actions d-flex flex-wrap gap-1">
+      <%# document_download %>
+      <%= collection_info %>
+    </div>
+
+  </div>
+  <div class="d-flex mt-3">
+    <div class="flex-fill">
+      <a class="btn btn-primary request-btn" href="https://archives.albany.edu/web/reference?visit&list=<%= request.original_url %>"><i class="fa fa-university" aria-hidden="true"></i> <%= t('ua_arclight.views.show.sidebar.request_label') %></a>
+    </div>
+  </div>
+</div>

@@ -1,167 +1,335 @@
-/*
-*= require arclight/application
-*/
+$breadcrumb-divider: quote("»");
+$logo-image: image_url('arclight/logo.png') !default;
+@import 'bootstrap';
+@import 'blacklight/blacklight';
+@import 'arclight/application';
 
-@import "font-awesome";
-
-.blacklight-catalog-index #appliedParams {
-  margin-bottom: 0.5rem !important;
+a {
+	text-decoration: none !important;
 }
 
-.al-toggle-children-container {
-    margin-left: 0rem;
-}
-
-.full-collections article.document {
-	margin: 0 !important;
-}
-
-.blacklight-icons svg {
-    fill: #6c757d;
-}
-
-.pdf-btn {
-	margin-bottom: 10px;
-}
-
-.pdf-btn:focus {
-	box-shadow: 0 0 0 0.2rem rgba(100, 42, 144, 0.25) !important;
-}
-
-.pdf-btn i {
-	color: crimson;
-}
-
-.grouped-documents .document .col .documentHeader .document-title-heading {
-	font-size: 1.25rem;
-}
-
-.facets-collapse .blacklight-has_online_content_ssim {
-	border: 1px solid #9e68c7;
-}
-
-.facets-collapse .blacklight-has_online_content_ssim #facet-has_online_content_ssim-header {
-	background-color: #9e68c7 !important;
-}
-
-.facets-collapse .blacklight-has_online_content_ssim #facet-has_online_content_ssim-header button {
+.pagination .active * {
 	color: #fff !important;
 }
 
-#sidebar .title-card .sidebar-collection-title .collection-info-menu table {
-	margin-bottom: 0;
+.pagination .page-link:focus {
+	box-shadow: 0 0 0 0.25rem rgba(158, 104, 199, 0.5);
 }
 
-#sidebar {
-	z-index: 1;
+#within_collection:focus {
+	box-shadow: 0 0 0 0.25rem rgba(158, 104, 199, 0.5);
+	border-color: #9e68c7;
 }
 
-.sidebar-collection-title {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+.al-repositories .card-body  {
+	padding: 1.5rem 2rem;
 }
 
-.sidebar-collection-title a .collection-name {
-	margin-bottom: 0rem;
-	margin-left: 0.75rem;
+.al-repository {
+	margin-bottom: 2rem;
+	padding: 1rem 0;
 }
 
-li.al-collection-context .documentHeader {
-	margin-bottom: 0.75rem;
+.source-box .search-extra-controls a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 0.8rem;
+	font-weight: 400;
 }
 
-div.bookmark-span {
-	display: inline;
+.source-box .search-extra-controls a:nth-child(2) {
+	margin-left: 1rem !important;
 }
 
-div.bookmark-span > div {
-	display: inline-block;
-	vertical-align: top;
-	margin-top: -0.3rem;
+.source-box .search-extra-controls a:nth-child(3) {
+	margin-left: auto !important;
 }
 
-div.bookmark-span > div span.al-online-content-icon svg {
-	fill: #28a745;
+.source-box .search-extra-controls a:hover {
+	color: rgba(255, 255, 255, 0.75);
 }
 
-div.bookmark-span form {
-	padding: 0.2rem;
+.grouped-documents .al-grouped-more {
+	margin-bottom: 0.5rem !important;
+	border-bottom: none !important;
 }
 
-div.bookmark-span form input {
-	display: inline-block;
-	vertical-align: top;
-	margin-top: 0.2rem;
+.documents-list article.document:first-child {
+	padding-top: 1rem !important;
 }
 
-div.bookmark-span form svg {
-	display: inline-block;
-	vertical-align: top;
-	margin-top: 0.2rem;
+.grouped-documents {
+	margin-bottom: 0rem !important;
 }
 
-div.bookmark-span .al-document-container {
+.grouped-documents .documents-list {
+	margin-bottom: 0rem !important;
+}
+
+.grouped-documents .document-metadata {
+	margin-bottom: 0rem !important;
+}
+
+.facets-collapse .blacklight-access {
+	border: 1px solid #642a90;
+}
+
+.facets-collapse .blacklight-access #facet-access-header {
+	background-color: #642a90 !important;
+}
+
+.facets-collapse .blacklight-access #facet-access-header button {
+	color: #fff !important;
+}
+
+
+/* collection show page */
+
+.show-document .pagination-search-widgets {
+	margin: 0;
+	padding: 0;
+}
+
+@media (min-width: 992px) {
+  .show-document {
+    padding-left: calc(var(--bs-gutter-x) * .5) !important;
+  }
+}
+
+.document-show-card .card-body {
+	padding: 2rem;
+}
+
+#using-these-materials-teaser .al-show-sub-heading {
 	display: none;
 }
 
-select#within_collection {
-	background-color: #e2e1e0;
-	border-radius: .25rem 0 0 .25rem !important;
+#using-these-materials-teaser {
+ 	background: #f3f2f1;
+	border-left: 8px solid #9e68c7;
+	padding: 1.5rem;
+	float: right;
+	margin: 2rem 0 1rem 2rem;
 }
 
-select#within_collection:focus {
+#using-these-materials-teaser dt {
+	width: 100%;
+	text-align: left;
+	margin-left: 0;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+#using-these-materials-teaser dd {
+	width: 100%;
+	padding-right: 1rem;
+}
+
+.using-resources * {
+	color: #642a90;
+	text-decoration: none;
+}
+
+#pdf-finding-aid .al-show-sub-heading {
+	display: none;
+}
+
+#pdf-finding-aid dt {
+	display: none;
+}
+
+#pdf-finding-aid dd {
+	width: 100%;
+	padding-right: 1rem;
+}
+
+@media (min-width: 576px) {
+  	#using-these-materials-teaser dd {
+  		margin-left: 1rem;
+  	}
+}
+
+@media (min-width: 768px) {
+  	#using-these-materials-teaser {
+  		width: 33%;
+  	}
+  	#pdf-finding-aid {
+			float: right;
+			clear: both;
+		}
+}
+
+
+/* sidebar */
+
+@media (max-width: 991.98px) {
+    .context-sidebar {
+    	z-index: 9999 !important;
+    	overflow-y: scroll !important;
+    	position: fixed !important;
+    }
+    .page-sidebar .alpha-menu {
+			display: none;
+	}
+}
+
+.page-sidebar {
+  overflow: visible !important;
+}
+
+.page-sidebar .alpha-menu {
+	height: 100vh;
+	overflow-y: auto;
+}
+
+.page-sidebar .alpha-menu .sidebar-scroll-wrapper {
+	height: 100vh;
+}
+
+.page-sidebar .alpha-menu .sidebar-scroll-wrapper .list-group .list-group-item:first-child {
+	color: #fff;
+	background-color: #46166B;
 	border-color: #46166B;
-    box-shadow: 0 0 0.2rem 0.2rem #46166B;
+	border: 0;
+	border-bottom: 4px solid #eaaa00 !important;
+	font-size: 1.2rem;
 }
 
-div.within-collection-dropdown {
-	width: auto !important;
+.page-sidebar .alpha-menu .sidebar-scroll-wrapper .list-group .list-group-item:first-child:hover {
+	color: #EBE6F0 !important;
+	background: #006c68;
 }
 
-form.search-query-form span.input-group-append {
-	display: block;
+.collection-sidebar #sidebar {
+	padding: 0 !important;
+	border: none;
 }
 
-form.search-query-form button.search-btn {
-	padding: 6px 16px;
-}
-
-a#bookmarks_nav {
+.context-sidebar .card-title {
+	background-color: #642a90;
 	color: #fff;
-	text-decoration: none;
-	font-size: 0.8rem;
+	border-radius: 0.25rem 0.25rem 0rem 0rem;
+	padding: 1.25rem;
+	margin: -1px;
 }
 
-a#bookmarks_nav:hover {
-	color: rgba(255, 255, 255, 0.75);
+.context-sidebar .card-title h2 {
+	font-size: 1rem;
 }
 
-a#history_nav {
+.context-sidebar .card-title .collection-title .collection-name {
 	color: #fff;
+	font-size: 1.6rem;
+}
+
+.context-sidebar .card-title .collection-title a:hover {
 	text-decoration: none;
-	font-size: 0.8rem;
-	margin-left: 1rem;
+	color:rgba(255,255,255,0.75) !important;
 }
 
-a#history_nav:hover {
-	color: rgba(255, 255, 255, 0.75);
+.context-sidebar .card-title .collection-title {
+	background-image: asset-url("boxbg.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: top left;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
 }
 
-article.document .row .col .badge {
-	align-self: baseline;
+.context-sidebar .card-title button.btn-close {
+	background-color: #eaaa00;
+	padding: 0.5rem;
+	opacity: 1;
+	border: none;
+	border-radius: 0.375rem;
+	transition: background-color 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.context-sidebar .card-title button.btn-close:hover {
+	background-color: #9e68c7 !important;
+  border-color: #9e68c7 !important;
+}
+
+.context-sidebar .card-title button.btn-close:focus {
+	background-color: #9e68c7 !important;
+  border-color: #9e68c7 !important;
+  box-shadow: 0 0 0 .2rem rgba(70, 22, 107, 0.5) !important;
+  outline: none !important;
+}
+
+.context-sidebar .card-title button.btn-close:active {
+	background-color: #9e68c7 !important;
+  border-color: #9e68c7 !important;
+}
+
+.context-sidebar .card-title .collection-title a.btn-default {
+	color: #fff !important;
+	border: none !important;
+}
+
+.context-sidebar .card-title .collection-title a.btn:hover {
+	color: rgba(255,255,255,0.75) !important;
+}
+
+.context-sidebar .card-title .btn-default {
+	color: #fff !important;
+	border: none !important;
+}
+
+.context-sidebar .card-title .btn-default:hover {
+	color: rgba(255,255,255,0.75) !important;
 }
 
 
-.breadcrumb-item .bookmark-span .badge {
-	font-size: 60%;
-	vertical-align: top;
+.context-sidebar .card-title .request-btn {
+  width: 100%;
+  background-color: #9e68c7;
+  border-color: #9e68c7;
 }
 
-.restrictions-row .alert p {
-	  margin-bottom: 0;
+.context-sidebar .card-title .request-btn:hover {
+	color: #fff;
+	background-color: #eaaa00 !important;
+	border-color: #eaaa00 !important;
 }
 
-.page-sidebar .access-options .card {
-	box-shadow: none;
+.sidebar-section {
+	margin-right: 1rem;
+}
+
+.sidebar-scroll-wrapper {
+   /* viewport height minus height of the collections info box, ~190px */
+  height: calc(100vh - 190px) !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 10px;
+  border-top-left-radius: 0 !important;
+	border-top-right-radius: 0 !important;
+}
+
+#collection-nav .nav-link:focus {
+	color: #006c68;
+}
+
+#collection-context .documentHeader {
+	padding: 0.25rem 0.5rem;
+}
+
+#collection-context .documentHeader .al-toggle-view-children {
+	margin-left: -1.75rem;
+	margin-right: 0.5rem;
+}
+
+#collection-context .al-collection-context-collapsible a.btn-secondary {
+	width: 90%;
+	text-align: left;
+	text-transform: lowercase;
+	padding-left: 2.25rem;
+	background-color: #999;
+	border: none;
+	background-repeat: no-repeat;
+	background-size: 1rem auto;
+	background-position: 10px center;
+	background-image: asset-url("expand-white.svg");
 }

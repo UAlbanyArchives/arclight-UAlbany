@@ -1,0 +1,16 @@
+services:
+  arclight:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: arclight-dev
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/app'
+      - '/media/Library/SPE_Automated/collections:/ead'
+    working_dir: /app
+    command: >
+      bash -c "bundle install &&
+              bundle exec rails db:migrate &&
+              bundle exec rails server -b 0.0.0.0"

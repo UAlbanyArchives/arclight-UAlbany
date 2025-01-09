@@ -10,54 +10,58 @@ module ApplicationHelper
     'Archives & Manuscripts'
   end
 
-  def collection_doc(document)
-    SolrDocument.find(normalize_id(document.eadid))
+  # search bar is custom to arclight so we need a helper
+  def render_search_bar(params: {}, q: nil, search_field: nil)
+    params ||= {}
+    render(Arclight::SearchBarComponent.new(
+      url: search_catalog_path,
+      params: params.merge(f: (params[:f] || {}).except(:collection)),
+      q: q,
+      search_field: search_field,
+      autocomplete_path: suggest_index_catalog_path
+    ))
   end
 
-  def container_classes
-    'container-fluid'
-  end
-  
-  def show_content_classes
-    'show-document col-md-12 col-lg-8 order-lg-2'
-  end
-  def custom_show_content_classes
-    'show-document col-md-12 col-lg-8 order-lg-2'
+  # Borrowed DUL custom helper methods
+  # HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/main/app/helpers/field_config_helpers.rb
+
+  def link_to_all_restrictions(_args)
+    link_to 'More...',
+            '#using-these-materials',
+            class: 'fw-semibold'
   end
 
-  def show_sidebar_classes
-    'page-sidebar col-md-12 col-lg-4 order-lg-1'
+  def render_using_these_materials_header(_args)
+    render 'catalog/using_header'
   end
 
-  #HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/develop/app/helpers/dul_arclight_helper.rb
-  def formatted_last_indexed(timestamp)
-    date = DateTime.parse(timestamp)
-    date.strftime('%F')
+  def truncate_restrictions_teaser(args)
+    values = args[:value] || []
+    teaser = truncate(strip_tags(values.join(' ')), length: 200, separator: ' ')
+    [teaser, link_to_all_restrictions(nil)].join('<br/>').html_safe
   end
 
+  def pdf_finding_aid(args)
+    render 'catalog/pdf_btn', id: args[:value]
+  end
 
-  # replaces generic_context_navigation in arclight_helper so that component show pages only list children instead of full context
-  def children_navigation(document)
-    content_tag(
-      :div,
-      '',
-      class: "al-contents child-components children-count-#{document.number_of_children}",
-      data: {
-        collapse: I18n.t('arclight.views.show.collapse'),
-        expand: I18n.t('arclight.views.show.expand'),
-        arclight: {
-          level: document.component_level.to_i + 1,
-          path: search_catalog_path(hierarchy_context: 'component'),
-          name: document.collection_name,
-          view: 'child_components',
-          parent: document.reference,
-          directparent: document.reference,
-          childrencount: document.number_of_children,
-          originalDocument: document.id,
-          originalParents: [document.reference],
-          eadid: normalize_id(document.eadid),
-          per_page: '100'
-        }
+  def collecting_area_path(repository)
+    search_action_url(
+      f: {
+        collecting_area: [repository.name],
+        level: ['Collection']
+      }
+    )
+  end
+
+  def keep_raw_values(args)
+    args[:value] || []
+  end
+
+  def all_collections_path(repository)
+    search_action_url(
+      f: {
+        level: ['Collection']
       }
     )
   end

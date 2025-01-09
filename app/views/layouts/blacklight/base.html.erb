@@ -5,16 +5,30 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Internet Explorer use the highest version available -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     <title><%= render_page_title %></title>
+    <script>
+      document.querySelector('html').classList.remove('no-js');
+    </script>
     <%= opensearch_description_tag application_name, opensearch_catalog_url(format: 'xml') %>
     <%= favicon_link_tag %>
-    <%= stylesheet_link_tag "application", media: "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-    <%= content_for(:head) %>
+    <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload"  %>
+    <% if defined? Importmap %>
+      <%# Used DUL CUSTOMIZATION: add a polyfill so browsers that don't natively %>
+      <%# support importmaps won't break. This shim was dropped by importmap-rails %>
+      <%# 2.0 in Jan 2024, so has to be re-added. See https://caniuse.com/import-maps %>
+      <%# https://github.com/guybedford/es-module-shims?tab=readme-ov-file#usage %>
+      <script async src="https://ga.jspm.io/npm:es-module-shims@1.9.0/dist/es-module-shims.js"></script>
+      <%= javascript_importmap_tags %>
+    <% elsif defined? Propshaft %>
+      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <% else %>
+      <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+      <%= javascript_include_tag "blacklight/blacklight", type: 'module' %>
+      <script type="module">
+        import githubAutoCompleteElement from 'https://cdn.skypack.dev/@github/auto-complete-element';
+      </script>
+
+    <% end %>
 
     <!-- Matomo -->
     <script>
@@ -32,27 +46,30 @@
     </script>
     <!-- End Matomo Code -->
 
+    <%= csrf_meta_tags %>
+    <%= content_for(:head) %>
   </head>
   <body class="<%= render_body_class %>">
-    <nav id="skip-link" role="navigation" aria-label="<%= t('blacklight.skip_links.label') %>">
-      <%= link_to t('blacklight.skip_links.search_field'), '#search_field', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
-      <%= link_to t('blacklight.skip_links.main_content'), '#main-container', class: 'element-invisible element-focusable rounded-bottom py-2 px-3', data: { turbolinks: 'false' } %>
+    <%= render blacklight_config.skip_link_component.new do %>
       <%= content_for(:skip_links) %>
-    </nav>
+    <% end %>
+
     <%# render partial: 'shared/header_navbar' %>
     <%= render partial: 'layouts/grenander/navbar' %>
+    <%= render partial: 'grenander/search_row' %>
 
-  <main id="main-container" class="<%= container_classes %>" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
-    <%# content_for(:container_header) %>
+    <main id="main-container" class="<%= container_classes %>" role="main" aria-label="<%= t('blacklight.main.aria.main_container') %>">
+      <%# content_for(:container_header) %>
 
-    <%= render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
+      <% render partial: 'shared/flash_msg', layout: 'shared/flash_messages' %>
 
-    <div class="row">
-      <%= content_for?(:content) ? yield(:content) : yield %>
-    </div>
-  </main>
+      <div class="row">
+        <%= content_for?(:content) ? yield(:content) : yield %>
+      </div>
+    </main>
 
-    <%= render partial: 'layouts/grenander/footer' %>    
+    <%# render partial: 'shared/footer' %>
+    <%= render partial: 'layouts/grenander/footer' %>
     <%= render partial: 'shared/modal' %>
   </body>
 <% end %>

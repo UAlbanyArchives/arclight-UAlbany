@@ -1,20 +1,14 @@
 #! /bin/bash
 
-CORE="$1"
+ID="$1"
 TYPE="$2"
 
-[ -s "/usr/local/rvm/scripts/rvm" ] && . "/usr/local/rvm/scripts/rvm"
+echo "$(date) $line Indexed $TYPE/$ID.xml"
 
-rvm 2.6.5@arclight-test
+export REPOSITORY_ID=$TYPE
 
-echo "$(date) $line Export $TYPE"
-cd /var/www/update/arclight-UAlbany
+URL='https://solr2020.library.albany.edu:8984/solr/arclight-1.4'
+#CONFIG='/usr/local/bundle/gems/arclight-1.4.0/lib/arclight/traject/ead2_config.rb'
+CONFIG='lib/arclight/traject/ead2_config.rb'
 
-export REPOSITORY_ID='ndpa'
-
-traject -u https://solr2020.library.albany.edu:8984/solr/arclight-new -i xml -c /home/railsdev/.rvm/gems/ruby-2.6.5@arclight-test/bundler/gems/arclight-f9b61c2cf12c/lib/arclight/traject/ead2_config.rb /media/SPE/collections/ndpa/apap347.xml
-
-#traject -u https://solr2020.library.albany.edu:8984/solr/arclight-0.4.0 -i xml -c /home/railsdev/.rvm/gems/ruby-2.6.5@arclight-test/gems/arclight-0.4.0/lib/arclight/traject/ead2_config.rb /media/SPE/collections/ua/ua935.xml
-
-#find /media/SPE/collections/$TYPE -type f -name '*.xml' -exec \
-#traject -u https://solr2020.library.albany.edu:8984/solr/$CORE -i xml -c /home/railsdev/.rvm/gems/ruby-2.6.5@arclight-test/gems/arclight-0.4.0/lib/arclight/traject/ead2_config.rb {} ';'
+traject -u $URL -i xml -c $CONFIG /ead/$TYPE/$ID.xml

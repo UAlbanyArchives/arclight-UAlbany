@@ -1,0 +1,57 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-home-link">
+    <%= link_to t('arclight.routes.home'), root_path %>
+  </li>
+  <li class="breadcrumb-item breadcrumb-item-1">
+    <span aria-hidden="true"><%= blacklight_icon :repository, classes: 'al-repository-content-icon' %></span>
+    <span class="breadcrumb-text"><%= repository %></span>
+    <ol class="breadcrumb">
+      <% if collection %>
+        <li class="breadcrumb-item breadcrumb-item-2">
+          <span aria-hidden="true"><%= blacklight_icon :collection, classes: 'al-collection-content-icon' %></span>
+          <span class="breadcrumb-text"><%= link_to collection.label, solr_document_path(collection.id) %></span>
+
+          <ol class="breadcrumb">
+            <% parents_under_collection.each_with_index do |parent, index| %>
+              <li class="breadcrumb-item breadcrumb-items breadcrumb-item-<%= index + 3 %>">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 20 20">
+                  <!-- Bottom Folder -->
+                  <path d="M1 3a1 1 0 0 1 1-1h2.268a1 1 0 0 1 .832.445L6.8 4H13a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3z" stroke="white" stroke-width="1"/>
+                  <!-- Top Folder -->
+                  <path d="M1 3a1 1 0 0 1 1-1h2.268a1 1 0 0 1 .832.445L6.8 4H13a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3z" transform="translate(4, 4)" stroke="white" stroke-width="1"/>
+                </svg>
+                <span class="breadcrumb-text"><%= link_to parent.label, solr_document_path(parent.id) %></span>
+              </li>
+            <% end %>
+             
+            <li class="breadcrumb-item breadcrumb-items breadcrumb-item-<%= parents_under_collection.size + 3 %>">
+                  <% if @presenter.document._source["level_ssim"][0].downcase == "item" || @presenter.document._source["level_ssim"][0].downcase == "other" %>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20" height="20" viewBox="0 0 16 16">
+                      <path d="M4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V5.5L10.5 0H4zM10 1.5L13.5 5H10V1.5z"/>
+                    </svg>
+                  <% elsif @presenter.document._source["level_ssim"][0].downcase == "file" %>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="20" height="20" viewBox="0 0 16 16">
+                      <path d="M1 3a1 1 0 0 1 1-1h2.268a1 1 0 0 1 .832.445L6.8 4H13a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3z"/>
+                    </svg>
+                  <% else %>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 20 20">
+                      <!-- Bottom Folder -->
+                      <path d="M1 3a1 1 0 0 1 1-1h2.268a1 1 0 0 1 .832.445L6.8 4H13a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3z" stroke="white" stroke-width="1"/>
+                      <!-- Top Folder -->
+                      <path d="M1 3a1 1 0 0 1 1-1h2.268a1 1 0 0 1 .832.445L6.8 4H13a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3z" transform="translate(4, 4)" stroke="white" stroke-width="1"/>
+                    </svg>                    
+                  <% end %>
+              <span class="breadcrumb-text"><%= @presenter.heading %></span>
+            </li>
+          </ol>
+
+        </li>
+      <% else # this is a collection %>
+        <li class="breadcrumb-item breadcrumb-item-2">
+          <span aria-hidden="true"><%= blacklight_icon :collection, classes: 'al-collection-content-icon' %></span>
+          <span class="breadcrumb-text"><%= @presenter.heading %></span>
+        </li>
+      <% end %>
+    </ol>
+  </li>
+</ol>

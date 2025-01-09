@@ -1,0 +1,13 @@
+<div class="card context-sidebar sticky-top offcanvas-lg offcanvas-start p-3 p-lg-1" tabindex="-1" id="sidebar">
+  <%= collection_context %>
+  <div class="card card-body sidebar-scroll-wrapper">
+    <%= render 'show_tools', document: document %>
+    <%= collection_sidebar %>
+    <div id="collection-context" class="sidebar-section">
+      <% if document["total_component_count_is"].nil? || document["total_component_count_is"].to_i > 0 %>
+        <h2><%= t('arclight.views.show.has_content') %></h2>
+      <% end %>
+      <%= turbo_frame_tag "al-hierarchy-#{document.root}", loading: 'lazy', src: hierarchy_solr_document_path(id: document.root, nest_path: @document.nest_path, hierarchy: true) %>
+    </div>
+  </div>
+</div>

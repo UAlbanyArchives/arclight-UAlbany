@@ -10,42 +10,12 @@
         
         <div class='row no-gutters justify-content-md-center'>
             
-          <!--<div class='col-4 col-md-3 al-repository-contact'>
-            <address>
-              <div class="al-repository-street-address">
-                <% %i[building address1 address2 city_state_zip_country].each do |f| %>
-                  <% if repository.send(f).present? %>
-                    <div class='al-repository-street-address-<%= f %>'>
-                      <%= repository.send(f) %>
-                    </div>
-                  <% end %>
-                <% end %>
-             </div>
-
-              <div class="al-repository-contact-info">
-                <% if repository.phone.present? %>
-                  <div class='al-repository-contact-info-phone'>
-                    <%= repository.phone %>
-                  </div>
-                <% end %>
-                <% if repository.contact_info.present? %>
-                  <div class='al-repository-contact-info-contact_info'>
-                    <% if repository.contact_info.include?('@') %>
-                      <%= mail_to repository.contact_info %>
-                    <% else %>
-                      <%= repository.contact_info %>
-                    <% end %>
-                  </div>
-                <% end %>
-              </div>
-            </address>
-          </div>-->
        
           <div class="col al-repository-description" title="<%= repository.description %>">
             <h2>
               <%= link_to_unless(params[:id] == repository.slug, repository.name, arclight_engine.repository_path(repository.slug)) %>
             </h2>
-            <h6><%= repository.tagline %></h6>
+            <h3 class="h6"><%= repository.tagline %></h3>
             
               <div data-arclight-truncate="true">
                 <%= repository.description %>

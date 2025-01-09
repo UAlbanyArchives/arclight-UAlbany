@@ -1,36 +1,40 @@
 <% @page_title = t(:'arclight.views.repositories.show', name: @repository.name) %>
+<% breadcrumb :repository, @repository %>
 <%= render 'shared/breadcrumbs' %>
 <%= render @repository %>
 
-<% unless @repository.slug == "ua" or @repository.slug == "sub" %>
+<h1 class="sr-only visually-hidden"><%= t(:'arclight.views.repositories.show', name: @repository.name) %></h1>
 
 <% content_for(:sidebar) do %>
- <div class="row sticky-nav alpha-menu">
-    <div class="col-md-12">
-      <section class="sidebar-scroll-wrapper">
-        <ul class="list-group">
-          <a href="#" class="list-group-item list-group-item-action"><%= @repository.name %></a>
-          <% @alpha_collections.keys.each do |letter| %>
-            <a href="#<%= letter %>" class="list-group-item list-group-item-action"><%= letter %></a>
-          <% end %>
-        </ul>
-      </section>
-    <div>
+ <div class="row alpha-menu sticky-top">
+    <% unless @repository.slug == "ua" or @repository.slug == "sub" %>
+      <div class="col-md-12">
+        <section class="sidebar-scroll-wrapper">
+          <ul class="list-group">
+            <a href="#" class="list-group-item list-group-item-action"><%= @repository.name %></a>
+            <% @alpha_collections.keys.each do |letter| %>
+              <a href="#<%= letter %>" class="list-group-item list-group-item-action"><%= letter %></a>
+            <% end %>
+          </ul>
+        </section>
+      <div>
+    <% end %>
   </div>
 <% end %>
 
-<% end %>
+
 
 <div class="row">
-  <div id="documents" class="col-md-8 full-collections">
-    <div class="card">
+  <div id="documents" class="col-md-8 <%= 'full-collections' unless @repository.slug == 'ua' || @repository.slug == 'sub' %>">
+
+  <div class="card">
 	<div class="card-body">
 	   <h2 class="h4"> <%= @repository.name %> Collections </h2>
 
 	<% if @repository.slug == "ua" %>
 		<%= render partial: 'university_archives' %>
-        <% elsif @repository.slug == "sub" %>
-                <%= render partial: 'subjects' %>
+  <% elsif @repository.slug == "sub" %>
+    <%= render partial: 'subjects' %>
 	<% else %>
     
     <% @alpha_collections.keys.each do |letter| %>
@@ -41,12 +45,12 @@
               <div class='col-md-12'>
                 <h3 class="h5">
                   <%= blacklight_icon :collection, classes: 'al-repository-content-icon' %>
-                  <%= link_to document._source["title_filing_si"], solr_document_path(document.id) %>
+                  <%= link_to document._source["title_filing_ssi"], solr_document_path(document.id) %>
                 <small><%= document.normalized_date %></small></h3>
                 <% unless @repository.slug == "all" %>
                   <%= content_tag('div', class: 'al-document-abstract-or-scope') do %>
                     <%= content_tag('div', 'data-arclight-truncate' => true) do %>
-                      <%= document.abstract_or_scope %>
+                      <%= strip_tags(document.abstract_or_scope) %>
                     <% end %>
                   <% end if document.abstract_or_scope %>
                 <% end %>
@@ -65,28 +69,32 @@
   <div class="col-md-12 col-lg-4 last_updated">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">Last Updated</h5>
+        <h2 class="card-title h5">Last Updated</h2>
         <% @last_collections.each do |document| %>
           <div class="col-md-12">
             <div class='al-document-title-bar'>
               <div class='row'>
-                <div class='col-md-12'>
+                <article class='document updated_collection col-md-12'>
                   <h3 class="h5"><%= blacklight_icon :collection, classes: 'al-repository-content-icon' %> <%= link_to document.normalized_title, solr_document_path(document.id) %></h3>
                   <%= content_tag('div', class: 'al-document-abstract-or-scope') do %>
                     <%= content_tag('div', 'data-arclight-truncate' => true) do %>
-                      <%= document.abstract_or_scope %>
+                      <%= strip_tags(document.abstract_or_scope) %>
                     <% end %>
                   <% end if document.abstract_or_scope %>
-                </div>
+                </article>
               </div>
             </div>
           </div>
         <% end %>
         <div class="col text-right all-link">
-        <span class="al-repository-collections">
-          <%= link_to(t(:'arclight.views.repositories.view_all_collections'), repository_collections_path(@repository), class: "card-link") %>
-        </span>
-      </div>
+          <span class="al-repository-collections">
+            <% if @repository.slug == "sub" || @repository.slug == "all" %>
+              <%= link_to(t(:'arclight.views.repositories.view_all_collections'), all_collections_path(@repository), class: "card-link") %>
+            <% else %>
+              <%= link_to(t(:'arclight.views.repositories.view_all_collections'), collecting_area_path(@repository), class: "card-link") %>
+            <% end %>
+          </span>
+        </div>
       </div>
     </div>
   </div>

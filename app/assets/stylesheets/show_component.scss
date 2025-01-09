@@ -97,6 +97,10 @@ li.al-collection-context .document-title-heading {
   background-color: #e2e1e0 !important;
 }
 
+#using-these-materials .row .col-md-8 {
+  padding-right: 2rem;
+}
+
 h2.al-show-sub-heading {
   padding-top: 1rem;
 }
@@ -109,3 +113,68 @@ h3.al-show-sub-heading {
     display: none;
   }
 }
+
+/* Restrictions */
+
+.document-show-card .title-container .title-badge h1 {
+  display: inline;
+}
+
+.document-show-card .title-container .title-badge span.badge {
+  vertical-align: top;
+}
+
+.accessrestrict-danger dd.blacklight-restrictions p {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.accessrestrict-warning dd.blacklight-restrictions p {
+  color: var(--bs-warning-text-emphasis);
+  background-color: var(--bs-warning-bg-subtle);
+  border-color: var(--bs-warning-border-subtle);
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+/* Return to indented vertical breadcrumbs */
+
+$breadcrumb-start: 3;
+$padding-increment: 1rem;
+
+.al-show-breadcrumb .breadcrumb .breadcrumb-item-3 {
+  display: block;
+}
+
+.al-show-breadcrumb .breadcrumb .breadcrumb-items {
+  display: block;
+}
+
+.al-show-breadcrumb .breadcrumb .breadcrumb .breadcrumb-item .breadcrumb {
+  padding-left: 0;
+}
+
+/* Loop to generate the classes dynamically */
+@for $i from $breadcrumb-start through 10 {
+  .breadcrumb-item-#{$i} {
+    padding-left: #{$padding-increment * ($i - $breadcrumb-start + 1)} !important;
+  }
+}
+
+ol.breadcrumb .breadcrumb-item svg {
+  fill: #000;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  /*content: var(--bs-breadcrumb-divider, "")  rtl: var(--bs-breadcrumb-divider, "|") !important;*/
+}
+
+.breadcrumb-item-3:first-of-type {
+    // This is if the series is a parent of this item.
+    &::before {
+      content: ""!important;
+    }
+  }

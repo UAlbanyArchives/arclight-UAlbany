@@ -1,0 +1,20 @@
+<% breadcrumb :repositories %>
+<div class="col-lg-9 offset-lg-3">
+
+  <div class="al-repositories">
+    <% @page_title = t('arclight.views.repositories.title') %>
+    <%= render 'shared/breadcrumbs' %>
+    <div class="card al-repository">
+      <div class="card-body">
+        <div class="card-title">
+          <h1 class="h3"><%= t('arclight.repositories') %></h1>
+        </div>
+        <div class="h6 text-muted">Collecting Areas</div>
+        <p class="">
+          Archives or manuscript collections are sets of original, unpublished materials that are preserved within context of how they were created or used and divided into five major collecting areas.
+        </p>
+      </div>
+    </div>
+    <%= render @repositories %>
+  </div>
+</div>
