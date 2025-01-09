@@ -184,20 +184,62 @@ class CatalogController < ApplicationController
     config.add_index_field 'abstract_or_scope', accessor: true, truncate: true, repository_context: true, helper_method: :render_html_tags, component: Arclight::IndexMetadataFieldComponent
     config.add_index_field 'breadcrumbs', accessor: :itself, component: Arclight::SearchResultBreadcrumbsComponent, compact: { count: 2 }
     #config.add_index_field 'repository_ssm', label: 'Repository'
-    #config.add_index_field 'title_ssm', label: 'Title'
-    #config.add_index_field 'collection_ssim', label: 'Collection Title'
-    #config.add_index_field 'normalized_date_ssm', label: 'Date'
-    #config.add_index_field 'parent_unittitles_ssm', label: 'Patent titles'
-    #config.add_index_field 'ead_ssi', label: 'EAD ID'
-    #config.add_index_field 'unitid_ssm', label: 'Unit ID'
-    #config.add_index_field 'creator_ssm', label: 'Creator'
-    #config.add_index_field 'language_ssim', label: 'Language'
-    #config.add_index_field 'scopecontent_html_tesm', label: 'Scope Content'
-    #config.add_index_field 'extent_ssm', label: 'Physical Description'
-    #config.add_index_field 'accessrestrict_html_tesm', label: 'Conditions Governing Access'
-    #config.add_index_field 'geogname_ssm', label: 'Place'
-    #config.add_index_field 'parent_ssim', label: 'Parent'
-    #config.add_index_field 'has_online_content_ssim', label: 'Has online content?'
+    config.add_index_field 'title_ssm', label: 'Title',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'collection_ssim', label: 'Collection Title',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'normalized_date_ssm', label: 'Date',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'parent_unittitles_ssm', label: 'Patent titles',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'ead_ssi', label: 'EAD ID',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'unitid_ssm', label: 'Unit ID',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'creator_ssm', label: 'Creator',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'language_ssim', label: 'Language',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'scopecontent_html_tesm', label: 'Scope Content',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'extent_ssm', label: 'Physical Description',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'accessrestrict_html_tesm', label: 'Conditions Governing Access',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'geogname_ssm', label: 'Place',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'parent_ssim', label: 'Parent',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
+    config.add_index_field 'has_online_content_ssim', label: 'Has online content?',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
