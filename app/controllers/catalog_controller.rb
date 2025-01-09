@@ -183,6 +183,21 @@ class CatalogController < ApplicationController
     config.add_index_field 'creator', accessor: true, component: Arclight::IndexMetadataFieldComponent
     config.add_index_field 'abstract_or_scope', accessor: true, truncate: true, repository_context: true, helper_method: :render_html_tags, component: Arclight::IndexMetadataFieldComponent
     config.add_index_field 'breadcrumbs', accessor: :itself, component: Arclight::SearchResultBreadcrumbsComponent, compact: { count: 2 }
+    #config.add_index_field 'repository_ssm', label: 'Repository'
+    #config.add_index_field 'title_ssm', label: 'Title'
+    #config.add_index_field 'collection_ssim', label: 'Collection Title'
+    #config.add_index_field 'normalized_date_ssm', label: 'Date'
+    #config.add_index_field 'parent_unittitles_ssm', label: 'Patent titles'
+    #config.add_index_field 'ead_ssi', label: 'EAD ID'
+    #config.add_index_field 'unitid_ssm', label: 'Unit ID'
+    #config.add_index_field 'creator_ssm', label: 'Creator'
+    #config.add_index_field 'language_ssim', label: 'Language'
+    #config.add_index_field 'scopecontent_html_tesm', label: 'Scope Content'
+    #config.add_index_field 'extent_ssm', label: 'Physical Description'
+    #config.add_index_field 'accessrestrict_html_tesm', label: 'Conditions Governing Access'
+    #config.add_index_field 'geogname_ssm', label: 'Place'
+    #config.add_index_field 'parent_ssim', label: 'Parent'
+    #config.add_index_field 'has_online_content_ssim', label: 'Has online content?'
 
     # solr fields to be displayed in the show (single result) view
     #   The ordering of the field names is the order of the display
@@ -287,6 +302,50 @@ class CatalogController < ApplicationController
     config.autocomplete_enabled = true
     config.autocomplete_path = 'suggest'
 
+    # ===========================
+    # JSON DATA FIELDS
+    # ===========================
+
+    config.add_show_field 'title_ssm', label: 'Title'
+    config.add_show_field 'normalized_title_ssm', label: 'Normalized title'
+    config.add_show_field 'normalized_date_ssm', label: 'Normalized date'
+    config.add_show_field 'unitdate_ssm', label: 'Unitdate'
+    config.add_show_field 'collection_ssim', label: 'Collection'
+    config.add_show_field 'repository_ssm', label: 'Repository'
+    config.add_show_field 'level_ssm', label: 'Level'
+    config.add_show_field 'component_level_isim', label: 'Component level'
+    config.add_show_field 'parent_ssim', label: 'Parent'
+    config.add_show_field 'parent_unittitles_ssm', label: 'Patent titles'
+    config.add_show_field 'ead_ssi', label: 'EAD ID'
+    config.add_show_field 'has_online_content_ssim', label: 'Has online content?'
+    config.add_show_field 'child_component_count_isi', label: 'Child component count'
+    config.add_show_field 'title_filing_ssi', label: 'Filing title'
+
+    config.add_show_field 'abstract_html_tesm', label: 'Abstract'
+    config.add_show_field 'scopecontent_html_tesm', label: 'Scope and Content'
+    config.add_show_field 'creator_ssim', label: 'Creator'
+    config.add_show_field 'extent_ssm', label: 'Extent'
+    config.add_show_field 'language_ssim', label: 'Language'
+    config.add_show_field 'prefercite_html_tesm', label: 'Preferred citation'
+    config.add_show_field 'bioghist_html_tesm', label: 'Biographical / Historical'
+    config.add_show_field 'acqinfo_ssim', label: 'Acquisition information'
+    config.add_show_field 'appraisal_html_tesm', label: 'Appraisal information'
+    config.add_show_field 'custodhist_html_tesm', label: 'Custodial history'
+    config.add_show_field 'processinfo_html_tesm', label: 'Processing information'
+    config.add_show_field 'arrangement_html_tesm', label: 'Arrangement'
+    config.add_show_field 'accruals_html_tesm', label: 'Accruals'
+    config.add_show_field 'phystech_html_tesm', label: 'Physical / technical requirements'
+    config.add_show_field 'physloc_html_tesm', label: 'Physical location'
+    config.add_show_field 'odd_html_tesm', label: 'Other'
+    config.add_show_field 'relatedmaterial_html_tesm', label: 'Related material'
+    config.add_show_field 'separatedmaterial_html_tesm', label: 'Separated material'
+    config.add_show_field 'otherfindaid_html_tesm', label: 'Other finding aids'
+    config.add_show_field 'altformavail_html_tesm', label: 'Alternative form available'
+    config.add_show_field 'originalsloc_html_tesm', label: 'Location of originals'
+    config.add_show_field 'accessrestrict_html_tesm', label: 'Restrictions'
+    config.add_show_field 'userestrict_html_tesm', label: 'Terms of Access'
+    config.add_show_field 'parent_access_restrict_tesm', label: 'Parent Restrictions'
+    config.add_show_field 'parent_access_terms_tesm', label: 'Parent Terms of Access'
 
     # ===========================
     # COLLECTION SHOW PAGE FIELDS
