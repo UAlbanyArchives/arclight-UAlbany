@@ -1,10 +1,10 @@
 load_defaults: 8.3.0
 development:
   adapter: solr
-  url: <%= ENV['SOLR_URL'] || "https://solr2020.library.albany.edu:8984/solr/arclight-1.4_dev" %>
+  url: <%= ENV['SOLR_URL'] || "https://solr2020.library.albany.edu:8984/solr/arclight-1.4_dao" %>
 test: &test
   adapter: solr
   url: <%= ENV['SOLR_URL'] || "http://127.0.0.1:8983/solr/blacklight-core" %>
 production:
   adapter: solr
-  url: <%= ENV['SOLR_URL'] || "https://solr2020.library.albany.edu:8984/solr/arclight-1.4_dev" %>
+  url: <%= ENV['SOLR_URL'] || "https://solr2020.library.albany.edu:8984/solr/arclight-1.4_dao" %>

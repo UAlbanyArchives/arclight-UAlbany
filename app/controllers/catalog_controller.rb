@@ -82,7 +82,7 @@ class CatalogController < ApplicationController
     config.index.constraints_component = Arclight::ConstraintsComponent
     config.index.document_presenter_class = Arclight::IndexPresenter
     config.index.search_bar_component = Arclight::SearchBarComponent
-    # config.index.thumbnail_field = 'thumbnail_path_ss'
+    config.index.thumbnail_field = 'thumbnail_path_ss'
 
     # solr field configuration for document/show views
     # config.show.title_field = 'title_display'
@@ -93,7 +93,7 @@ class CatalogController < ApplicationController
     config.show.access_component = Arclight::AccessComponent
     config.show.online_status_component = Arclight::OnlineStatusIndicatorComponent
     config.show.display_type_field = 'level_ssm'
-    # config.show.thumbnail_field = 'thumbnail_path_ss'
+    config.show.thumbnail_field = 'thumbnail_path_ss'
     config.show.document_presenter_class = Arclight::ShowPresenter
     config.show.metadata_partials = %i[
       restrictions_banner_field
@@ -155,9 +155,10 @@ class CatalogController < ApplicationController
     # :index_range can be an array or range of prefixes that will be used to create the navigation
     #  (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'access', collapse: false, query: {
-      online: { label: 'Online access', fq: 'has_online_content_ssim:true' }
-    }
+    #config.add_facet_field 'access', collapse: false, query: {
+    #  online: { label: 'Online access', fq: 'has_online_content_ssim:true' }
+    #}
+    config.add_facet_field 'has_online_content_ssim', label: 'Online access', limit: 10
 
     config.add_facet_field 'collecting_area', field: 'repository_ssim', limit: 10
     config.add_facet_field 'collection', field: 'collection_ssim', limit: 10
