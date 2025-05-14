@@ -4,11 +4,11 @@ module Arclight
   ##
   # Plain ruby class to model serializing/deserializing digital object data
   class DigitalObject
-    attr_reader :label, :href,
-                :type, :action, :rights_statement, :subjects,
-                :legacy_id, :resource_type, :preservation_package,
-                :description, :creator, :contributor,
-                :date_published, :thumbnail_path
+    attr_reader :label, :href, :type, :action#,
+                #:rights_statement, :subjects,
+                #:legacy_id, :resource_type, :preservation_package,
+                #:description, :creator, :contributor,
+                #:date_published, :thumbnail_path
 
     def initialize(label:, href:, **kwargs)
       @label = label.presence || href
