@@ -1,0 +1,21 @@
+<%= content_tag @component,
+  id: @id,
+  data: {
+    'document-id': @document.id.to_s.parameterize,
+    'document-counter': @counter,
+  },
+  itemscope: true,
+  itemtype: @document.itemtype,
+  class: classes.flatten.join(' ') do %>
+    <div class="px-2 document-type-icon">
+      <%= icon %>
+    </div>
+    <div class="container">
+      <%= render Arclight::SearchResultTitleComponent.new(document: document, compact: compact?) %>
+
+      <div class="row">
+        <%= metadata %>
+      </div>
+    </div>
+    <img style="max-width:200px;" src="<%= @document["thumbnail_path_ss"] %>" class="card-img-top img-fluid" alt="Thumbnail">
+<% end %>
