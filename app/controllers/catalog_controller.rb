@@ -162,12 +162,17 @@ class CatalogController < ApplicationController
 
     config.add_facet_field 'collecting_area', field: 'repository_ssim', limit: 10
     config.add_facet_field 'collection', field: 'collection_ssim', limit: 10
-    config.add_facet_field 'creators', field: 'creator_ssim', limit: 10
     config.add_facet_field 'date_range', field: 'date_range_isim', range: true
+    config.add_facet_field 'resource_type', field: 'dado_resource_type_ssim', limit: 10
     config.add_facet_field 'level', field: 'level_ssim', limit: 10
+    config.add_facet_field 'subjects', field: 'dado_subjects_ssim', limit: 10
+    config.add_facet_field 'creators', field: 'creator_ssim', limit: 10
     config.add_facet_field 'names', field: 'names_ssim', limit: 10
     config.add_facet_field 'places', field: 'geogname_ssim', limit: 10
+    config.add_facet_field 'rights', field: 'dado_rights_statement_ssim', limit: 10
     config.add_facet_field 'access_subjects', field: 'access_subjects_ssim', limit: 10
+    config.add_facet_field 'legacy_id', field: 'dado_legacy_id_ssim', limit: 10
+    config.add_facet_field 'preservation_package', field: 'dado_preservation_package_ssim', limit: 10
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -514,6 +519,16 @@ class CatalogController < ApplicationController
     config.add_component_field 'separatedmaterial', field: 'separatedmaterial_html_tesm', helper_method: :render_html_tags
     config.add_component_field 'originalsloc', field: 'originalsloc_html_tesm', helper_method: :render_html_tags
     config.add_component_field 'note', field: 'note_html_tesm', helper_method: :render_html_tags
+
+    # DadoCM fields
+    config.add_component_field 'resource_type', field: 'dado_resource_type_ssim', link_to_facet: true
+    config.add_component_field 'creator', field: 'dado_creator_ssim', link_to_facet: true
+    config.add_component_field 'description', field: 'dado_description_tesim', helper_method: :render_html_tags
+    config.add_component_field 'subjects', field: 'dado_subjects_ssim', link_to_facet: true
+    config.add_component_field 'rights', field: 'dado_rights_statement_ssim', helper_method: :render_rights
+    config.add_component_field 'preservation_package', field: 'dado_preservation_package_ssim', link_to_facet: true
+    config.add_component_field 'contributor', field: 'dado_contributor_ssim', helper_method: :render_html_tags
+    config.add_component_field 'date_published', field: 'dado_date_published_ssm', helper_method: :render_html_tags
 
     # Component Show Page - Indexed Terms Section
     config.add_component_indexed_terms_field 'access_subjects', field: 'access_subjects_ssim', link_to_facet: true, separator_options: {

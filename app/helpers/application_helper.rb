@@ -54,6 +54,27 @@ module ApplicationHelper
     )
   end
 
+  def render_rights(args)
+    value = Array(args[:value])
+    return if value.blank?
+
+    # Blacklight passes arrays for *_ssim fields
+    uri = value.is_a?(Array) ? value.first : value
+    rights = RIGHTS[uri]
+
+    if rights
+      link_to(
+        image_tag(rights["image_url"], alt: rights["display_text"], style: 'max-width: 80px;') +
+        " #{rights["display_text"]}".html_safe,
+        uri
+      )
+    else
+      uri
+    end
+  end
+
+
+
   def keep_raw_values(args)
     args[:value] || []
   end

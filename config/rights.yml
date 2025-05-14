@@ -1,0 +1,13 @@
+rights:
+  "https://creativecommons.org/licenses/by/4.0/":
+    image_url: "https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png"
+    display_text: "CC BY 4.0"
+  "https://creativecommons.org/licenses/by-nc-sa/4.0/":
+    image_url: "https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png"
+    display_text: "CC BY-NC-SA 4.0"
+  "https://rightsstatements.org/vocab/InC/1.0/":
+    image_url: "https://rightsstatements.org/files/buttons/InC.dark-white-interior.png"
+    display_text: "In Copyright"
+  "https://rightsstatements.org/vocab/InC-EDU/1.0/":
+    image_url: "https://rightsstatements.org/files/buttons/InC-EDU.dark-white-interior-blue-type.png"
+    display_text: "In Copyright - Educational Use Permitted"
