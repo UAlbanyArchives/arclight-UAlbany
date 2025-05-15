@@ -6,16 +6,27 @@
   },
   itemscope: true,
   itemtype: @document.itemtype,
-  class: classes.flatten.join(' ') do %>
-    <div class="px-2 document-type-icon">
-      <%= icon %>
-    </div>
-    <div class="container">
-      <%= render Arclight::SearchResultTitleComponent.new(document: document, compact: compact?) %>
+  class: "#{classes.flatten.join(' ')}" do %>
 
-      <div class="row">
-        <%= metadata %>
+  <div class="row flex-grow-1">
+    <!-- Icon + text: full-width on sm, side-by-side on md+ -->
+    <div class="col-12 <%= @document["thumbnail_path_ss"].present? ? 'col-md-10' : '' %> d-flex">
+      <div class="me-2 document-type-icon">
+        <%= icon %>
+      </div>
+      <div class="flex-grow-1">
+        <%= render Arclight::SearchResultTitleComponent.new(document: document, compact: compact?) %>
+        <div class="row">
+          <%= metadata %>
+        </div>
       </div>
     </div>
-    <img style="max-width:200px;" src="<%= @document["thumbnail_path_ss"] %>" class="card-img-top img-fluid" alt="Thumbnail">
+
+    <% if @document["thumbnail_path_ss"].present? %>
+      <div class="col-12 col-md-2 document-thumbnail mt-2 mt-md-0">
+        <img src="<%= @document["thumbnail_path_ss"] %>" class="card-img-top img-fluid" alt="Thumbnail for <%= @document["title_ssm"].first %>">
+      </div>
+    <% end %>
+  </div>
+
 <% end %>

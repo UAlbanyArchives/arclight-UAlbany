@@ -44,3 +44,8 @@
 .shrink-search-options {
 	min-height: 152px;
 }
+
+article .document-thumbnail img {
+	width: auto;
+	max-height:150px;
+}
