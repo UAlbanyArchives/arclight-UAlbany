@@ -24,11 +24,24 @@
       <%= online_filter %>
     </div>
 
-    <%= render Arclight::MetadataSectionComponent.with_collection(component_metadata_partials,
+    <div class="row">
+
+      <div class="col-xl-7 col-lg-12">
+        <%= embed %>
+      </div>
+
+      <div class="col-xl-5 col-lg-12">
+
+        <% if embed %>
+          <h2 class="al-show-sub-heading">Metadata</h2>
+        <% end %>
+
+        <%= render Arclight::MetadataSectionComponent.with_collection(component_metadata_partials,
                  metadata_attr: { layout: Arclight::UpperMetadataLayoutComponent },
                  presenter: presenter) unless document.collection? %>
+      </div>
 
-    <%= embed %>
+    </div>
 
     <% if document.collection? %>
     <div id="metadata">

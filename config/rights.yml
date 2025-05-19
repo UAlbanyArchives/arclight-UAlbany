@@ -9,5 +9,11 @@ rights:
     image_url: "https://rightsstatements.org/files/buttons/InC.dark-white-interior.png"
     display_text: "In Copyright"
   "https://rightsstatements.org/vocab/InC-EDU/1.0/":
-    image_url: "https://rightsstatements.org/files/buttons/InC-EDU.dark-white-interior-blue-type.png"
+    image_url: "https://rightsstatements.org/files/buttons/InC-EDU.dark-white-interior.png"
+    display_text: "In Copyright - Educational Use Permitted"
+  "https://rightsstatements.org/page/InC/1.0/":
+    image_url: "https://rightsstatements.org/files/buttons/InC.dark-white-interior.png"
+    display_text: "In Copyright"
+  "https://rightsstatements.org/page/InC-EDU/1.0/":
+    image_url: "https://rightsstatements.org/files/buttons/InC-EDU.dark-white-interior.png"
     display_text: "In Copyright - Educational Use Permitted"

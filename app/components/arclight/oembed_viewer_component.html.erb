@@ -1,10 +1,72 @@
-<div class="dado" style="position: relative;padding-bottom: 56.25%;">
+<div class="mirador-container" id="mirador-container" style="width:100%; height:600px;"></div>
 
-  <div 
-    data-controller="mirador"
-    data-mirador-manifest-url-value="<%= @resource.href %>" 
-    id="mirador-viewer" 
-    style="width:100%;height:auto;">
-  </div>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const miradorContainer = document.getElementById('mirador-container');
 
-</div>
+    const viewer = Mirador.viewer({
+      id: 'mirador-container',
+      windows: [{
+        loadedManifest: '<%= @resource.href %>',
+        allowFullscreen: true,
+        defaultSideBarPanel: 'none',
+        sideBarOpenByDefault: false,
+        thumbnailNavigationPosition: 'far-bottom',
+      }],
+      workspaceControlPanel: { enabled: false },
+      window: {
+        allowClose: false
+      }
+    });
+
+    // Fullscreen toggle using Mirador's button
+    miradorContainer.addEventListener('click', (event) => {
+      const fullscreenBtn = event.target.closest('.mirador-fullscreen-button');
+      if (!fullscreenBtn) return;
+
+      event.preventDefault();
+
+      if (!document.fullscreenElement) {
+        if (miradorContainer.requestFullscreen) {
+          miradorContainer.requestFullscreen();
+        } else if (miradorContainer.webkitRequestFullscreen) {
+          miradorContainer.webkitRequestFullscreen();
+        } else if (miradorContainer.msRequestFullscreen) {
+          miradorContainer.msRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+    });
+
+    // Zoom behavior on fullscreen change
+    document.addEventListener('fullscreenchange', () => {
+      const state = viewer.store.getState();
+      const windowIds = Object.keys(state.windows || {});
+      if (windowIds.length === 0) return;
+      const windowId = windowIds[0];
+
+      if (document.fullscreenElement) {
+        // Entered fullscreen: zoom to 100%
+        viewer.store.dispatch({
+          type: 'mirador/UPDATE_VIEWPORT',
+          windowId,
+          payload: { zoom: 1 }
+        });
+      } else {
+        // Exited fullscreen: fit to width
+        viewer.store.dispatch({
+          type: 'mirador/FIT_TO',
+          windowId,
+          payload: { mode: 'width' }
+        });
+      }
+    });
+  });
+</script>

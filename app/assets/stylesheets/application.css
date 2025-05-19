@@ -49,3 +49,53 @@ article .document-thumbnail img {
 	width: auto;
 	max-height:150px;
 }
+
+
+/* Normal layout height */
+.mirador-container {
+  height: 600px;
+  width: 100%;
+  position: relative; /* only for layout, not needed in fullscreen */
+}
+
+/* When fullscreen, mirador container should cover full viewport */
+#mirador-container:fullscreen {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* Safari support */
+#mirador-container:-webkit-full-screen {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* Fullscreen styles for mirador container */
+#mirador-container:fullscreen {
+	width: 100vw !important;
+	height: 100vh !important;
+}
+#mirador-container:-webkit-full-screen {
+	width: 100vw !important;
+	height: 100vh !important;
+}
+#mirador-container:-moz-full-screen {
+	width: 100vw !important;
+	height: 100vh !important;
+}
+#mirador-container:-ms-fullscreen {
+	width: 100vw !important;
+	height: 100vh !important;
+}
+
+.mirador-window-close, .mirador-window-maximize {
+  display: none !important;
+}

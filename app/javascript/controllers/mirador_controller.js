@@ -22,8 +22,14 @@ export default class extends Controller {
       window.Mirador.viewer({
         id: "mirador-viewer",
         windows: [{
-          manifestId: manifestUrl
-        }]
+          manifestId: manifestUrl,
+          defaultView: 'single',
+          sideBarOpenByDefault: false,
+          defaultSideBarPanel: 'none'
+        }],
+        workspaceControlPanel: {
+          enabled: false
+        }
       });
     }
   }

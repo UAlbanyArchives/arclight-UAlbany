@@ -63,17 +63,28 @@ module ApplicationHelper
     rights = RIGHTS[uri]
 
     if rights
-      link_to(
-        image_tag(rights["image_url"], alt: rights["display_text"], style: 'max-width: 80px;') +
-        " #{rights["display_text"]}".html_safe,
-        uri
-      )
+      link_to(uri, class: 'text-decoration-none') do
+        content_tag(:div, class: 'd-flex flex-column align-items-start') do
+          image_tag(rights["image_url"], alt: rights["display_text"], style: 'max-width: 80px;') +
+          content_tag(:div, rights["display_text"], class: 'mt-1')
+        end
+      end
     else
       uri
     end
   end
 
+  def render_date(args)
+    value = Array(args[:value]).first
+    return if value.blank?
 
+    begin
+      date = Time.iso8601(value)
+      date.strftime("%B %-d, %Y")
+    rescue ArgumentError
+      value # fallback to original value if parsing fails
+    end
+  end
 
   def keep_raw_values(args)
     args[:value] || []
