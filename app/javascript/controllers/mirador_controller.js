@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Ensure that Mirador is loaded properly
-import "mirador"; // This will make Mirador available in the current file scope
+// Load Mirador
+import "mirador";
 
 export default class extends Controller {
   static values = {

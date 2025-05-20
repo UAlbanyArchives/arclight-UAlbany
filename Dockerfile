@@ -51,9 +51,6 @@ RUN rm -rf /app/lib/arclight/traject
 ARG DEFAULT_PORT 3000
 EXPOSE ${DEFAULT_PORT}
 
-# compile assets
-RUN bin/rails assets=precompile
-
 # Copy the entrypoint script
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh

@@ -7,3 +7,4 @@ db/production.sqlite
 db/development.sqlite
 config/master.key
 log/*
+node_modules
