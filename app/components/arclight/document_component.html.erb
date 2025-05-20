@@ -26,20 +26,33 @@
 
     <div class="row">
 
-      <div class="col-xl-7 col-lg-12">
-        <%= embed %>
-      </div>
 
-      <div class="col-xl-5 col-lg-12">
+      <% if document.key?('dado_identifier_ssm') %>
 
-        <% if embed %>
-          <h2 class="al-show-sub-heading">Metadata</h2>
-        <% end %>
+
+        <div class="col-xl-7 col-lg-12">
+          <%= embed %>
+        </div>
+
+        <div class="col-xl-5 col-lg-12">
+
+        <h2 class="al-show-sub-heading">Metadata</h2>
 
         <%= render Arclight::MetadataSectionComponent.with_collection(component_metadata_partials,
-                 metadata_attr: { layout: Arclight::UpperMetadataLayoutComponent },
-                 presenter: presenter) unless document.collection? %>
-      </div>
+                   metadata_attr: { layout: Arclight::UpperMetadataLayoutComponent },
+                   presenter: presenter) unless document.collection? %>
+        </div>
+
+      <% else %>
+
+        <div class="col-12">
+
+          <%= render Arclight::MetadataSectionComponent.with_collection(component_metadata_partials,
+                   metadata_attr: { layout: Arclight::UpperMetadataLayoutComponent },
+                   presenter: presenter) unless document.collection? %>
+        </div>
+
+      <% end %>
 
     </div>
 
