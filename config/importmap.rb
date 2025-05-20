@@ -15,4 +15,5 @@ pin "arclight/oembed_controller", to: "arclight/oembed_controller.js"
 pin "arclight/truncate_controller", to: "arclight/truncate_controller.js"
 pin "displayHyraxDaos"
 pin "grenander/search_sources_menu", to: "grenander/search_sources_menu.js"
-pin "mirador", to: "mirador.min.js", preload: true
+pin "mirador", to: "mirador.min.js"
+pin "mirador-shim", to: "mirador-shim.js"

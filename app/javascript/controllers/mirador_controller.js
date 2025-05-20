@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
-// Load Mirador
-import "mirador";
+// Import the shim that ensures Mirador is loaded onto the `window` object
+import "mirador-shim";
 
 export default class extends Controller {
   static values = {
@@ -9,16 +9,15 @@ export default class extends Controller {
   }
 
   connect() {
-    //console.log("Mirador controller connected");
-
     const manifestUrl = this.manifestUrlValue;
-    //console.log("Manifest URL:", manifestUrl);
 
-    // Make sure Mirador is available on the window object globally
-    if (typeof window.Mirador === 'undefined') {
-      console.error("Mirador is not available globally.");
-    } else {
-      //console.log("Mirador is available globally.");
+    // Wait a tick to ensure Mirador is available in slow-loading environments
+    setTimeout(() => {
+      if (typeof window.Mirador === 'undefined') {
+        console.error("Mirador is not available globally.");
+        return;
+      }
+
       window.Mirador.viewer({
         id: "mirador-viewer",
         windows: [{
@@ -31,6 +30,6 @@ export default class extends Controller {
           enabled: false
         }
       });
-    }
+    }, 0); // or increase to 50–100ms if you still see intermittent issues
   }
 }

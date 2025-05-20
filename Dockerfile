@@ -3,7 +3,7 @@ FROM ruby:3.3.4-slim-bookworm AS builder
 ENV RAILS_ENV=production
 
 # Install dependencies
-RUN apt-get update -qq && apt-get install -y build-essential apt-utils git cron curl nodejs npm
+RUN apt-get update -qq && apt-get install -y build-essential apt-utils git cron curl nodejs
 
 # Add crontab file in the cron directory
 COPY ./config/arclight-cron /etc/cron.d/arclight-cron
