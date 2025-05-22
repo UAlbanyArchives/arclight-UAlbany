@@ -1,4 +1,9 @@
-<div class="mirador-container" id="mirador-container" style="width:100%; height:600px;"></div>
+
+<% if @resource.respond_to?(:action) and @resource.action.downcase == "embed" %>
+  <div class="mirador-container" id="mirador-container" style="width:100%; height:600px;"></div>
+<% elsif @resource.respond_to?(:action) and @resource.action.downcase == "link" %>
+  <a href="<%= @resource.href %>"><%= @resource.label %></a>
+<% end %>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
