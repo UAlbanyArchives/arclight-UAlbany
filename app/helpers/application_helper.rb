@@ -65,7 +65,7 @@ module ApplicationHelper
     if rights
       link_to(uri, class: 'text-decoration-none') do
         content_tag(:div, class: 'd-flex flex-column align-items-start') do
-          image_tag(rights["image_url"], alt: rights["display_text"], style: 'max-width: 80px;') +
+          image_tag(rights["image_url"], alt: "Image for license or rights statement.", style: 'max-width: 80px;') +
           content_tag(:div, rights["display_text"], class: 'mt-1')
         end
       end
