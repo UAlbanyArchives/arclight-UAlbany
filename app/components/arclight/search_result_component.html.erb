@@ -24,7 +24,8 @@
 
     <% if @document["thumbnail_path_ss"].present? %>
       <div class="col-12 col-md-2 document-thumbnail mt-2 mt-md-0">
-        <img src="<%= @document["thumbnail_path_ss"] %>" class="card-img-top img-fluid" alt="Thumbnail for <%= @document["title_ssm"].first %>">
+        <% title = @document['title_ssm']&.first || 'Untitled' %>
+        <img src="<%= @document["thumbnail_path_ss"] %>" class="card-img-top img-fluid" alt="Thumbnail for <%= title %>">
       </div>
     <% end %>
   </div>
