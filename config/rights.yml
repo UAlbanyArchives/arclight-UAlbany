@@ -1,19 +1,34 @@
 rights:
   "https://creativecommons.org/licenses/by/4.0/":
-    image_url: "https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png"
+    image_name: "by.png"
     display_text: "CC BY 4.0"
   "https://creativecommons.org/licenses/by-nc-sa/4.0/":
-    image_url: "https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png"
+    image_name: "by-nc-sa.png"
+    display_text: "CC BY-NC-SA 4.0"
+  "https://creativecommons.org/publicdomain/zero/1.0/":
+    image_name: "cc-zero.png"
+    display_text: "CC BY-NC-SA 4.0"
+  "https://creativecommons.org/publicdomain/mark/1.0/":
+    image_name: "cc-zero.png"
     display_text: "CC BY-NC-SA 4.0"
   "https://rightsstatements.org/vocab/InC/1.0/":
-    image_url: "https://rightsstatements.org/files/buttons/InC.dark-white-interior.png"
+    image_name: "InC.dark-white-interior.png"
     display_text: "In Copyright"
   "https://rightsstatements.org/vocab/InC-EDU/1.0/":
-    image_url: "https://rightsstatements.org/files/buttons/InC-EDU.dark-white-interior.png"
+    image_name: "InC-EDU.dark-white-interior.png"
     display_text: "In Copyright - Educational Use Permitted"
   "https://rightsstatements.org/page/InC/1.0/":
-    image_url: "https://rightsstatements.org/files/buttons/InC.dark-white-interior.png"
+    image_name: "InC.dark-white-interior.png"
     display_text: "In Copyright"
   "https://rightsstatements.org/page/InC-EDU/1.0/":
-    image_url: "https://rightsstatements.org/files/buttons/InC-EDU.dark-white-interior.png"
+    image_name: "InC-EDU.dark-white-interior.png"
+    display_text: "In Copyright - Educational Use Permitted"
+  "https://rightsstatements.org/vocab/InC-NC/1.0/":
+    image_name: "InC-NC.dark-white-interior.png"
+    display_text: "In Copyright - Non-commercial Use Permitted"
+  "https://rightsstatements.org/vocab/NKC/1.0/":
+    image_name: "NKC.dark-white-interior.png"
+    display_text: "In Copyright - Educational Use Permitted"
+  "https://rightsstatements.org/vocab/UND/1.0/":
+    image_name: "UND.dark-white-interior.png"
     display_text: "In Copyright - Educational Use Permitted"

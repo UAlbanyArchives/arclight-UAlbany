@@ -61,6 +61,7 @@ gem "arclight", ">= 1.4.0"
 gem "blacklight", ">= 8.4.0"
 gem 'blacklight_range_limit', '~> 8'
 gem 'blacklight_dynamic_sitemap'
+#gem "blacklight_range_limit", ">= 9.0.0"
 
 gem 'font-awesome-sass', '~> 5.15'
 

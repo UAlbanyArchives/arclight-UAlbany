@@ -19,17 +19,31 @@ export default class extends Controller {
       }
 
       window.Mirador.viewer({
-        id: "mirador-viewer",
-        windows: [{
-          manifestId: manifestUrl,
-          defaultView: 'single',
-          sideBarOpenByDefault: false,
-          defaultSideBarPanel: 'none'
-        }],
-        workspaceControlPanel: {
-          enabled: false
+      id: "mirador-viewer",
+      state: {
+        windows: {
+          "window-1": {
+            id: "window-1",
+            canvasIndex: 0,
+            manifestId: manifestUrl,
+            view: "single",
+            zoom: 3.5,     // Adjust to fit
+            x: 0,
+            y: 0
+          }
         }
-      });
+      },
+      windows: [{
+        manifestId: manifestUrl,
+        windowId: "window-1",
+        defaultView: 'single',
+        sideBarOpenByDefault: false,
+        defaultSideBarPanel: 'none'
+      }],
+      workspaceControlPanel: {
+        enabled: false
+      }
+    });
     }, 0); // or increase to 50–100ms if you still see intermittent issues
   }
 }
