@@ -3,6 +3,8 @@
 # Blacklight controller that handles searches and document requests
 class CatalogController < ApplicationController
   include Blacklight::Catalog
+  include BlacklightRangeLimit::ControllerOverride
+
   include Arclight::Catalog
 
   # Borrowed DUL customization: Add collection-level restrictions field type for teaser box
@@ -158,7 +160,7 @@ class CatalogController < ApplicationController
     #config.add_facet_field 'access', collapse: false, query: {
     #  online: { label: 'Online access', fq: 'has_online_content_ssim:true' }
     #}
-    config.add_facet_field 'has_online_content_ssim', label: 'Online access', limit: 10
+    config.add_facet_field 'has_online_content_ssim', collapse: false, label: 'Online access', limit: 10
 
     config.add_facet_field 'collecting_area', field: 'repository_ssim', limit: 10
     config.add_facet_field 'collection', field: 'collection_ssim', limit: 10

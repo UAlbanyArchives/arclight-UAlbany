@@ -75,3 +75,6 @@ if ($('select#within_collection').val()) {
     }
   });
 })();
+
+import BlacklightRangeLimit from "blacklight-range-limit";
+BlacklightRangeLimit.init({onLoadHandler: Blacklight.onLoad });

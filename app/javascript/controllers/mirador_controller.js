@@ -24,6 +24,7 @@ export default class extends Controller {
           manifestId: manifestUrl,
           defaultView: 'single',
           sideBarOpenByDefault: false,
+          thumbnailNavigationPosition: 'far-right',
           defaultSideBarPanel: 'none'
         }],
         workspaceControlPanel: {

@@ -50,6 +50,17 @@ article .document-thumbnail img {
 	max-height:150px;
 }
 
+.blacklight-has_online_content_ssim:not(.facet-limit-active) {
+	border: 1px solid #642a90;
+}
+
+.blacklight-has_online_content_ssim:not(.facet-limit-active) #facet-has_online_content_ssim-header {
+	background-color: #642a90 !important;
+}
+
+.blacklight-has_online_content_ssim:not(.facet-limit-active) #facet-has_online_content_ssim-header button {
+	color: #fff !important;
+}
 
 /* Normal layout height */
 .mirador-container {
