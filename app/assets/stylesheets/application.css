@@ -62,6 +62,10 @@ article .document-thumbnail img {
 	color: #fff !important;
 }
 
+.blacklight-legacy_id {
+	display: none;
+}
+
 /* Normal layout height */
 .mirador-container {
   height: 80vh;
