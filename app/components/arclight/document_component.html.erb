@@ -33,139 +33,21 @@
 
     <div class="row">
 
-      <% if document.key?('dado_identifier_ssm') and document.key?('dado_action_ssm') and document['dado_action_ssm'].first.downcase == "embed" %>
+      <% if document.key?('dado_identifier_ssm') %>
 
-        <div class="row g-0" style="height: 100%;">
-          <!-- Left Panel column -->
-          <div class="col-xl-7 col-lg-12 p-0">
-            <div id="left-panel" class="resizable-div">  
-              <%= embed %>
-            </div>
-          </div>
 
-          <!-- Resizer: only appears on large screens -->
-          <div id="resizer"></div>
-
-          <!-- Right Panel column -->
-          <div class="rightMetadataPanel col-xl-5 col-lg-12 p-0">
-            <div id="right-panel" class="ps-3">
-              <h2 class="al-show-sub-heading">Metadata</h2>
-              <%= render Arclight::MetadataSectionComponent.with_collection(
-                    component_metadata_partials,
-                    metadata_attr: { layout: Arclight::UpperMetadataLayoutComponent },
-                    presenter: presenter
-                  ) unless document.collection? %>
-            </div>
-          </div>
+        <div class="col-12">
+          <%= embed %>
         </div>
 
-        <style>
-          #resizer {
-            display: none; /* hidden by default */
-            width: 7px;
-            height: 645px;
-            background: #e0e0e0;
-            cursor: col-resize;
-            position: relative;
-            z-index: 1;
-            margin: 0px 10px;
-          }
+        <div class="col-12">
 
-          #resizer::before {
-            content: '';
-            position: absolute;
-            top: 297px;
-            height: 50px;
-            left: 50%;
-            width: 1px;
-            background: #444;
-            transform: translateX(-50%);
-            opacity: 0.8;
-          }
+        <h2 class="al-show-sub-heading">Metadata</h2>
 
-          @media (min-width: 1200px) {
-            #resizer {
-              display: block;
-            }
-            .rightMetadataPanel {
-              width: 39%;
-            }
-          }
-        </style>
-
-        <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const resizer = document.getElementById('resizer');
-          const leftCol = resizer?.previousElementSibling;
-          const rightCol = resizer?.nextElementSibling;
-
-          resizer?.addEventListener('mousedown', function (e) {
-            if (window.innerWidth < 1200) return;
-
-            e.preventDefault();
-
-            document.addEventListener('mousemove', resize);
-            document.addEventListener('mouseup', stopResize);
-
-            function resize(e) {
-              const container = resizer.parentNode;
-              const containerRect = container.getBoundingClientRect();
-              const pointerX = e.clientX - containerRect.left;
-              const totalWidth = container.clientWidth;
-              const resizerWidth = resizer.offsetWidth;
-
-              const minWidth = 200;
-              const maxLeftWidth = totalWidth - minWidth + 180;
-
-              let newLeftWidth = Math.max(minWidth, Math.min(pointerX, maxLeftWidth));
-              let newRightWidth = totalWidth - newLeftWidth - resizerWidth;
-
-              // Use percentage widths to adjust Bootstrap columns directly
-              const leftPercent = (newLeftWidth / totalWidth) * 100;
-              const rightPercent = ((newRightWidth / totalWidth) * 100) - 2;
-
-              leftCol.style.flex = `0 0 ${leftPercent}%`;
-              rightCol.style.flex = `0 0 ${rightPercent}%`;
-
-              // Optional: update left-panel height based on width
-              const miradorContainer = leftCol.querySelector('.mirador-container');
-              if (miradorContainer) {
-                const baseHeight = 600;
-                const scaleFactor = 0.3;
-                const extraWidth = newLeftWidth - 600;
-                const newHeight = baseHeight + Math.max(0, extraWidth * scaleFactor);
-                miradorContainer.style.height = `${newHeight}px`;
-
-                resizer.style.height = `${newHeight + 45}px`;
-                resizer.style.setProperty('--resizer-line-top', `${(newHeight + 45) / 2 - 25}px`);
-              }
-            }
-
-            function stopResize() {
-              document.removeEventListener('mousemove', resize);
-              document.removeEventListener('mouseup', stopResize);
-            }
-          });
-        });
-
-
-        </script>
-
-      <% elsif document.key?('dado_identifier_ssm') %>
-
-        <div class="row">
-          
-          <div class="col-12">
-              <%= render Arclight::MetadataSectionComponent.with_collection(
-                    component_metadata_partials,
-                    metadata_attr: { layout: Arclight::UpperMetadataLayoutComponent },
-                    presenter: presenter
-                  ) unless document.collection? %>
-          </div>
-
-          <div class="col-12">
-            <%= embed %>
-          </div>
+        <%= render Arclight::MetadataSectionComponent.with_collection(component_metadata_partials,
+                   metadata_attr: { layout: Arclight::UpperMetadataLayoutComponent },
+                   presenter: presenter) unless document.collection? %>
+        </div>
 
       <% else %>
 
