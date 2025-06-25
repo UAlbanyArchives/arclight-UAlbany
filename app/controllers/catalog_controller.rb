@@ -528,9 +528,8 @@ class CatalogController < ApplicationController
     config.add_component_field 'description', field: 'dado_description_tesim', helper_method: :render_html_tags
     config.add_component_field 'subjects', field: 'dado_subjects_ssim', link_to_facet: true
     config.add_component_field 'rights', field: 'dado_rights_statement_ssim', helper_method: :render_rights
-    config.add_component_field 'preservation_package', field: 'dado_preservation_package_ssim', link_to_facet: true
     config.add_component_field 'contributor', field: 'dado_contributor_ssim', helper_method: :render_html_tags
-    config.add_component_field 'date_published', field: 'dado_date_published_ssm', helper_method: :render_date
+    config.add_component_field 'date_uploaded', field: 'dado_date_uploaded_ssm', helper_method: :render_date
 
     # Component Show Page - Indexed Terms Section
     config.add_component_indexed_terms_field 'access_subjects', field: 'access_subjects_ssim', link_to_facet: true, separator_options: {
