@@ -7,10 +7,10 @@ rights:
     display_text: "CC BY-NC-SA 4.0"
   "https://creativecommons.org/publicdomain/zero/1.0/":
     image_name: "cc-zero.png"
-    display_text: "CC BY-NC-SA 4.0"
+    display_text: "CC0 1.0"
   "https://creativecommons.org/publicdomain/mark/1.0/":
     image_name: "cc-zero.png"
-    display_text: "CC BY-NC-SA 4.0"
+    display_text: "CC0 1.0"
   "https://rightsstatements.org/vocab/InC/1.0/":
     image_name: "InC.dark-white-interior.png"
     display_text: "In Copyright"
