@@ -87,7 +87,7 @@ module Arclight
 
     def online_content?
       value = self['has_online_content_ssim']&.first
-      value&.downcase.in?(['online access', 'contains online items'])
+      value&.downcase.in?(['online access', 'contains online items', 'view only online content'])
     end
 
     def number_of_children
