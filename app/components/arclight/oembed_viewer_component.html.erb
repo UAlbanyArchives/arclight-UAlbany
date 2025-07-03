@@ -1,6 +1,11 @@
 
 <% if @resource.respond_to?(:action) and @resource.action.downcase == "embed" %>
-  <div class="mirador-container" id="mirador-container"></div>
+  <div class="mirador-container mb-3" id="mirador-container"></div>
+  <div class="mt-2">
+    <a href="<%= @resource.href.sub('manifest.json', 'content.txt') %>" class="btn btn-outline-secondary btn-sm" download>
+      <i class="fas fa-file-alt"></i> Download Transcript
+    </a>
+  </div>
 <% elsif @resource.respond_to?(:action) and @resource.action.downcase == "link" %>
   <a href="<%= @resource.href %>"><%= @resource.label %></a>
 <% end %>
@@ -8,6 +13,7 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const miradorContainer = document.getElementById('mirador-container');
+    const isMobile = window.innerWidth <= 768;
 
     const viewer = Mirador.viewer({
       id: 'mirador-container',
@@ -16,7 +22,7 @@
         allowFullscreen: true,
         defaultSideBarPanel: 'none',
         sideBarOpenByDefault: false,
-        thumbnailNavigationPosition: 'far-right',
+        thumbnailNavigationPosition: isMobile ? 'off' : 'far-right',
       }],
       workspaceControlPanel: { enabled: false },
       window: {
