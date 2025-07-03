@@ -7,7 +7,7 @@ module ApplicationHelper
 
   # For Local Grenander styling
   def source_name
-    'Archives & Manuscripts'
+    'Collections'
   end
 
   # search bar is custom to arclight so we need a helper

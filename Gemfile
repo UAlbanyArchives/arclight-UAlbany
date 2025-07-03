@@ -77,4 +77,4 @@ gem "mutex_m"
 
 # UAlbany Styling
 #gem 'grenander', path: '../grenander'
-gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'bootstrap_5'
+gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'post_hyrax'
