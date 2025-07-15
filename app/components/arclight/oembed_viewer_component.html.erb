@@ -1,4 +1,3 @@
-
 <% if @resource.respond_to?(:action) and @resource.action.downcase == "embed" %>
   <div class="mirador-container mb-3" id="mirador-container"></div>
   <div class="mt-2">
@@ -14,63 +13,85 @@
   document.addEventListener('DOMContentLoaded', () => {
     const miradorContainer = document.getElementById('mirador-container');
     const isMobile = window.innerWidth <= 768;
-    const query = window.initialSearchQuery;
-    //console.log("Search query:", query);
+    const query = window.initialSearchQuery;  // your initial search query or undefined/null
+
+    const manifestUrl = '<%= @resource.href %>';
+    const manifestPath = manifestUrl.replace(/\/manifest\.json$/, '');
+    const pathParts = manifestPath.split('/').filter(Boolean);
+    const searchServiceId = `https://media.archives.albany.edu/search/1/${pathParts[2]}/${pathParts[3]}`;
+
+    // Conditionally set sidebar config based on presence of search query
+    const sidebarConfig = query
+      ? { defaultSideBarPanel: 'search', sideBarOpenByDefault: true }
+      : { defaultSideBarPanel: 'none', sideBarOpenByDefault: false };
 
     const viewer = Mirador.viewer({
       id: 'mirador-container',
       windows: [{
         loadedManifest: '<%= @resource.href %>',
         allowFullscreen: true,
-        defaultSideBarPanel: 'none',
-        sideBarOpenByDefault: false,
         thumbnailNavigationPosition: isMobile ? 'off' : 'far-right',
+        zoomControls: true,
       }],
-      requestConfig: {
-        credentials: 'include',
-      },
+      requestConfig: { credentials: 'include' },
       workspaceControlPanel: { enabled: false },
+      workspace: { showZoomControls: true },
       themes: {
         light: {
-          palette: {
-            primary: {
-              main: '#46166B'
-            }
-          }
+          palette: { primary: { main: '#46166B' } }
         }
       },
       window: {
-        allowClose: false
+        allowClose: false,
+        ...sidebarConfig
       }
     });
 
-    // Wait a bit before dispatching search — to ensure the window is fully registered
-    setTimeout(() => {
+    let hasDispatched = false;
+    const unsubscribe = viewer.store.subscribe(() => {
+      if (hasDispatched) return;
+
       const state = viewer.store.getState();
       const windowIds = Object.keys(state.windows || {});
       if (windowIds.length === 0) return;
 
       const windowId = windowIds[0];
+      const windowState = state.windows[windowId];
 
-      const manifestUrl = '<%= @resource.href %>';
+      if (windowState.canvasId && query && !windowState.query) {
+        hasDispatched = true;
 
-      const manifestPath = manifestUrl.replace(/\/manifest\.json$/, '');
-      const pathParts = manifestPath.split('/').filter(Boolean);
-      const searchServiceId = `https://media.archives.albany.edu/search/1/${pathParts[0]}/${pathParts[1]}`;
-
-      if (query && query.trim().length > 0) {
-        const searchId = `search-${Date.now()}`;
         viewer.store.dispatch({
           type: 'mirador/REQUEST_SEARCH',
           windowId,
-          searchId,
-          searchServiceId,
-          query
+          searchId: `${searchServiceId}?q=${encodeURIComponent(query)}`
         });
-      }
-    }, 300);
 
-    // Fullscreen toggle using Mirador's button
+        injectSearchQuery(query);
+
+        unsubscribe();
+      }
+    });
+
+    function injectSearchQuery(query) {
+      const inputCheckInterval = setInterval(() => {
+        const inputBox = document.querySelector('input[id^="search-cw-"]');
+        const form = inputBox?.closest('form');
+        const submitBtn = form?.querySelector('button[type="submit"]');
+
+        if (inputBox && form && submitBtn) {
+          const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+          nativeInputValueSetter.call(inputBox, query);
+
+          inputBox.dispatchEvent(new Event('input', { bubbles: true }));
+
+          form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+          clearInterval(inputCheckInterval);
+        }
+      }, 200);
+    }
+
     miradorContainer.addEventListener('click', (event) => {
       const fullscreenBtn = event.target.closest('.mirador-fullscreen-button');
       if (!fullscreenBtn) return;
@@ -78,40 +99,30 @@
       event.preventDefault();
 
       if (!document.fullscreenElement) {
-        if (miradorContainer.requestFullscreen) {
-          miradorContainer.requestFullscreen();
-        } else if (miradorContainer.webkitRequestFullscreen) {
-          miradorContainer.webkitRequestFullscreen();
-        } else if (miradorContainer.msRequestFullscreen) {
-          miradorContainer.msRequestFullscreen();
-        }
+        miradorContainer.requestFullscreen?.() ||
+        miradorContainer.webkitRequestFullscreen?.() ||
+        miradorContainer.msRequestFullscreen?.();
       } else {
-        if (document.exitFullscreen) {
-          document.exitFullscreen();
-        } else if (document.webkitExitFullscreen) {
-          document.webkitExitFullscreen();
-        } else if (document.msExitFullscreen) {
-          document.msExitFullscreen();
-        }
+        document.exitFullscreen?.() ||
+        document.webkitExitFullscreen?.() ||
+        document.msExitFullscreen?.();
       }
     });
 
-    // Zoom behavior on fullscreen change
     document.addEventListener('fullscreenchange', () => {
       const state = viewer.store.getState();
       const windowIds = Object.keys(state.windows || {});
       if (windowIds.length === 0) return;
+
       const windowId = windowIds[0];
 
       if (document.fullscreenElement) {
-        // Entered fullscreen: zoom to 100%
         viewer.store.dispatch({
           type: 'mirador/UPDATE_VIEWPORT',
           windowId,
           payload: { zoom: 1 }
         });
       } else {
-        // Exited fullscreen: fit to width
         viewer.store.dispatch({
           type: 'mirador/FIT_TO',
           windowId,
@@ -121,4 +132,3 @@
     });
   });
 </script>
-
