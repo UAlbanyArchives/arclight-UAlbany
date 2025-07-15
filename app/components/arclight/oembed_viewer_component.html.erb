@@ -14,6 +14,8 @@
   document.addEventListener('DOMContentLoaded', () => {
     const miradorContainer = document.getElementById('mirador-container');
     const isMobile = window.innerWidth <= 768;
+    const query = window.initialSearchQuery;
+    //console.log("Search query:", query);
 
     const viewer = Mirador.viewer({
       id: 'mirador-container',
@@ -41,6 +43,32 @@
         allowClose: false
       }
     });
+
+    // Wait a bit before dispatching search — to ensure the window is fully registered
+    setTimeout(() => {
+      const state = viewer.store.getState();
+      const windowIds = Object.keys(state.windows || {});
+      if (windowIds.length === 0) return;
+
+      const windowId = windowIds[0];
+
+      const manifestUrl = '<%= @resource.href %>';
+
+      const manifestPath = manifestUrl.replace(/\/manifest\.json$/, '');
+      const pathParts = manifestPath.split('/').filter(Boolean);
+      const searchServiceId = `https://media.archives.albany.edu/search/1/${pathParts[0]}/${pathParts[1]}`;
+
+      if (query && query.trim().length > 0) {
+        const searchId = `search-${Date.now()}`;
+        viewer.store.dispatch({
+          type: 'mirador/REQUEST_SEARCH',
+          windowId,
+          searchId,
+          searchServiceId,
+          query
+        });
+      }
+    }, 300);
 
     // Fullscreen toggle using Mirador's button
     miradorContainer.addEventListener('click', (event) => {
@@ -93,3 +121,4 @@
     });
   });
 </script>
+
