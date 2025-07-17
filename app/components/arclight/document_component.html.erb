@@ -24,7 +24,9 @@
       <%= online_filter %>
     </div>
 
-    <% if document['odd_heading_ssm'].present? and document['odd_heading_ssm'].first.downcase == "content warning" %>
+    <% if document['odd_heading_ssm'].present? &&
+      document['odd_heading_ssm'].first.to_s.downcase == "content warning" &&
+      document['odd_tesim'].present? %>
       <div class="alert alert-warning" role="alert">
         <h2 class="alert-heading h4"><%= document['odd_heading_ssm'].first %></h2>
         <p><%= document['odd_tesim'].first %></p>

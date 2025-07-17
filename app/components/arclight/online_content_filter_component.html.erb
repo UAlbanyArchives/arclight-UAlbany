@@ -9,7 +9,7 @@
     </div>
     <div class="ms-3 ms-xl-5">
       <div><%= t('arclight.views.show.online_content.description') %></div>
-      <%= link_to t('arclight.views.show.online_content.link_text'), helpers.search_action_path(f: { collection: [collection_name], access: ['online'] }) %>
+      <%= link_to t('arclight.views.show.online_content.link_text'), helpers.search_action_path(f: { collection: [collection_name], has_online_content_ssim: ['View only online content'] }) %>
     </div>
   </div>
 </div>
