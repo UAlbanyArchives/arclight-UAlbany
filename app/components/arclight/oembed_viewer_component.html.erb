@@ -22,7 +22,8 @@
 
     // Conditionally set sidebar config based on presence of search query
     const sidebarConfig = query
-      ? { defaultSideBarPanel: 'search', sideBarOpenByDefault: true }
+      //? { defaultSideBarPanel: 'search', sideBarOpenByDefault: true }
+      ? { defaultSideBarPanel: 'none', sideBarOpenByDefault: false }
       : { defaultSideBarPanel: 'none', sideBarOpenByDefault: false };
 
     const viewer = Mirador.viewer({
