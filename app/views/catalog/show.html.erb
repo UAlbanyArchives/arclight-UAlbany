@@ -1,0 +1,13 @@
+<%= render 'show_main_content' %>
+
+<% if search_session && (search = Search.find_by(id: search_session["id"])) %>
+  <script>
+    window.initialSearchQuery = "<%= j(search.query_params["q"] || '') %>";
+    //console.log(window.initialSearchQuery);
+  </script>
+<% end %>
+
+<% content_for(:sidebar) do %>
+  <% presenter = document_presenter(@document) %>
+  <%= render presenter.view_config.sidebar_component.new(presenter: presenter) %>
+<% end %>

@@ -3,6 +3,8 @@
 # Blacklight controller that handles searches and document requests
 class CatalogController < ApplicationController
   include Blacklight::Catalog
+  include BlacklightRangeLimit::ControllerOverride
+
   include Arclight::Catalog
 
   # Borrowed DUL customization: Add collection-level restrictions field type for teaser box
@@ -82,7 +84,7 @@ class CatalogController < ApplicationController
     config.index.constraints_component = Arclight::ConstraintsComponent
     config.index.document_presenter_class = Arclight::IndexPresenter
     config.index.search_bar_component = Arclight::SearchBarComponent
-    # config.index.thumbnail_field = 'thumbnail_path_ss'
+    config.index.thumbnail_field = 'thumbnail_path_ss'
 
     # solr field configuration for document/show views
     # config.show.title_field = 'title_display'
@@ -93,7 +95,7 @@ class CatalogController < ApplicationController
     config.show.access_component = Arclight::AccessComponent
     config.show.online_status_component = Arclight::OnlineStatusIndicatorComponent
     config.show.display_type_field = 'level_ssm'
-    # config.show.thumbnail_field = 'thumbnail_path_ss'
+    config.show.thumbnail_field = 'thumbnail_path_ss'
     config.show.document_presenter_class = Arclight::ShowPresenter
     config.show.metadata_partials = %i[
       restrictions_banner_field
@@ -155,18 +157,25 @@ class CatalogController < ApplicationController
     # :index_range can be an array or range of prefixes that will be used to create the navigation
     #  (note: It is case sensitive when searching values)
 
-    config.add_facet_field 'access', collapse: false, query: {
-      online: { label: 'Online access', fq: 'has_online_content_ssim:true' }
-    }
+    #config.add_facet_field 'access', collapse: false, query: {
+    #  online: { label: 'Online access', fq: 'has_online_content_ssim:true' }
+    #}
+    config.add_facet_field 'has_online_content_ssim', collapse: false, label: 'Online access', limit: 10
 
     config.add_facet_field 'collecting_area', field: 'repository_ssim', limit: 10
     config.add_facet_field 'collection', field: 'collection_ssim', limit: 10
-    config.add_facet_field 'creators', field: 'creator_ssim', limit: 10
     config.add_facet_field 'date_range', field: 'date_range_isim', range: true
+    config.add_facet_field 'resource_type', field: 'dado_resource_type_ssim', limit: 10
     config.add_facet_field 'level', field: 'level_ssim', limit: 10
+    config.add_facet_field 'subjects', field: 'dado_subjects_ssim', limit: 10
+    config.add_facet_field 'creators', field: 'creator_ssim', limit: 10
     config.add_facet_field 'names', field: 'names_ssim', limit: 10
     config.add_facet_field 'places', field: 'geogname_ssim', limit: 10
+    config.add_facet_field 'rights', field: 'dado_rights_statement_ssim', limit: 10
     config.add_facet_field 'access_subjects', field: 'access_subjects_ssim', limit: 10
+    config.add_facet_field 'legacy_id', field: 'dado_legacy_id_ssim', limit: 10
+    config.add_facet_field 'parent_ssi', field: 'parent_ssi', limit: 10
+    config.add_facet_field 'preservation_package', field: 'dado_preservation_package_ssim', limit: 10
 
     # Have BL send all facet field names to Solr, which has been the default
     # previously. Simply remove these lines if you'd rather use Solr request
@@ -508,11 +517,20 @@ class CatalogController < ApplicationController
     config.add_component_field 'fileplan', field: 'fileplan_html_tesm', helper_method: :render_html_tags
     config.add_component_field 'altformavail', field: 'altformavail_html_tesm', helper_method: :render_html_tags
     config.add_component_field 'otherfindaid', field: 'otherfindaid_html_tesm', helper_method: :render_html_tags
-    config.add_component_field 'odd', field: 'odd_html_tesm', helper_method: :render_html_tags
+    #config.add_component_field 'odd', field: 'odd_html_tesm', helper_method: :render_html_tags
     config.add_component_field 'relatedmaterial', field: 'relatedmaterial_html_tesm', helper_method: :render_html_tags
     config.add_component_field 'separatedmaterial', field: 'separatedmaterial_html_tesm', helper_method: :render_html_tags
     config.add_component_field 'originalsloc', field: 'originalsloc_html_tesm', helper_method: :render_html_tags
     config.add_component_field 'note', field: 'note_html_tesm', helper_method: :render_html_tags
+
+    # DadoCM fields
+    config.add_component_field 'resource_type', field: 'dado_resource_type_ssim', link_to_facet: true
+    config.add_component_field 'creator', field: 'dado_creator_ssim', link_to_facet: true
+    config.add_component_field 'description', field: 'dado_description_tesim', helper_method: :render_html_tags
+    config.add_component_field 'subjects', field: 'dado_subjects_ssim', link_to_facet: true
+    config.add_component_field 'rights', field: 'dado_rights_statement_ssim', helper_method: :render_rights
+    config.add_component_field 'contributor', field: 'dado_contributor_ssim', helper_method: :render_html_tags
+    config.add_component_field 'date_uploaded', field: 'dado_date_uploaded_ssm', helper_method: :render_date
 
     # Component Show Page - Indexed Terms Section
     config.add_component_indexed_terms_field 'access_subjects', field: 'access_subjects_ssim', link_to_facet: true, separator_options: {

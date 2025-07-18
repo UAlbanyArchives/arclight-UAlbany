@@ -44,3 +44,88 @@
 .shrink-search-options {
 	min-height: 152px;
 }
+
+article .document-thumbnail img {
+	width: auto;
+	max-height:150px;
+}
+
+.blacklight-has_online_content_ssim:not(.facet-limit-active) {
+	border: 1px solid #642a90;
+}
+
+.blacklight-has_online_content_ssim:not(.facet-limit-active) #facet-has_online_content_ssim-header {
+	background-color: #642a90 !important;
+}
+
+.blacklight-has_online_content_ssim:not(.facet-limit-active) #facet-has_online_content_ssim-header button {
+	color: #fff !important;
+}
+
+/* Normal layout height */
+.mirador-container {
+  height: 80vh;
+  width: 100%;
+  position: relative; /* only for layout, not needed in fullscreen */
+}
+
+@media (max-width: 768px) {
+	.mirador-container {
+		margin: 0px -25px;
+		width: calc(100% + 50px);
+	}
+}
+
+/* When fullscreen, mirador container should cover full viewport */
+#mirador-container:fullscreen {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* Safari support */
+#mirador-container:-webkit-full-screen {
+  width: 100vw !important;
+  height: 100vh !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  z-index: 9999 !important;
+}
+
+/* Fullscreen styles for mirador container */
+#mirador-container:fullscreen {
+	width: 100vw !important;
+	height: 100vh !important;
+}
+#mirador-container:-webkit-full-screen {
+	width: 100vw !important;
+	height: 100vh !important;
+}
+#mirador-container:-moz-full-screen {
+	width: 100vw !important;
+	height: 100vh !important;
+}
+#mirador-container:-ms-fullscreen {
+	width: 100vw !important;
+	height: 100vh !important;
+}
+
+.mirador-window-close, .mirador-window-maximize {
+  display: none !important;
+}
+
+.blacklight-parent_ssi {
+	display: none !important;
+}
+
+/*.blacklight-legacy_id {
+	display: none !important;
+}*/
+
+.blacklight-preservation_package {
+	display: none !important;
+}

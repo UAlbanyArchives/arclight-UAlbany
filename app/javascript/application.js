@@ -1,5 +1,6 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
+import "mirador-shim"
 import "controllers"
 import bootstrap from "bootstrap"
 import githubAutoCompleteElement from "@github/auto-complete-element"
@@ -74,3 +75,6 @@ if ($('select#within_collection').val()) {
     }
   });
 })();
+
+import BlacklightRangeLimit from "blacklight-range-limit";
+BlacklightRangeLimit.init({onLoadHandler: Blacklight.onLoad });

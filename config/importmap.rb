@@ -1,6 +1,7 @@
 # Pin npm packages by running ./bin/importmap
 
 pin "application"
+pin "controllers", to: "controllers/application.js"
 pin "@hotwired/turbo-rails", to: "turbo.min.js"
 pin "@hotwired/stimulus", to: "stimulus.min.js"
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
@@ -14,3 +15,11 @@ pin "arclight/oembed_controller", to: "arclight/oembed_controller.js"
 pin "arclight/truncate_controller", to: "arclight/truncate_controller.js"
 pin "displayHyraxDaos"
 pin "grenander/search_sources_menu", to: "grenander/search_sources_menu.js"
+pin "mirador", to: "mirador.min.js"
+pin "mirador-shim", to: "mirador-shim.js"
+# chart.js is dependency of blacklight-range-limit, currently is not working
+# as vendored importmaps, but instead must be pinned to CDN. You may want to update
+# versions perioidically.
+pin "chart.js", to: "https://ga.jspm.io/npm:chart.js@4.2.0/dist/chart.js"
+# single dependency of chart.js:
+pin "@kurkle/color", to: "https://ga.jspm.io/npm:@kurkle/color@0.3.2/dist/color.esm.js"

@@ -7,7 +7,7 @@ module ApplicationHelper
 
   # For Local Grenander styling
   def source_name
-    'Archives & Manuscripts'
+    'Collections'
   end
 
   # search bar is custom to arclight so we need a helper
@@ -52,6 +52,38 @@ module ApplicationHelper
         level: ['Collection']
       }
     )
+  end
+
+  def render_rights(args)
+    value = Array(args[:value])
+    return if value.blank?
+
+    # Blacklight passes arrays for *_ssim fields
+    uri = value.is_a?(Array) ? value.first : value
+    rights = RIGHTS[uri]
+
+    if rights
+      link_to(uri, class: 'text-decoration-none') do
+        content_tag(:div, class: 'd-flex flex-column align-items-start') do
+          image_tag(rights["image_name"], alt: "Image for license or rights statement.", style: 'max-width: 80px;') +
+          content_tag(:div, rights["display_text"], class: 'mt-1')
+        end
+      end
+    else
+      uri
+    end
+  end
+
+  def render_date(args)
+    value = Array(args[:value]).first
+    return if value.blank?
+
+    begin
+      date = Time.iso8601(value)
+      date.strftime("%B %-d, %Y")
+    rescue ArgumentError
+      value # fallback to original value if parsing fails
+    end
   end
 
   def keep_raw_values(args)

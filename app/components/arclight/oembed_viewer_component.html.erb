@@ -1,20 +1,134 @@
-<div class="hyraxDaoDisplay">
-  <div class="page-links">
-      <span class="page-entries"></span> | 
-      <a id="hyraxURI" href="https://archives.albany.edu/catalog?utf8=&f[<%= @facet_field %>][]=<%= @searchID %>">All Items </a>
+<% if @resource.respond_to?(:action) and @resource.action.downcase == "embed" %>
+  <div class="mirador-container mb-3" id="mirador-container"></div>
+  <div class="mt-2">
+    <a href="<%= @resource.href.sub('manifest.json', 'content.txt') %>" class="btn btn-outline-secondary btn-sm" download>
+      <i class="fas fa-file-alt"></i> Download Transcript
+    </a>
   </div>
-  <div class="daoGallery text-center" id="<%= @searchID %>">
-    <div class="al-digital-object">
-      <%# link_to(resource.label, resource.href) %>
-      <div class="img-thumbnail">
-        <a href="<%= @resource.href %>">
-            <i class="thumbnail-placeholder <%= icon(@resource.href) %> fa-5x"></i>
-            <img src="" alt="<%= @resource.label %>" class="daoThumbnail" style="display: none;">
-        </a>
-        <p class="caption">
-          <a href="<%= @resource.href %>"><%= @resource.label %></a>
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+<% elsif @resource.respond_to?(:action) and @resource.action.downcase == "link" %>
+  <a href="<%= @resource.href %>"><%= @resource.label %></a>
+<% end %>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const miradorContainer = document.getElementById('mirador-container');
+    const isMobile = window.innerWidth <= 768;
+    const query = window.initialSearchQuery;  // your initial search query or undefined/null
+
+    const manifestUrl = '<%= @resource.href %>';
+    const manifestPath = manifestUrl.replace(/\/manifest\.json$/, '');
+    const pathParts = manifestPath.split('/').filter(Boolean);
+    const searchServiceId = `https://media.archives.albany.edu/search/1/${pathParts[2]}/${pathParts[3]}`;
+
+    // Conditionally set sidebar config based on presence of search query
+    const sidebarConfig = query
+      ? { defaultSideBarPanel: 'search', sideBarOpenByDefault: true }
+      : { defaultSideBarPanel: 'none', sideBarOpenByDefault: false };
+
+    const viewer = Mirador.viewer({
+      id: 'mirador-container',
+      windows: [{
+        loadedManifest: '<%= @resource.href %>',
+        allowFullscreen: true,
+        thumbnailNavigationPosition: isMobile ? 'off' : 'far-right',
+        zoomControls: true,
+      }],
+      requestConfig: { credentials: 'include' },
+      workspaceControlPanel: { enabled: false },
+      workspace: { showZoomControls: true },
+      themes: {
+        light: {
+          palette: { primary: { main: '#46166B' } }
+        }
+      },
+      window: {
+        allowClose: false,
+        ...sidebarConfig
+      }
+    });
+
+    /*let hasDispatched = false;
+    const unsubscribe = viewer.store.subscribe(() => {
+      if (hasDispatched) return;
+
+      const state = viewer.store.getState();
+      const windowIds = Object.keys(state.windows || {});
+      if (windowIds.length === 0) return;
+
+      const windowId = windowIds[0];
+      const windowState = state.windows[windowId];
+
+      if (windowState.canvasId && query && !windowState.query) {
+        hasDispatched = true;
+
+        viewer.store.dispatch({
+          type: 'mirador/REQUEST_SEARCH',
+          windowId,
+          searchId: `${searchServiceId}?q=${encodeURIComponent(query)}`
+        });
+
+        injectSearchQuery(query);
+
+        unsubscribe();
+      }
+    });
+
+    function injectSearchQuery(query) {
+      const inputCheckInterval = setInterval(() => {
+        const inputBox = document.querySelector('input[id^="search-cw-"]');
+        const form = inputBox?.closest('form');
+        const submitBtn = form?.querySelector('button[type="submit"]');
+
+        if (inputBox && form && submitBtn) {
+          const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set;
+          nativeInputValueSetter.call(inputBox, query);
+
+          inputBox.dispatchEvent(new Event('input', { bubbles: true }));
+
+          form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+
+          clearInterval(inputCheckInterval);
+        }
+      }, 200);
+    }*/
+
+    miradorContainer.addEventListener('click', (event) => {
+      const fullscreenBtn = event.target.closest('.mirador-fullscreen-button');
+      if (!fullscreenBtn) return;
+
+      event.preventDefault();
+
+      if (!document.fullscreenElement) {
+        miradorContainer.requestFullscreen?.() ||
+        miradorContainer.webkitRequestFullscreen?.() ||
+        miradorContainer.msRequestFullscreen?.();
+      } else {
+        document.exitFullscreen?.() ||
+        document.webkitExitFullscreen?.() ||
+        document.msExitFullscreen?.();
+      }
+    });
+
+    document.addEventListener('fullscreenchange', () => {
+      const state = viewer.store.getState();
+      const windowIds = Object.keys(state.windows || {});
+      if (windowIds.length === 0) return;
+
+      const windowId = windowIds[0];
+
+      if (document.fullscreenElement) {
+        viewer.store.dispatch({
+          type: 'mirador/UPDATE_VIEWPORT',
+          windowId,
+          payload: { zoom: 1 }
+        });
+      } else {
+        viewer.store.dispatch({
+          type: 'mirador/FIT_TO',
+          windowId,
+          payload: { mode: 'width' }
+        });
+      }
+    });
+  });
+</script>
