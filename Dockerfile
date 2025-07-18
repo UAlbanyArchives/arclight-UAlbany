@@ -56,7 +56,7 @@ COPY entrypoint.sh /usr/bin/entrypoint.sh
 RUN chmod +x /usr/bin/entrypoint.sh
 
 # Ensure pids exists so Puma can run
-mkdir -p /app/tmp/pids
+RUN mkdir -p /app/tmp/pids
 
 # Start cron and Rails server
 CMD ["sh", "-c", "cron && /usr/bin/entrypoint.sh"]
