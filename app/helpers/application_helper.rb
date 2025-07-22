@@ -86,6 +86,18 @@ module ApplicationHelper
     end
   end
 
+  def render_formatted_html_tags(args)
+    values = Array(args[:value])
+    # Assume transform_ead_to_html already returns HTML safe strings
+    values.map! do |value|
+      html = transform_ead_to_html(value)
+      # Mark the string as html_safe here if not already
+      html.respond_to?(:html_safe) ? html.html_safe : html
+    end
+    values.map! { |value| wrap_in_paragraph(value) } if values.size > 1
+    safe_join(values)
+  end
+
   def keep_raw_values(args)
     args[:value] || []
   end

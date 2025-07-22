@@ -33,6 +33,9 @@
     <!-- Matomo -->
     <script>
       var _paq = window._paq = window._paq || [];
+      /* don't track ANY LibWizard forms as Outlinks -- added 7/14/25 --aap */
+         _paq(['setDomains', ["albany.libwizard.com", "libwizard.com"]]); 
+
       /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
@@ -41,7 +44,7 @@
         _paq.push(['setTrackerUrl', u+'matomo.php']);
         _paq.push(['setSiteId', '2']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-        g.async=true; g.src='//cdn.matomo.cloud/library-albany.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        g.async=true; g.src='https://cdn.matomo.cloud/library-albany.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
       })();
     </script>
     <!-- End Matomo Code -->

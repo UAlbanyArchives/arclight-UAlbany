@@ -1,9 +1,18 @@
 <% if @resource.respond_to?(:action) and @resource.action.downcase == "embed" %>
+  <% if @resource.href =~ %r{https://media\.archives\.albany\.edu/([^/]+)/([^/]+)/manifest\.json} %>
+    <% collection_id = Regexp.last_match(1) %>
+    <% object_id = Regexp.last_match(2) %>
+    <a href="https://media.archives.albany.edu?collection=<%= collection_id %>&id=<%= object_id %>" class="fullscreen-btn btn btn-secondary btn-sm">
+      <i class="fas fa-expand me-1"></i> Fullscreen
+    </a>
+  <% end %>
   <div class="mirador-container mb-3" id="mirador-container"></div>
   <div class="mt-2">
-    <a href="<%= @resource.href.sub('manifest.json', 'content.txt') %>" class="btn btn-outline-secondary btn-sm" download>
-      <i class="fas fa-file-alt"></i> Download Transcript
-    </a>
+    <% if @resource.resource_type != "Image" %>
+      <a href="<%= @resource.href.sub('manifest.json', 'content.txt') %>" class="btn btn-outline-secondary btn-sm">
+        <i class="fas fa-file-alt"></i> Download Transcript
+      </a>
+    <% end %>
   </div>
 <% elsif @resource.respond_to?(:action) and @resource.action.downcase == "link" %>
   <a href="<%= @resource.href %>"><%= @resource.label %></a>

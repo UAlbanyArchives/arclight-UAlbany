@@ -69,11 +69,32 @@ article .document-thumbnail img {
   position: relative; /* only for layout, not needed in fullscreen */
 }
 
+.fullscreen-btn {
+  display: none !important;
+  margin-top: 0.5rem; /* spacing below h2 */
+  float: none;
+  width: auto;
+}
+
 @media (max-width: 768px) {
 	.mirador-container {
 		margin: 0px -25px;
 		width: calc(100% + 50px);
 	}
+	.mirador-window-close, [title="Full screen"] {
+	  display: none !important;
+	}
+	#embed .al-show-sub-heading {
+    display: inline-block;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0.5rem;
+  }
+  .fullscreen-btn {
+    float: right;
+    margin-top: 0;
+    display: inline-block !important;
+  }
 }
 
 /* When fullscreen, mirador container should cover full viewport */
@@ -122,9 +143,9 @@ article .document-thumbnail img {
 	display: none !important;
 }
 
-/*.blacklight-legacy_id {
+.blacklight-legacy_id {
 	display: none !important;
-}*/
+}
 
 .blacklight-preservation_package {
 	display: none !important;
