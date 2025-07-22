@@ -12,7 +12,7 @@ services:
       # These override config/puma.rb, but are defaults anyway.
       - WEB_CONCURRENCY=2
       - RAILS_MAX_THREADS=5
-    restart: unless-stopped
+    restart: always
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000/description/health"]
       interval: 30s
