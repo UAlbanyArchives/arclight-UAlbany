@@ -14,7 +14,7 @@ gem 'grenander', path: '../grenander'
 
 Then run the app from the `arclight-UAlbany` directory:
 ```
-docker-compose up
+docker compose up
 ```
 
 Navigate to [http://localhost:3000/description](http://localhost:3000/description)
