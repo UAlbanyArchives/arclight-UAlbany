@@ -14,7 +14,7 @@ gem 'grenander', path: '../grenander'
 
 Then run the app from the `arclight-UAlbany` directory:
 ```
-docker-compose -f docker-compose-dev.yml up
+docker-compose up
 ```
 
 Navigate to [http://localhost:3000/description](http://localhost:3000/description)
@@ -23,22 +23,29 @@ You should be able to edit code in real time, including both `arclight-UAlbany` 
 
 ### For production deployment
 
-First build the `arclight` image locally:
+Building the `arclight` image for production:
 ```
-DOCKER_BUILDKIT=1 docker build --secret id=master_key,src=config/master.key -t arclight .
+make build
 ```
-On Windows
+
+Restarting the service:
+```
+make restart
+```
+
+#### For Windows
+
+These commands don't work on Windows. For that you have to use the full build command:
 ```
 $env:DOCKER_BUILDKIT=1; docker build --secret id=master_key,src=config/master.key -t arclight .
 ```
 
 Running the image:
 ```
-docker-compose up -d
+docker-compose up -f docker-compose-prod.yml up -d
 ```
 Navigate to [http://localhost:8080/description](http://localhost:8080/description)
 
-&#8594; In production, this should be set up to run as a service.
 
 To stop:
 ```
