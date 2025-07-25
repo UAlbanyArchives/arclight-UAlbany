@@ -341,10 +341,12 @@ class CatalogController < ApplicationController
     # whether the sort is ascending or descending (it must be asc or desc
     # except in the relevancy case).
     config.add_sort_field 'score desc, title_sort asc', label: 'relevance'
-    config.add_sort_field 'date_sort asc', label: 'date (ascending)'
-    config.add_sort_field 'date_sort desc', label: 'date (descending)'
+    config.add_sort_field 'date_sort asc', label: 'creation date (ascending)'
+    config.add_sort_field 'date_sort desc', label: 'creation date (descending)'
     config.add_sort_field 'creator_sort asc', label: 'creator (A-Z)'
     config.add_sort_field 'creator_sort desc', label: 'creator (Z-A)'
+    config.add_sort_field 'dado_date_uploaded_ssi asc', label: 'uploaded (ascending)'
+    config.add_sort_field 'dado_date_uploaded_ssi desc', label: 'uploaded (descending)'
     config.add_sort_field 'title_sort asc', label: 'title (A-Z)'
     config.add_sort_field 'title_sort desc', label: 'title (Z-A)'
 
@@ -530,7 +532,7 @@ class CatalogController < ApplicationController
     config.add_component_field 'subjects', field: 'dado_subjects_ssim', link_to_facet: true
     config.add_component_field 'rights', field: 'dado_rights_statement_ssim', helper_method: :render_rights
     config.add_component_field 'contributor', field: 'dado_contributor_ssim', helper_method: :render_html_tags
-    config.add_component_field 'date_uploaded', field: 'dado_date_uploaded_ssm', helper_method: :render_date
+    config.add_component_field 'date_uploaded', field: 'dado_date_uploaded_ssi', helper_method: :render_date
 
     # Component Show Page - Indexed Terms Section
     config.add_component_indexed_terms_field 'access_subjects', field: 'access_subjects_ssim', link_to_facet: true, separator_options: {
