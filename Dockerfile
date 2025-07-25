@@ -42,6 +42,7 @@ RUN apt-get update -qq && apt-get install -y build-essential apt-utils git cron 
 # Copy application code from the builder stage and install gems
 COPY --from=builder /app /app
 WORKDIR /app
+RUN rm -rf /usr/local/bundle/bundler/gems/grenander-* || true
 RUN bundle install
 
 # Removes the traject config as it interferes with puma for some reason
