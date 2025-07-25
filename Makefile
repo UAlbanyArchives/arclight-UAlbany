@@ -6,6 +6,13 @@ build:
 	  --secret id=master_key,src=config/master.key \
 	  -t arclight .
 
+# Build production image with no cache
+build-nocache:
+	DOCKER_BUILDKIT=1 docker build \
+	  --no-cache \
+	  --secret id=master_key,src=config/master.key \
+	  -t arclight .
+
 # Restart dev containers (stop and start)
 restart:
 	docker compose down
