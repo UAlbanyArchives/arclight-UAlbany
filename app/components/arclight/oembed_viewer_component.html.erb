@@ -35,6 +35,16 @@
       ? { defaultSideBarPanel: 'none', sideBarOpenByDefault: false }
       : { defaultSideBarPanel: 'none', sideBarOpenByDefault: false };
 
+
+    // Function to get query parameter value by name
+    function getQueryParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+    // Mirador uses 0-based canvasIndex, so subtract 1
+    const pageParam = parseInt(getQueryParam('page'), 10);
+    const canvasIndex = !isNaN(pageParam) ? pageParam - 1 : 0;
+
     const viewer = Mirador.viewer({
       id: 'mirador-container',
       windows: [{
@@ -42,6 +52,7 @@
         allowFullscreen: true,
         thumbnailNavigationPosition: isMobile ? 'off' : 'far-right',
         zoomControls: true,
+        canvasIndex: canvasIndex,
       }],
       requestConfig: { credentials: 'include' },
       workspaceControlPanel: { enabled: false },
