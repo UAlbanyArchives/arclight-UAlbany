@@ -18,6 +18,7 @@
   <a href="<%= @resource.href %>"><%= @resource.label %></a>
 <% end %>
 
+<%= javascript_include_tag "https://media.archives.albany.edu/mirador.min.js" %>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const miradorContainer = document.getElementById('mirador-container');
@@ -65,6 +66,16 @@
       window: {
         allowClose: false,
         //...sidebarConfig
+      },
+      miradorSharePlugin: {
+        embedOption: {
+          enabled: true,
+          embedUrlReplacePattern: [/^/, 'https://media.archives.albany.edu/?manifest=']
+        },
+        shareLink: {
+          enabled: true,
+          manifestIdReplacePattern: [/^/, 'https://media.archives.albany.edu/?manifest=']
+        }
       }
     });
 
