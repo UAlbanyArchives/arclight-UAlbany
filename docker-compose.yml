@@ -13,5 +13,6 @@ services:
     working_dir: /app
     command: >
       bash -c "bundle install &&
+              bundle update grenander &&
               bundle exec rails db:migrate &&
               bundle exec rails server -b 0.0.0.0"

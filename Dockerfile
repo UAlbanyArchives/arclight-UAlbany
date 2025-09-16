@@ -18,6 +18,7 @@ RUN crontab /etc/cron.d/arclight-cron
 WORKDIR /app
 COPY Gemfile* ./
 RUN bundle install
+RUN bundle update grenander
 
 # Copy application code
 COPY . /app
@@ -43,6 +44,7 @@ RUN apt-get update -qq && apt-get install -y build-essential apt-utils git cron 
 COPY --from=builder /app /app
 WORKDIR /app
 RUN bundle install
+RUN bundle update grenander
 
 # Removes the traject config as it interferes with puma for some reason
 RUN rm -rf /app/lib/arclight/traject
