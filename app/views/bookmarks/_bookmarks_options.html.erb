@@ -9,11 +9,25 @@
 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-12 mb-4">
 <div class="card">
   <div class="card-body">
+    <h3 class="card-title h5">Ask an Archivist</h3>
+    <p class="card-text">Ask a question or schedule an individualized meeting to discuss archival materials and potential research needs.</p>
+    <div class="d-flex justify-content-between align-items-center mt-auto">
+      <a href="https://albany.libwizard.com/f/contactus?i_have_a_questi=Special%20Collections%20%26%20Archives&list=<%= bookmarkLinks %>" class="btn btn-info mt-2"><i class="fa fa-user" aria-hidden="true"></i> Ask a Question</a>
+          <a href="https://albany.libcal.com/appointments/mmcmullen?list=<%= bookmarkLinks %>" class="btn btn-info pull-right mt-2"><i class="fa fa-desktop" aria-hidden="true"></i>
+           Book a Meet</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-12 mb-4">
+<div class="card">
+  <div class="card-body">
     <h3 class="card-title h5">Schedule a Visit</h3>
     <p class="card-text">Archival materials can be viewed in-person in our reading room. We recommend making an appointment to ensure materials are available when you arrive.</p>
     <div class="d-flex justify-content-between align-items-center mt-auto">
-      <a href="<%= request.base_url %>/web/reference?visit&list=<%= bookmarkLinks %>" class="btn btn-info"><i class="fa fa-university" aria-hidden="true"></i> Schedule a Visit</a>
-      <a href="<%= request.base_url %>/web/directions/" class="card-link">Hours</a>
+      <a href="<%= request.base_url %>/reference?visit&list=<%= bookmarkLinks %>" class="btn btn-info"><i class="fa fa-university" aria-hidden="true"></i> Schedule a Visit</a>
+      <a href="<%= request.base_url %>/directions/" class="card-link">Hours</a>
     </div>
   </div>
 </div>
@@ -31,8 +45,8 @@
       	Fees are based on time required for digitization.
       </div>
       <div class="d-flex justify-content-between align-items-center mt-auto">
-        <a href="<%= request.base_url %>/web/reference?list=<%= bookmarkLinks %>" class="btn btn-info"><i class="fa fa-archive" aria-hidden="true"></i> Request Items</a>
-        <a href="<%= request.base_url %>/web/reproductions" class="card-link">Fees</a>
+        <a href="<%= request.base_url %>/reference?list=<%= bookmarkLinks %>" class="btn btn-info"><i class="fa fa-archive" aria-hidden="true"></i> Request Items</a>
+        <a href="<%= request.base_url %>/reproductions" class="card-link">Fees</a>
       </div>
     </div>
   </div>

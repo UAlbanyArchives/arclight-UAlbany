@@ -1,36 +1,50 @@
 <div class="row access-options">
 
-<div class="col-12">
-	<div class="card mb-4">
-	  <div class="card-body">
-	    <h3 class="card-title h5">Schedule a Visit</h3>
-	    <p class="card-text">Archival materials can be viewed in-person in our reading room. We recommend making an appointment to ensure materials are available when you arrive.</p>
-	    <div class="d-flex justify-content-between align-items-center mt-auto">
-		    <a href="<%= request.base_url %>/web/reference?visit&list=<%= request.original_url %>" class="btn btn-info"><i class="fa fa-university" aria-hidden="true"></i> Schedule a Visit</a>
-		    <a href="<%= request.base_url %>/web/directions/" class="card-link pull-right">Hours</a>
-		  </div>
-	  </div>
-	</div>
-</div>
-
-
-<% unless document.children? or document.level == "collection" %>
-  <% if document.level.downcase == "file" or document.level.downcase == "item" %>
-
-	<div class="col-12">
-		<div class="card mb-4">
-		  <div class="card-body">
-		    <h3 class="card-title h5">Make a Remote Request</h3>
-		    <p class="card-text">We may also be able to deliver digital scans remotely for a fee.</p>
-		    <div class="d-flex justify-content-between align-items-center mt-auto">
-			    <a href="<%= request.base_url %>/web/reference?list=<%= request.original_url %>&eadid=<%= document.id %>&containers=<%= document._source['containers_ssim'] %>&title=<%= document.normalized_title.to_param %>" class="btn btn-info"><i class="fa fa-archive" aria-hidden="true"></i> Request</a>
-			    <a href="<%= request.base_url %>/web/reproductions" class="card-link pull-right">Fees</a>
+	<div class="col-sm-12 col-md-6 col-xl-4 mt-2 mb-3">
+		<div class="card mb-4 h-100">
+		  <div class="card-body d-flex flex-column">
+		    <h3 class="card-title h5">Ask an Archivist</h3>
+		    <p class="card-text">Ask a question or schedule an individualized meeting to discuss archival materials and potential research needs.</p>
+		    <div class="d-flex flex-wrap justify-content-between align-items-center mt-auto">
+		    	<a href="https://albany.libwizard.com/f/contactus?i_have_a_questi=Special%20Collections%20%26%20Archives&list=<%= request.original_url %>" class="btn btn-info mt-2"><i class="fa fa-user" aria-hidden="true"></i> Ask a Question</a>
+			    <a href="https://albany.libcal.com/appointments/mmcmullen?list=<%= request.original_url %>" class="btn btn-info pull-right mt-2"><i class="fa fa-desktop" aria-hidden="true"></i>
+					 Book a Meet</a>
 			  </div>
 		  </div>
 		</div>
 	</div>
 
-  <% end %>
-<% end %>
+
+	<div class="col-sm-12 col-md-6 col-xl-4 mt-2 mb-3">
+		<div class="card mb-4 h-100">
+		  <div class="card-body d-flex flex-column">
+		    <h3 class="card-title h5">Schedule a Visit</h3>
+		    <p class="card-text">Archival materials can be viewed in-person in our reading room. We recommend making an appointment to ensure materials are available when you arrive.</p>
+		    <div class="d-flex flex-wrap justify-content-between align-items-center mt-auto">
+			    <a href="<%= request.base_url %>/reference?visit&list=<%= request.original_url %>" class="btn btn-info"><i class="fa fa-university" aria-hidden="true"></i> Schedule a Visit</a>
+			    <a href="<%= request.base_url %>/directions/" class="card-link pull-right">Hours</a>
+			  </div>
+		  </div>
+		</div>
+	</div>
+
+	<% if !document.children? && document.level != "collection" && document._source["digital_objects_ssm"].blank? %>
+	  <% if document.level.downcase == "file" or document.level.downcase == "item" %>
+
+		<div class="col-sm-12 col-md-6 col-xl-4 mt-2 mb-3">
+			<div class="card mb-4 h-100">
+			  <div class="card-body d-flex flex-column">
+			    <h3 class="card-title h5">Make a Remote Request</h3>
+			    <p class="card-text">We may also be able to deliver digital scans remotely for a fee.</p>
+			    <div class="d-flex flex-wrap justify-content-between align-items-center mt-auto">
+				    <a href="<%= request.base_url %>/reference?list=<%= request.original_url %>&eadid=<%= document.id %>&containers=<%= document._source['containers_ssim'] %>&title=<%= document.normalized_title.to_param %>" class="btn btn-info"><i class="fa fa-archive" aria-hidden="true"></i> Request</a>
+				    <a href="<%= request.base_url %>/reproductions" class="card-link pull-right">Fees</a>
+				  </div>
+			  </div>
+			</div>
+		</div>
+
+	  <% end %>
+	<% end %>
 
 </div>

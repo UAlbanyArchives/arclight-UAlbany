@@ -10,17 +10,22 @@
 <% if access_content.present? %>
   <div id="<%= t('arclight.views.show.sections.access_field').parameterize %>">
     <div class="row">
-      <div class="col-md-8 <%= restriction_classes %>">
+      <div class="col-md-9 <%= restriction_classes %>">
         <h2 id="access-heading" class="al-show-sub-heading"><%= t 'arclight.views.show.sections.access_field' %></h2>
         <%= access_content %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-3">
         <h2 class='al-show-sub-heading'>
-          <%= t("arclight.views.show.sections.using_field") %>
+          <%= t("arclight.views.show.sections.about_field") %>
         </h2>
         <%= render 'catalog/using_header' %>
-        <%= render 'catalog/access_options', document: presenter.document %>
       </div>
+    </div>
+    <div class="row">
+      <h2 class='al-show-sub-heading'>
+        <%= t("arclight.views.show.sections.using_field") %>
+      </h2>
+      <%= render 'catalog/access_options', document: presenter.document %>
     </div>
   </div>
 <% end %>

@@ -9,6 +9,7 @@ en:
           access_field: Using these materials
           pdf_button_field: PDF Finding Aid
           using_field: Access options
+          about_field: About the Archives
         expand: Show More ...
   blacklight:
     search:
