@@ -69,6 +69,10 @@ article .document-thumbnail img {
   position: relative; /* only for layout, not needed in fullscreen */
 }
 
+.mirador-audio {
+	height: 175px;
+}
+
 .fullscreen-btn {
   display: none !important;
   margin-top: 0.5rem; /* spacing below h2 */
@@ -142,6 +146,14 @@ article .document-thumbnail img {
 .transcript-body {
   max-height: 400px;
   overflow-y: auto;
+}
+
+.collapse-chevron {
+  transition: transform 0.2s ease;
+}
+
+.collapse-chevron.rotate {
+  transform: rotate(-180deg);
 }
 
 .blacklight-parent_ssi {
