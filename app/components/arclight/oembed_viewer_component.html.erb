@@ -7,12 +7,34 @@
     </a>
   <% end %>
   <div class="mirador-container mb-3" id="mirador-container"></div>
-  <div class="mt-2">
+  <div class="d-flex align-items-start mt-2">
+    <!-- PDF button -->
+    <div id="pdfButtonContainer"></div>
+
+    <!-- Transcript button (always present) -->
     <% if @resource.resource_type != "Image" %>
-      <a href="<%= @resource.href.sub('manifest.json', 'content.txt') %>" class="btn btn-outline-secondary btn-sm">
-        <i class="fas fa-file-alt"></i> Download Transcript
-      </a>
+      <% transcript_text = URI.open(@resource.href.sub('manifest.json', 'content.txt')).read rescue nil %>
+      <div class="transcript-section">
+        <button 
+          class="btn btn-outline-secondary btn-sm" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#transcriptContent" 
+          aria-expanded="false" 
+          aria-controls="transcriptContent"
+          id="loadTranscriptBtn"
+          data-transcript-url="<%= @resource.href.sub('manifest.json', 'content.txt') %>">
+          <i class="fas fa-file-alt"></i> Show Transcript
+        </button>
+      </div>
     <% end %>
+  </div>
+
+  <!-- Collapsible transcript content -->
+  <div class="collapse transcript-body" id="transcriptContent">
+    <div class="card card-body mt-1 p-2" id="transcriptText">
+      <pre class="mb-0 p-2"><%= transcript_text.present? ? transcript_text : "Transcript unavailable." %></pre>
+    </div>
   </div>
 <% elsif @resource.respond_to?(:action) and @resource.action.downcase == "link" %>
   <a href="<%= @resource.href %>"><%= @resource.label %></a>
@@ -20,6 +42,34 @@
 
 <%= javascript_include_tag "https://media.archives.albany.edu/mirador.min.js" %>
 <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const container = document.getElementById("pdfButtonContainer");
+    const manifestUrl = "<%= @resource.href %>";
+
+    fetch(manifestUrl)
+      .then(response => {
+        if (!response.ok) throw new Error("Manifest not found");
+        return response.json();
+      })
+      .then(data => {
+        if (data.rendering && Array.isArray(data.rendering)) {
+          // Find a PDF rendering
+          const pdf = data.rendering.find(r => r.format === "application/pdf");
+          if (pdf && pdf.id) {
+            const btn = document.createElement("a");
+            btn.href = pdf.id;
+            btn.target = "_blank";
+            btn.rel = "noopener";
+            btn.className = "btn btn-outline-danger pdf-btn btn-sm";
+            btn.innerHTML = '<i class="fas fa-file-pdf"></i> View PDF';
+            container.appendChild(btn);
+          }
+        }
+      })
+      .catch(err => {
+        console.error("Error loading manifest:", err);
+      });
+  });
   document.addEventListener('DOMContentLoaded', () => {
     const miradorContainer = document.getElementById('mirador-container');
     const isMobile = window.innerWidth <= 768;

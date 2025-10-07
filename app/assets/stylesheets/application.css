@@ -139,6 +139,11 @@ article .document-thumbnail img {
   display: none !important;
 }
 
+.transcript-body {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
 .blacklight-parent_ssi {
 	display: none !important;
 }
