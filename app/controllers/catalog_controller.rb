@@ -240,6 +240,10 @@ class CatalogController < ApplicationController
                                         if: lambda { |controller, _config, _field|
                                            controller.params['format'] == 'json'
                                          }
+    config.add_index_field 'dado_subjects_ssim', label: 'Subjects',
+                                        if: lambda { |controller, _config, _field|
+                                           controller.params['format'] == 'json'
+                                         }
     config.add_index_field 'geogname_ssm', label: 'Place',
                                         if: lambda { |controller, _config, _field|
                                            controller.params['format'] == 'json'
