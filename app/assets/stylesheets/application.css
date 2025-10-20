@@ -148,6 +148,10 @@ article .document-thumbnail img {
   overflow-y: auto;
 }
 
+.transcript-body pre {
+  white-space: normal;
+}
+
 .collapse-chevron {
   transition: transform 0.2s ease;
 }
