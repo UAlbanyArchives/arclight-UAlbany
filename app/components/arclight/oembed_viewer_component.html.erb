@@ -17,7 +17,7 @@
     <div class="mirador-container mb-3" id="mirador-container"></div>
   <% end %>
   
-  <% if @resource.respond_to?(:replay_content )%>
+  <% if @resource.respond_to?(:replay_content) && @resource.replay_content.present? %>
     <% transcript_url = @resource.replay_content %>
   <% else %>
     <% transcript_url = @resource.href.sub('manifest.json', 'content.txt') %>
@@ -26,7 +26,7 @@
   <div class="d-flex align-items-start mt-2">
     <!-- PDF button -->
     <div id="pdfButtonContainer">
-      <% if @resource.respond_to?(:replay_pdf )%>
+      <% if @resource.respond_to?(:replay_pdf) && @resource.replay_pdf.present? %>
         <a href="<%= @resource.replay_pdf %>" target="_blank" rel="noopener" class="btn btn-outline-danger pdf-btn btn-sm me-2"><i class="fas fa-file-pdf"></i> View PDF</a>
       <% end %>
     </div>
