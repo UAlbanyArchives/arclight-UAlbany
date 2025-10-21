@@ -67,6 +67,7 @@ article .document-thumbnail img {
   height: 80vh;
   width: 100%;
   position: relative; /* only for layout, not needed in fullscreen */
+  clear: both;
 }
 
 .mirador-audio {
@@ -74,10 +75,22 @@ article .document-thumbnail img {
 }
 
 .fullscreen-btn {
-  display: none !important;
   margin-top: 0.5rem; /* spacing below h2 */
-  float: none;
   width: auto;
+  float: right;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.mirador-fullscreen {
+	display: none !important;
+}
+
+#embed h2.al-show-sub-heading {
+	float: left;
+	vertical-align: middle;
+  padding-top: 0;
+  padding-bottom: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -88,17 +101,15 @@ article .document-thumbnail img {
 	.mirador-window-close, [title="Full screen"] {
 	  display: none !important;
 	}
-	#embed .al-show-sub-heading {
+	/*#embed h2.al-show-sub-heading {
     display: inline-block;
     vertical-align: middle;
     padding-top: 0;
     padding-bottom: 0.5rem;
-  }
-  .fullscreen-btn {
-    float: right;
-    margin-top: 0;
-    display: inline-block !important;
-  }
+  }*/
+  .mirador-fullscreen {
+		display: block !important;
+	}
 }
 
 /* When fullscreen, mirador container should cover full viewport */

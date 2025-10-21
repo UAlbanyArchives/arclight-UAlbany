@@ -1,27 +1,43 @@
-<% if @resource.respond_to?(:action) and @resource.action.downcase == "embed" %>
+<% if @resource.respond_to?(:action) %>
   <% if @resource.href =~ %r{https://media\.archives\.albany\.edu/([^/]+)/([^/]+)/manifest\.json} %>
     <% collection_id = Regexp.last_match(1) %>
     <% object_id = Regexp.last_match(2) %>
-    <a href="https://media.archives.albany.edu?collection=<%= collection_id %>&id=<%= object_id %>" class="fullscreen-btn btn btn-secondary btn-sm">
+    <a href="https://media.archives.albany.edu?collection=<%= collection_id %>&id=<%= object_id %>" class="fullscreen-btn mirador-fullscreen btn btn-secondary btn-sm">
       <i class="fas fa-expand me-1"></i> Fullscreen
     </a>
   <% end %>
-  <% if @resource.resource_type == "Audio" %>
+  <% if @resource.resource_type == "Web Archive" %>
+    <a href="<%= @resource.href %>" class="fullscreen-btn btn btn-secondary btn-sm">
+      <i class="fas fa-expand me-1"></i> Fullscreen
+    </a>
+    <iframe src="<%= @resource.href %>" class="card p-2 mb-3" style="height: 80vh; width: 100%;"></iframe>
+  <% elsif @resource.resource_type == "Audio" %>
     <div class="mirador-container mirador-audio mb-3" id="mirador-container"></div>
   <% else %>
     <div class="mirador-container mb-3" id="mirador-container"></div>
   <% end %>
+  
+  <% if @resource.respond_to?(:replay_content )%>
+    <% transcript_url = @resource.replay_content %>
+  <% else %>
+    <% transcript_url = @resource.href.sub('manifest.json', 'content.txt') %>
+  <% end %>
+
   <div class="d-flex align-items-start mt-2">
     <!-- PDF button -->
-    <div id="pdfButtonContainer"></div>
-
-    <!-- Transcript button (always present) -->
+    <div id="pdfButtonContainer">
+      <% if @resource.respond_to?(:replay_pdf )%>
+        <a href="<%= @resource.replay_pdf %>" target="_blank" rel="noopener" class="btn btn-outline-danger pdf-btn btn-sm me-2"><i class="fas fa-file-pdf"></i> View PDF</a>
+      <% end %>
+    </div>
+    
+    <!-- Transcript button -->
     <% if @resource.resource_type != "Image" %>
-      <% transcript_text = URI.open(@resource.href.sub('manifest.json', 'content.txt')).read rescue nil %>
+      <% transcript_text = URI.open(transcript_url).read rescue nil %>
       <div class="transcript-section">
         <button 
           class="btn btn-outline-secondary btn-sm" 
-          type="button" 
+          type="https://github.com/orgs/UAlbanyArchives/projects/3/views/4button" 
           data-bs-toggle="collapse" 
           data-bs-target="#transcriptContent" 
           aria-expanded="false" 

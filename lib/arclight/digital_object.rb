@@ -8,7 +8,8 @@ module Arclight
                 :rights_statement, :subjects,
                 :legacy_id, :resource_type, :preservation_package,
                 :description, :creator, :contributor,
-                :date_published, :thumbnail_path
+                :date_published, :thumbnail_path, :replay_pdf,
+                :replay_content
 
     def initialize(label:, href:, **kwargs)
       @label = label
@@ -26,6 +27,8 @@ module Arclight
       @contributor = kwargs[:contributor]
       @date_published = kwargs[:date_published]
       @thumbnail_path = kwargs[:thumbnail_path]
+      @replay_pdf = kwargs[:replay_pdf]
+      @replay_content = kwargs[:replay_content]
     end
 
     def to_json(*)
@@ -43,7 +46,9 @@ module Arclight
         creator: creator,
         contributor: contributor,
         date_published: date_published,
-        thumbnail_path: thumbnail_path
+        thumbnail_path: thumbnail_path,
+        replay_pdf: replay_pdf,
+        replay_content: replay_content
       }.to_json
     end
 

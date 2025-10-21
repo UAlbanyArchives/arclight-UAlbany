@@ -123,7 +123,9 @@ module Arclight
         creator: fetch('dado_creator_ssim', []).first,
         contributor: fetch('dado_contributor_ssim', []).first,
         date_published: fetch('dado_date_published_ssm', []).first,
-        thumbnail_path: fetch('thumbnail_path_ss', nil)
+        thumbnail_path: fetch('thumbnail_path_ss', nil),
+        replay_pdf: fetch('dado_replay_pdf_ssi', nil),
+        replay_content: fetch('dado_replay_content_ss', nil)
       )]
     end
 
