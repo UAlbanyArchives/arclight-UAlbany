@@ -1,4 +1,4 @@
-<% if @resource.respond_to?(:action) %>
+<% if @resource.respond_to?(:action) and @resource.action.downcase == "embed" %>
   <% if @resource.href =~ %r{https://media\.archives\.albany\.edu/([^/]+)/([^/]+)/manifest\.json} %>
     <% collection_id = Regexp.last_match(1) %>
     <% object_id = Regexp.last_match(2) %>
@@ -6,6 +6,7 @@
       <i class="fas fa-expand me-1"></i> Fullscreen
     </a>
   <% end %>
+
   <% if @resource.resource_type == "Web Archive" %>
     <a href="<%= @resource.href %>" class="fullscreen-btn btn btn-secondary btn-sm">
       <i class="fas fa-expand me-1"></i> Fullscreen
@@ -58,7 +59,7 @@
       <pre class="mb-0 p-2"><%= transcript_text.present? ? transcript_text : "Transcript unavailable." %></pre>
     </div>
   </div>
-<% elsif @resource.respond_to?(:action) and @resource.action.downcase == "link" %>
+<% else %>
   <a href="<%= @resource.href %>"><%= @resource.label %></a>
 <% end %>
 
