@@ -112,6 +112,11 @@ article .document-thumbnail img {
 	}
 }
 
+#embed a.plain_link {
+	display: block;
+	clear: both;
+}
+
 /* When fullscreen, mirador container should cover full viewport */
 #mirador-container:fullscreen {
   width: 100vw !important;

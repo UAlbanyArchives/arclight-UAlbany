@@ -60,7 +60,7 @@
     </div>
   </div>
 <% else %>
-  <a href="<%= @resource.href %>"><%= @resource.label %></a>
+  <a class="plain_link" href="<%= @resource.href %>"><%= @resource.label %></a>
 <% end %>
 
 <%= javascript_include_tag "https://media.archives.albany.edu/mirador.min.js" %>
