@@ -86,6 +86,28 @@ module ApplicationHelper
     end
   end
 
+
+  
+  def render_list(args)
+    values = Array(args[:value])
+    config = args[:config]
+    document = args[:document]
+
+    rendered_values = values.map do |v|
+      html = if config.link_to_facet
+        field = (config.link_to_facet == true ? config.key : config.link_to_facet)
+        link_to v, search_action_path(search_state.reset.filter(field).add(v).params)
+      else
+        v.to_s
+      end
+
+      content_tag(:p, html)
+    end
+
+    safe_join(rendered_values)
+  end
+
+
   def render_formatted_html_tags(args)
     values = Array(args[:value])
     # Assume transform_ead_to_html already returns HTML safe strings

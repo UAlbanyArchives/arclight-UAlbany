@@ -533,7 +533,7 @@ class CatalogController < ApplicationController
     config.add_component_field 'resource_type', field: 'dado_resource_type_ssim', link_to_facet: true
     config.add_component_field 'creator', field: 'dado_creator_ssim', link_to_facet: true
     config.add_component_field 'description', field: 'dado_description_tesim', helper_method: :render_html_tags
-    config.add_component_field 'subjects', field: 'dado_subjects_ssim', link_to_facet: true
+    config.add_component_field 'subjects', field: 'dado_subjects_ssim', link_to_facet: true, helper_method: :render_list
     config.add_component_field 'rights', field: 'dado_rights_statement_ssim', helper_method: :render_rights
     config.add_component_field 'contributor', field: 'dado_contributor_ssim', helper_method: :render_html_tags
     config.add_component_field 'date_uploaded', field: 'dado_date_uploaded_ssi', helper_method: :render_date
