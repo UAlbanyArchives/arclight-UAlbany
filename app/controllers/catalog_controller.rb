@@ -166,13 +166,13 @@ class CatalogController < ApplicationController
     config.add_facet_field 'collection', field: 'collection_ssim', limit: 10
     config.add_facet_field 'date_range', field: 'date_range_isim', range: true
     config.add_facet_field 'resource_type', field: 'dado_resource_type_ssim', limit: 10
-    config.add_facet_field 'level', field: 'level_ssim', limit: 10
+    config.add_facet_field 'access_subjects', field: 'access_subjects_ssim', limit: 10
     config.add_facet_field 'subjects', field: 'dado_subjects_ssim', limit: 10
     config.add_facet_field 'creators', field: 'creator_ssim', limit: 10
+    config.add_facet_field 'level', field: 'level_ssim', limit: 10
     config.add_facet_field 'names', field: 'names_ssim', limit: 10
     config.add_facet_field 'places', field: 'geogname_ssim', limit: 10
     config.add_facet_field 'rights', field: 'dado_rights_statement_ssim', limit: 10
-    config.add_facet_field 'access_subjects', field: 'access_subjects_ssim', limit: 10
     config.add_facet_field 'legacy_id', field: 'dado_legacy_id_ssim', limit: 10
     config.add_facet_field 'parent_ssi', field: 'parent_ssi', limit: 10
     config.add_facet_field 'preservation_package', field: 'dado_preservation_package_ssim', limit: 10
