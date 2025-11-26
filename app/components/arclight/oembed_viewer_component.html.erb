@@ -23,6 +23,15 @@
                else
                  ""
                end %>
+  <% viewOptions = if @resource.resource_type == "Video" && @resource.href.include?("apap401")
+                 "views: [
+                    { key: 'single' },
+                    { key: 'book' },
+                    { key: 'gallery' },
+                  ],"
+               else
+                 ""
+               end %>               
   
   <% if @resource.respond_to?(:replay_content) && @resource.replay_content.present? %>
     <% transcript_url = @resource.replay_content %>
@@ -141,17 +150,11 @@
     const viewer = Mirador.viewer({
       id: 'mirador-container',
       windows: [{
-        loadedManifest: '<%= @resource.href %>',
-        <%= viewType.html_safe %>
+        loadedManifest: '<%= @resource.href %>',<%= viewType.html_safe %>
         allowFullscreen: true,
         thumbnailNavigationPosition: isMobile ? 'off' : 'far-right',
         zoomControls: true,
-        canvasIndex: canvasIndex,
-        views: [
-          { key: 'single' },
-          { key: 'book' },
-          { key: 'gallery' },
-        ],
+        canvasIndex: canvasIndex,<%= viewOptions.html_safe %>
       }],
       requestConfig: { credentials: 'include' },
       workspaceControlPanel: { enabled: false },
