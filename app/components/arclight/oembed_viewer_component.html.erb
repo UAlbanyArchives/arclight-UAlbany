@@ -18,11 +18,11 @@
     <div class="mirador-container mb-3" id="mirador-container"></div>
   <% end %>
 
-  <% if @resource.resource_type == "Video" and @resource.href.include?("apap401") %>
-    <% viewType = "gallery" %>
-  <% else %>
-    <% viewType = "single" %>
-  <% end %>
+  <% viewType = if @resource.resource_type == "Video" && @resource.href.include?("apap401")
+                 "defaultView: 'gallery',"
+               else
+                 ""
+               end %>
   
   <% if @resource.respond_to?(:replay_content) && @resource.replay_content.present? %>
     <% transcript_url = @resource.replay_content %>
@@ -142,7 +142,7 @@
       id: 'mirador-container',
       windows: [{
         loadedManifest: '<%= @resource.href %>',
-        defaultView: '<%= viewType %>',
+        <%= viewType.html_safe %>
         allowFullscreen: true,
         thumbnailNavigationPosition: isMobile ? 'off' : 'far-right',
         zoomControls: true,
