@@ -1,3 +1,18 @@
+<% viewType = if @resource.resource_type == "Video" && @resource.href.include?("apap401")
+               "defaultView: 'gallery',"
+             else
+               ""
+             end %>
+<% viewOptions = if @resource.resource_type == "Video" && @resource.href.include?("apap401")
+               "views: [
+                  { key: 'single' },
+                  { key: 'book' },
+                  { key: 'gallery' },
+                ],"
+             else
+               ""
+             end %> 
+
 <% if @resource.respond_to?(:action) and @resource.action.downcase == "embed" %>
   <% if @resource.href =~ %r{https://media\.archives\.albany\.edu/([^/]+)/([^/]+)/manifest\.json} %>
     <% collection_id = Regexp.last_match(1) %>
@@ -18,20 +33,7 @@
     <div class="mirador-container mb-3" id="mirador-container"></div>
   <% end %>
 
-  <% viewType = if @resource.resource_type == "Video" && @resource.href.include?("apap401")
-                 "defaultView: 'gallery',"
-               else
-                 ""
-               end %>
-  <% viewOptions = if @resource.resource_type == "Video" && @resource.href.include?("apap401")
-                 "views: [
-                    { key: 'single' },
-                    { key: 'book' },
-                    { key: 'gallery' },
-                  ],"
-               else
-                 ""
-               end %>               
+         
   
   <% if @resource.respond_to?(:replay_content) && @resource.replay_content.present? %>
     <% transcript_url = @resource.replay_content %>
