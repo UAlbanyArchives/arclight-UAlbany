@@ -191,3 +191,7 @@ article .document-thumbnail img {
 #metadata table td, #metadata table th {
 	padding: 0.5rem 1rem;
 }
+
+#background {
+	clear: both;
+}
