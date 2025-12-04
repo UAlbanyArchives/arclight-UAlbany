@@ -187,3 +187,7 @@ article .document-thumbnail img {
 .blacklight-preservation_package {
 	display: none !important;
 }
+
+#metadata table td, #metadata table th {
+	padding: 0.5rem 1rem;
+}
