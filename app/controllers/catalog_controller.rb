@@ -444,6 +444,7 @@ class CatalogController < ApplicationController
     # Collection Show Page - Background Section
     config.add_background_field 'scopecontent', field: 'scopecontent_html_tesm', helper_method: :render_formatted_html_tags
     config.add_background_field 'bioghist', field: 'bioghist_html_tesm', helper_method: :render_formatted_html_tags
+    config.add_background_field 'bibliography', field: 'bibliography_html_tesm', helper_method: :render_html_bibliography
     config.add_background_field 'acqinfo', field: 'acqinfo_ssim', helper_method: :render_html_tags
     config.add_background_field 'appraisal', field: 'appraisal_html_tesm', helper_method: :render_html_tags
     config.add_background_field 'custodhist', field: 'custodhist_html_tesm', helper_method: :render_html_tags

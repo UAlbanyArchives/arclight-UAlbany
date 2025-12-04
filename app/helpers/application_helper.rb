@@ -120,6 +120,19 @@ module ApplicationHelper
     safe_join(values)
   end
 
+  def render_html_bibliography(args)
+    raw_values = Array.wrap(args[:value])
+
+    # These HTML items need consistent wrapping,
+    # regardless of how many items there are.
+    formatted = raw_values.map do |value|
+      html = transform_ead_to_html(value)
+      content_tag(:p, html.html_safe)
+    end
+
+    safe_join(formatted)
+  end
+
   def keep_raw_values(args)
     args[:value] || []
   end
