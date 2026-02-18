@@ -75,6 +75,10 @@ gem "devise-guests", "~> 0.8"
 gem "blacklight-locale_picker"
 gem "mutex_m"
 
-# UAlbany Styling
-#gem 'grenander', path: '../grenander'
-gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
+# shared header, footer, etc.
+grenander_path = ENV["GRENANDER_PATH"]
+if grenander_path && !grenander_path.empty?
+  gem 'grenander', path: grenander_path
+else
+  gem 'grenander', git: 'https://github.com/UAlbanyArchives/grenander', branch: 'main'
+end

@@ -22,6 +22,11 @@ module ApplicationHelper
     ))
   end
 
+  # Grenander search results helpers
+  def render_search_header
+    render 'search_results_header'
+  end
+
   # Borrowed DUL custom helper methods
   # HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/main/app/helpers/field_config_helpers.rb
 
