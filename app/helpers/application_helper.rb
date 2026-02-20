@@ -31,7 +31,7 @@ module ApplicationHelper
   # HT https://gitlab.oit.duke.edu/dul-its/dul-arclight/-/blob/main/app/helpers/field_config_helpers.rb
 
   def link_to_all_restrictions(_args)
-    link_to 'More...',
+    link_to 'Read full access restrictions',
             '#using-these-materials',
             class: 'fw-semibold'
   end
