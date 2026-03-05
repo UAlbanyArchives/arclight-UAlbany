@@ -68,10 +68,10 @@ module ApplicationHelper
     rights = RIGHTS[uri]
 
     if rights
-      link_to(uri, class: 'text-decoration-none') do
-        content_tag(:div, class: 'd-flex flex-column align-items-start') do
-          image_tag(rights["image_name"], alt: "Image for license or rights statement.", style: 'max-width: 80px;') +
-          content_tag(:div, rights["display_text"], class: 'mt-1')
+      content_tag(:div, class: 'd-flex flex-column align-items-start') do
+        link_to(uri, class: 'text-decoration-none d-flex flex-column gap-2 align-items-start') do
+          image_tag(rights["image_name"], alt: "", style: 'max-width: 80px;') +
+          content_tag(:span, rights["display_text"])
         end
       end
     else
