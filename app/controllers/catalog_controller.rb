@@ -404,7 +404,7 @@ class CatalogController < ApplicationController
     config.add_show_field 'altformavail_html_tesm', label: 'Alternative form available'
     config.add_show_field 'originalsloc_html_tesm', label: 'Location of originals'
     config.add_show_field 'accessrestrict_html_tesm', label: 'Restrictions'
-    config.add_show_field 'userestrict_html_tesm', label: 'Terms of Access'
+    config.add_show_field 'userestrict_html_tesm', label: 'Rights and Permissions'
     config.add_show_field 'parent_access_restrict_tesm', label: 'Parent Restrictions'
     config.add_show_field 'parent_access_terms_tesm', label: 'Parent Terms of Access'
 
@@ -433,7 +433,7 @@ class CatalogController < ApplicationController
                                                     helper_method: :truncate_restrictions_teaser
     config.add_pdf_button_field 'pdf_finding_aid',
                                                     field: 'id',
-                                                    label: 'Full Collection PDF',
+                                                    label: 'Full Page PDF',
                                                     helper_method: :pdf_finding_aid
 
     # Borrowed DUL custom restrictions banner, used on both collection & component page
