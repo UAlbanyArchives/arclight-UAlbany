@@ -9,7 +9,7 @@ rights:
     image_name: "publicdomain.png"
     display_text: "Public Domain Mark 1.0"
   "https://creativecommons.org/publicdomain/mark/1.0/":
-    image_name: "cc-zero.png"
+    image_name: "publicdomain.png"
     display_text: "Public Domain Mark 1.0"
   "https://rightsstatements.org/vocab/InC/1.0/":
     image_name: "InC.dark-white-interior.png"
