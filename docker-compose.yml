@@ -10,6 +10,8 @@ services:
       - '.:/app'
       - '../collections:/ead'
       - '../grenander:/grenander'
+    environment:
+      - GRENANDER_PATH=/grenander
     working_dir: /app
     command: >
       bash -c "bundle install &&
