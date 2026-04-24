@@ -12,7 +12,10 @@ module ApplicationHelper
 
   # search bar is custom to arclight so we need a helper
   def render_search_bar(params: {}, q: nil, search_field: nil)
-    params ||= {}
+    # Fall back to the current search state so query/facets persist when the
+    # caller does not explicitly pass params/q.
+    params = search_state.params_for_search if params.blank?
+    q = q.presence || params[:q]
     render(Arclight::SearchBarComponent.new(
       url: search_catalog_path,
       params: params.merge(f: (params[:f] || {}).except(:collection)),

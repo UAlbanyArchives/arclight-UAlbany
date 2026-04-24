@@ -325,3 +325,14 @@ a {
 .blacklight-subjects p {
 	margin-bottom: 0;
 }
+
+/* don't show breadcrumbs */
+al-search-breadcrumb {
+	display: none;
+}
+
+/* Match active red on hover for facet remove buttons */
+.btn.btn-outline-secondary.remove:hover {
+	background-color: #dc3545;
+	border-color: #dc3545;
+}
