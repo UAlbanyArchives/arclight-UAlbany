@@ -331,8 +331,68 @@ al-search-breadcrumb {
 	display: none;
 }
 
+/* Make constraint-value buttons more prominent */
+/* Theese are other ideas that were maybe too prominent*/
+/*.constraint-value {
+	background-color: #8b49b3 !important;
+	border-color: #8b49b3 !important;
+	color: #fff !important;
+}
+.constraint-value:hover,
+.constraint-value:active {
+	background-color: #6c357a !important;
+	border-color: #6c357a !important;
+}
+.constraint-value {
+	background-color: #f8e1a5 !important;
+	border-color: #eaaa00 !important;
+	color: #212529 !important;
+}
+.applied-filter .filter-name::after {
+	color: #212529;
+}*/
+
+/* Turn off hover for constraint buttons */
+#appliedParams .constraint-value:hover,
+#appliedParams .constraint-value:active,
+#appliedParams .constraint-value:focus {
+	background-color: transparent !important;
+	border-color: #4b4f54 !important;
+	color: #4b4f54 !important;
+	box-shadow: none !important;
+	cursor: default !important;
+}
+
+.applied-filter .filter-name::after {
+	color: #4b4f54;
+}
+
 /* Match active red on hover for facet remove buttons */
-.btn.btn-outline-secondary.remove:hover {
+#appliedParams .btn.btn-outline-secondary.remove {
 	background-color: #dc3545;
 	border-color: #dc3545;
+	color: #fff !important;
+}
+
+#appliedParams .btn.btn-outline-secondary.remove svg,
+#appliedParams .btn.btn-outline-secondary.remove svg * {
+	fill: #fff !important;
+	stroke: #fff !important;
+	color: #fff !important;
+}
+
+#appliedParams .btn.btn-outline-secondary.remove:hover,
+#appliedParams .btn.btn-outline-secondary.remove:active {
+	background-color: #ff6b6b !important;
+	border-color: #ff6b6b !important;
+	color: #fff !important;
+}
+
+#appliedParams .btn.btn-outline-secondary.remove:hover svg,
+#appliedParams .btn.btn-outline-secondary.remove:hover svg *,
+#appliedParams .btn.btn-outline-secondary.remove:active svg,
+#appliedParams .btn.btn-outline-secondary.remove:active svg * {
+	fill: #fff !important;
+	stroke: #fff !important;
+	color: #fff !important;
 }
