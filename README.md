@@ -42,7 +42,7 @@ $env:DOCKER_BUILDKIT=1; docker build --secret id=master_key,src=config/master.ke
 
 Running the image:
 ```
-docker-compose up -f docker-compose-prod.yml up -d
+docker compose -f docker-compose-prod.yml up -d
 ```
 Navigate to [http://localhost:8080/description](http://localhost:8080/description)
 

@@ -17,7 +17,7 @@
       <%# support importmaps won't break. This shim was dropped by importmap-rails %>
       <%# 2.0 in Jan 2024, so has to be re-added. See https://caniuse.com/import-maps %>
       <%# https://github.com/guybedford/es-module-shims?tab=readme-ov-file#usage %>
-      <script async src="https://ga.jspm.io/npm:es-module-shims@1.9.0/dist/es-module-shims.js"></script>
+      <script async src="<%= asset_path('es-module-shims.js') %>"></script>
       <%= javascript_importmap_tags %>
     <% elsif defined? Propshaft %>
       <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
@@ -25,7 +25,7 @@
       <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
       <%= javascript_include_tag "blacklight/blacklight", type: 'module' %>
       <script type="module">
-        import githubAutoCompleteElement from 'https://cdn.jsdelivr.net/npm/@github/auto-complete-element@3.8.0/+esm';
+        import githubAutoCompleteElement from '<%= asset_path('auto-complete-element.js') %>';
       </script>
 
     <% end %>
