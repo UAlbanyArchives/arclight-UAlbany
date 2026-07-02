@@ -14,21 +14,23 @@
              end %> 
 
 <% if @resource.respond_to?(:action) and @resource.action.downcase == "embed" %>
-  <% if @resource.href =~ %r{https://media\.archives\.albany\.edu/([^/]+)/([^/]+)/manifest\.json} %>
+  <% web_archive_viewer_url = nil %>
+  <% if @resource.resource_type == "Web Archive" && @resource.href.to_s.end_with?("manifest.json") %>
+    <% web_archive_viewer_url = "https://media.archives.albany.edu/?manifest=#{ERB::Util.url_encode(@resource.href.to_s)}" %>
+  <% end %>
+
+  <% if @resource.href =~ %r{https://media\.archives\.albany\.edu/([^/]+)/([^/]+)/manifest\.json} || (@resource.resource_type == "Web Archive" && web_archive_viewer_url.present?) %>
     <% collection_id = Regexp.last_match(1) %>
     <% object_id = Regexp.last_match(2) %>
-    <a href="https://media.archives.albany.edu?collection=<%= collection_id %>&id=<%= object_id %>" class="fullscreen-btn mirador-fullscreen btn btn-secondary btn-sm">
+    <a href="<%= @resource.resource_type == "Web Archive" ? web_archive_viewer_url : "https://media.archives.albany.edu?collection=#{collection_id}&id=#{object_id}" %>" class="fullscreen-btn <%= @resource.resource_type == "Web Archive" ? "" : "mirador-fullscreen" %> btn btn-secondary btn-sm" target="_blank" rel="noopener">
       <i class="fas fa-expand me-1"></i> Fullscreen
     </a>
   <% end %>
 
-  <% if @resource.resource_type == "Web Archive" %>
-    <a href="<%= @resource.href %>" class="fullscreen-btn btn btn-secondary btn-sm">
-      <i class="fas fa-expand me-1"></i> Fullscreen
-    </a>
-    <iframe src="<%= @resource.href %>" class="card p-2 mb-3" style="height: 80vh; width: 100%;"></iframe>
-  <% elsif @resource.resource_type == "Audio" %>
+  <% if @resource.resource_type == "Audio" %>
     <div class="mirador-container mirador-audio mb-3" id="mirador-container"></div>
+  <% elsif @resource.resource_type == "Web Archive" && web_archive_viewer_url.present? %>
+    <iframe src="<%= web_archive_viewer_url %>" class="card p-2 mb-3" style="height: 80vh; width: 100%; border: 0;"></iframe>
   <% else %>
     <div class="mirador-container mb-3" id="mirador-container"></div>
   <% end %>
@@ -125,6 +127,8 @@
   });
   document.addEventListener('DOMContentLoaded', () => {
     const miradorContainer = document.getElementById('mirador-container');
+    if (!miradorContainer) return;
+
     const isMobile = window.innerWidth <= 768;
     const query = window.initialSearchQuery;  // your initial search query or undefined/null
 
@@ -228,8 +232,8 @@
       }, 200);
     }*/
 
-    miradorContainer.addEventListener('click', (event) => {
-      const fullscreenBtn = event.target.closest('.mirador-fullscreen-button');
+    document.addEventListener('click', (event) => {
+      const fullscreenBtn = event.target.closest('.mirador-fullscreen');
       if (!fullscreenBtn) return;
 
       event.preventDefault();
