@@ -14,7 +14,8 @@
         <%= content_tag :h1 do %>
           <%= document.normalized_title %>
         <% end %>
-        <% if document["level_ssm"] != ["collection"] && document.key?("accessrestrict_tesim") %>
+        <% if document["level_ssm"] != ["collection"] &&
+              document["accessrestrict_tesim"]&.include?("This item is unrestricted") %>
           <a href="#access-heading"><span class="badge text-bg-danger">Restricted</span></a>
         <% end %>
       </div>
