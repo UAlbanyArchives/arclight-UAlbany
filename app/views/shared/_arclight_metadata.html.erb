@@ -1,0 +1,29 @@
+<% if metadata.present? %>
+  <% if metadata[:description].present? %>
+    <meta name="description" content="<%= metadata[:description] %>">
+  <% end %>
+
+  <% if metadata[:title].present? %>
+    <meta property="og:title" content="<%= metadata[:title] %>">
+  <% end %>
+
+  <% if metadata[:description].present? %>
+    <meta property="og:description" content="<%= metadata[:description] %>">
+  <% end %>
+
+  <% if metadata[:url].present? %>
+    <meta property="og:url" content="<%= metadata[:url] %>">
+  <% end %>
+
+  <% if metadata[:site_name].present? %>
+    <meta property="og:site_name" content="<%= metadata[:site_name] %>">
+  <% end %>
+
+  <% if metadata[:image].present? %>
+    <meta property="og:image" content="<%= metadata[:image] %>">
+  <% end %>
+
+  <% if metadata[:json_ld].present? %>
+    <script type="application/ld+json"><%= raw(json_escape(metadata[:json_ld].to_json)) %></script>
+  <% end %>
+<% end %>

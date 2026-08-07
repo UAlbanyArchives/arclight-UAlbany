@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title><%= render_page_title %></title>
+    <%= render partial: 'shared/arclight_metadata', locals: { metadata: arclight_metadata_payload } %>
     <script>
       document.querySelector('html').classList.remove('no-js');
     </script>
