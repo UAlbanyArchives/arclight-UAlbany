@@ -15,21 +15,21 @@
 
 <% if @resource.respond_to?(:action) and @resource.action.downcase == "embed" %>
   <% web_archive_viewer_url = nil %>
-  <% if @resource.resource_type == "Web Archive" && @resource.href.to_s.end_with?("manifest.json") %>
+  <% if ["Web Archive", "Email"].include?(@resource.resource_type) && @resource.href.to_s.end_with?("manifest.json") %>
     <% web_archive_viewer_url = "https://media.archives.albany.edu/?manifest=#{ERB::Util.url_encode(@resource.href.to_s)}" %>
   <% end %>
 
-  <% if @resource.href =~ %r{https://media\.archives\.albany\.edu/([^/]+)/([^/]+)/manifest\.json} || (@resource.resource_type == "Web Archive" && web_archive_viewer_url.present?) %>
+  <% if @resource.href =~ %r{https://media\.archives\.albany\.edu/([^/]+)/([^/]+)/manifest\.json} || (["Web Archive", "Email"].include?(@resource.resource_type) && web_archive_viewer_url.present?) %>
     <% collection_id = Regexp.last_match(1) %>
     <% object_id = Regexp.last_match(2) %>
-    <a href="<%= @resource.resource_type == "Web Archive" ? web_archive_viewer_url : "https://media.archives.albany.edu?collection=#{collection_id}&id=#{object_id}" %>" class="fullscreen-btn <%= @resource.resource_type == "Web Archive" ? "" : "mirador-fullscreen" %> btn btn-secondary btn-sm" target="_blank" rel="noopener">
+    <a href="<%= ["Web Archive", "Email"].include?(@resource.resource_type) ? web_archive_viewer_url : "https://media.archives.albany.edu?collection=#{collection_id}&id=#{object_id}" %>" class="fullscreen-btn <%= ["Web Archive", "Email"].include?(@resource.resource_type) ? "" : "mirador-fullscreen" %> btn btn-secondary btn-sm" target="_blank" rel="noopener">
       <i class="fas fa-expand me-1"></i> Fullscreen
     </a>
   <% end %>
 
   <% if @resource.resource_type == "Audio" %>
     <div class="mirador-container mirador-audio mb-3" id="mirador-container"></div>
-  <% elsif @resource.resource_type == "Web Archive" && web_archive_viewer_url.present? %>
+  <% elsif ["Web Archive", "Email"].include?(@resource.resource_type) && web_archive_viewer_url.present? %>
     <iframe src="<%= web_archive_viewer_url %>" class="card p-2 mb-3" style="height: 80vh; width: 100%; border: 0;"></iframe>
   <% else %>
     <div class="mirador-container mb-3" id="mirador-container"></div>
