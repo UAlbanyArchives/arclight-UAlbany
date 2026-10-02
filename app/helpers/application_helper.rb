@@ -10,6 +10,23 @@ module ApplicationHelper
     'Collections'
   end
 
+  def restricted_access?(document)
+    unrestricted_phrases = [
+      "access to this collection is unrestricted",
+      "access to these records is unrestricted",
+      "this collection is unrestricted",
+      "access to this record group is unrestricted",
+      "this item is unrestricted"
+    ]
+
+    %w[accessrestrict_tesim parent_access_restrict_tesm]
+      .flat_map { |field| Array(document[field]) }
+      .any? do |text|
+        normalized_text = text.to_s.downcase
+        normalized_text.present? && unrestricted_phrases.none? { |phrase| normalized_text.include?(phrase) }
+      end
+  end
+
   # search bar is custom to arclight so we need a helper
   def render_search_bar(params: {}, q: nil, search_field: nil)
     # Fall back to the current search state so query/facets persist when the

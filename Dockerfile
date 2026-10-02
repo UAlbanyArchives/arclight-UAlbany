@@ -18,11 +18,9 @@ RUN crontab /etc/cron.d/arclight-cron
 WORKDIR /app
 COPY Gemfile* ./
 RUN bundle install
-RUN bundle update grenander
 
 # Copy application code
 COPY . /app
-RUN rm -f Gemfile.lock
 
 # Use build secret for master key
 RUN --mount=type=secret,id=master_key \
@@ -44,9 +42,7 @@ RUN apt-get update -qq && apt-get install -y build-essential apt-utils git cron 
 # Copy application code from the builder stage and install gems
 COPY --from=builder /app /app
 WORKDIR /app
-RUN rm -f Gemfile.lock
 RUN bundle install
-RUN bundle update grenander
 
 # Removes the traject config as it interferes with puma for some reason
 RUN rm -rf /app/lib/arclight/traject
