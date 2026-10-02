@@ -24,6 +24,8 @@ module Arclight
       access_restriction = presenter.document["accessrestrict_tesim"].to_s.downcase
 
       if presenter.document.level == "collection"
+        return "accessrestrict-danger" if access_restriction.include?("must consult archivist")
+
         return "" if access_restriction.include?("access to this collection is unrestricted") ||
                     access_restriction.include?("access to these records is unrestricted") ||
                     access_restriction.include?("this collection is unrestricted") ||
