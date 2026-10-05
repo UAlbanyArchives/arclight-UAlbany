@@ -13,6 +13,8 @@ module ApplicationHelper
   def restricted_access?(document)
     unrestricted_phrases = [
       "access to this collection is unrestricted",
+      "access to this record group is mainly unrestricted",
+      "processed series in the collection is unrestricted",
       "access to these records is unrestricted",
       "this collection is unrestricted",
       "access to this record group is unrestricted",
