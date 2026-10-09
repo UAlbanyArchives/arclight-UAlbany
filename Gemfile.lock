@@ -138,7 +138,7 @@ GEM
     csv (3.3.5)
     d3-rails (7.8.5)
       railties (>= 3.1)
-    date (3.5.1)
+    date (3.6.0)
     debug (1.11.1)
       irb (~> 1.10)
       reline (>= 0.3.8)
@@ -299,7 +299,7 @@ GEM
     popper_js (2.11.8)
     pp (0.6.4)
       prettyprint
-    prettyprint (0.2.0)
+    prettyprint (0.2.1)
     prism (1.9.0)
     public_suffix (7.0.5)
     puma (8.0.0)

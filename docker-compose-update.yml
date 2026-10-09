@@ -10,6 +10,8 @@ services:
       - '.:/app'
       - '/media/Library/SPE_Automated/collections:/ead'
     working_dir: /app
+    environment:
+      - SOLR_CORE=${SOLR_CORE:-arclight-tmp}
     command: >
       bash -c "bundle install &&
               ./indexNew.sh"

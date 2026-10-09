@@ -9,6 +9,7 @@ services:
       - ./config/master.key:/app/config/master.key
     environment:
       - RAILS_ENV=production
+      - SOLR_CORE=${SOLR_CORE:-arclight-tmp}
       # These override config/puma.rb, but are defaults anyway.
       - WEB_CONCURRENCY=2
       - RAILS_MAX_THREADS=5

@@ -61,7 +61,15 @@ docker exec -it arclight bash
 
 ## Solr Core
 
-The Solr core is set in `config/blacklight.yml`
+The Solr core is set with the `SOLR_CORE` environment variable. The Compose files
+provide `arclight-tmp` as the default for development and production. Override it
+when starting the service to use another core without rebuilding the image:
+
+```
+SOLR_CORE=arclight-1.4 docker compose -f docker-compose-prod.yml up -d
+```
+
+`SOLR_URL` still overrides the complete Solr URL when it is set.
 
 ## Indexing EAD
 

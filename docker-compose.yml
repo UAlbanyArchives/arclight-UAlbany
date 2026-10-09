@@ -12,6 +12,7 @@ services:
       - '../grenander:/grenander'
     environment:
       - GRENANDER_PATH=/grenander
+      - SOLR_CORE=${SOLR_CORE:-arclight-tmp}
     working_dir: /app
     command: >
       bash -c "bundle install &&
