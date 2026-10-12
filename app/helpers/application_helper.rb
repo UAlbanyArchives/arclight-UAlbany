@@ -17,6 +17,8 @@ module ApplicationHelper
       "all other material in the collection are open and unrestricted",
       "the other portions of the collection are open for use",
       "all other series are unrestricted",
+      "sub-series 1.2, which covers the administrative aspects of the cjp phase i study, is open to researchers",
+      "sub-series 3.2, which covers the administrative aspects of the cjp phase iii study, is open to researchers",
       "access to certain portions of this collection are restricted",
       "access to the remainder of the collection is unrestricted",
       "access to this collection is unrestricted",
@@ -28,11 +30,48 @@ module ApplicationHelper
       "this item is unrestricted"
     ]
 
-    %w[accessrestrict_tesim parent_access_restrict_tesm]
-      .any? do |field|
-        normalized_text = Array(document[field]).join(' ').downcase
-        normalized_text.present? && unrestricted_phrases.none? { |phrase| normalized_text.include?(phrase) }
-      end
+    normalized_text = effective_access_text(document)
+
+    normalized_text.present? && unrestricted_phrases.none? { |phrase| normalized_text.include?(phrase) }
+  end
+
+  def unprocessed_access?(document)
+    effective_access_text(document).include?('access to this collection is restricted because it is unprocessed')
+  end
+
+  # The document's own access note wins, then the nearest ancestor's full note.
+  # parent_access_restrict_tesm only keeps part of the ancestor's note, so it is a last resort.
+  def effective_access_text(document)
+    notes = Array(document['accessrestrict_tesim']).reject(&:blank?)
+    notes = nearest_ancestor_access_notes(document) if notes.empty?
+    notes = Array(document['parent_access_restrict_tesm']).reject(&:blank?) if notes.empty?
+
+    notes.join(' ').downcase.gsub(/\s+/, ' ').strip
+  end
+
+  def nearest_ancestor_access_notes(document)
+    parent_ids = Array(document['parent_ids_ssim'])
+    return [] if parent_ids.empty?
+
+    @ancestor_access_notes ||= {}
+    missing = parent_ids - @ancestor_access_notes.keys
+    if missing.any?
+      repository = blacklight_config.repository_class.new(blacklight_config)
+      response = repository.connection.get(
+        'select',
+        params: { defType: 'lucene', q: "id:(#{missing.map { |id| "\"#{id}\"" }.join(' OR ')})", fl: 'id,accessrestrict_tesim', rows: missing.size }
+      )
+      found = response.dig('response', 'docs').to_a.to_h { |doc| [doc['id'], Array(doc['accessrestrict_tesim']).reject(&:blank?)] }
+      missing.each { |id| @ancestor_access_notes[id] = found.fetch(id, []) }
+    end
+
+    parent_ids.reverse_each do |id|
+      return @ancestor_access_notes[id] if @ancestor_access_notes[id].present?
+    end
+    []
+  rescue StandardError => e
+    Rails.logger.warn("Unable to load ancestor access notes: #{e.message}")
+    []
   end
 
   # search bar is custom to arclight so we need a helper
