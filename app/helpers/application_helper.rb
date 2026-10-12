@@ -28,9 +28,8 @@ module ApplicationHelper
     ]
 
     %w[accessrestrict_tesim parent_access_restrict_tesm]
-      .flat_map { |field| Array(document[field]) }
-      .any? do |text|
-        normalized_text = text.to_s.downcase
+      .any? do |field|
+        normalized_text = Array(document[field]).join(' ').downcase
         normalized_text.present? && unrestricted_phrases.none? { |phrase| normalized_text.include?(phrase) }
       end
   end
