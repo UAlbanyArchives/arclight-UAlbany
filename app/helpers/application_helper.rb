@@ -17,6 +17,7 @@ module ApplicationHelper
       "all other material in the collection are open and unrestricted",
       "the other portions of the collection are open for use",
       "all other series are unrestricted",
+      "access to certain portions of this collection are restricted",
       "access to the remainder of the collection is unrestricted",
       "access to this collection is unrestricted",
       "access to this record group is mainly unrestricted",
