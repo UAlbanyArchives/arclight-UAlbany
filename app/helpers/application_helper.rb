@@ -13,8 +13,11 @@ module ApplicationHelper
   def restricted_access?(document)
     unrestricted_phrases = [
       "series 2, 3, and 4 are unrestricted and open for research",
+      "individual files in this series are restricted",
       "all other material in the collection are open and unrestricted",
       "the other portions of the collection are open for use",
+      "all other series are unrestricted",
+      "access to the remainder of the collection is unrestricted",
       "access to this collection is unrestricted",
       "access to this record group is mainly unrestricted",
       "processed series in the collection is unrestricted",
