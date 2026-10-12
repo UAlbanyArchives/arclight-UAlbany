@@ -27,7 +27,8 @@ module ApplicationHelper
       "access to these records is unrestricted",
       "this collection is unrestricted",
       "access to this record group is unrestricted",
-      "this item is unrestricted"
+      "this item is unrestricted",
+      "qualified and responsible scholars"
     ]
 
     normalized_text = effective_access_text(document)
