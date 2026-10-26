@@ -37,7 +37,7 @@ RUN --mount=type=secret,id=master_key \
 FROM ruby:3.3.4-slim-bookworm
 
 # Install dependencies
-RUN apt-get update -qq && apt-get install -y build-essential apt-utils git cron curl nodejs
+RUN apt-get update -qq && apt-get install -y build-essential apt-utils git cron curl
 
 # Copy application code from the builder stage and install gems
 COPY --from=builder /app /app
