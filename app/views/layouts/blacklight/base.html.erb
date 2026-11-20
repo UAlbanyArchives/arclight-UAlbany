@@ -31,7 +31,7 @@
 
     <% end %>
 
-    <!-- Matomo -->
+    <!-- Matomo original block
     <script>
       var _paq = window._paq = window._paq || [];
       /* don't track ANY LibWizard forms as Outlinks -- added 7/14/25 --aap */
@@ -46,6 +46,47 @@
         _paq.push(['setSiteId', '2']);
         var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
         g.async=true; g.src='https://cdn.matomo.cloud/library-albany.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    End Matomo Code -->
+
+    <!-- Matomo limit bots block -->
+    <script>
+      (function() {
+        var ua = navigator.userAgent;
+
+        // Temporarily exclude the high-volume automated fingerprint observed Nov. 2026.
+        var suspectedAutomation =
+          /X11; Linux x86_64/.test(ua) &&
+          /Chrome\/158\.0\.0\.0/.test(ua);
+
+        if (suspectedAutomation) {
+          return;
+        }
+
+        var _paq = window._paq = window._paq || [];
+
+        // Don't track LibWizard forms as outlinks.
+        // added 7/14/25 --aap, Modified Nov. 2026
+        _paq.push(['setDomains', [
+          'albany.libwizard.com',
+          'libwizard.com'
+        ]]);
+
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+
+        var u = 'https://library-albany.matomo.cloud/';
+        _paq.push(['setTrackerUrl', u + 'matomo.php']);
+        _paq.push(['setSiteId', '2']);
+
+        var d = document;
+        var g = d.createElement('script');
+        var s = d.getElementsByTagName('script')[0];
+
+        g.async = true;
+        g.src = 'https://cdn.matomo.cloud/library-albany.matomo.cloud/matomo.js';
+        s.parentNode.insertBefore(g, s);
       })();
     </script>
     <!-- End Matomo Code -->
