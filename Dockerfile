@@ -44,7 +44,7 @@ RUN apt-get update -qq && \
       apt-utils \
       git \
       cron \
-      curl \
+      curl && \
     update-ca-certificates && \
     rm -rf /var/lib/apt/lists/*
 
